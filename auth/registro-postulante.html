@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Postulante | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+</head>
+<body class="tm-auth-page">
+  <div class="tm-auth-layout">
+
+    <aside class="tm-auth-illustration">
+      <div class="tm-auth-illustration__content">
+        <img src="../assets/images/logo-white.png" alt="TalentMatch AI" class="tm-auth-logo">
+        <h2 class="tm-auth-illustration__title">Encuentra el trabajo de tus sueños</h2>
+        <p class="tm-auth-illustration__text">Nuestro algoritmo de IA se encarga de mostrarte las mejores ofertas laborales que hacen match perfecto con tu perfil y habilidades.</p>
+      </div>
+    </aside>
+
+    <main class="tm-auth-main">
+      <div class="tm-auth-form-container">
+        <div class="tm-auth-header">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-auth-header__logo">
+          <h1 class="tm-auth-header__title">Registro de Talento</h1>
+          <p class="tm-auth-header__subtitle">Únete a nuestra plataforma y destaca entre las mejores empresas</p>
+        </div>
+
+        <form id="registerCandidateForm" class="tm-form" novalidate>
+          
+          <div class="tm-form__group">
+            <label for="fullName" class="tm-form__label">Nombre Completo</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              class="tm-form__input"
+              placeholder="Ej. Carlos Eduardo López"
+              required
+            >
+            <span class="tm-form__error" id="fullNameError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="interestArea" class="tm-form__label">Área de Interés Principal</label>
+            <select id="interestArea" name="interestArea" class="tm-form__input" required>
+              <option value="" disabled selected>Selecciona un área</option>
+              <option value="desarrollo">Desarrollo de Software</option>
+              <option value="diseno">Diseño / UX / UI</option>
+              <option value="marketing">Marketing Digital</option>
+              <option value="ventas">Ventas y Comercial</option>
+              <option value="datos">Data Science / Analítica</option>
+              <option value="rrhh">Recursos Humanos</option>
+              <option value="operaciones">Operaciones y Logística</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="tm-form__error" id="interestAreaError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="email" class="tm-form__label">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="tm-form__input"
+              placeholder="tu@correo.com"
+              autocomplete="email"
+              required
+            >
+            <span class="tm-form__error" id="emailError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="password" class="tm-form__label">Contraseña</label>
+            <div class="tm-form__input-wrapper">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="tm-form__input"
+                placeholder="Crea una contraseña segura"
+                required
+              >
+              <button type="button" class="tm-form__toggle-password" aria-label="Mostrar contraseña">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="tm-form__error" id="passwordError"></span>
+          </div>
+
+          <div class="tm-form__actions">
+            <button type="submit" class="tm-btn tm-btn--primary tm-btn--block">
+              Crear mi cuenta
+            </button>
+          </div>
+        </form>
+
+        <div class="tm-auth-footer">
+          <p class="tm-auth-footer__text">¿Ya tienes una cuenta?</p>
+          <div class="tm-auth-footer__links">
+            <a href="login.html" class="tm-auth-footer__link">Iniciar Sesión</a>
+            <span class="tm-auth-footer__separator">·</span>
+            <a href="registro-empresa.html" class="tm-auth-footer__link">Soy una Empresa</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+</body>
+</html>
