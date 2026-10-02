@@ -132,8 +132,8 @@
               <p style="font-size: var(--text-sm); font-weight: var(--font-weight-bold); color: var(--color-success-600); text-transform: uppercase; letter-spacing: 0.5px;">Match IA</p>
             </div>
             <div style="display: flex; flex-direction: column; gap: var(--space-2);">
-              <button class="tm-btn tm-btn--primary">Agendar Entrevista</button>
-              <button class="tm-btn tm-btn--secondary">Enviar Mensaje</button>
+              <button class="tm-btn tm-btn--primary" onclick="openModal('modalAgendar')">Agendar Entrevista</button>
+              <button class="tm-btn tm-btn--secondary" onclick="openModal('modalMensaje')">Enviar Mensaje</button>
             </div>
           </div>
         </div>
@@ -367,5 +367,151 @@
       if (contentGrid) contentGrid.classList.remove('has-panel-open');
     }
   </script>
+    <!-- Estilos de Modal -->
+    <style>
+      .tm-modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: var(--space-4);
+      }
+      .tm-modal-overlay--open {
+        display: flex;
+      }
+      .tm-modal {
+        background-color: white;
+        border-radius: var(--radius-lg);
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        overflow: hidden;
+        animation: modalFadeIn 0.2s ease-out forwards;
+      }
+      @keyframes modalFadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .tm-modal__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-4) var(--space-6);
+        border-bottom: 1px solid var(--color-neutral-200);
+      }
+      .tm-modal__body {
+        padding: var(--space-6);
+      }
+      /* Estilos para formularios en los modales */
+      .tm-form__group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .tm-form__label {
+        font-size: var(--text-body-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-neutral-700);
+      }
+      .tm-form__input {
+        width: 100%;
+        height: 48px;
+        padding: 0 var(--space-4);
+        font-size: var(--text-body);
+        font-family: inherit;
+        color: var(--color-neutral-900);
+        background-color: var(--color-neutral-50);
+        border: 1.5px solid var(--color-neutral-200);
+        border-radius: var(--radius-md);
+        transition: all var(--duration-fast) var(--ease-standard);
+      }
+      .tm-form__input:focus {
+        outline: none;
+        border-color: var(--color-primary-700);
+        background-color: var(--color-white);
+        box-shadow: 0 0 0 4px var(--color-primary-100);
+      }
+      textarea.tm-form__input {
+        height: auto;
+        padding: var(--space-3) var(--space-4);
+        resize: vertical;
+      }
+    </style>
+
+    <!-- Modal Agendar Entrevista -->
+    <div class="tm-modal-overlay" id="modalAgendar">
+      <div class="tm-modal">
+        <div class="tm-modal__header">
+          <h3 class="tm-text-h3" style="margin: 0;">Agendar Entrevista</h3>
+          <button class="tm-btn tm-btn--ghost" onclick="closeModal('modalAgendar')" style="padding: 4px; color: var(--color-neutral-500);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div class="tm-modal__body">
+          <form style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div class="tm-form__group" style="margin-bottom: 0;">
+              <label class="tm-form__label">Fecha</label>
+              <input type="date" class="tm-form__input">
+            </div>
+            <div class="tm-form__group" style="margin-bottom: 0;">
+              <label class="tm-form__label">Hora</label>
+              <input type="time" class="tm-form__input">
+            </div>
+            <div class="tm-form__group" style="margin-bottom: 0;">
+              <label class="tm-form__label">Enlace de Videollamada (Meet / Zoom)</label>
+              <input type="url" class="tm-form__input" placeholder="https://meet.google.com/...">
+            </div>
+            <div class="tm-form__group" style="margin-bottom: 0;">
+              <label class="tm-form__label">Mensaje para el candidato</label>
+              <textarea class="tm-form__input" rows="3" placeholder="Hola Carlos, nos encantaría conversar contigo..."></textarea>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-4);">
+              <button type="button" class="tm-btn tm-btn--secondary" onclick="closeModal('modalAgendar')">Cancelar</button>
+              <button type="button" class="tm-btn tm-btn--primary" onclick="closeModal('modalAgendar'); alert('Entrevista Agendada con Carlos Lopez');">Agendar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Enviar Mensaje -->
+    <div class="tm-modal-overlay" id="modalMensaje">
+      <div class="tm-modal">
+        <div class="tm-modal__header">
+          <h3 class="tm-text-h3" style="margin: 0;">Enviar Mensaje</h3>
+          <button class="tm-btn tm-btn--ghost" onclick="closeModal('modalMensaje')" style="padding: 4px; color: var(--color-neutral-500);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div class="tm-modal__body">
+          <form style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div class="tm-form__group" style="margin-bottom: 0;">
+              <label class="tm-form__label">Asunto</label>
+              <input type="text" class="tm-form__input" placeholder="Ej. Duda sobre tu experiencia en AWS">
+            </div>
+            <div class="tm-form__group" style="margin-bottom: 0;">
+              <label class="tm-form__label">Mensaje</label>
+              <textarea class="tm-form__input" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-4);">
+              <button type="button" class="tm-btn tm-btn--secondary" onclick="closeModal('modalMensaje')">Cancelar</button>
+              <button type="button" class="tm-btn tm-btn--primary" onclick="closeModal('modalMensaje'); alert('Mensaje enviado a Carlos Lopez');">Enviar Mensaje</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openModal(id) {
+        document.getElementById(id).classList.add('tm-modal-overlay--open');
+      }
+      function closeModal(id) {
+        document.getElementById(id).classList.remove('tm-modal-overlay--open');
+      }
+    </script>
 </body>
 </html>
