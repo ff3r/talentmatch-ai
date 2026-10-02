@@ -109,7 +109,7 @@
 
 .tm-auth-header {
   text-align: center;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 .tm-auth-header__logo {
@@ -119,14 +119,14 @@
 }
 
 .tm-auth-header__title {
-  font-size: var(--text-h2);
+  font-size: 2rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-neutral-900);
   margin-bottom: var(--space-2);
 }
 
 .tm-auth-header__subtitle {
-  font-size: var(--text-body-sm);
+  font-size: 1.125rem;
   color: var(--color-neutral-600);
 }
 
@@ -135,20 +135,20 @@
    ============================================ */
 
 .tm-form__group {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-2); /* Espaciado entre campos */
 }
 
 .tm-form__label {
   display: block;
-  font-size: var(--text-body-sm);
+  font-size: var(--text-body);
   font-weight: var(--font-weight-medium);
   color: var(--color-neutral-700);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1); /* Espaciado entre label e input */
 }
 
 .tm-form__input {
   width: 100%;
-  height: 44px;
+  height: 48px; /* Alto del input */
   padding: 0 var(--space-3);
   font-size: var(--text-body);
   color: var(--color-neutral-900);
@@ -211,7 +211,10 @@ select.tm-form__input {
   font-size: var(--text-caption);
   color: var(--color-error);
   margin-top: var(--space-1);
-  min-height: 18px;
+}
+
+.tm-form__error:empty {
+  display: none;
 }
 
 .tm-form__actions {
