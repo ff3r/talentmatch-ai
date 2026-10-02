@@ -24,9 +24,18 @@
 
   <!-- NAVBAR PÚBLICO -->
   <header class="tm-landing-navbar">
-    <img src="assets/images/logo-black.png" alt="TalentMatch AI" class="tm-landing-navbar__logo">
-    <div class="tm-landing-navbar__actions">
-      <a href="auth/login.html" class="tm-btn tm-btn--ghost">Iniciar Sesión</a>
+    <div class="tm-landing-navbar__container">
+      <img src="assets/images/logo-black.png" alt="TalentMatch AI" class="tm-landing-navbar__logo">
+      
+      <nav class="tm-landing-navbar__menu">
+        <a href="#beneficios" class="tm-landing-navbar__link">Beneficios</a>
+        <a href="auth/registro-empresa.html" class="tm-landing-navbar__link">Para Empresas</a>
+        <a href="auth/registro-postulante.html" class="tm-landing-navbar__link">Para Talento</a>
+      </nav>
+
+      <div class="tm-landing-navbar__actions">
+        <a href="auth/login.html" class="tm-btn tm-btn--secondary">Iniciar Sesión</a>
+      </div>
     </div>
   </header>
 
@@ -42,8 +51,24 @@
       </div>
     </section>
 
+    <!-- STATS SECTION -->
+    <section class="tm-stats">
+      <div class="tm-stats__item">
+        <span class="tm-stats__number">+500</span>
+        <span class="tm-stats__label">Empresas Activas</span>
+      </div>
+      <div class="tm-stats__item">
+        <span class="tm-stats__number">98%</span>
+        <span class="tm-stats__label">Precisión de Match</span>
+      </div>
+      <div class="tm-stats__item">
+        <span class="tm-stats__number">10k</span>
+        <span class="tm-stats__label">Talentos Evaluados</span>
+      </div>
+    </section>
+
     <!-- FEATURES SECTION -->
-    <section class="tm-features">
+    <section id="beneficios" class="tm-features">
       <h2 class="tm-features__title">¿Por qué elegir TalentMatch?</h2>
       
       <div class="tm-features__grid">
