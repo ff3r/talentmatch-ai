@@ -46,20 +46,20 @@
 }
 
 .tm-auth-illustration__content {
-  max-width: 480px;
+  max-width: 600px;
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
 .tm-auth-logo {
-  width: 180px;
+  width: 260px;
   height: auto;
   margin: 0 auto var(--space-8);
 }
 
 .tm-auth-illustration__title {
-  font-size: var(--text-h1);
+  font-size: var(--text-display);
   font-weight: var(--font-weight-bold);
   color: var(--color-white);
   line-height: var(--leading-tight);
@@ -67,8 +67,8 @@
 }
 
 .tm-auth-illustration__text {
-  font-size: var(--text-body);
-  color: var(--color-primary-200);
+  font-size: var(--text-h4);
+  color: rgba(255, 255, 255, 0.95);
   line-height: var(--leading-relaxed);
 }
 
@@ -94,7 +94,7 @@
 }
 
 .tm-auth-header__logo {
-  width: 120px;
+  width: 300px;
   height: auto;
   margin: 0 auto var(--space-4);
 }
@@ -137,7 +137,7 @@
   border: 1px solid var(--color-neutral-300);
   border-radius: var(--radius-md);
   transition: border-color var(--duration-fast) var(--ease-standard),
-              box-shadow var(--duration-fast) var(--ease-standard);
+    box-shadow var(--duration-fast) var(--ease-standard);
 }
 
 .tm-form__input::placeholder {
@@ -262,6 +262,6 @@
   }
 
   .tm-auth-header__logo {
-    width: 100px;
+    width: 240px;
   }
 }
