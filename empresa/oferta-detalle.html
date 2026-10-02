@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Oferta | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/empresa.css">
+  <style>
+    /* Estilos específicos para la vista de detalle */
+    .tm-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-6);
+    }
+    @media (max-width: 992px) {
+      .tm-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .tm-candidate-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
+    .tm-candidate-item:last-child {
+      border-bottom: none;
+    }
+    .tm-candidate-info {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .tm-ai-match {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      background-color: #E8F5E9;
+      color: #2E7D32;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--text-body-sm);
+    }
+  </style>
+</head>
+
+<body class="tm-empresa-page">
+  <div class="tm-dashboard-layout">
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          <span class="tm-sidebar__label">Mis Ofertas</span>
+        </a>
+        <a href="oferta-formulario.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          <span class="tm-sidebar__label">Crear Oferta</span>
+        </a>
+        <a href="perfil.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span class="tm-sidebar__label">Perfil de Empresa</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Detalle de Oferta</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-navbar__user">
+          <span class="tm-avatar tm-avatar--sm">TC</span>
+          <span class="tm-navbar__username">TechCorp Internacional S.A.</span>
+        </div>
+        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <main class="tm-main tm-page-content">
+      <div class="tm-empresa-dashboard">
+        
+        <!-- Header de la Oferta -->
+        <div style="margin-bottom: var(--space-8); display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+          <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
+            <button class="tm-btn tm-btn--ghost" onclick="window.history.back()" style="padding: var(--space-2);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <div>
+              <h2 class="tm-text-h2" style="margin-bottom: var(--space-2);">Desarrollador Full Stack Senior</h2>
+              <div style="display: flex; gap: var(--space-4); align-items: center; color: var(--color-neutral-600); font-size: var(--text-body-sm); flex-wrap: wrap;">
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Lima, Perú (Híbrido)
+                </span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  S/ 5,000 - S/ 7,000
+                </span>
+                <span class="tm-badge tm-badge--success">Activa</span>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; gap: var(--space-3);">
+            <button class="tm-btn tm-btn--secondary">Cerrar Oferta</button>
+            <a href="oferta-formulario.html" class="tm-btn tm-btn--primary">Editar Oferta</a>
+          </div>
+        </div>
+
+        <div class="tm-detail-grid">
+          
+          <!-- Columna Izquierda: Resumen de la Oferta -->
+          <div class="tm-card" style="align-self: start;">
+            <h3 class="tm-text-h4" style="margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-neutral-200); padding-bottom: var(--space-2);">Resumen del Perfil</h3>
+            
+            <div style="margin-bottom: var(--space-4);">
+              <strong style="display: block; color: var(--color-neutral-900); margin-bottom: 4px;">Área</strong>
+              <p style="color: var(--color-neutral-600); font-size: var(--text-body-sm);">Tecnología</p>
+            </div>
+            
+            <div style="margin-bottom: var(--space-4);">
+              <strong style="display: block; color: var(--color-neutral-900); margin-bottom: 4px;">Conocimientos Clave</strong>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+                <span class="tm-badge" style="background: var(--color-neutral-100); color: var(--color-neutral-700);">React</span>
+                <span class="tm-badge" style="background: var(--color-neutral-100); color: var(--color-neutral-700);">Node.js</span>
+                <span class="tm-badge" style="background: var(--color-neutral-100); color: var(--color-neutral-700);">AWS</span>
+                <span class="tm-badge" style="background: var(--color-neutral-100); color: var(--color-neutral-700);">SQL</span>
+              </div>
+            </div>
+
+            <div style="margin-bottom: var(--space-4);">
+              <strong style="display: block; color: var(--color-neutral-900); margin-bottom: 4px;">Experiencia</strong>
+              <p style="color: var(--color-neutral-600); font-size: var(--text-body-sm);">3 - 5 años</p>
+            </div>
+
+            <div>
+              <strong style="display: block; color: var(--color-neutral-900); margin-bottom: 4px;">Idiomas</strong>
+              <p style="color: var(--color-neutral-600); font-size: var(--text-body-sm);">Inglés Avanzado</p>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Candidatos Postulados -->
+          <div class="tm-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); border-bottom: 1px solid var(--color-neutral-200); padding-bottom: var(--space-4);">
+              <h3 class="tm-text-h4">Candidatos (15)</h3>
+              
+              <div style="display: flex; gap: var(--space-2);">
+                <select class="tm-form__input" style="padding: 4px 8px; font-size: var(--text-body-sm);">
+                  <option>Ordenar por: Match AI</option>
+                  <option>Ordenar por: Fecha (Recientes)</option>
+                </select>
+                <button class="tm-btn tm-btn--ghost tm-btn--sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lista de Candidatos -->
+            <div class="tm-candidates-list">
+              
+              <!-- Candidato 1 -->
+              <div class="tm-candidate-item">
+                <div class="tm-candidate-info">
+                  <div class="tm-avatar">AM</div>
+                  <div>
+                    <h4 style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Andrés Mendoza</h4>
+                    <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Full Stack Developer | 4 años exp.</p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-4);">
+                  <span class="tm-ai-match">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    98% Match
+                  </span>
+                  <a href="#" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Perfil</a>
+                </div>
+              </div>
+
+              <!-- Candidato 2 -->
+              <div class="tm-candidate-item">
+                <div class="tm-candidate-info">
+                  <div class="tm-avatar" style="background: #e0f2fe; color: #0284c7;">LR</div>
+                  <div>
+                    <h4 style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Lucía Ramírez</h4>
+                    <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Software Engineer | 5 años exp.</p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-4);">
+                  <span class="tm-ai-match">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    92% Match
+                  </span>
+                  <a href="#" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Perfil</a>
+                </div>
+              </div>
+
+              <!-- Candidato 3 -->
+              <div class="tm-candidate-item">
+                <div class="tm-candidate-info">
+                  <div class="tm-avatar" style="background: #fdf4ff; color: #c026d3;">CP</div>
+                  <div>
+                    <h4 style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Carlos Pérez</h4>
+                    <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Backend Dev | 3 años exp.</p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-4);">
+                  <span class="tm-ai-match" style="background: #FFF8E1; color: #F57F17;">
+                    85% Match
+                  </span>
+                  <a href="#" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Perfil</a>
+                </div>
+              </div>
+              
+              <!-- Candidato 4 -->
+              <div class="tm-candidate-item">
+                <div class="tm-candidate-info">
+                  <div class="tm-avatar" style="background: #f1f5f9; color: #475569;">MV</div>
+                  <div>
+                    <h4 style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">María Vargas</h4>
+                    <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Frontend Engineer | 2 años exp.</p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-4);">
+                  <span class="tm-ai-match" style="background: #FCE4EC; color: #C2185B;">
+                    60% Match
+                  </span>
+                  <a href="#" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Perfil</a>
+                </div>
+              </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--space-6);">
+              <button class="tm-btn tm-btn--ghost">Cargar más candidatos</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
