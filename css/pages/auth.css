@@ -81,11 +81,30 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-8);
+  position: relative;
 }
 
 .tm-auth-form-container {
   width: 100%;
   max-width: 440px;
+}
+
+.tm-auth-back {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-neutral-600);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.tm-auth-back:hover {
+  color: var(--color-primary-700);
 }
 
 .tm-auth-header {
