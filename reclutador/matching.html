@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis de Matching | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/reclutador.css">
+  <style>
+    .tm-form__group { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-4); }
+    .tm-form__label { font-size: var(--text-body-sm); font-weight: var(--font-weight-medium); color: var(--color-neutral-700); }
+    .tm-form__input { width: 100%; height: 48px; padding: 0 var(--space-4); font-size: var(--text-body); font-family: inherit; color: var(--color-neutral-900); background-color: var(--color-neutral-50); border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-md); transition: all var(--duration-fast) var(--ease-standard); }
+    .tm-form__input:focus { outline: none; border-color: var(--color-primary-700); background-color: var(--color-white); box-shadow: 0 0 0 4px var(--color-primary-100); }
+    
+    .tm-matching-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .tm-matching-header {
+      background: var(--color-white);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+      display: flex;
+      gap: var(--space-6);
+      align-items: flex-end;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .tm-matching-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    
+    .tm-matching-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      transition: all var(--duration-fast) var(--ease-standard);
+      position: relative;
+    }
+    
+    .tm-matching-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      border-color: var(--color-primary-200);
+    }
+    
+    .tm-matching-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-neutral-100);
+    }
+    
+    .tm-matching-card__profile {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    
+    .tm-matching-card__score-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background-color: var(--color-neutral-50);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-neutral-200);
+    }
+    
+    .tm-matching-card__score-text {
+      font-size: var(--text-h2);
+      font-weight: 800;
+      font-family: 'Sora', sans-serif;
+    }
+    
+    .text-high { color: var(--color-success-600); }
+    .text-medium { color: var(--color-warning-600); }
+    .text-low { color: var(--color-danger-600); }
+    
+    .tm-matching-card__body {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-6);
+    }
+    
+    .tm-matching-category {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    
+    .tm-matching-category__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .tm-matching-category__name {
+      font-size: var(--text-caption);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-neutral-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .tm-matching-category__value {
+      font-size: var(--text-caption);
+      font-weight: var(--font-weight-bold);
+    }
+    
+    .tm-matching-category__bar-bg {
+      height: 8px;
+      background-color: var(--color-neutral-200);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .tm-matching-category__bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      transition: width 1s var(--ease-decelerate);
+    }
+    
+    .bg-high { background-color: var(--color-success-500); }
+    .bg-medium { background-color: var(--color-warning-500); }
+    .bg-low { background-color: var(--color-danger-500); }
+    
+    .tm-matching-card__footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
+    }
+    
+    /* Estilos de tabla mejorados */
+    .tm-matching-table-wrapper {
+      margin-top: var(--space-4);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .tm-matching-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: var(--text-body);
+    }
+    
+    .tm-matching-table th {
+      padding: var(--space-4) var(--space-5);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-neutral-700);
+      background-color: var(--color-neutral-50);
+      border-bottom: 2px solid var(--color-neutral-200);
+      font-size: var(--text-body-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .tm-matching-table td {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--color-neutral-100);
+      vertical-align: middle;
+      color: var(--color-neutral-800);
+    }
+    
+    .tm-matching-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .tm-matching-table tbody tr:hover {
+      background-color: var(--color-neutral-50);
+    }
+
+    .tm-status-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    @media (max-width: 1024px) {
+      .tm-matching-card__body {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .tm-matching-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+      }
+      .tm-matching-card__body {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .tm-matching-card__body {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="tm-reclutador-page">
+  <div class="tm-dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span class="tm-sidebar__label">Ofertas Asignadas</span>
+        </a>
+        <a href="candidatos.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="tm-sidebar__label">Candidatos</span>
+        </a>
+        <a href="matching.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+          <span class="tm-sidebar__label">Análisis de Matching</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Navbar -->
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="tm-navbar__title">Panel de Reclutador</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">AM</span>
+            <span class="tm-navbar__username">Ana Patricia Martinez</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="tm-main">
+      <div class="tm-matching-container">
+        
+        <!-- Header -->
+        <div style="margin-bottom: var(--space-6);">
+          <h2 class="tm-text-h2">Análisis de Matching</h2>
+          <p class="tm-text-body" style="color: var(--color-neutral-600);">Compara en detalle la afinidad de los candidatos con los requerimientos específicos de tus ofertas.</p>
+        </div>
+
+        <!-- Selector de Oferta -->
+        <div class="tm-matching-header">
+          <div class="tm-form__group" style="flex: 1; margin: 0;">
+            <label class="tm-form__label">Seleccionar Oferta</label>
+            <select class="tm-form__input" style="font-weight: var(--font-weight-bold);">
+              <option value="1">Desarrollador Full Stack Senior - Lima, Perú</option>
+              <option value="2">Especialista en Marketing Digital - Remoto</option>
+              <option value="3">Diseñador UX/UI - Bogotá, Colombia</option>
+            </select>
+          </div>
+          <button class="tm-btn tm-btn--primary" style="height: 48px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Analizar Candidatos
+          </button>
+        </div>
+
+        <!-- Resultados del Matching -->
+        <div class="tm-matching-list">
+          
+          <!-- Candidato 1 -->
+          <div class="tm-matching-card">
+            <div class="tm-matching-card__header">
+              <div class="tm-matching-card__profile">
+                <span class="tm-avatar" style="width: 56px; height: 56px; font-size: 1.25rem;">CL</span>
+                <div>
+                  <h3 class="tm-text-h4" style="margin-bottom: 4px;">Carlos Eduardo Lopez</h3>
+                  <p class="tm-text-body-sm" style="color: var(--color-neutral-600);">Desarrollador Full Stack</p>
+                </div>
+              </div>
+              <div class="tm-matching-card__score-badge">
+                <span class="tm-text-body-sm" style="font-weight: var(--font-weight-bold); color: var(--color-neutral-600); text-transform: uppercase;">Afinidad Total</span>
+                <span class="tm-matching-card__score-text text-high">95%</span>
+              </div>
+            </div>
+            
+            <div class="tm-matching-card__body">
+              <!-- Categoria 1 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Tecnologías</span>
+                  <span class="tm-matching-category__value text-high">98%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-high" style="width: 98%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 2 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Experiencia</span>
+                  <span class="tm-matching-category__value text-high">95%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-high" style="width: 95%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 3 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Competencias</span>
+                  <span class="tm-matching-category__value text-high">90%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-high" style="width: 90%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 4 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Formación</span>
+                  <span class="tm-matching-category__value text-medium">60%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-medium" style="width: 60%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 5 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Idiomas</span>
+                  <span class="tm-matching-category__value text-high">100%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-high" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tm-matching-card__footer">
+              <button class="tm-btn tm-btn--secondary tm-btn-match-detail" onclick="toggleMatchDetail('match-detail-1')">
+                Ver Detalle de Match
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            </div>
+            
+            <!-- Detalle Expandible -->
+            <div id="match-detail-1" style="display: none; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px dashed var(--color-neutral-200); animation: tm-fade-in var(--duration-fast) var(--ease-standard);">
+              <h4 class="tm-text-h4" style="margin-bottom: var(--space-4);">Comparativa de Requisitos</h4>
+              <div class="tm-matching-table-wrapper">
+                <table class="tm-matching-table">
+                  <thead>
+                    <tr>
+                      <th>Requisito</th>
+                      <th>La Oferta Pide</th>
+                      <th>El Candidato Tiene</th>
+                      <th style="text-align: center;">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Experiencia</td>
+                      <td>5 años (Senior)</td>
+                      <td>5 años</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-success-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Tecnología Principal</td>
+                      <td>React & Node.js</td>
+                      <td>React, Node.js, Express</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-success-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Formación</td>
+                      <td>Ingeniería de Sistemas o afín</td>
+                      <td>Técnico en Desarrollo de Software</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-warning-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Inglés</td>
+                      <td>Avanzado (C1)</td>
+                      <td>Avanzado (C1)</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-success-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Candidato 2 -->
+          <div class="tm-matching-card">
+            <div class="tm-matching-card__header">
+              <div class="tm-matching-card__profile">
+                <span class="tm-avatar" style="width: 56px; height: 56px; font-size: 1.25rem;">LM</span>
+                <div>
+                  <h3 class="tm-text-h4" style="margin-bottom: 4px;">Laura Patricia Mendoza</h3>
+                  <p class="tm-text-body-sm" style="color: var(--color-neutral-600);">Diseñadora UX/UI</p>
+                </div>
+              </div>
+              <div class="tm-matching-card__score-badge">
+                <span class="tm-text-body-sm" style="font-weight: var(--font-weight-bold); color: var(--color-neutral-600); text-transform: uppercase;">Afinidad Total</span>
+                <span class="tm-matching-card__score-text text-medium">65%</span>
+              </div>
+            </div>
+            
+            <div class="tm-matching-card__body">
+              <!-- Categoria 1 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Tecnologías</span>
+                  <span class="tm-matching-category__value text-medium">50%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-medium" style="width: 50%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 2 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Experiencia</span>
+                  <span class="tm-matching-category__value text-high">80%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-high" style="width: 80%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 3 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Competencias</span>
+                  <span class="tm-matching-category__value text-medium">65%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-medium" style="width: 65%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 4 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Formación</span>
+                  <span class="tm-matching-category__value text-high">100%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-high" style="width: 100%;"></div>
+                </div>
+              </div>
+              <!-- Categoria 5 -->
+              <div class="tm-matching-category">
+                <div class="tm-matching-category__header">
+                  <span class="tm-matching-category__name">Idiomas</span>
+                  <span class="tm-matching-category__value text-low">30%</span>
+                </div>
+                <div class="tm-matching-category__bar-bg">
+                  <div class="tm-matching-category__bar-fill bg-low" style="width: 30%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tm-matching-card__footer">
+              <button class="tm-btn tm-btn--secondary tm-btn-match-detail" onclick="toggleMatchDetail('match-detail-2')">
+                Ver Detalle de Match
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; transition: transform 0.2s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            </div>
+            
+            <!-- Detalle Expandible -->
+            <div id="match-detail-2" style="display: none; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px dashed var(--color-neutral-200); animation: tm-fade-in var(--duration-fast) var(--ease-standard);">
+              <h4 class="tm-text-h4" style="margin-bottom: var(--space-4);">Comparativa de Requisitos</h4>
+              <div class="tm-matching-table-wrapper">
+                <table class="tm-matching-table">
+                  <thead>
+                    <tr>
+                      <th>Requisito</th>
+                      <th>La Oferta Pide</th>
+                      <th>El Candidato Tiene</th>
+                      <th style="text-align: center;">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Experiencia</td>
+                      <td>5 años (Senior)</td>
+                      <td>3 años (Semi-Senior)</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-warning-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Tecnología Principal</td>
+                      <td>Figma & Prototipado</td>
+                      <td>Photoshop, Illustrator</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-danger-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Formación</td>
+                      <td>Diseño Gráfico o afín</td>
+                      <td>Licenciatura en Diseño Gráfico</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-success-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div></td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: var(--font-weight-bold);">Inglés</td>
+                      <td>Avanzado (C1)</td>
+                      <td>Básico (A2)</td>
+                      <td><div class="tm-status-icon" style="color: var(--color-danger-600);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+  
+  <script>
+    function toggleMatchDetail(id) {
+      const detail = document.getElementById(id);
+      const btn = detail.previousElementSibling.querySelector("button");
+      const icon = btn.querySelector("svg");
+      
+      if (detail.style.display === "none") {
+        detail.style.display = "block";
+        icon.style.transform = "rotate(180deg)";
+      } else {
+        detail.style.display = "none";
+        icon.style.transform = "rotate(0deg)";
+      }
+    }
+  </script>
+</body>
+</html>
