@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Oferta | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/empresa.css">
+</head>
+
+<body class="tm-empresa-page">
+  <div class="tm-dashboard-layout">
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          <span class="tm-sidebar__label">Mis Ofertas</span>
+        </a>
+        <a href="oferta-formulario.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          <span class="tm-sidebar__label">Crear Oferta</span>
+        </a>
+        <a href="perfil.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span class="tm-sidebar__label">Perfil de Empresa</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Nueva Oferta</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-navbar__user">
+          <span class="tm-avatar tm-avatar--sm">TC</span>
+          <span class="tm-navbar__username">TechCorp Internacional S.A.</span>
+        </div>
+        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <main class="tm-main tm-page-content">
+      <div class="tm-empresa-dashboard">
+        
+        <div class="tm-card" style="padding: var(--space-8); max-width: 900px; margin: 0 auto; width: 100%;">
+          <form class="tm-modal__form" id="crearOfertaForm" style="padding: 0; overflow: visible;">
+            
+            <!-- Sección 1: Info General -->
+            <div style="margin-bottom: var(--space-6);">
+              <h3 class="tm-text-h4" style="color: var(--color-primary-700); margin-bottom: var(--space-4); border-bottom: 2px solid var(--color-neutral-200); padding-bottom: var(--space-2);">Información General</h3>
+              <div class="tm-modal__grid">
+                <div class="tm-form__group">
+                  <label for="puesto" class="tm-form__label">Nombre del puesto</label>
+                  <input type="text" id="puesto" name="puesto" class="tm-form__input" placeholder="Ej: Desarrollador Full Stack Senior" required>
+                </div>
+                <div class="tm-form__group">
+                  <label for="area" class="tm-form__label">Área</label>
+                  <select id="area" name="area" class="tm-form__input" required>
+                    <option value="">Seleccionar área</option>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="diseno">Diseño</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="ventas">Ventas</option>
+                    <option value="finanzas">Finanzas</option>
+                    <option value="rrhh">Recursos Humanos</option>
+                  </select>
+                </div>
+                <div class="tm-form__group tm-form__group--full">
+                  <label for="descripcion" class="tm-form__label">Descripción de la Oferta</label>
+                  <textarea id="descripcion" name="descripcion" class="tm-form__input" rows="4" placeholder="Describe brevemente el puesto, la empresa y el objetivo del rol..." required></textarea>
+                </div>
+                <div class="tm-form__group tm-form__group--full">
+                  <label for="funciones" class="tm-form__label">Funciones Principales</label>
+                  <textarea id="funciones" name="funciones" class="tm-form__input" rows="4" placeholder="Enumera las responsabilidades y tareas clave..." required></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sección 2: Requisitos -->
+            <div style="margin-bottom: var(--space-6);">
+              <h3 class="tm-text-h4" style="color: var(--color-primary-700); margin-bottom: var(--space-4); border-bottom: 2px solid var(--color-neutral-200); padding-bottom: var(--space-2);">Requisitos del Perfil</h3>
+              <div class="tm-modal__grid">
+                <div class="tm-form__group">
+                  <label for="formacion" class="tm-form__label">Nivel de Formación</label>
+                  <select id="formacion" name="formacion" class="tm-form__input" required>
+                    <option value="">Seleccionar formación</option>
+                    <option value="tecnico">Técnico</option>
+                    <option value="bachiller">Bachiller</option>
+                    <option value="licenciado">Licenciado</option>
+                    <option value="maestria">Maestría</option>
+                  </select>
+                </div>
+                <div class="tm-form__group">
+                  <label for="experiencia" class="tm-form__label">Años de Experiencia</label>
+                  <select id="experiencia" name="experiencia" class="tm-form__input" required>
+                    <option value="">Seleccionar experiencia</option>
+                    <option value="0-1">0 - 1 años</option>
+                    <option value="1-3">1 - 3 años</option>
+                    <option value="3-5">3 - 5 años</option>
+                    <option value="5-10">5 - 10 años</option>
+                    <option value="10+">Más de 10 años</option>
+                  </select>
+                </div>
+                <div class="tm-form__group tm-form__group--full">
+                  <label for="conocimientos" class="tm-form__label">Conocimientos Técnicos</label>
+                  <input type="text" id="conocimientos" name="conocimientos" class="tm-form__input" placeholder="Ej: React, Node.js, AWS, SQL...">
+                </div>
+                <div class="tm-form__group tm-form__group--full">
+                  <label for="competencias" class="tm-form__label">Competencias Blandas (Soft Skills)</label>
+                  <input type="text" id="competencias" name="competencias" class="tm-form__input" placeholder="Ej: Liderazgo, Comunicación asertiva, Trabajo bajo presión...">
+                </div>
+                <div class="tm-form__group">
+                  <label for="idiomas" class="tm-form__label">Idiomas</label>
+                  <input type="text" id="idiomas" name="idiomas" class="tm-form__input" placeholder="Ej: Inglés Avanzado, Portugués Básico">
+                </div>
+                <div class="tm-form__group">
+                  <label for="certificaciones" class="tm-form__label">Certificaciones</label>
+                  <input type="text" id="certificaciones" name="certificaciones" class="tm-form__input" placeholder="Ej: Scrum Master, PMP, AWS Certified">
+                </div>
+              </div>
+            </div>
+
+            <!-- Sección 3: Condiciones -->
+            <div style="margin-bottom: var(--space-6);">
+              <h3 class="tm-text-h4" style="color: var(--color-primary-700); margin-bottom: var(--space-4); border-bottom: 2px solid var(--color-neutral-200); padding-bottom: var(--space-2);">Condiciones Laborales</h3>
+              <div class="tm-modal__grid">
+                <div class="tm-form__group">
+                  <label for="modalidad" class="tm-form__label">Modalidad</label>
+                  <select id="modalidad" name="modalidad" class="tm-form__input" required>
+                    <option value="">Seleccionar modalidad</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="remoto">100% Remoto</option>
+                    <option value="hibrido">Híbrido</option>
+                  </select>
+                </div>
+                <div class="tm-form__group">
+                  <label for="ubicacion" class="tm-form__label">Ubicación</label>
+                  <input type="text" id="ubicacion" name="ubicacion" class="tm-form__input" placeholder="Ej: Lima, Perú" required>
+                </div>
+                <div class="tm-form__group tm-form__group--full">
+                  <label for="salario" class="tm-form__label">Rango Salarial (Opcional)</label>
+                  <input type="text" id="salario" name="salario" class="tm-form__input" placeholder="Ej: S/ 5,000 - S/ 7,000 Brutos">
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-modal__actions" style="border: none; padding: 0; padding-top: var(--space-4);">
+              <button type="button" class="tm-btn tm-btn--ghost" onclick="window.history.back()">Cancelar</button>
+              <button type="button" class="tm-btn tm-btn--secondary">Guardar Borrador</button>
+              <button type="submit" class="tm-btn tm-btn--primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                Publicar Oferta
+              </button>
+            </div>
+            
+          </form>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

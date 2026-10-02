@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Ofertas | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/empresa.css">
+</head>
+
+<body class="tm-empresa-page">
+  <div class="tm-dashboard-layout">
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          <span class="tm-sidebar__label">Mis Ofertas</span>
+        </a>
+        <a href="oferta-formulario.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          <span class="tm-sidebar__label">Crear Oferta</span>
+        </a>
+        <a href="perfil.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span class="tm-sidebar__label">Perfil de Empresa</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Mis Ofertas</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-navbar__user">
+          <span class="tm-avatar tm-avatar--sm">TC</span>
+          <span class="tm-navbar__username">TechCorp Internacional S.A.</span>
+        </div>
+        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <main class="tm-main tm-page-content">
+      <div class="tm-empresa-dashboard">
+
+        <section class="tm-empresa-dashboard__section">
+          <div class="tm-empresa-dashboard__section-header" style="flex-wrap: wrap; gap: var(--space-4);">
+            <h2 class="tm-text-h2">Gestión de Ofertas</h2>
+            <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+              <input type="text" class="tm-form__input" placeholder="Buscar oferta..." style="width: 250px;">
+              <select class="tm-form__input" style="width: 180px;">
+                <option value="">Todas las ofertas</option>
+                <option value="activas">Activas</option>
+                <option value="revision">En Revisión</option>
+                <option value="cerradas">Cerradas</option>
+              </select>
+              <button class="tm-btn tm-btn--primary" onclick="window.location.href='oferta-formulario.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+                Crear Oferta
+              </button>
+            </div>
+          </div>
+          
+          <div class="tm-empresa-dashboard__ofertas">
+            <!-- Oferta 1 -->
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">Desarrollador Full Stack Senior</h3>
+                <span class="tm-badge tm-badge--success">Activa</span>
+              </div>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__area">Tecnología</span>
+                <span class="tm-oferta-card__modality">Remoto</span>
+                <span class="tm-oferta-card__location">Lima, Perú</span>
+              </div>
+              <div class="tm-oferta-card__stats">
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">15</span>
+                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">8</span>
+                  <span class="tm-oferta-card__stat-label">En revisión</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">3</span>
+                  <span class="tm-oferta-card__stat-label">Preseleccionados</span>
+                </div>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
+                <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+              </div>
+            </div>
+            
+            <!-- Oferta 2 -->
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">Diseñador UX/UI</h3>
+                <span class="tm-badge tm-badge--success">Activa</span>
+              </div>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__area">Diseño</span>
+                <span class="tm-oferta-card__modality">Híbrido</span>
+                <span class="tm-oferta-card__location">Bogotá, Colombia</span>
+              </div>
+              <div class="tm-oferta-card__stats">
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">12</span>
+                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">5</span>
+                  <span class="tm-oferta-card__stat-label">En revisión</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">2</span>
+                  <span class="tm-oferta-card__stat-label">Preseleccionados</span>
+                </div>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
+                <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+              </div>
+            </div>
+            
+            <!-- Oferta 3 -->
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">Analista de Datos</h3>
+                <span class="tm-badge tm-badge--warning">En revisión</span>
+              </div>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__area">Datos</span>
+                <span class="tm-oferta-card__modality">Presencial</span>
+                <span class="tm-oferta-card__location">Ciudad de México</span>
+              </div>
+              <div class="tm-oferta-card__stats">
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">0</span>
+                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">0</span>
+                  <span class="tm-oferta-card__stat-label">En revisión</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">0</span>
+                  <span class="tm-oferta-card__stat-label">Preseleccionados</span>
+                </div>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
+                <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+              </div>
+            </div>
+            
+            <!-- Oferta 4 -->
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">Gerente de Marketing</h3>
+                <span class="tm-badge" style="background-color: var(--color-neutral-200); color: var(--color-neutral-700);">Cerrada</span>
+              </div>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__area">Marketing</span>
+                <span class="tm-oferta-card__modality">Híbrido</span>
+                <span class="tm-oferta-card__location">Lima, Perú</span>
+              </div>
+              <div class="tm-oferta-card__stats">
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">45</span>
+                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">12</span>
+                  <span class="tm-oferta-card__stat-label">Entrevistados</span>
+                </div>
+                <div class="tm-oferta-card__stat">
+                  <span class="tm-oferta-card__stat-value">1</span>
+                  <span class="tm-oferta-card__stat-label">Contratado</span>
+                </div>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Resultados</a>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
