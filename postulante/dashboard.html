@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Panel | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/postulante.css">
+</head>
+<body class="tm-postulante-page">
+  <div class="tm-dashboard-layout">
+
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-white.svg" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="tm-sidebar__label">Mi Panel</span>
+        </a>
+        <a href="perfil.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="tm-sidebar__label">Mi Perfil</span>
+        </a>
+        <a href="experiencia.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span class="tm-sidebar__label">Experiencia</span>
+        </a>
+        <a href="formacion.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <span class="tm-sidebar__label">Formación</span>
+        </a>
+        <a href="ofertas-disponibles.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span class="tm-sidebar__label">Ofertas Disponibles</span>
+        </a>
+        <a href="aplicaciones.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="tm-sidebar__label">Mis Aplicaciones</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="tm-navbar__title">Mi Panel</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-navbar__user">
+          <span class="tm-avatar tm-avatar--sm">CL</span>
+          <span class="tm-navbar__username">Carlos Eduardo Lopez</span>
+        </div>
+        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <main class="tm-main">
+      <div class="tm-postulante-dashboard">
+
+        <section class="tm-postulante-dashboard__profile-completeness">
+          <div class="tm-card">
+            <div class="tm-card__header">
+              <h2 class="tm-card__title">Completitud del Perfil</h2>
+              <p class="tm-card__subtitle">Completa tu perfil para mejorar tus oportunidades</p>
+            </div>
+            <div class="tm-progress-bar">
+              <div class="tm-progress-bar__header">
+                <span class="tm-progress-bar__label">Progreso</span>
+                <span class="tm-progress-bar__value">65%</span>
+              </div>
+              <div class="tm-progress-bar__track">
+                <div class="tm-progress-bar__fill" style="--progress-value: 65%;"></div>
+              </div>
+            </div>
+            <div class="tm-postulante-dashboard__completeness-items">
+              <div class="tm-completeness-item tm-completeness-item--complete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Datos personales</span>
+              </div>
+              <div class="tm-completeness-item tm-completeness-item--complete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Formación académica</span>
+              </div>
+              <div class="tm-completeness-item tm-completeness-item--complete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Experiencia laboral</span>
+              </div>
+              <div class="tm-completeness-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span>Subir CV en PDF</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tm-postulante-dashboard__section">
+          <div class="tm-postulante-dashboard__section-header">
+            <h2 class="tm-text-h2">Mis Datos</h2>
+          </div>
+          <div class="tm-postulante-dashboard__grid">
+
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h3 class="tm-card__title">Formación Académica</h3>
+                <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="alert('Agregar formación')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Agregar
+                </button>
+              </div>
+              <div class="tm-postulante-dashboard__list">
+                <div class="tm-postulante-dashboard__list-item">
+                  <div class="tm-postulante-dashboard__list-item-content">
+                    <h4 class="tm-postulante-dashboard__list-item-title">Ingeniería de Sistemas</h4>
+                    <p class="tm-postulante-dashboard__list-item-subtitle">Universidad Nacional Mayor de San Marcos</p>
+                    <p class="tm-postulante-dashboard__list-item-meta">2018 - 2022</p>
+                  </div>
+                  <div class="tm-postulante-dashboard__list-item-actions">
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Editar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Eliminar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h3 class="tm-card__title">Experiencia Laboral</h3>
+                <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="alert('Agregar experiencia')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Agregar
+                </button>
+              </div>
+              <div class="tm-postulante-dashboard__list">
+                <div class="tm-postulante-dashboard__list-item">
+                  <div class="tm-postulante-dashboard__list-item-content">
+                    <h4 class="tm-postulante-dashboard__list-item-title">Desarrollador Full Stack</h4>
+                    <p class="tm-postulante-dashboard__list-item-subtitle">Tech Solutions S.A.C.</p>
+                    <p class="tm-postulante-dashboard__list-item-meta">Enero 2023 - Presente</p>
+                  </div>
+                  <div class="tm-postulante-dashboard__list-item-actions">
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Editar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Eliminar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="tm-postulante-dashboard__list-item">
+                  <div class="tm-postulante-dashboard__list-item-content">
+                    <h4 class="tm-postulante-dashboard__list-item-title">Desarrollador Frontend</h4>
+                    <p class="tm-postulante-dashboard__list-item-subtitle">Digital Innovations</p>
+                    <p class="tm-postulante-dashboard__list-item-meta">Marzo 2022 - Diciembre 2022</p>
+                  </div>
+                  <div class="tm-postulante-dashboard__list-item-actions">
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Editar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Eliminar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h3 class="tm-card__title">Competencias</h3>
+                <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="alert('Agregar competencia')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Agregar
+                </button>
+              </div>
+              <div class="tm-postulante-dashboard__tags">
+                <span class="tm-tag">JavaScript</span>
+                <span class="tm-tag">React</span>
+                <span class="tm-tag">Node.js</span>
+                <span class="tm-tag">Python</span>
+                <span class="tm-tag">SQL</span>
+                <span class="tm-tag">Git</span>
+                <span class="tm-tag">Docker</span>
+                <span class="tm-tag">AWS</span>
+              </div>
+            </div>
+
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h3 class="tm-card__title">Subir CV</h3>
+              </div>
+              <div class="tm-postulante-dashboard__upload">
+                <div class="tm-upload-zone" id="cvUploadZone">
+                  <input type="file" id="cvFile" accept=".pdf" class="tm-upload-zone__input" hidden>
+                  <div class="tm-upload-zone__content">
+                    <div class="tm-upload-zone__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    </div>
+                    <p class="tm-upload-zone__text">Arrastra tu CV aquí o haz clic para seleccionar</p>
+                    <p class="tm-upload-zone__hint">Solo archivos PDF, máximo 5MB</p>
+                  </div>
+                </div>
+                <div class="tm-postulante-dashboard__file-info" id="cvFileInfo" style="display: none;">
+                  <div class="tm-file-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <div class="tm-file-info__details">
+                      <p class="tm-file-info__name" id="cvFileName">cv-carlos-lopez.pdf</p>
+                      <p class="tm-file-info__size" id="cvFileSize">2.4 MB</p>
+                    </div>
+                    <button class="tm-btn tm-btn--ghost tm-btn--sm" id="cvRemoveBtn" aria-label="Eliminar archivo">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="tm-postulante-dashboard__section">
+          <div class="tm-postulante-dashboard__section-header">
+            <h2 class="tm-text-h2">Ofertas Sugeridas</h2>
+            <a href="ofertas-disponibles.html" class="tm-postulante-dashboard__view-all">Ver todas</a>
+          </div>
+          <div class="tm-postulante-dashboard__ofertas">
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">Desarrollador Full Stack Senior</h3>
+                <span class="tm-badge tm-badge--success">95% match</span>
+              </div>
+              <p class="tm-oferta-card__company">TechCorp Internacional S.A.</p>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__location">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Lima, Perú
+                </span>
+                <span class="tm-oferta-card__modality">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Remoto
+                </span>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="#" class="tm-btn tm-btn--primary tm-btn--sm">Aplicar ahora</a>
+              </div>
+            </div>
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">Backend Developer Node.js</h3>
+                <span class="tm-badge tm-badge--success">88% match</span>
+              </div>
+              <p class="tm-oferta-card__company">Digital Innovations</p>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__location">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Bogotá, Colombia
+                </span>
+                <span class="tm-oferta-card__modality">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Híbrido
+                </span>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="#" class="tm-btn tm-btn--primary tm-btn--sm">Aplicar ahora</a>
+              </div>
+            </div>
+            <div class="tm-card tm-oferta-card">
+              <div class="tm-oferta-card__header">
+                <h3 class="tm-oferta-card__title">DevOps Engineer</h3>
+                <span class="tm-badge tm-badge--warning">72% match</span>
+              </div>
+              <p class="tm-oferta-card__company">CloudTech Solutions</p>
+              <div class="tm-oferta-card__meta">
+                <span class="tm-oferta-card__location">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Ciudad de México
+                </span>
+                <span class="tm-oferta-card__modality">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Remoto
+                </span>
+              </div>
+              <div class="tm-oferta-card__footer">
+                <a href="#" class="tm-btn tm-btn--primary tm-btn--sm">Aplicar ahora</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+</body>
+</html>

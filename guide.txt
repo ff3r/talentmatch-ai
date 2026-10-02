@@ -1,0 +1,41 @@
+# Seguimiento de Vistas - TalentMatch AI
+
+## Públicas
+- [ ] V-01: index.html
+- [x] V-02: auth/login.html
+- [ ] V-03: auth/registro-empresa.html
+- [ ] V-04: auth/registro-postulante.html
+
+## Empresa
+- [x] V-05: empresa/dashboard.html
+- [ ] V-06: empresa/ofertas.html
+- [ ] V-07: empresa/oferta-formulario.html
+- [ ] V-08: empresa/oferta-detalle.html
+- [ ] V-09: empresa/perfil.html
+
+## Reclutador
+- [x] V-10: reclutador/dashboard.html
+- [ ] V-11: reclutador/ofertas.html
+- [ ] V-12: reclutador/candidatos.html
+- [ ] V-13: reclutador/matching.html
+- [ ] V-14: reclutador/candidato-detalle.html
+
+## Postulante
+- [x] V-15: postulante/dashboard.html
+- [x] V-16: postulante/perfil.html
+- [ ] V-17: postulante/experiencia.html
+- [ ] V-18: postulante/formacion.html
+- [ ] V-19: postulante/ofertas-disponibles.html
+- [ ] V-20: postulante/aplicaciones.html
+
+## Administrador
+- [x] V-21: admin/dashboard.html
+- [ ] V-22: admin/usuarios.html
+- [ ] V-23: admin/catalogos.html
+- [ ] V-24: admin/parametros.html
+
+## fonts usadas
+https://fonts.google.com/specimen/Bungee?query=Bungee&noto.lang=es
+https://fonts.google.com/specimen/Nunito?query=Nunito&noto.lang=es
+https://fonts.google.com/specimen/Syne?query=Syne&noto.lang=es
+

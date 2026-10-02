@@ -1,0 +1,267 @@
+/**
+ * TalentMatch AI - Auth CSS
+ * Estilos específicos para las vistas de autenticación (login, registro)
+ * Fecha: 2026-10-01
+ * Nota de migración: Este archivo se mantiene intacto en la migración a PHP/Laravel Blade.
+ */
+
+/* ============================================
+   LAYOUT DE AUTENTICACIÓN
+   ============================================ */
+
+.tm-auth-page {
+  min-height: 100vh;
+  background-color: var(--color-neutral-100);
+}
+
+.tm-auth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ============================================
+   PANEL DE ILUSTRACIÓN (LADO IZQUIERDO)
+   ============================================ */
+
+.tm-auth-illustration {
+  background: linear-gradient(135deg, var(--color-primary-900) 0%, var(--color-primary-700) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.tm-auth-illustration::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tm-auth-illustration__content {
+  max-width: 480px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tm-auth-logo {
+  width: 180px;
+  height: auto;
+  margin: 0 auto var(--space-8);
+}
+
+.tm-auth-illustration__title {
+  font-size: var(--text-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+}
+
+.tm-auth-illustration__text {
+  font-size: var(--text-body);
+  color: var(--color-primary-200);
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   FORMULARIO (LADO DERECHO)
+   ============================================ */
+
+.tm-auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.tm-auth-form-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.tm-auth-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.tm-auth-header__logo {
+  width: 120px;
+  height: auto;
+  margin: 0 auto var(--space-4);
+}
+
+.tm-auth-header__title {
+  font-size: var(--text-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  margin-bottom: var(--space-2);
+}
+
+.tm-auth-header__subtitle {
+  font-size: var(--text-body-sm);
+  color: var(--color-neutral-600);
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+.tm-form__group {
+  margin-bottom: var(--space-5);
+}
+
+.tm-form__label {
+  display: block;
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-700);
+  margin-bottom: var(--space-2);
+}
+
+.tm-form__input {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-neutral-900);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+              box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.tm-form__input::placeholder {
+  color: var(--color-neutral-500);
+}
+
+.tm-form__input:focus {
+  outline: none;
+  border-color: var(--color-primary-700);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.tm-form__input-wrapper {
+  position: relative;
+}
+
+.tm-form__input-wrapper .tm-form__input {
+  padding-right: 44px;
+}
+
+.tm-form__toggle-password {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-neutral-500);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.tm-form__toggle-password:hover {
+  color: var(--color-neutral-700);
+}
+
+.tm-form__error {
+  display: block;
+  font-size: var(--text-caption);
+  color: var(--color-error);
+  margin-top: var(--space-1);
+  min-height: 18px;
+}
+
+.tm-form__actions {
+  margin-top: var(--space-6);
+}
+
+.tm-btn--block {
+  width: 100%;
+}
+
+/* ============================================
+   FOOTER DE AUTENTICACIÓN
+   ============================================ */
+
+.tm-auth-footer {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-neutral-200);
+  text-align: center;
+}
+
+.tm-auth-footer__text {
+  font-size: var(--text-body-sm);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-2);
+}
+
+.tm-auth-footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.tm-auth-footer__link {
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-700);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.tm-auth-footer__link:hover {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+}
+
+.tm-auth-footer__separator {
+  color: var(--color-neutral-400);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1023px) {
+  .tm-auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tm-auth-illustration {
+    display: none;
+  }
+
+  .tm-auth-main {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 639px) {
+  .tm-auth-main {
+    padding: var(--space-4);
+  }
+
+  .tm-auth-form-container {
+    max-width: 100%;
+  }
+
+  .tm-auth-header__logo {
+    width: 100px;
+  }
+}

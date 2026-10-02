@@ -1,0 +1,182 @@
+/**
+ * TalentMatch AI - Animations CSS
+ * Keyframes y clases utilitarias de animación
+ * Fecha: 2026-10-01
+ * Nota de migración: Este archivo se mantiene intacto en la migración a PHP/Laravel Blade.
+ */
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+
+@keyframes tm-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tm-modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes tm-overlay-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tm-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tm-toast-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes tm-ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes tm-progress-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-value, 100%);
+  }
+}
+
+@keyframes tm-skeleton-pulse {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes tm-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tm-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tm-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tm-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   CLASES UTILITARIAS DE ANIMACIÓN
+   ============================================ */
+
+.tm-animate-fade-in {
+  animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) forwards;
+}
+
+.tm-animate-slide-up {
+  animation: tm-slide-up var(--duration-normal) var(--ease-decelerate) forwards;
+}
+
+.tm-animate-scale-in {
+  animation: tm-scale-in var(--duration-normal) var(--ease-decelerate) forwards;
+}
+
+.tm-animate-spin {
+  animation: tm-spin 1s linear infinite;
+}
+
+.tm-animate-pulse {
+  animation: tm-pulse 2s ease-in-out infinite;
+}
+
+/* Animación escalonada para listas */
+.tm-stagger-children > * {
+  opacity: 0;
+  animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) forwards;
+}
+
+.tm-stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.tm-stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+.tm-stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+.tm-stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+.tm-stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+.tm-stagger-children > *:nth-child(6) { animation-delay: 500ms; }
+
+/* Estados de carga skeleton */
+.tm-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-200) 25%,
+    var(--color-neutral-100) 50%,
+    var(--color-neutral-200) 75%
+  );
+  background-size: 200px 100%;
+  animation: tm-skeleton-pulse 1.5s infinite ease-in-out;
+  border-radius: var(--radius-md);
+}

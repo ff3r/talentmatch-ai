@@ -1,0 +1,486 @@
+/**
+ * TalentMatch AI - Empresa CSS
+ * Estilos específicos para el dashboard de la empresa
+ * Fecha: 2026-10-01
+ * Nota de migración: Este archivo se mantiene intacto en la migración a PHP/Laravel Blade.
+ */
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.tm-sidebar {
+  background-color: var(--color-neutral-900);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: width var(--duration-normal) var(--ease-standard);
+}
+
+.tm-sidebar__header {
+  padding: var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tm-sidebar__logo {
+  width: 160px;
+  height: auto;
+}
+
+.tm-sidebar__nav {
+  padding: var(--space-4) 0;
+  flex: 1;
+}
+
+.tm-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  color: var(--color-neutral-400);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-fast) var(--ease-standard);
+  border-left: 3px solid transparent;
+}
+
+.tm-sidebar__item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-white);
+}
+
+.tm-sidebar__item--active {
+  background-color: rgba(183, 28, 28, 0.15);
+  border-left-color: var(--color-primary-700);
+  color: var(--color-primary-300);
+}
+
+.tm-sidebar__label {
+  transition: opacity var(--duration-fast) var(--ease-accelerate);
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.tm-navbar {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  height: var(--navbar-height);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.tm-navbar__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.tm-navbar__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--color-neutral-600);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.tm-navbar__toggle:hover {
+  background-color: var(--color-neutral-100);
+}
+
+.tm-navbar__title {
+  font-size: var(--text-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+}
+
+.tm-navbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.tm-navbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.tm-navbar__username {
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-700);
+}
+
+/* ============================================
+   DASHBOARD DE LA EMPRESA
+   ============================================ */
+
+.tm-empresa-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.tm-empresa-dashboard__metrics {
+  width: 100%;
+}
+
+.tm-empresa-dashboard__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tm-empresa-dashboard__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ============================================
+   TARJETAS DE MÉTRICAS
+   ============================================ */
+
+.tm-metric-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-neutral-50) 100%);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-fast) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+.tm-metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary-700), var(--color-primary-500));
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.tm-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-200);
+}
+
+.tm-metric-card:hover::before {
+  opacity: 1;
+}
+
+.tm-metric-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-600));
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(183, 28, 28, 0.25);
+}
+
+.tm-metric-card__content {
+  width: 100%;
+}
+
+.tm-metric-card__value {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.tm-metric-card__label {
+  font-size: var(--text-body-sm);
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   TARJETAS DE OFERTAS
+   ============================================ */
+
+.tm-empresa-dashboard__ofertas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.tm-oferta-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-oferta-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.tm-oferta-card__title {
+  font-size: var(--text-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+  line-height: var(--leading-tight);
+}
+
+.tm-oferta-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.tm-oferta-card__area,
+.tm-oferta-card__modality,
+.tm-oferta-card__location {
+  font-size: var(--text-caption);
+  color: var(--color-neutral-600);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.tm-oferta-card__stats {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-neutral-200);
+  border-bottom: 1px solid var(--color-neutral-200);
+  margin-bottom: var(--space-4);
+}
+
+.tm-oferta-card__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.tm-oferta-card__stat-value {
+  font-size: var(--text-h3);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-700);
+  line-height: 1;
+}
+
+.tm-oferta-card__stat-label {
+  font-size: var(--text-caption);
+  color: var(--color-neutral-600);
+  margin-top: var(--space-1);
+}
+
+.tm-oferta-card__footer {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+
+.tm-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-modal);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  animation: tm-overlay-enter var(--duration-fast) ease-out;
+}
+
+.tm-modal {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+  animation: tm-modal-enter var(--duration-normal) var(--ease-decelerate);
+}
+
+.tm-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.tm-modal__title {
+  font-size: var(--text-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+}
+
+.tm-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--color-neutral-600);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.tm-modal__close:hover {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-900);
+}
+
+.tm-modal__form {
+  padding: var(--space-6);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tm-modal__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+.tm-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tm-form__group--full {
+  grid-column: 1 / -1;
+}
+
+.tm-form__label {
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-700);
+  letter-spacing: 0.01em;
+}
+
+.tm-form__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-body);
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-50);
+  border: 1.5px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-standard);
+  font-family: var(--font-family-base);
+}
+
+.tm-form__input::placeholder {
+  color: var(--color-neutral-400);
+  font-weight: var(--font-weight-normal);
+}
+
+.tm-form__input:hover {
+  border-color: var(--color-neutral-300);
+  background-color: var(--color-white);
+}
+
+.tm-form__input:focus {
+  outline: none;
+  border-color: var(--color-primary-700);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 4px var(--color-primary-100);
+}
+
+textarea.tm-form__input {
+  height: auto;
+  min-height: 100px;
+  padding: var(--space-3) var(--space-4);
+  resize: vertical;
+  line-height: var(--leading-normal);
+}
+
+select.tm-form__input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B6B8D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+  padding-right: var(--space-10);
+}
+
+.tm-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1023px) {
+  .tm-empresa-dashboard__ofertas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tm-modal__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .tm-empresa-dashboard__ofertas {
+    grid-template-columns: 1fr;
+  }
+
+  .tm-modal-overlay {
+    padding: var(--space-4);
+  }
+
+  .tm-modal {
+    max-height: 95vh;
+  }
+
+  .tm-modal__header,
+  .tm-modal__form,
+  .tm-modal__actions {
+    padding: var(--space-4);
+  }
+
+  .tm-navbar__username {
+    display: none;
+  }
+}

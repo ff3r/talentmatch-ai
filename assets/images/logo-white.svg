@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="60" height="60" rx="12" fill="#FFFFFF"/>
+  <path d="M18 20h24v6H24v4h16v6H24v4h18v6H18V20z" fill="#B71C1C"/>
+  <text x="70" y="38" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">TalentMatch</text>
+  <text x="70" y="52" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#EF9A9A">AI</text>
+</svg>

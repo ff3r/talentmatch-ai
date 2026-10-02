@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administración | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+</head>
+<body class="tm-admin-page">
+  <div class="tm-dashboard-layout">
+
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-white.svg" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="usuarios.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="tm-sidebar__label">Usuarios</span>
+        </a>
+        <a href="catalogos.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="tm-sidebar__label">Catálogos</span>
+        </a>
+        <a href="parametros.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span class="tm-sidebar__label">Parámetros</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="tm-navbar__title">Panel de Administración</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-navbar__user">
+          <span class="tm-avatar tm-avatar--sm">AS</span>
+          <span class="tm-navbar__username">Administrador del Sistema</span>
+        </div>
+        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <main class="tm-main">
+      <div class="tm-admin-dashboard">
+
+        <section class="tm-metrics-grid">
+          <div class="tm-card tm-metric-card">
+            <p class="tm-metric-card__value">128</p>
+            <p class="tm-metric-card__label">Usuarios registrados</p>
+          </div>
+          <div class="tm-card tm-metric-card">
+            <p class="tm-metric-card__value">42</p>
+            <p class="tm-metric-card__label">Ofertas activas</p>
+          </div>
+          <div class="tm-card tm-metric-card">
+            <p class="tm-metric-card__value">315</p>
+            <p class="tm-metric-card__label">Postulaciones</p>
+          </div>
+          <div class="tm-card tm-metric-card">
+            <p class="tm-metric-card__value">6</p>
+            <p class="tm-metric-card__label">Cuentas bloqueadas</p>
+          </div>
+        </section>
+
+        <div class="tm-tabs" role="tablist">
+          <button class="tm-tabs__tab tm-tabs__tab--active" data-tab="usuarios" role="tab" aria-selected="true">Gestión de Usuarios</button>
+          <button class="tm-tabs__tab" data-tab="catalogos" role="tab" aria-selected="false">Gestión de Catálogos</button>
+          <button class="tm-tabs__tab" data-tab="parametros" role="tab" aria-selected="false">Parámetros Generales</button>
+        </div>
+
+        <section class="tm-admin-tab" id="tab-usuarios">
+          <div class="tm-card">
+            <div class="tm-card__header">
+              <h2 class="tm-card__title">Usuarios del Sistema</h2>
+              <p class="tm-card__subtitle">Administra cuentas de postulantes, empresas y reclutadores</p>
+            </div>
+            <div class="tm-admin-filters">
+              <input type="search" id="userSearch" class="tm-form__input" placeholder="Buscar por nombre o correo...">
+              <select id="roleFilter" class="tm-form__input">
+                <option value="">Todos los roles</option>
+                <option value="Postulante">Postulante</option>
+                <option value="Empresa">Empresa</option>
+                <option value="Reclutador">Reclutador</option>
+              </select>
+              <select id="statusFilter" class="tm-form__input">
+                <option value="">Todos los estados</option>
+                <option value="Activo">Activo</option>
+                <option value="Bloqueado">Bloqueado</option>
+              </select>
+            </div>
+            <div class="tm-table-wrapper">
+              <table class="tm-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Registro</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                  <tr>
+                    <td>Carlos Eduardo Lopez</td>
+                    <td>carlos.lopez@mail.com</td>
+                    <td><span class="tm-badge tm-badge--info">Postulante</span></td>
+                    <td>12/08/2026</td>
+                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
+                    <td>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TechCorp Internacional S.A.</td>
+                    <td>contacto@techcorp.com</td>
+                    <td><span class="tm-badge tm-badge--primary">Empresa</span></td>
+                    <td>03/05/2026</td>
+                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
+                    <td>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ana Patricia Martinez</td>
+                    <td>ana.martinez@talentmatch.com</td>
+                    <td><span class="tm-badge tm-badge--warning">Reclutador</span></td>
+                    <td>21/03/2026</td>
+                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
+                    <td>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Maria Fernanda Garcia</td>
+                    <td>maria.garcia@mail.com</td>
+                    <td><span class="tm-badge tm-badge--info">Postulante</span></td>
+                    <td>30/07/2026</td>
+                    <td><span class="tm-badge tm-badge--error">Bloqueado</span></td>
+                    <td>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm">Desbloquear</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>InnovaSoft S.R.L.</td>
+                    <td>rrhh@innovasoft.com</td>
+                    <td><span class="tm-badge tm-badge--primary">Empresa</span></td>
+                    <td>15/06/2026</td>
+                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
+                    <td>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Jose Roberto Ramirez</td>
+                    <td>jose.ramirez@mail.com</td>
+                    <td><span class="tm-badge tm-badge--info">Postulante</span></td>
+                    <td>09/09/2026</td>
+                    <td><span class="tm-badge tm-badge--error">Bloqueado</span></td>
+                    <td>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm">Desbloquear</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="tm-admin-tab" id="tab-catalogos" hidden>
+          <div class="tm-card">
+            <div class="tm-card__header">
+              <h2 class="tm-card__title">Catálogos del Sistema</h2>
+              <p class="tm-card__subtitle">Agrega o elimina opciones de los desplegables del sistema</p>
+            </div>
+            <div class="tm-catalog-selector">
+              <label for="catalogType" class="tm-form__label">Catálogo</label>
+              <select id="catalogType" class="tm-form__input" onchange="renderCatalog()">
+                <option value="areas">Áreas de trabajo</option>
+                <option value="tecnologias">Tecnologías</option>
+                <option value="idiomas">Idiomas</option>
+                <option value="modalidades">Modalidades</option>
+              </select>
+            </div>
+            <ul class="tm-catalog-list" id="catalogList"></ul>
+            <form class="tm-catalog-add" onsubmit="addCatalogItem(event)">
+              <input type="text" id="catalogInput" class="tm-form__input" placeholder="Nueva opción..." required>
+              <button type="submit" class="tm-btn tm-btn--primary tm-btn--sm">Agregar</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="tm-admin-tab" id="tab-parametros" hidden>
+          <div class="tm-params-grid">
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h2 class="tm-card__title">Matching con IA</h2>
+                <p class="tm-card__subtitle">Umbrales del motor de coincidencia</p>
+              </div>
+              <div class="tm-form-group">
+                <label for="matchingThreshold" class="tm-form__label">Umbral mínimo de matching (%)</label>
+                <input type="number" id="matchingThreshold" class="tm-form__input" value="60" min="0" max="100">
+              </div>
+              <div class="tm-form-group">
+                <label for="maxSuggestions" class="tm-form__label">Candidatos sugeridos por oferta</label>
+                <input type="number" id="maxSuggestions" class="tm-form__input" value="10" min="1" max="50">
+              </div>
+            </div>
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h2 class="tm-card__title">Ofertas</h2>
+                <p class="tm-card__subtitle">Límites de publicación</p>
+              </div>
+              <div class="tm-form-group">
+                <label for="maxOfertas" class="tm-form__label">Máximo de ofertas activas por empresa</label>
+                <input type="number" id="maxOfertas" class="tm-form__input" value="20" min="1">
+              </div>
+              <div class="tm-form-group">
+                <label for="ofertaVigencia" class="tm-form__label">Vigencia de oferta (días)</label>
+                <input type="number" id="ofertaVigencia" class="tm-form__input" value="30" min="1">
+              </div>
+            </div>
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h2 class="tm-card__title">Archivos</h2>
+                <p class="tm-card__subtitle">Restricciones de CV y adjuntos</p>
+              </div>
+              <div class="tm-form-group">
+                <label for="maxFileSize" class="tm-form__label">Tamaño máximo de CV (MB)</label>
+                <input type="number" id="maxFileSize" class="tm-form__input" value="5" min="1">
+              </div>
+              <div class="tm-form-group">
+                <label for="allowedFormats" class="tm-form__label">Formatos permitidos</label>
+                <input type="text" id="allowedFormats" class="tm-form__input" value="pdf, docx">
+              </div>
+            </div>
+            <div class="tm-card">
+              <div class="tm-card__header">
+                <h2 class="tm-card__title">Plataforma</h2>
+                <p class="tm-card__subtitle">Configuración global</p>
+              </div>
+              <div class="tm-form-group">
+                <label for="supportEmail" class="tm-form__label">Correo de soporte</label>
+                <input type="email" id="supportEmail" class="tm-form__input" value="soporte@talentmatch.com">
+              </div>
+              <div class="tm-form-group tm-form-group--inline">
+                <label class="tm-switch">
+                  <input type="checkbox" id="maintenanceMode">
+                  <span class="tm-switch__slider"></span>
+                </label>
+                <label for="maintenanceMode" class="tm-form__label">Modo mantenimiento</label>
+              </div>
+              <button class="tm-btn tm-btn--primary" onclick="saveParams()">Guardar cambios</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.querySelectorAll('.tm-tabs__tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tm-tabs__tab').forEach(function(t) {
+          t.classList.remove('tm-tabs__tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('tm-tabs__tab--active');
+        tab.setAttribute('aria-selected', 'true');
+        document.querySelectorAll('.tm-admin-tab').forEach(function(panel) {
+          panel.hidden = true;
+        });
+        document.getElementById('tab-' + tab.dataset.tab).hidden = false;
+      });
+    });
+
+    var catalogs = {
+      areas: ['Desarrollo de Software', 'Diseño UX/UI', 'Data & Analytics', 'Marketing Digital', 'Recursos Humanos'],
+      tecnologias: ['JavaScript', 'Python', 'React', 'Node.js', 'SQL', 'Docker'],
+      idiomas: ['Español', 'Inglés', 'Francés', 'Portugués', 'Alemán'],
+      modalidades: ['Presencial', 'Remoto', 'Híbrido']
+    };
+
+    function renderCatalog() {
+      var type = document.getElementById('catalogType').value;
+      var list = document.getElementById('catalogList');
+      list.innerHTML = '';
+      catalogs[type].forEach(function(item, index) {
+        var li = document.createElement('li');
+        li.className = 'tm-catalog-list__item';
+        li.innerHTML = '<span>' + item + '</span><button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="removeCatalogItem(\'' + type + '\', ' + index + ')">Eliminar</button>';
+        list.appendChild(li);
+      });
+    }
+
+    function addCatalogItem(event) {
+      event.preventDefault();
+      var type = document.getElementById('catalogType').value;
+      var input = document.getElementById('catalogInput');
+      var value = input.value.trim();
+      if (value) {
+        catalogs[type].push(value);
+        input.value = '';
+        renderCatalog();
+      }
+    }
+
+    function removeCatalogItem(type, index) {
+      catalogs[type].splice(index, 1);
+      renderCatalog();
+    }
+
+    function saveParams() {
+      alert('Parámetros guardados correctamente.');
+    }
+
+    renderCatalog();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/**
+ * TalentMatch AI - Responsive CSS
+ * Media queries para todos los breakpoints
+ * Fecha: 2026-10-01
+ * Nota de migración: Este archivo se mantiene intacto en la migración a PHP/Laravel Blade.
+ */
+
+/* ============================================
+   TABLET (640px - 1023px)
+   ============================================ */
+
+@media (max-width: 1023px) {
+  .tm-dashboard-layout {
+    grid-template-columns: var(--sidebar-width-collapsed) 1fr;
+  }
+
+  .tm-sidebar__label {
+    display: none;
+  }
+
+  .tm-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tm-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tm-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   MOBILE (< 640px)
+   ============================================ */
+
+@media (max-width: 639px) {
+  .tm-dashboard-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--navbar-height) 1fr;
+    grid-template-areas:
+      "navbar"
+      "main";
+  }
+
+  .tm-sidebar {
+    display: none;
+  }
+
+  .tm-main {
+    padding: var(--space-4);
+  }
+
+  .tm-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tm-grid-4,
+  .tm-grid-3,
+  .tm-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .tm-container {
+    padding: 0 var(--space-4);
+  }
+
+  .tm-text-display {
+    font-size: 1.75rem;
+  }
+
+  .tm-text-h1 {
+    font-size: 1.5rem;
+  }
+
+  .tm-text-h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ============================================
+   WIDE (>= 1440px)
+   ============================================ */
+
+@media (min-width: 1440px) {
+  .tm-metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .tm-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
