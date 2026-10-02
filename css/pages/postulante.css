@@ -1,8 +1,8 @@
 /**
  * TalentMatch AI - Postulante CSS
- * Estilos específicos para el dashboard del postulante
+ * Estilos especÃ­ficos para el dashboard del postulante
  * Fecha: 2026-10-01
- * Nota de migración: Este archivo se mantiene intacto en la migración a PHP/Laravel Blade.
+ * Nota de migraciÃ³n: Este archivo se mantiene intacto en la migraciÃ³n a PHP/Laravel Blade.
  */
 
 /* ============================================
@@ -10,7 +10,9 @@
    ============================================ */
 
 .tm-sidebar {
-  background-color: var(--color-neutral-900);
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-neutral-300);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -19,11 +21,11 @@
 
 .tm-sidebar__header {
   padding: var(--space-6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-neutral-200);
 }
 
 .tm-sidebar__logo {
-  width: 160px;
+  width: 190px;
   height: auto;
 }
 
@@ -36,27 +38,56 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) var(--space-6);
-  color: var(--color-neutral-400);
-  font-size: var(--text-body-sm);
+  padding: var(--space-4) var(--space-6);
+  color: var(--color-neutral-600);
+  font-size: 1.05rem;
   font-weight: var(--font-weight-medium);
   transition: all var(--duration-fast) var(--ease-standard);
-  border-left: 3px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.tm-sidebar__item svg {
+  width: 22px;
+  height: 22px;
 }
 
 .tm-sidebar__item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--color-white);
+  background-color: var(--color-neutral-50);
+  color: var(--color-primary-700);
+  transform: translateX(4px);
 }
 
 .tm-sidebar__item--active {
-  background-color: rgba(183, 28, 28, 0.15);
+  background-color: var(--color-primary-50);
   border-left-color: var(--color-primary-700);
-  color: var(--color-primary-300);
+  color: var(--color-primary-700);
+}
+
+.tm-sidebar__item--active svg {
+  color: var(--color-primary-700);
 }
 
 .tm-sidebar__label {
   transition: opacity var(--duration-fast) var(--ease-accelerate);
+  white-space: nowrap;
+}
+
+/* Estado Colapsado de Sidebar */
+.tm-sidebar-collapsed .tm-sidebar__label {
+  display: none;
+}
+
+.tm-sidebar-collapsed .tm-sidebar__logo {
+  display: none;
+}
+
+.tm-sidebar-collapsed .tm-sidebar__item {
+  justify-content: center;
+  padding: var(--space-4) 0;
+}
+
+.tm-sidebar-collapsed .tm-sidebar__item:hover {
+  transform: none;
 }
 
 /* ============================================
@@ -65,12 +96,14 @@
 
 .tm-navbar {
   background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-neutral-200);
+  border-bottom: 1px solid var(--color-neutral-300);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--space-6);
-  height: var(--navbar-height);
+  padding: var(--space-4) var(--space-6);
+  min-height: var(--navbar-height);
+  height: auto;
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
@@ -90,6 +123,9 @@
   height: 40px;
   border-radius: var(--radius-md);
   color: var(--color-neutral-600);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   transition: background-color var(--duration-fast) var(--ease-standard);
 }
 
@@ -98,9 +134,12 @@
 }
 
 .tm-navbar__title {
-  font-size: var(--text-h3);
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
   color: var(--color-neutral-900);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .tm-navbar__right {
@@ -120,14 +159,6 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-neutral-700);
 }
-
-/* ============================================
-   DASHBOARD DEL POSTULANTE
-   ============================================ */
-
-.tm-postulante-dashboard {
-  display: flex;
-  flex-direction: column;
   gap: var(--space-8);
 }
 
@@ -163,6 +194,96 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
+}
+
+/* ============================================
+   TARJETAS DE MÉTRICAS
+   ============================================ */
+
+.tm-postulante-dashboard__metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.tm-metric-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.tm-metric-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.tm-metric-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tm-metric-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-metric-card__value {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  line-height: 1;
+}
+
+.tm-metric-card__label {
+  font-size: var(--text-body-sm);
+  color: var(--color-neutral-600);
+  margin-top: var(--space-1);
+}
+
+/* ============================================
+   OFERTAS SUGERIDAS
+   ============================================ */
+
+.tm-postulante-dashboard__ofertas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.tm-oferta-card__footer {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+@media (max-width: 1279px) {
+  .tm-postulante-dashboard__metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tm-postulante-dashboard__ofertas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .tm-postulante-dashboard__metrics {
+    grid-template-columns: 1fr;
+  }
+  .tm-postulante-dashboard__ofertas {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================
