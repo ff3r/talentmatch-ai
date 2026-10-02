@@ -110,258 +110,135 @@
       </div>
     </header>
 
-    <main class="tm-main">
-      <div class="tm-empresa-dashboard">
+        <main class="tm-main">
+      <div class="tm-empresa-dashboard" style="max-width: 1200px; margin: 0 auto; width: 100%;">
+        
+        <div style="margin-bottom: var(--space-4);">
+          <a href="dashboard.html" style="color: var(--color-neutral-500); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-sm);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver al Panel Principal
+          </a>
+        </div>
 
-        <section class="tm-empresa-dashboard__metrics">
-          <div class="tm-metrics-grid">
+        <!-- Header del Reclutador -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6); background-color: white; padding: var(--space-6); border-radius: var(--radius-lg); border: 1px solid var(--color-neutral-200);">
+          <div style="display: flex; gap: var(--space-5); align-items: center;">
+            <div class="tm-avatar tm-avatar--lg" style="width: 80px; height: 80px; font-size: 28px;">AP</div>
+            <div>
+              <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
+                <h1 class="tm-text-h2" style="margin: 0;">Ana Patricia Martinez</h1>
+                <span class="tm-badge tm-badge--success">Cuenta Activa</span>
+              </div>
+              <p class="tm-text-body" style="color: var(--color-neutral-600); margin-bottom: var(--space-1);">Reclutador Senior</p>
+              <p style="color: var(--color-neutral-500); font-size: var(--text-sm);">ana@techcorp.com · Último acceso: Hoy, 10:30 AM</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: var(--space-3);">
+            <button class="tm-btn tm-btn--secondary">Editar Perfil</button>
+            <button class="tm-btn tm-btn--ghost" style="color: var(--color-danger-600);">Suspender</button>
+          </div>
+        </div>
+
+        <!-- Métricas del Reclutador -->
+        <section style="margin-bottom: var(--space-6);">
+          <div class="tm-metrics-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4);">
             <div class="tm-card tm-metric-card">
-              <div class="tm-metric-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                </svg>
+              <div class="tm-metric-card__icon" style="background-color: var(--color-primary-50); color: var(--color-primary-600);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
               </div>
               <div class="tm-metric-card__content">
-                <p class="tm-metric-card__value">12</p>
-                <p class="tm-metric-card__label">Ofertas Activas</p>
+                <p class="tm-metric-card__value">2</p>
+                <p class="tm-metric-card__label">Ofertas Asignadas</p>
               </div>
             </div>
             <div class="tm-card tm-metric-card">
-              <div class="tm-metric-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
+              <div class="tm-metric-card__icon" style="background-color: var(--color-success-50); color: var(--color-success-600);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
               </div>
               <div class="tm-metric-card__content">
-                <p class="tm-metric-card__value">48</p>
-                <p class="tm-metric-card__label">Postulaciones</p>
+                <p class="tm-metric-card__value">13</p>
+                <p class="tm-metric-card__label">Candidatos Activos</p>
               </div>
             </div>
             <div class="tm-card tm-metric-card">
-              <div class="tm-metric-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
+              <div class="tm-metric-card__icon" style="background-color: var(--color-warning-50); color: var(--color-warning-600);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               </div>
               <div class="tm-metric-card__content">
-                <p class="tm-metric-card__value">5</p>
-                <p class="tm-metric-card__label">En Revisión</p>
-              </div>
-            </div>
-            <div class="tm-card tm-metric-card">
-              <div class="tm-metric-card__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
-                </svg>
-              </div>
-              <div class="tm-metric-card__content">
-                <p class="tm-metric-card__value">3</p>
-                <p class="tm-metric-card__label">Contratados</p>
+                <p class="tm-metric-card__value">4</p>
+                <p class="tm-metric-card__label">Entrevistas Agendadas</p>
               </div>
             </div>
           </div>
         </section>
 
+        <!-- Ofertas Asignadas al Reclutador -->
         <section class="tm-empresa-dashboard__section">
           <div class="tm-empresa-dashboard__section-header">
-            <h2 class="tm-text-h2">Ofertas Activas</h2>
+            <h2 class="tm-text-h2">Ofertas Gestionadas por Ana</h2>
+            <button class="tm-btn tm-btn--secondary tm-btn--sm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              Asignar Oferta
+            </button>
           </div>
-          <div class="tm-empresa-dashboard__ofertas">
-            <div class="tm-card tm-oferta-card">
-              <div class="tm-oferta-card__header">
-                <h3 class="tm-oferta-card__title">Desarrollador Full Stack Senior</h3>
-                <span class="tm-badge tm-badge--success">Activa</span>
-              </div>
-              <div class="tm-oferta-card__meta">
-                <span class="tm-oferta-card__area">Tecnología</span>
-                <span class="tm-oferta-card__modality">Remoto</span>
-                <span class="tm-oferta-card__location">Lima, Perú</span>
-              </div>
-              <div class="tm-oferta-card__stats">
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">15</span>
-                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
+          <div class="tm-empresa-dashboard__ofertas" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-6);">
+            
+            <div class="tm-card tm-oferta-card" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="tm-card__header" style="border-bottom: 1px solid var(--color-neutral-200); padding-bottom: var(--space-4); margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-2);">
+                  <span class="tm-badge" style="background-color: var(--color-success-100); color: var(--color-success-800);">Activa</span>
                 </div>
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">8</span>
-                  <span class="tm-oferta-card__stat-label">En revisión</span>
+                <h3 class="tm-text-h3" style="margin-bottom: var(--space-1);">Desarrollador Full Stack Senior</h3>
+              </div>
+              <div class="tm-oferta-card__body" style="flex: 1;">
+                <div style="display: flex; gap: var(--space-4); margin-bottom: var(--space-4); color: var(--color-neutral-600); font-size: var(--text-sm);">
+                  <span style="display: flex; align-items: center; gap: 4px;">Remoto</span>
+                  <span style="display: flex; align-items: center; gap: 4px;">Tiempo Completo</span>
                 </div>
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">3</span>
-                  <span class="tm-oferta-card__stat-label">Preseleccionados</span>
+                <div style="background-color: var(--color-neutral-50); padding: var(--space-3); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <p style="font-size: var(--text-sm); color: var(--color-neutral-600);">En proceso</p>
+                    <p style="font-size: var(--text-h4); font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">8</p>
+                  </div>
+                  <div style="text-align: right;">
+                    <p style="font-size: var(--text-sm); color: var(--color-primary-600); font-weight: var(--font-weight-medium);">Preseleccionados</p>
+                    <p style="font-size: var(--text-h4); font-weight: var(--font-weight-bold); color: var(--color-primary-700);">3</p>
+                  </div>
                 </div>
               </div>
-              <div class="tm-oferta-card__footer">
-                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
-                <a href="oferta-formulario.html" class="tm-btn tm-btn--ghost tm-btn--sm">Editar</a>
+              <div class="tm-oferta-card__footer" style="margin-top: var(--space-4);">
+                <button class="tm-btn tm-btn--ghost tm-btn--sm" style="width: 100%; color: var(--color-danger-600);">Quitar asignación</button>
               </div>
             </div>
-            <div class="tm-card tm-oferta-card">
-              <div class="tm-oferta-card__header">
-                <h3 class="tm-oferta-card__title">Diseñador UX/UI</h3>
-                <span class="tm-badge tm-badge--success">Activa</span>
-              </div>
-              <div class="tm-oferta-card__meta">
-                <span class="tm-oferta-card__area">Diseño</span>
-                <span class="tm-oferta-card__modality">Híbrido</span>
-                <span class="tm-oferta-card__location">Bogotá, Colombia</span>
-              </div>
-              <div class="tm-oferta-card__stats">
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">12</span>
-                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
-                </div>
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">5</span>
-                  <span class="tm-oferta-card__stat-label">En revisión</span>
-                </div>
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">2</span>
-                  <span class="tm-oferta-card__stat-label">Preseleccionados</span>
-                </div>
-              </div>
-              <div class="tm-oferta-card__footer">
-                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
-                <a href="oferta-formulario.html" class="tm-btn tm-btn--ghost tm-btn--sm">Editar</a>
-              </div>
-            </div>
-            <div class="tm-card tm-oferta-card">
-              <div class="tm-oferta-card__header">
-                <h3 class="tm-oferta-card__title">Analista de Datos</h3>
-                <span class="tm-badge tm-badge--warning">En revisión</span>
-              </div>
-              <div class="tm-oferta-card__meta">
-                <span class="tm-oferta-card__area">Datos</span>
-                <span class="tm-oferta-card__modality">Presencial</span>
-                <span class="tm-oferta-card__location">Ciudad de México</span>
-              </div>
-              <div class="tm-oferta-card__stats">
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">0</span>
-                  <span class="tm-oferta-card__stat-label">Postulaciones</span>
-                </div>
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">0</span>
-                  <span class="tm-oferta-card__stat-label">En revisión</span>
-                </div>
-                <div class="tm-oferta-card__stat">
-                  <span class="tm-oferta-card__stat-value">0</span>
-                  <span class="tm-oferta-card__stat-label">Preseleccionados</span>
-                </div>
-              </div>
-              <div class="tm-oferta-card__footer">
-                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
-                <a href="oferta-formulario.html" class="tm-btn tm-btn--ghost tm-btn--sm">Editar</a>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section class="tm-empresa-dashboard__section" style="margin-top: var(--space-6);">
-          <div class="tm-empresa-dashboard__section-header">
-            <h2 class="tm-text-h2">Equipo de Reclutadores</h2>
-          </div>
-          <div class="tm-card" style="padding: 0; overflow: hidden;">
-            <div style="overflow-x: auto;">
-              <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 600px;">
-                <thead style="background-color: var(--color-neutral-50); border-bottom: 1px solid var(--color-neutral-200);">
-                  <tr>
-                    <th style="padding: var(--space-3) var(--space-4); font-size: var(--text-sm); color: var(--color-neutral-600); font-weight: var(--font-weight-medium);">Reclutador</th>
-                    <th style="padding: var(--space-3) var(--space-4); font-size: var(--text-sm); color: var(--color-neutral-600); font-weight: var(--font-weight-medium);">Ofertas Asignadas</th>
-                    <th style="padding: var(--space-3) var(--space-4); font-size: var(--text-sm); color: var(--color-neutral-600); font-weight: var(--font-weight-medium);">Candidatos en proceso</th>
-                    <th style="padding: var(--space-3) var(--space-4); text-align: right; font-size: var(--text-sm); color: var(--color-neutral-600); font-weight: var(--font-weight-medium);">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid var(--color-neutral-100);">
-                    <td style="padding: var(--space-3) var(--space-4);">
-                      <div style="display: flex; align-items: center; gap: var(--space-3);">
-                        <span class="tm-avatar tm-avatar--sm">AP</span>
-                        <div>
-                          <p style="font-weight: var(--font-weight-medium); color: var(--color-neutral-900);">Ana Patricia Martinez</p>
-                          <p style="font-size: var(--text-sm); color: var(--color-neutral-500);">ana@techcorp.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td style="padding: var(--space-3) var(--space-4);"><span class="tm-badge tm-badge--primary">2 Activas</span></td>
-                    <td style="padding: var(--space-3) var(--space-4); color: var(--color-neutral-700);">13 candidatos</td>
-                    <td style="padding: var(--space-3) var(--space-4); text-align: right;">
-                      <a href="reclutador-detalle.html" class="tm-btn tm-btn--ghost tm-btn--sm">Gestionar</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="padding: var(--space-3) var(--space-4);">
-                      <div style="display: flex; align-items: center; gap: var(--space-3);">
-                        <span class="tm-avatar tm-avatar--sm">LR</span>
-                        <div>
-                          <p style="font-weight: var(--font-weight-medium); color: var(--color-neutral-900);">Luis Ramirez</p>
-                          <p style="font-size: var(--text-sm); color: var(--color-neutral-500);">luis@techcorp.com</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td style="padding: var(--space-3) var(--space-4);"><span class="tm-badge tm-badge--primary">1 Activa</span></td>
-                    <td style="padding: var(--space-3) var(--space-4); color: var(--color-neutral-700);">5 candidatos</td>
-                    <td style="padding: var(--space-3) var(--space-4); text-align: right;">
-                      <a href="reclutador-detalle.html" class="tm-btn tm-btn--ghost tm-btn--sm">Gestionar</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="tm-card tm-oferta-card" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="tm-card__header" style="border-bottom: 1px solid var(--color-neutral-200); padding-bottom: var(--space-4); margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-2);">
+                  <span class="tm-badge" style="background-color: var(--color-success-100); color: var(--color-success-800);">Activa</span>
+                </div>
+                <h3 class="tm-text-h3" style="margin-bottom: var(--space-1);">Diseñador UX/UI</h3>
+              </div>
+              <div class="tm-oferta-card__body" style="flex: 1;">
+                <div style="display: flex; gap: var(--space-4); margin-bottom: var(--space-4); color: var(--color-neutral-600); font-size: var(--text-sm);">
+                  <span style="display: flex; align-items: center; gap: 4px;">Híbrido</span>
+                  <span style="display: flex; align-items: center; gap: 4px;">Tiempo Completo</span>
+                </div>
+                <div style="background-color: var(--color-neutral-50); padding: var(--space-3); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <p style="font-size: var(--text-sm); color: var(--color-neutral-600);">En proceso</p>
+                    <p style="font-size: var(--text-h4); font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">5</p>
+                  </div>
+                  <div style="text-align: right;">
+                    <p style="font-size: var(--text-sm); color: var(--color-primary-600); font-weight: var(--font-weight-medium);">Preseleccionados</p>
+                    <p style="font-size: var(--text-h4); font-weight: var(--font-weight-bold); color: var(--color-primary-700);">2</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tm-oferta-card__footer" style="margin-top: var(--space-4);">
+                <button class="tm-btn tm-btn--ghost tm-btn--sm" style="width: 100%; color: var(--color-danger-600);">Quitar asignación</button>
+              </div>
             </div>
-          </div>
-        </section>
 
-        <section class="tm-empresa-dashboard__section" style="margin-top: var(--space-6);">
-          <div class="tm-empresa-dashboard__section-header">
-            <h2 class="tm-text-h2">Actividad Reciente</h2>
-          </div>
-          <div class="tm-card">
-            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
-              
-              <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
-                <div style="background-color: var(--color-primary-100); color: var(--color-primary-700); padding: 8px; border-radius: 50%;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                </div>
-                <div>
-                  <p style="color: var(--color-neutral-900); font-weight: var(--font-weight-medium);">Candidato preseleccionado por IA</p>
-                  <p style="color: var(--color-neutral-600); font-size: var(--text-sm);">La IA ha destacado a <strong>Carlos Lopez</strong> con 95% de match para <em>Desarrollador Full Stack Senior</em>.</p>
-                  <p style="color: var(--color-neutral-400); font-size: var(--text-xs); margin-top: 4px;">Hace 2 horas</p>
-                </div>
-              </div>
-
-              <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--color-neutral-100);">
-                <div style="background-color: var(--color-success-100); color: var(--color-success-700); padding: 8px; border-radius: 50%;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                </div>
-                <div>
-                  <p style="color: var(--color-neutral-900); font-weight: var(--font-weight-medium);">Nueva entrevista agendada</p>
-                  <p style="color: var(--color-neutral-600); font-size: var(--text-sm);"><strong>Ana Patricia</strong> agendó una entrevista técnica para <em>Diseñador UX/UI</em>.</p>
-                  <p style="color: var(--color-neutral-400); font-size: var(--text-xs); margin-top: 4px;">Hace 5 horas</p>
-                </div>
-              </div>
-              
-              <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding-top: var(--space-3); border-top: 1px solid var(--color-neutral-100);">
-                <div style="background-color: var(--color-warning-100); color: var(--color-warning-700); padding: 8px; border-radius: 50%;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                </div>
-                <div>
-                  <p style="color: var(--color-neutral-900); font-weight: var(--font-weight-medium);">Nueva oferta publicada</p>
-                  <p style="color: var(--color-neutral-600); font-size: var(--text-sm);">Se publicó la vacante de <em>Analista de Datos</em>. La IA está procesando los primeros CVs.</p>
-                  <p style="color: var(--color-neutral-400); font-size: var(--text-xs); margin-top: 4px;">Ayer</p>
-                </div>
-              </div>
-
-            </div>
           </div>
         </section>
 
