@@ -31,17 +31,18 @@
 
 .tm-dashboard-layout {
   display: grid;
-  grid-template-columns: var(--sidebar-width-expanded) 1fr;
-  grid-template-rows: var(--navbar-height) 1fr;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     "sidebar navbar"
     "sidebar main";
   min-height: 100vh;
   overflow: hidden;
+  transition: grid-template-columns var(--duration-normal) var(--ease-standard);
 }
 
 .tm-dashboard-layout.tm-sidebar-collapsed {
-  grid-template-columns: var(--sidebar-width-collapsed) 1fr;
+  grid-template-columns: 80px 1fr;
 }
 
 .tm-navbar {
@@ -56,7 +57,9 @@
   grid-area: main;
   padding: var(--space-8);
   overflow-y: auto;
-  background-color: var(--color-neutral-100);
+  background-color: var(--color-neutral-50);
+  background-image: radial-gradient(var(--color-neutral-200) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* ============================================
