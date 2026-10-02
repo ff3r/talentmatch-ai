@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Empresa | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+</head>
+<body class="tm-auth-page">
+  <div class="tm-auth-layout">
+
+    <aside class="tm-auth-illustration">
+      <div class="tm-auth-illustration__content">
+        <img src="../assets/images/logo-white.png" alt="TalentMatch AI" class="tm-auth-logo">
+        <h2 class="tm-auth-illustration__title">Lleva tu reclutamiento al siguiente nivel</h2>
+        <p class="tm-auth-illustration__text">Nuestra Inteligencia Artificial analiza cientos de perfiles para entregarte a los candidatos ideales en segundos.</p>
+      </div>
+    </aside>
+
+    <main class="tm-auth-main">
+      <div class="tm-auth-form-container">
+        <div class="tm-auth-header">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-auth-header__logo">
+          <h1 class="tm-auth-header__title">Registro de Empresa</h1>
+          <p class="tm-auth-header__subtitle">Crea tu cuenta corporativa y publica ofertas hoy mismo</p>
+        </div>
+
+        <form id="registerCompanyForm" class="tm-form" novalidate>
+          
+          <div class="tm-form__group">
+            <label for="companyName" class="tm-form__label">Razón Social / Nombre de Empresa</label>
+            <input
+              type="text"
+              id="companyName"
+              name="companyName"
+              class="tm-form__input"
+              placeholder="Ej. TechCorp Internacional S.A."
+              required
+            >
+            <span class="tm-form__error" id="companyNameError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="companyRuc" class="tm-form__label">RUC / NIT</label>
+            <input
+              type="text"
+              id="companyRuc"
+              name="companyRuc"
+              class="tm-form__input"
+              placeholder="Número de identificación fiscal"
+              required
+            >
+            <span class="tm-form__error" id="companyRucError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="companySector" class="tm-form__label">Sector</label>
+            <select id="companySector" name="companySector" class="tm-form__input" required>
+              <option value="" disabled selected>Selecciona un sector</option>
+              <option value="tecnologia">Tecnología y Software</option>
+              <option value="finanzas">Finanzas y Banca</option>
+              <option value="salud">Salud y Medicina</option>
+              <option value="educacion">Educación</option>
+              <option value="retail">Retail y Comercio</option>
+              <option value="manufactura">Manufactura</option>
+              <option value="servicios">Servicios Profesionales</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="tm-form__error" id="companySectorError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="email" class="tm-form__label">Correo corporativo</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="tm-form__input"
+              placeholder="tu@empresa.com"
+              autocomplete="email"
+              required
+            >
+            <span class="tm-form__error" id="emailError"></span>
+          </div>
+
+          <div class="tm-form__group">
+            <label for="password" class="tm-form__label">Contraseña</label>
+            <div class="tm-form__input-wrapper">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="tm-form__input"
+                placeholder="Crea una contraseña segura"
+                required
+              >
+              <button type="button" class="tm-form__toggle-password" aria-label="Mostrar contraseña">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="tm-form__error" id="passwordError"></span>
+          </div>
+
+          <div class="tm-form__actions">
+            <button type="submit" class="tm-btn tm-btn--primary tm-btn--block">
+              Registrar Empresa
+            </button>
+          </div>
+        </form>
+
+        <div class="tm-auth-footer">
+          <p class="tm-auth-footer__text">¿Ya tienes una cuenta?</p>
+          <div class="tm-auth-footer__links">
+            <a href="login.html" class="tm-auth-footer__link">Iniciar Sesión</a>
+            <span class="tm-auth-footer__separator">·</span>
+            <a href="registro-postulante.html" class="tm-auth-footer__link">Soy un Candidato</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+</body>
+</html>
