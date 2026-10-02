@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Empresa | TalentMatch AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/animations.css">
@@ -15,6 +18,7 @@
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/pages/auth.css">
 </head>
+
 <body class="tm-auth-page">
   <div class="tm-auth-layout">
 
@@ -22,7 +26,8 @@
       <div class="tm-auth-illustration__content">
         <img src="../assets/images/logo-white.png" alt="TalentMatch AI" class="tm-auth-logo">
         <h2 class="tm-auth-illustration__title">Lleva tu reclutamiento al siguiente nivel</h2>
-        <p class="tm-auth-illustration__text">Nuestra Inteligencia Artificial analiza cientos de perfiles para entregarte a los candidatos ideales en segundos.</p>
+        <p class="tm-auth-illustration__text">Nuestra Inteligencia Artificial analiza cientos de perfiles para
+          entregarte a los candidatos ideales en segundos.</p>
       </div>
     </aside>
 
@@ -35,30 +40,18 @@
         </div>
 
         <form id="registerCompanyForm" class="tm-form" novalidate>
-          
+
           <div class="tm-form__group">
             <label for="companyName" class="tm-form__label">Razón Social / Nombre de Empresa</label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              class="tm-form__input"
-              placeholder="Ej. TechCorp Internacional S.A."
-              required
-            >
+            <input type="text" id="companyName" name="companyName" class="tm-form__input"
+              placeholder="Ej. TechCorp Internacional S.A." required>
             <span class="tm-form__error" id="companyNameError"></span>
           </div>
 
           <div class="tm-form__group">
             <label for="companyRuc" class="tm-form__label">RUC / NIT</label>
-            <input
-              type="text"
-              id="companyRuc"
-              name="companyRuc"
-              class="tm-form__input"
-              placeholder="Número de identificación fiscal"
-              required
-            >
+            <input type="text" id="companyRuc" name="companyRuc" class="tm-form__input"
+              placeholder="Número de identificación fiscal" required>
             <span class="tm-form__error" id="companyRucError"></span>
           </div>
 
@@ -80,31 +73,22 @@
 
           <div class="tm-form__group">
             <label for="email" class="tm-form__label">Correo corporativo</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="tm-form__input"
-              placeholder="tu@empresa.com"
-              autocomplete="email"
-              required
-            >
+            <input type="email" id="email" name="email" class="tm-form__input" placeholder="tu@empresa.com"
+              autocomplete="email" required>
             <span class="tm-form__error" id="emailError"></span>
           </div>
 
           <div class="tm-form__group">
             <label for="password" class="tm-form__label">Contraseña</label>
             <div class="tm-form__input-wrapper">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                class="tm-form__input"
-                placeholder="Crea una contraseña segura"
-                required
-              >
+              <input type="password" id="password" name="password" class="tm-form__input"
+                placeholder="Crea una contraseña segura" required>
               <button type="button" class="tm-form__toggle-password" aria-label="Mostrar contraseña">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
               </button>
             </div>
             <span class="tm-form__error" id="passwordError"></span>
@@ -132,4 +116,5 @@
 
   <script src="../js/auth.js" defer></script>
 </body>
+
 </html>
