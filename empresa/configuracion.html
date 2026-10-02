@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil de Empresa | TalentMatch AI</title>
+  <title>Configuración | TalentMatch AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,40 +15,6 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/pages/empresa.css">
-  <style>
-    .tm-profile-grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: var(--space-6);
-    }
-    @media (max-width: 992px) {
-      .tm-profile-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .tm-profile-avatar-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: var(--space-4) 0;
-    }
-    .tm-profile-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background-color: var(--color-primary-50);
-      color: var(--color-primary-700);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--space-4);
-      border: 4px solid white;
-      box-shadow: var(--shadow-md);
-    }
-  </style>
 </head>
 
 <body class="tm-empresa-page">
@@ -81,7 +47,7 @@
           </svg>
           <span class="tm-sidebar__label">Crear Oferta</span>
         </a>
-        <a href="perfil.html" class="tm-sidebar__item tm-sidebar__item--active">
+        <a href="perfil.html" class="tm-sidebar__item">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
@@ -100,7 +66,7 @@
             <line x1="3" y1="18" x2="21" y2="18" />
           </svg>
         </button>
-        <h1 class="tm-navbar__title">Perfil de Empresa</h1>
+        <h1 class="tm-navbar__title">Configuración</h1>
       </div>
       <div class="tm-navbar__right">
         <div class="tm-dropdown">
@@ -138,105 +104,84 @@
 
     <main class="tm-main tm-page-content">
       <div class="tm-empresa-dashboard">
-        
-        <div class="tm-profile-grid">
+        <section class="tm-empresa-dashboard__section">
           
-          <!-- Columna Izquierda: Logo y Branding -->
-          <div class="tm-card" style="align-self: start;">
-            <div class="tm-profile-avatar-wrapper">
-              <div class="tm-profile-avatar">TC</div>
-              <h3 class="tm-text-h4" style="color: var(--color-neutral-900);">TechCorp S.A.</h3>
-              <p style="color: var(--color-neutral-600); margin-bottom: var(--space-6); font-size: var(--text-body-sm);">Tecnología y Software</p>
-              
-              <button class="tm-btn tm-btn--secondary" style="width: 100%; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                Actualizar Logo
-              </button>
-            </div>
-          </div>
-          
-          <!-- Columna Derecha: Formulario de Información -->
-          <div class="tm-card">
-            <h3 class="tm-text-h4" style="margin-bottom: var(--space-6); border-bottom: 1px solid var(--color-neutral-200); padding-bottom: var(--space-2); color: var(--color-primary-700);">Información Pública de la Empresa</h3>
+          <div class="tm-grid tm-grid-2" style="gap: var(--space-6); align-items: start;">
             
-            <form class="tm-modal__form" style="padding: 0; overflow: visible;">
-              <div class="tm-modal__grid">
+            <!-- Tarjeta Seguridad -->
+            <div class="tm-card" style="box-shadow: var(--shadow-sm); border: 1px solid var(--color-neutral-300);">
+              <h2 class="tm-text-h3 tm-mb-4" style="color: var(--color-primary-700); border-bottom: 2px solid var(--color-primary-100); padding-bottom: var(--space-2);">Seguridad y Acceso</h2>
+              <form class="tm-form" style="display: flex; flex-direction: column; gap: var(--space-4);">
                 
-                <div class="tm-form__group tm-form__group--full">
-                  <label class="tm-form__label">Razón Social</label>
-                  <input type="text" class="tm-form__input" value="TechCorp Internacional S.A." required>
+                <div class="tm-form__group">
+                  <label class="tm-form__label">Correo Electrónico Actual</label>
+                  <input type="email" class="tm-form__input" value="empresa@talentmatch.com" disabled style="background-color: var(--color-neutral-100); cursor: not-allowed;">
+                </div>
+
+                <div class="tm-form__group">
+                  <label class="tm-form__label">Contraseña Actual</label>
+                  <input type="password" class="tm-form__input" placeholder="••••••••">
                 </div>
                 
                 <div class="tm-form__group">
-                  <label class="tm-form__label">Sector / Industria</label>
-                  <select class="tm-form__input" required>
-                    <option value="">Seleccionar sector</option>
-                    <option value="tecnologia" selected>Tecnología y Software</option>
-                    <option value="finanzas">Finanzas y Banca</option>
-                    <option value="salud">Salud y Medicina</option>
-                    <option value="educacion">Educación</option>
-                    <option value="retail">Retail y Comercio</option>
-                  </select>
+                  <label class="tm-form__label">Nueva Contraseña</label>
+                  <input type="password" class="tm-form__input" placeholder="Mínimo 8 caracteres">
                 </div>
-                
+
                 <div class="tm-form__group">
-                  <label class="tm-form__label">Tamaño de la Empresa</label>
-                  <select class="tm-form__input" required>
-                    <option value="">Seleccionar tamaño</option>
-                    <option value="1-10">1 - 10 empleados</option>
-                    <option value="11-50">11 - 50 empleados</option>
-                    <option value="51-200" selected>51 - 200 empleados</option>
-                    <option value="201-500">201 - 500 empleados</option>
-                    <option value="500+">Más de 500 empleados</option>
-                  </select>
+                  <label class="tm-form__label">Confirmar Nueva Contraseña</label>
+                  <input type="password" class="tm-form__input" placeholder="Repite la nueva contraseña">
                 </div>
-                
-                <div class="tm-form__group">
-                  <label class="tm-form__label">Sitio Web</label>
-                  <input type="url" class="tm-form__input" value="https://techcorp.example.com">
+
+                <div style="display: flex; justify-content: flex-end; margin-top: var(--space-2);">
+                  <button type="button" class="tm-btn tm-btn--primary">Actualizar Contraseña</button>
                 </div>
+              </form>
+            </div>
+
+            <!-- Tarjeta Notificaciones y Preferencias -->
+            <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+              
+              <div class="tm-card" style="box-shadow: var(--shadow-sm); border: 1px solid var(--color-neutral-300);">
+                <h2 class="tm-text-h3 tm-mb-4" style="color: var(--color-primary-700); border-bottom: 2px solid var(--color-primary-100); padding-bottom: var(--space-2);">Notificaciones</h2>
                 
-                <div class="tm-form__group">
-                  <label class="tm-form__label">Ubicación de Sede Principal</label>
-                  <input type="text" class="tm-form__input" value="Lima, Perú">
-                </div>
-                
-                <div class="tm-form__group tm-form__group--full">
-                  <label class="tm-form__label">Descripción de la Empresa</label>
-                  <textarea class="tm-form__input" rows="5" required>TechCorp es una empresa líder en desarrollo de software y transformación digital. Nos enfocamos en crear soluciones innovadoras que impulsan el crecimiento de nuestros clientes a nivel global. Buscamos talento apasionado por la tecnología para unirse a nuestro equipo dinámico.</textarea>
-                </div>
-                
-                <div class="tm-form__group tm-form__group--full">
-                  <label class="tm-form__label">Enlaces de Redes Sociales</label>
-                  <div style="display: flex; flex-direction: column; gap: var(--space-3);">
-                    
-                    <div style="display: flex; gap: var(--space-2); align-items: center;">
-                      <input type="url" class="tm-form__input" value="https://linkedin.com/company/techcorp-intl" style="flex: 1;" placeholder="https://">
-                      <button type="button" class="tm-btn tm-btn--ghost" style="padding: var(--space-2); color: var(--color-error-500);" aria-label="Eliminar enlace">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                      </button>
-                    </div>
-                    
-                    <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm" style="align-self: flex-start;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                      Añadir otra red social
-                    </button>
+                <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                  <label style="display: flex; align-items: center; gap: var(--space-3); cursor: pointer;">
+                    <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-primary-600);">
+                    <span class="tm-text-body-sm" style="color: var(--color-neutral-700);">Recibir email por cada nueva postulación</span>
+                  </label>
+                  
+                  <label style="display: flex; align-items: center; gap: var(--space-3); cursor: pointer;">
+                    <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-primary-600);">
+                    <span class="tm-text-body-sm" style="color: var(--color-neutral-700);">Notificarme cuando un candidato haga match de +80%</span>
+                  </label>
+
+                  <label style="display: flex; align-items: center; gap: var(--space-3); cursor: pointer;">
+                    <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--color-primary-600);">
+                    <span class="tm-text-body-sm" style="color: var(--color-neutral-700);">Resumen semanal de desempeño de mis ofertas</span>
+                  </label>
+
+                  <div style="display: flex; justify-content: flex-end; margin-top: var(--space-2);">
+                    <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm">Guardar Preferencias</button>
                   </div>
                 </div>
-                
               </div>
-              
-              <div style="display: flex; justify-content: flex-end; margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--color-neutral-200);">
-                <button type="submit" class="tm-btn tm-btn--primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-                  Guardar Cambios
-                </button>
-              </div>
-            </form>
-          </div>
-          
-        </div>
 
+              <div class="tm-card" style="box-shadow: var(--shadow-sm); border: 1px solid var(--color-neutral-300);">
+                <h2 class="tm-text-h3 tm-mb-4" style="color: var(--color-primary-700); border-bottom: 2px solid var(--color-primary-100); padding-bottom: var(--space-2);">Facturación y Plan</h2>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div>
+                    <p class="tm-text-body" style="font-weight: bold;">Plan Actual: <span class="tm-badge tm-badge--success">Premium Corporativo</span></p>
+                    <p class="tm-text-body-sm" style="color: var(--color-neutral-500); margin-top: var(--space-1);">Renovación automática el 15 de Noviembre, 2026</p>
+                  </div>
+                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm">Gestionar Pagos</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
       </div>
     </main>
   </div>
@@ -270,5 +215,4 @@
     });
   </script>
 </body>
-
 </html>

@@ -108,18 +108,36 @@
         <h1 class="tm-navbar__title">Detalle de Oferta</h1>
       </div>
       <div class="tm-navbar__right">
-        <div class="tm-navbar__user">
-          <span class="tm-avatar tm-avatar--sm">TC</span>
-          <span class="tm-navbar__username">TechCorp Internacional S.A.</span>
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">TC</span>
+            <span class="tm-navbar__username">TechCorp Internacional S.A.</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">TechCorp S.A.</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">empresa@talentmatch.com</p>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="perfil.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Mi Perfil
+              </a>
+              <a href="configuracion.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Configuración
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="AuthService.logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
         </div>
-        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-            <polyline points="16 17 21 12 16 7" />
-            <line x1="21" y1="12" x2="9" y2="12" />
-          </svg>
-          Cerrar Sesión
-        </button>
       </div>
     </header>
 
@@ -289,11 +307,27 @@
   <script src="../js/auth.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Sidebar
       const toggleBtn = document.querySelector('.tm-navbar__toggle');
       const layout = document.querySelector('.tm-dashboard-layout');
       if (toggleBtn && layout) {
         toggleBtn.addEventListener('click', () => {
           layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+
+      // Dropdown de perfil
+      const dropdownBtn = document.getElementById('profileDropdownBtn');
+      const dropdownMenu = document.getElementById('profileDropdownMenu');
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('is-active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('is-active');
+          }
         });
       }
     });

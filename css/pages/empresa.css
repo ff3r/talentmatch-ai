@@ -38,12 +38,17 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) var(--space-6);
+  padding: var(--space-4) var(--space-6); /* Más alto para que respiren */
   color: var(--color-neutral-600);
-  font-size: var(--text-body-sm);
+  font-size: 1.05rem; /* Un poco más grande para mejor legibilidad */
   font-weight: var(--font-weight-medium);
   transition: all var(--duration-fast) var(--ease-standard);
   border-left: 4px solid transparent;
+}
+
+.tm-sidebar__item svg {
+  width: 22px;
+  height: 22px;
 }
 
 .tm-sidebar__item:hover {

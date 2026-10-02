@@ -61,7 +61,7 @@ const AuthService = (() => {
 
   function logout() {
     sessionStorage.removeItem(SESSION_KEY);
-    window.location.href = 'auth/login.html';
+    window.location.href = '../auth/login.html';
   }
 
   function getCurrentUser() {
