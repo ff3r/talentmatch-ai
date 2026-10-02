@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Reclutador | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/reclutador.css">
+</head>
+<body class="tm-reclutador-page">
+  <div class="tm-dashboard-layout">
+
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span class="tm-sidebar__label">Ofertas Asignadas</span>
+        </a>
+        <a href="candidatos.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="tm-sidebar__label">Candidatos</span>
+        </a>
+        <a href="matching.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+          <span class="tm-sidebar__label">Análisis de Matching</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="tm-navbar__title">Panel de Reclutador</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">AM</span>
+            <span class="tm-navbar__username">Ana Patricia Martinez</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Ana Patricia Martinez</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Reclutador Senior</p>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="#" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Mi Perfil
+              </a>
+              <a href="#" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Configuración
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="AuthService.logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+        <main class="tm-main">
+      <div class="tm-candidato-detalle" style="max-width: 1200px; margin: 0 auto; width: 100%; padding-bottom: var(--space-8);">
+        
+        <!-- Back Navigation -->
+        <div style="margin-bottom: var(--space-6);">
+          <a href="candidatos.html" style="color: var(--color-neutral-500); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-sm); font-weight: var(--font-weight-medium);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Volver a Candidatos
+          </a>
+        </div>
+
+        <!-- Top Header Card -->
+        <div class="tm-card" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-4);">
+          <div style="display: flex; gap: var(--space-5); align-items: center; flex-wrap: wrap;">
+            <div class="tm-avatar tm-avatar--lg" style="width: 100px; height: 100px; font-size: 32px;">CL</div>
+            <div>
+              <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2);">
+                <h1 class="tm-text-h1" style="margin: 0; color: var(--color-neutral-900);">Carlos Eduardo Lopez</h1>
+                <span class="tm-badge tm-badge--success">Disponible</span>
+              </div>
+              <p class="tm-text-body" style="color: var(--color-neutral-600); margin-bottom: var(--space-2); font-size: 1.125rem;">Desarrollador Full Stack Senior</p>
+              <div style="display: flex; gap: var(--space-4); color: var(--color-neutral-500); font-size: var(--text-sm);">
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Lima, Perú
+                </span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  5 años exp.
+                </span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  Pretensiones: ,500
+                </span>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-6);">
+            <div style="text-align: center;">
+              <div class="tm-match-score tm-match-score--high" data-score="95" style="width: 80px; height: 80px; margin: 0 auto var(--space-2);">
+                <svg class="tm-match-score__ring" viewBox="0 0 80 80" style="width: 100%; height: 100%;">
+                  <circle class="tm-match-score__ring-bg" cx="40" cy="40" r="34"/>
+                  <circle class="tm-match-score__ring-fill" cx="40" cy="40" r="34"/>
+                </svg>
+                <span class="tm-match-score__value" style="font-size: 1.5rem;">95%</span>
+              </div>
+              <p style="font-size: var(--text-sm); font-weight: var(--font-weight-bold); color: var(--color-success-600); text-transform: uppercase; letter-spacing: 0.5px;">Match IA</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <button class="tm-btn tm-btn--primary">Agendar Entrevista</button>
+              <button class="tm-btn tm-btn--secondary">Enviar Mensaje</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Column Layout -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-6);">
+          
+          <!-- Left Column -->
+          <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+            
+            <section class="tm-card">
+              <h2 class="tm-text-h3" style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-600)"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                Análisis de la IA
+              </h2>
+              <div style="background-color: var(--color-primary-50); padding: var(--space-4); border-radius: var(--radius-md); border-left: 4px solid var(--color-primary-600);">
+                <h4 style="font-weight: var(--font-weight-bold); color: var(--color-primary-800); margin-bottom: var(--space-2);">Por qué es un excelente perfil</h4>
+                <p style="color: var(--color-neutral-700); line-height: 1.6;">Carlos tiene sólida experiencia en el stack MERN y AWS, coincidiendo exactamente con los requerimientos técnicos de tu oferta "Desarrollador Full Stack Senior". Ha liderado la migración de arquitecturas monolíticas a microservicios en el sector fintech, lo que le da una ventaja estratégica para el rol.</p>
+                <div style="margin-top: var(--space-4);">
+                  <h4 style="font-weight: var(--font-weight-bold); color: var(--color-warning-700); margin-bottom: var(--space-2);">Puntos a considerar</h4>
+                  <p style="color: var(--color-neutral-700); line-height: 1.6;">Falta experiencia comprobable con GraphQL (Requerimiento deseable, no excluyente). Podría requerir una pequeña curva de aprendizaje en este aspecto.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="tm-card">
+              <h2 class="tm-text-h3" style="margin-bottom: var(--space-6);">Experiencia Laboral</h2>
+              
+              <div style="position: relative; padding-left: 24px; border-left: 2px solid var(--color-neutral-200); display: flex; flex-direction: column; gap: var(--space-6);">
+                
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -31px; top: 0; width: 14px; height: 14px; border-radius: 50%; background-color: var(--color-primary-600); border: 2px solid white;"></div>
+                  <h3 class="tm-text-h4" style="margin-bottom: 4px;">TechSolutions S.A.</h3>
+                  <p style="font-weight: var(--font-weight-medium); color: var(--color-neutral-800); margin-bottom: 4px;">Senior Full Stack Developer</p>
+                  <p style="color: var(--color-neutral-500); font-size: var(--text-sm); margin-bottom: var(--space-3);">Ene 2023 - Presente · 3 años 10 meses</p>
+                  <ul style="color: var(--color-neutral-700); font-size: var(--text-body-sm); padding-left: 20px; line-height: 1.6;">
+                    <li>Lideró la migración de la plataforma principal de un monolito PHP a microservicios con Node.js y React.</li>
+                    <li>Redujo el tiempo de carga de la aplicación en un 40% mediante la optimización de consultas SQL y cachés en Redis.</li>
+                    <li>Mentoring a desarrolladores junior y revisión de código constante.</li>
+                  </ul>
+                </div>
+                
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -31px; top: 0; width: 14px; height: 14px; border-radius: 50%; background-color: var(--color-neutral-300); border: 2px solid white;"></div>
+                  <h3 class="tm-text-h4" style="margin-bottom: 4px;">FinTech Innova</h3>
+                  <p style="font-weight: var(--font-weight-medium); color: var(--color-neutral-800); margin-bottom: 4px;">Frontend Developer</p>
+                  <p style="color: var(--color-neutral-500); font-size: var(--text-sm); margin-bottom: var(--space-3);">Mar 2021 - Dic 2022 · 1 año 10 meses</p>
+                  <ul style="color: var(--color-neutral-700); font-size: var(--text-body-sm); padding-left: 20px; line-height: 1.6;">
+                    <li>Desarrollo de interfaces de usuario responsivas para aplicaciones financieras usando React.</li>
+                    <li>Integración con pasarelas de pago y APIs de terceros.</li>
+                  </ul>
+                </div>
+
+              </div>
+            </section>
+            
+            <section class="tm-card">
+              <h2 class="tm-text-h3" style="margin-bottom: var(--space-6);">Formación Académica</h2>
+              <div style="position: relative; padding-left: 24px; border-left: 2px solid var(--color-neutral-200); display: flex; flex-direction: column; gap: var(--space-6);">
+                
+                <div style="position: relative;">
+                  <div style="position: absolute; left: -31px; top: 0; width: 14px; height: 14px; border-radius: 50%; background-color: var(--color-neutral-300); border: 2px solid white;"></div>
+                  <h3 class="tm-text-h4" style="margin-bottom: 4px;">Universidad Tecnológica</h3>
+                  <p style="font-weight: var(--font-weight-medium); color: var(--color-neutral-800); margin-bottom: 4px;">Ingeniería de Sistemas</p>
+                  <p style="color: var(--color-neutral-500); font-size: var(--text-sm);">2016 - 2021</p>
+                </div>
+                
+              </div>
+            </section>
+
+          </div>
+
+          <!-- Right Column -->
+          <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+            
+            <section class="tm-card">
+              <h2 class="tm-text-h4" style="margin-bottom: var(--space-4);">Match por Categorías</h2>
+              <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                
+                <div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-neutral-700);">Habilidades Técnicas</span>
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-bold); color: var(--color-success-600);">98%</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background-color: var(--color-neutral-100); border-radius: 4px; overflow: hidden;">
+                    <div style="height: 100%; width: 98%; background-color: var(--color-success-500); border-radius: 4px;"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-neutral-700);">Experiencia y Nivel</span>
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-bold); color: var(--color-success-600);">90%</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background-color: var(--color-neutral-100); border-radius: 4px; overflow: hidden;">
+                    <div style="height: 100%; width: 90%; background-color: var(--color-success-500); border-radius: 4px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-neutral-700);">Habilidades Blandas</span>
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-bold); color: var(--color-primary-600);">85%</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background-color: var(--color-neutral-100); border-radius: 4px; overflow: hidden;">
+                    <div style="height: 100%; width: 85%; background-color: var(--color-primary-500); border-radius: 4px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-medium); color: var(--color-neutral-700);">Formación Académica</span>
+                    <span style="font-size: var(--text-sm); font-weight: var(--font-weight-bold); color: var(--color-success-600);">100%</span>
+                  </div>
+                  <div style="width: 100%; height: 8px; background-color: var(--color-neutral-100); border-radius: 4px; overflow: hidden;">
+                    <div style="height: 100%; width: 100%; background-color: var(--color-success-500); border-radius: 4px;"></div>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            <section class="tm-card">
+              <h2 class="tm-text-h4" style="margin-bottom: var(--space-4);">Habilidades Técnicas</h2>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tm-badge tm-badge--outline">React</span>
+                <span class="tm-badge tm-badge--outline">Node.js</span>
+                <span class="tm-badge tm-badge--outline">TypeScript</span>
+                <span class="tm-badge tm-badge--outline">AWS</span>
+                <span class="tm-badge tm-badge--outline">Docker</span>
+                <span class="tm-badge tm-badge--outline">MongoDB</span>
+                <span class="tm-badge tm-badge--outline">PostgreSQL</span>
+                <span class="tm-badge tm-badge--outline">Redux</span>
+              </div>
+            </section>
+
+            <section class="tm-card">
+              <h2 class="tm-text-h4" style="margin-bottom: var(--space-4);">Archivos Adjuntos</h2>
+              <div style="border: 1px solid var(--color-neutral-200); border-radius: var(--radius-md); padding: var(--space-3); display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                  <div style="background-color: var(--color-primary-50); color: var(--color-primary-700); padding: 8px; border-radius: var(--radius-sm);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  </div>
+                  <div>
+                    <p style="font-weight: var(--font-weight-medium); color: var(--color-neutral-900); font-size: var(--text-sm);">CV_CarlosLopez_2026.pdf</p>
+                    <p style="color: var(--color-neutral-500); font-size: var(--text-xs);">PDF · 1.2 MB</p>
+                  </div>
+                </div>
+                <button class="tm-btn tm-btn--ghost" aria-label="Descargar CV" style="color: var(--color-primary-600);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </button>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toggle Sidebar
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+
+      // Dropdown de perfil
+      const dropdownBtn = document.getElementById('profileDropdownBtn');
+      const dropdownMenu = document.getElementById('profileDropdownMenu');
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('is-active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('is-active');
+          }
+        });
+      }
+
+      const panel = document.getElementById('candidatoPanel');
+      if (panel) {
+        panel.classList.remove('tm-panel-visible');
+      }
+
+      // Animar círculos de score
+      setTimeout(() => {
+        document.querySelectorAll('.tm-match-score').forEach(el => {
+          const score = parseInt(el.getAttribute('data-score')) || 0;
+          const circle = el.querySelector('.tm-match-score__ring-fill');
+          if (circle) {
+            // El círculo tiene circumference 213.6
+            const offset = 213.6 - (213.6 * (score / 100));
+            circle.style.strokeDashoffset = offset;
+          }
+        });
+      }, 100);
+    });
+
+    function showCandidato(id) {
+      const panels = document.querySelectorAll('.tm-panel');
+      panels.forEach(panel => panel.style.display = 'none');
+      const selectedPanel = document.getElementById('panel-' + id);
+      if (selectedPanel) {
+        selectedPanel.style.display = 'block';
+        const panelContainer = document.getElementById('candidatoPanel');
+        panelContainer.classList.add('tm-panel-visible');
+        
+        const contentGrid = document.querySelector('.tm-reclutador-dashboard__content');
+        if (contentGrid) contentGrid.classList.add('has-panel-open');
+      }
+    }
+
+    function closePanel() {
+      const panelContainer = document.getElementById('candidatoPanel');
+      panelContainer.classList.remove('tm-panel-visible');
+      const panels = document.querySelectorAll('.tm-panel');
+      panels.forEach(panel => panel.style.display = 'none');
+      
+      const contentGrid = document.querySelector('.tm-reclutador-dashboard__content');
+      if (contentGrid) contentGrid.classList.remove('has-panel-open');
+    }
+  </script>
+</body>
+</html>

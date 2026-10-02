@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Reclutador | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/reclutador.css">
+</head>
+<body class="tm-reclutador-page">
+  <div class="tm-dashboard-layout">
+
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <span class="tm-sidebar__label">Ofertas Asignadas</span>
+        </a>
+        <a href="candidatos.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="tm-sidebar__label">Candidatos</span>
+        </a>
+        <a href="matching.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+          <span class="tm-sidebar__label">Análisis de Matching</span>
+        </a>
+      </nav>
+    </aside>
+
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="tm-navbar__title">Panel de Reclutador</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">AM</span>
+            <span class="tm-navbar__username">Ana Patricia Martinez</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Ana Patricia Martinez</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Reclutador Senior</p>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="#" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Mi Perfil
+              </a>
+              <a href="#" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Configuración
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="AuthService.logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+        <main class="tm-main">
+      <div class="tm-reclutador-dashboard" style="max-width: 1400px; margin: 0 auto; width: 100%;">
+        
+        <!-- Header -->
+        <div style="margin-bottom: var(--space-6);">
+          <h2 class="tm-text-h2">Directorio de Candidatos</h2>
+          <p class="tm-text-body" style="color: var(--color-neutral-600);">Explora y filtra toda la base de talentos para encontrar a los mejores perfiles.</p>
+        </div>
+
+        <!-- Filtros -->
+        <div class="tm-card" style="margin-bottom: var(--space-6); padding: var(--space-4);">
+          <form style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: flex-end;">
+            <div class="tm-form__group" style="flex: 1; min-width: 200px; margin: 0;">
+              <label class="tm-form__label">Buscar</label>
+              <input type="text" class="tm-form__input" placeholder="Nombre, cargo o palabra clave...">
+            </div>
+            <div class="tm-form__group" style="flex: 1; min-width: 150px; margin: 0;">
+              <label class="tm-form__label">Área</label>
+              <select class="tm-form__input">
+                <option value="">Todas las áreas</option>
+                <option value="tec">Tecnología</option>
+                <option value="diseno">Diseño</option>
+                <option value="mkt">Marketing</option>
+              </select>
+            </div>
+            <div class="tm-form__group" style="flex: 1; min-width: 150px; margin: 0;">
+              <label class="tm-form__label">Experiencia</label>
+              <select class="tm-form__input">
+                <option value="">Cualquier nivel</option>
+                <option value="jr">Junior (1-3 años)</option>
+                <option value="ssr">Semi Senior (3-5 años)</option>
+                <option value="sr">Senior (5+ años)</option>
+              </select>
+            </div>
+            <div class="tm-form__group" style="flex: 1; min-width: 150px; margin: 0;">
+              <label class="tm-form__label">Puntaje IA (Mínimo)</label>
+              <select class="tm-form__input">
+                <option value="">Todos</option>
+                <option value="90">Mayor a 90%</option>
+                <option value="80">Mayor a 80%</option>
+                <option value="70">Mayor a 70%</option>
+              </select>
+            </div>
+            <button type="button" class="tm-btn tm-btn--primary" style="height: 48px;">
+              Filtrar
+            </button>
+          </form>
+        </div>
+
+                <!-- Grid de Candidatos -->
+        <div class="tm-candidatos-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: var(--space-6);">
+          
+          <!-- Candidato 1 -->
+          <div class="tm-card tm-candidato-card" style="display: flex; flex-direction: column;">
+            <div class="tm-candidato-card__header">
+              <div class="tm-candidato-card__info">
+                <div class="tm-candidato-card__avatar">
+                  <span class="tm-avatar">CL</span>
+                </div>
+                <div class="tm-candidato-card__details">
+                  <h3 class="tm-candidato-card__name">Carlos Eduardo Lopez</h3>
+                  <p class="tm-candidato-card__title">Desarrollador Full Stack</p>
+                  <p class="tm-candidato-card__meta">Lima, Perú · 5 años exp.</p>
+                </div>
+              </div>
+              <div class="tm-candidato-card__match">
+                <div class="tm-match-score tm-match-score--high" data-score="95">
+                  <svg class="tm-match-score__ring" viewBox="0 0 80 80">
+                    <circle class="tm-match-score__ring-bg" cx="40" cy="40" r="34"/>
+                    <circle class="tm-match-score__ring-fill" cx="40" cy="40" r="34"/>
+                  </svg>
+                  <span class="tm-match-score__value">95%</span>
+                </div>
+                <span class="tm-match-score__label">Match IA</span>
+              </div>
+            </div>
+            <div class="tm-candidato-card__skills">
+              <span class="tm-tag">React</span>
+              <span class="tm-tag">Node.js</span>
+              <span class="tm-tag">AWS</span>
+              <span class="tm-tag">TypeScript</span>
+            </div>
+            <div style="margin-top: var(--space-5); border-top: 1px solid var(--color-neutral-200); padding-top: var(--space-4);">
+              <a href="candidato-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm" style="width: 100%;">Ver Perfil Completo</a>
+            </div>
+          </div>
+
+          <!-- Candidato 2 -->
+          <div class="tm-card tm-candidato-card" style="display: flex; flex-direction: column;">
+            <div class="tm-candidato-card__header">
+              <div class="tm-candidato-card__info">
+                <div class="tm-candidato-card__avatar">
+                  <span class="tm-avatar">LM</span>
+                </div>
+                <div class="tm-candidato-card__details">
+                  <h3 class="tm-candidato-card__name">Laura Patricia Mendoza</h3>
+                  <p class="tm-candidato-card__title">Diseñadora UX/UI</p>
+                  <p class="tm-candidato-card__meta">Bogotá, Colombia · 3 años exp.</p>
+                </div>
+              </div>
+              <div class="tm-candidato-card__match">
+                <div class="tm-match-score tm-match-score--medium" data-score="82">
+                  <svg class="tm-match-score__ring" viewBox="0 0 80 80">
+                    <circle class="tm-match-score__ring-bg" cx="40" cy="40" r="34"/>
+                    <circle class="tm-match-score__ring-fill" cx="40" cy="40" r="34"/>
+                  </svg>
+                  <span class="tm-match-score__value">82%</span>
+                </div>
+                <span class="tm-match-score__label">Match IA</span>
+              </div>
+            </div>
+            <div class="tm-candidato-card__skills">
+              <span class="tm-tag">Figma</span>
+              <span class="tm-tag">Prototipado</span>
+              <span class="tm-tag">Research</span>
+            </div>
+            <div style="margin-top: var(--space-5); border-top: 1px solid var(--color-neutral-200); padding-top: var(--space-4);">
+              <a href="candidato-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm" style="width: 100%;">Ver Perfil Completo</a>
+            </div>
+          </div>
+
+          <!-- Candidato 3 -->
+          <div class="tm-card tm-candidato-card" style="display: flex; flex-direction: column;">
+            <div class="tm-candidato-card__header">
+              <div class="tm-candidato-card__info">
+                <div class="tm-candidato-card__avatar">
+                  <span class="tm-avatar">JP</span>
+                </div>
+                <div class="tm-candidato-card__details">
+                  <h3 class="tm-candidato-card__name">Jorge Perez</h3>
+                  <p class="tm-candidato-card__title">Frontend Developer</p>
+                  <p class="tm-candidato-card__meta">CDMX, México · 1 año exp.</p>
+                </div>
+              </div>
+              <div class="tm-candidato-card__match">
+                <div class="tm-match-score tm-match-score--low" data-score="65">
+                  <svg class="tm-match-score__ring" viewBox="0 0 80 80">
+                    <circle class="tm-match-score__ring-bg" cx="40" cy="40" r="34"/>
+                    <circle class="tm-match-score__ring-fill" cx="40" cy="40" r="34"/>
+                  </svg>
+                  <span class="tm-match-score__value">65%</span>
+                </div>
+                <span class="tm-match-score__label">Match IA</span>
+              </div>
+            </div>
+            <div class="tm-candidato-card__skills">
+              <span class="tm-tag">HTML</span>
+              <span class="tm-tag">CSS</span>
+              <span class="tm-tag">JavaScript</span>
+            </div>
+            <div style="margin-top: var(--space-5); border-top: 1px solid var(--color-neutral-200); padding-top: var(--space-4);">
+              <a href="candidato-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm" style="width: 100%;">Ver Perfil Completo</a>
+            </div>
+          </div>
+          
+          <!-- Candidato 4 -->
+          <div class="tm-card tm-candidato-card" style="display: flex; flex-direction: column;">
+            <div class="tm-candidato-card__header">
+              <div class="tm-candidato-card__info">
+                <div class="tm-candidato-card__avatar">
+                  <span class="tm-avatar">MS</span>
+                </div>
+                <div class="tm-candidato-card__details">
+                  <h3 class="tm-candidato-card__name">Maria Soto</h3>
+                  <p class="tm-candidato-card__title">Data Analyst</p>
+                  <p class="tm-candidato-card__meta">Santiago, Chile · 4 años exp.</p>
+                </div>
+              </div>
+              <div class="tm-candidato-card__match">
+                <div class="tm-match-score tm-match-score--high" data-score="98">
+                  <svg class="tm-match-score__ring" viewBox="0 0 80 80">
+                    <circle class="tm-match-score__ring-bg" cx="40" cy="40" r="34"/>
+                    <circle class="tm-match-score__ring-fill" cx="40" cy="40" r="34"/>
+                  </svg>
+                  <span class="tm-match-score__value">98%</span>
+                </div>
+                <span class="tm-match-score__label">Match IA</span>
+              </div>
+            </div>
+            <div class="tm-candidato-card__skills">
+              <span class="tm-tag">Python</span>
+              <span class="tm-tag">SQL</span>
+              <span class="tm-tag">Tableau</span>
+              <span class="tm-tag">Pandas</span>
+            </div>
+            <div style="margin-top: var(--space-5); border-top: 1px solid var(--color-neutral-200); padding-top: var(--space-4);">
+              <a href="candidato-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm" style="width: 100%;">Ver Perfil Completo</a>
+            </div>
+          </div>
+
+        </div>
+
+
+          
+      </div>
+    </main>
+
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toggle Sidebar
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+
+      // Dropdown de perfil
+      const dropdownBtn = document.getElementById('profileDropdownBtn');
+      const dropdownMenu = document.getElementById('profileDropdownMenu');
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('is-active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('is-active');
+          }
+        });
+      }
+
+      const panel = document.getElementById('candidatoPanel');
+      if (panel) {
+        panel.classList.remove('tm-panel-visible');
+      }
+
+      // Animar círculos de score
+      setTimeout(() => {
+        document.querySelectorAll('.tm-match-score').forEach(el => {
+          const score = parseInt(el.getAttribute('data-score')) || 0;
+          const circle = el.querySelector('.tm-match-score__ring-fill');
+          if (circle) {
+            // El círculo tiene circumference 213.6
+            const offset = 213.6 - (213.6 * (score / 100));
+            circle.style.strokeDashoffset = offset;
+          }
+        });
+      }, 100);
+    });
+
+    function showCandidato(id) {
+      const panels = document.querySelectorAll('.tm-panel');
+      panels.forEach(panel => panel.style.display = 'none');
+      const selectedPanel = document.getElementById('panel-' + id);
+      if (selectedPanel) {
+        selectedPanel.style.display = 'block';
+        const panelContainer = document.getElementById('candidatoPanel');
+        panelContainer.classList.add('tm-panel-visible');
+        
+        const contentGrid = document.querySelector('.tm-reclutador-dashboard__content');
+        if (contentGrid) contentGrid.classList.add('has-panel-open');
+      }
+    }
+
+    function closePanel() {
+      const panelContainer = document.getElementById('candidatoPanel');
+      panelContainer.classList.remove('tm-panel-visible');
+      const panels = document.querySelectorAll('.tm-panel');
+      panels.forEach(panel => panel.style.display = 'none');
+      
+      const contentGrid = document.querySelector('.tm-reclutador-dashboard__content');
+      if (contentGrid) contentGrid.classList.remove('has-panel-open');
+    }
+  </script>
+</body>
+</html>
