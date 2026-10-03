@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Perfil | TalentMatch AI</title>
+  <title>Mi Perfil Profesional | TalentMatch AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,14 +13,15 @@
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/responsive.css">
-  <link rel="stylesheet" href="../css/pages/perfil.css">
+  <link rel="stylesheet" href="../css/pages/postulante.css">
 </head>
-<body class="tm-perfil-page">
+<body class="tm-postulante-page">
   <div class="tm-dashboard-layout">
 
+    <!-- Sidebar Estandarizado -->
     <aside class="tm-sidebar">
       <div class="tm-sidebar__header">
-        <img src="../assets/images/logo-white.svg" alt="TalentMatch AI" class="tm-sidebar__logo">
+        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
       </div>
       <nav class="tm-sidebar__nav">
         <a href="dashboard.html" class="tm-sidebar__item">
@@ -50,55 +51,120 @@
       </nav>
     </aside>
 
+    <!-- Navbar Estandarizado -->
     <header class="tm-navbar">
       <div class="tm-navbar__left">
         <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
-        <h1 class="tm-navbar__title">Mi Perfil Profesional</h1>
+        <h1 class="tm-navbar__title">Mi Perfil</h1>
       </div>
       <div class="tm-navbar__right">
-        <div class="tm-navbar__user">
-          <span class="tm-avatar tm-avatar--sm">CL</span>
-          <span class="tm-navbar__username">Carlos Eduardo Lopez</span>
-        </div>
-        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-          Cerrar Sesión
-        </button>
-      </div>
-    </header>
-
-    <main class="tm-main">
-      <div class="tm-perfil">
-
-        <div class="tm-perfil__header">
-          <div class="tm-perfil__avatar-section">
-            <div class="tm-avatar tm-avatar--lg">CL</div>
-            <button class="tm-btn tm-btn--secondary tm-btn--sm">Cambiar foto</button>
-          </div>
-          <div class="tm-perfil__info">
-            <h2 class="tm-perfil__name">Carlos Eduardo Lopez</h2>
-            <p class="tm-perfil__title">Desarrollador Full Stack</p>
-            <p class="tm-perfil__location">Lima, Perú</p>
-          </div>
-          <div class="tm-perfil__progress">
-            <div class="tm-progress-bar">
-              <div class="tm-progress-bar__header">
-                <span class="tm-progress-bar__label">Completitud del perfil</span>
-                <span class="tm-progress-bar__value">65%</span>
-              </div>
-              <div class="tm-progress-bar__track">
-                <div class="tm-progress-bar__fill" style="--progress-value: 65%;"></div>
-              </div>
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">CL</span>
+            <span class="tm-navbar__username">Carlos Eduardo Lopez</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Carlos Eduardo Lopez</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Postulante</p>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="perfil.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Mi Perfil
+              </a>
+              <a href="#" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Configuración
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="AuthService.logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Cerrar Sesión
+              </button>
             </div>
           </div>
         </div>
+      </div>
+    </header>
 
-        <form class="tm-perfil__form" id="perfilForm">
+    <!-- Contenido Principal -->
+    <main class="tm-main">
+      <div class="tm-perfil">
 
+        <!-- Banner de Toast de Guardado -->
+        <div id="perfilToast" style="display: none; background-color: #dcfce7; border: 1.5px solid #86efac; color: #15803d; padding: var(--space-4) var(--space-5); border-radius: var(--radius-lg); align-items: center; justify-content: space-between; gap: var(--space-3); animation: tm-fadeIn 0.3s ease-out;">
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong style="display: block; font-size: 0.95rem;">¡Perfil actualizado exitosamente!</strong>
+              <span style="font-size: var(--text-body-sm); color: #166534;">Los cambios se guardaron y tu compatibilidad de matching se ha recalculado.</span>
+            </div>
+          </div>
+          <button type="button" onclick="document.getElementById('perfilToast').style.display='none'" style="background: none; border: none; color: #15803d; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <!-- Header Card de Perfil -->
+        <div class="tm-perfil__header">
+          <div class="tm-perfil__user-main">
+            <div class="tm-perfil__avatar">CL</div>
+            <div>
+              <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
+                <h2 class="tm-perfil__name">Carlos Eduardo Lopez</h2>
+                <span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo en búsqueda</span>
+              </div>
+              <p class="tm-perfil__headline">Desarrollador Full Stack Senior</p>
+              <div class="tm-perfil__meta">
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Lima, Perú
+                </span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  5 años de experiencia
+                </span>
+                <span style="display: flex; align-items: center; gap: 4px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  CV adjunto actualizado
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barra de Completitud del Perfil -->
+          <div class="tm-perfil__progress-box">
+            <div class="tm-progress-bar__header">
+              <span class="tm-progress-bar__label">Completitud del perfil</span>
+              <span class="tm-progress-bar__value" id="progressValText">85%</span>
+            </div>
+            <div class="tm-progress-bar__track">
+              <div class="tm-progress-bar__fill" style="--progress-value: 85%; width: 85%;"></div>
+            </div>
+            <p style="margin: var(--space-2) 0 0; font-size: var(--text-caption); color: var(--color-neutral-500);">
+              Perfil altamente competitivo para el motor de matching.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formulario de Perfil Profesional -->
+        <form class="tm-perfil__form" id="formPerfil" onsubmit="guardarPerfil(event)">
+
+          <!-- (1) Datos Personales -->
           <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Datos Personales</h3>
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                1. Datos Personales
+              </h3>
+              <p class="tm-perfil__section-desc">Información básica de contacto y visibilidad para reclutadores</p>
+            </div>
             <div class="tm-perfil__grid">
               <div class="tm-form__group">
                 <label for="nombre" class="tm-form__label">Nombres</label>
@@ -106,211 +172,305 @@
               </div>
               <div class="tm-form__group">
                 <label for="apellidos" class="tm-form__label">Apellidos</label>
-                <input type="text" id="apellidos" name="apellidos" class="tm-form__input" value="Lopez" required>
+                <input type="text" id="apellidos" name="apellidos" class="tm-form__input" value="Lopez Mendoza" required>
               </div>
               <div class="tm-form__group">
-                <label for="email" class="tm-form__label">Correo electrónico</label>
-                <input type="email" id="email" name="email" class="tm-form__input" value="carlos.lopez@email.com" required>
+                <label for="email" class="tm-form__label">Correo electrónico (registrado)</label>
+                <input type="email" id="email" name="email" class="tm-form__input" value="postulante@talentmatch.com" readonly style="background-color: var(--color-neutral-100); color: var(--color-neutral-600); cursor: not-allowed;">
               </div>
               <div class="tm-form__group">
-                <label for="telefono" class="tm-form__label">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" class="tm-form__input" value="+51 987 654 321">
+                <label for="telefono" class="tm-form__label">Teléfono / WhatsApp</label>
+                <input type="tel" id="telefono" name="telefono" class="tm-form__input" value="+51 987 654 321" required>
               </div>
               <div class="tm-form__group">
-                <label for="ubicacion" class="tm-form__label">Ubicación</label>
-                <input type="text" id="ubicacion" name="ubicacion" class="tm-form__input" value="Lima, Perú">
+                <label for="ubicacion" class="tm-form__label">Ciudad y País de Residencia</label>
+                <input type="text" id="ubicacion" name="ubicacion" class="tm-form__input" value="Lima, Perú" required>
               </div>
               <div class="tm-form__group">
-                <label for="fechaNacimiento" class="tm-form__label">Fecha de nacimiento</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="tm-form__input" value="1995-05-15">
+                <label for="linkedin" class="tm-form__label">Perfil de LinkedIn o Portafolio Web</label>
+                <input type="url" id="linkedin" name="linkedin" class="tm-form__input" value="https://linkedin.com/in/carlos-lopez">
               </div>
             </div>
           </section>
 
+          <!-- (2) Resumen Profesional -->
           <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Formación Académica</h3>
-            <div class="tm-perfil__list" id="formacionList">
-              <div class="tm-perfil__list-item">
-                <div class="tm-perfil__list-item-content">
-                  <h4 class="tm-perfil__list-item-title">Ingeniería de Sistemas</h4>
-                  <p class="tm-perfil__list-item-subtitle">Universidad Nacional Mayor de San Marcos</p>
-                  <p class="tm-perfil__list-item-meta">2018 - 2022</p>
-                </div>
-                <div class="tm-perfil__list-item-actions">
-                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Editar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                  </button>
-                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Eliminar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                  </button>
-                </div>
-              </div>
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                2. Resumen Profesional
+              </h3>
+              <p class="tm-perfil__section-desc">Tu presentación sintetizada que la IA de TalentMatch analizará</p>
             </div>
-            <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm tm-perfil__add-btn" onclick="alert('Agregar formación')">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              Agregar formación
-            </button>
-          </section>
-
-          <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Experiencia Laboral</h3>
-            <div class="tm-perfil__list" id="experienciaList">
-              <div class="tm-perfil__list-item">
-                <div class="tm-perfil__list-item-content">
-                  <h4 class="tm-perfil__list-item-title">Desarrollador Full Stack</h4>
-                  <p class="tm-perfil__list-item-subtitle">Tech Solutions S.A.C.</p>
-                  <p class="tm-perfil__list-item-meta">Enero 2023 - Presente</p>
-                </div>
-                <div class="tm-perfil__list-item-actions">
-                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Editar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                  </button>
-                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Eliminar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                  </button>
-                </div>
-              </div>
-              <div class="tm-perfil__list-item">
-                <div class="tm-perfil__list-item-content">
-                  <h4 class="tm-perfil__list-item-title">Desarrollador Frontend</h4>
-                  <p class="tm-perfil__list-item-subtitle">Digital Innovations</p>
-                  <p class="tm-perfil__list-item-meta">Marzo 2022 - Diciembre 2022</p>
-                </div>
-                <div class="tm-perfil__list-item-actions">
-                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Editar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                  </button>
-                  <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" aria-label="Eliminar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm tm-perfil__add-btn" onclick="alert('Agregar experiencia')">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              Agregar experiencia
-            </button>
-          </section>
-
-          <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Competencias</h3>
-            <div class="tm-perfil__tags" id="competenciasTags">
-              <span class="tm-tag">Liderazgo</span>
-              <span class="tm-tag">Trabajo en equipo</span>
-              <span class="tm-tag">Comunicación</span>
-              <span class="tm-tag">Resolución de problemas</span>
-              <span class="tm-tag">Adaptabilidad</span>
-            </div>
-            <div class="tm-perfil__tag-input">
-              <input type="text" class="tm-form__input" placeholder="Agregar competencia..." id="competenciaInput">
-              <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm" onclick="alert('Agregar competencia')">Agregar</button>
+            <div class="tm-form__group">
+              <label for="resumen" class="tm-form__label">Biografía Profesional / Titular</label>
+              <textarea id="resumen" name="resumen" class="tm-form__input" rows="4" style="height: auto; padding: var(--space-3); line-height: 1.6;" placeholder="Describe brevemente tus fortalezas técnicas, proyectos clave y objetivos de carrera...">Ingeniero de Software y Desarrollador Full Stack con más de 5 años de trayectoria profesional enfocado en el desarrollo de arquitecturas web escalables y microservicios con Node.js, TypeScript y React. Sólida experiencia en modelado y optimización de bases de datos PostgreSQL, APIs REST y adopción de buenas prácticas como Clean Architecture y metodologías ágiles Scrum.</textarea>
             </div>
           </section>
 
+          <!-- (3) Competencias Clave -->
           <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Tecnologías Conocidas</h3>
-            <div class="tm-perfil__tags" id="tecnologiasTags">
-              <span class="tm-tag">JavaScript</span>
-              <span class="tm-tag">React</span>
-              <span class="tm-tag">Node.js</span>
-              <span class="tm-tag">Python</span>
-              <span class="tm-tag">SQL</span>
-              <span class="tm-tag">Git</span>
-              <span class="tm-tag">Docker</span>
-              <span class="tm-tag">AWS</span>
-              <span class="tm-tag">TypeScript</span>
-              <span class="tm-tag">MongoDB</span>
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                3. Competencias Clave
+              </h3>
+              <p class="tm-perfil__section-desc">Escribe una competencia y presiona Enter o Agregar para sumarla a tu perfil</p>
             </div>
-            <div class="tm-perfil__tag-input">
-              <input type="text" class="tm-form__input" placeholder="Agregar tecnología..." id="tecnologiaInput">
-              <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm" onclick="alert('Agregar tecnología')">Agregar</button>
+
+            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+              <input type="text" id="inputCompetencia" class="tm-form__input" placeholder="Ej: Liderazgo técnico, Resolución de problemas, Scrum..." onkeydown="if(event.key==='Enter'){event.preventDefault(); agregarCompetencia();}">
+              <button type="button" class="tm-btn tm-btn--secondary" onclick="agregarCompetencia()" style="white-space: nowrap;">
+                Agregar
+              </button>
+            </div>
+
+            <div class="tm-chips-container" id="chipsCompetencias">
+              <span class="tm-chip">Liderazgo Técnico <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Trabajo en Equipo <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Metodologías Ágiles (Scrum) <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Resolución de Problemas <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Comunicación Asertiva <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Arquitectura Limpia <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
             </div>
           </section>
 
+          <!-- (4) Tecnologías & Herramientas -->
           <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Idiomas</h3>
-            <div class="tm-perfil__grid">
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                4. Tecnologías & Herramientas
+              </h3>
+              <p class="tm-perfil__section-desc">Escribe el nombre del framework, lenguaje o herramienta para agregarlo</p>
+            </div>
+
+            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+              <input type="text" id="inputTecnologia" class="tm-form__input" placeholder="Ej: Node.js, React, TypeScript, Docker, AWS..." onkeydown="if(event.key==='Enter'){event.preventDefault(); agregarTecnologia();}">
+              <button type="button" class="tm-btn tm-btn--secondary" onclick="agregarTecnologia()" style="white-space: nowrap;">
+                Agregar
+              </button>
+            </div>
+
+            <div class="tm-chips-container" id="chipsTecnologias">
+              <span class="tm-chip">Node.js <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">React.js <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">TypeScript <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">JavaScript (ES6+) <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">PostgreSQL <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Docker <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Git & GitHub <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">REST APIs <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">AWS (EC2, S3) <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+              <span class="tm-chip">Redis <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button></span>
+            </div>
+          </section>
+
+          <!-- (5) Idiomas -->
+          <section class="tm-perfil__section">
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                5. Idiomas
+              </h3>
+              <p class="tm-perfil__section-desc">Indica los idiomas que dominas y tu nivel de fluidez</p>
+            </div>
+
+            <!-- Controles para agregar idioma -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: var(--space-3); margin-bottom: var(--space-4); align-items: end;">
               <div class="tm-form__group">
-                <label for="idioma" class="tm-form__label">Idioma</label>
-                <select id="idioma" name="idioma" class="tm-form__input">
-                  <option value="es">Español</option>
-                  <option value="en">Inglés</option>
-                  <option value="pt">Portugués</option>
-                  <option value="fr">Francés</option>
-                  <option value="de">Alemán</option>
+                <label for="selectIdioma" class="tm-form__label">Idioma</label>
+                <select id="selectIdioma" class="tm-form__input">
+                  <option value="Español">Español</option>
+                  <option value="Inglés">Inglés</option>
+                  <option value="Portugués">Portugués</option>
+                  <option value="Francés">Francés</option>
+                  <option value="Alemán">Alemán</option>
+                  <option value="Italiano">Italiano</option>
                 </select>
               </div>
               <div class="tm-form__group">
-                <label for="nivel" class="tm-form__label">Nivel</label>
-                <select id="nivel" name="nivel" class="tm-form__input">
-                  <option value="basico">Básico</option>
-                  <option value="intermedio">Intermedio</option>
-                  <option value="avanzado">Avanzado</option>
-                  <option value="nativo">Nativo</option>
+                <label for="selectNivelIdioma" class="tm-form__label">Nivel de Dominio</label>
+                <select id="selectNivelIdioma" class="tm-form__input">
+                  <option value="Nativo / Bilingüe">Nativo / Bilingüe</option>
+                  <option value="Avanzado (C1/C2 - Fluido profesional)">Avanzado (C1/C2 - Fluido profesional)</option>
+                  <option value="Intermedio (B1/B2 - Conversacional)">Intermedio (B1/B2 - Conversacional)</option>
+                  <option value="Básico (A1/A2)">Básico (A1/A2)</option>
                 </select>
               </div>
+              <button type="button" class="tm-btn tm-btn--secondary" onclick="agregarIdioma()" style="height: 48px;">
+                Agregar Idioma
+              </button>
             </div>
-          </section>
 
-          <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Expectativa Laboral</h3>
-            <div class="tm-perfil__grid">
-              <div class="tm-form__group">
-                <label for="puesto" class="tm-form__label">Puesto deseado</label>
-                <input type="text" id="puesto" name="puesto" class="tm-form__input" value="Desarrollador Full Stack">
-              </div>
-              <div class="tm-form__group">
-                <label for="salario" class="tm-form__label">Expectativa salarial</label>
-                <input type="text" id="salario" name="salario" class="tm-form__input" value="S/ 5,000 - S/ 7,000">
-              </div>
-              <div class="tm-form__group">
-                <label for="modalidad" class="tm-form__label">Modalidad</label>
-                <select id="modalidad" name="modalidad" class="tm-form__input">
-                  <option value="remoto">Remoto</option>
-                  <option value="hibrido">Híbrido</option>
-                  <option value="presencial">Presencial</option>
-                </select>
-              </div>
-              <div class="tm-form__group">
-                <label for="disponibilidad" class="tm-form__label">Disponibilidad</label>
-                <select id="disponibilidad" name="disponibilidad" class="tm-form__input">
-                  <option value="inmediata">Inmediata</option>
-                  <option value="15-dias">15 días</option>
-                  <option value="1-mes">1 mes</option>
-                </select>
-              </div>
-            </div>
-          </section>
-
-          <section class="tm-perfil__section">
-            <h3 class="tm-perfil__section-title">Currículum Vitae</h3>
-            <div class="tm-upload-zone" id="cvUploadZone">
-              <input type="file" id="cvFile" accept=".pdf" class="tm-upload-zone__input" hidden>
-              <div class="tm-upload-zone__content">
-                <div class="tm-upload-zone__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <!-- Lista de idiomas agregados -->
+            <div id="listaIdiomas" style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <div class="tm-item-row">
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                  <strong style="color: var(--color-neutral-900);">Español</strong>
+                  <span class="tm-badge tm-badge--success">Nativo / Bilingüe</span>
                 </div>
-                <p class="tm-upload-zone__text">Arrastra tu CV aquí o haz clic para seleccionar</p>
-                <p class="tm-upload-zone__hint">Solo archivos PDF, máximo 5MB</p>
+                <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" onclick="eliminarFila(this)" aria-label="Eliminar idioma" style="color: var(--color-neutral-500);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
               </div>
-            </div>
-            <div class="tm-perfil__file-info" id="cvFileInfo" style="display: none;">
-              <div class="tm-file-info">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <div class="tm-file-info__details">
-                  <p class="tm-file-info__name" id="cvFileName">cv-carlos-lopez.pdf</p>
-                  <p class="tm-file-info__size" id="cvFileSize">2.4 MB</p>
+              <div class="tm-item-row">
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                  <strong style="color: var(--color-neutral-900);">Inglés</strong>
+                  <span class="tm-badge tm-badge--success">Avanzado (C1/C2 - Fluido profesional)</span>
                 </div>
-                <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" id="cvRemoveBtn" aria-label="Eliminar archivo">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" onclick="eliminarFila(this)" aria-label="Eliminar idioma" style="color: var(--color-neutral-500);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
               </div>
             </div>
           </section>
 
+          <!-- (6) Certificaciones -->
+          <section class="tm-perfil__section">
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><path d="M12 15l-2 5l9-9l-9-9l2 5l-8 4l8 4z"/><circle cx="12" cy="8" r="7"/></svg>
+                6. Certificaciones Profesionales
+              </h3>
+              <p class="tm-perfil__section-desc">Añade credenciales y certificaciones oficiales para aumentar tu match</p>
+            </div>
+
+            <!-- Controles para agregar certificación -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr auto; gap: var(--space-3); margin-bottom: var(--space-4); align-items: end;">
+              <div class="tm-form__group">
+                <label for="inputCertNombre" class="tm-form__label">Nombre de la Certificación</label>
+                <input type="text" id="inputCertNombre" class="tm-form__input" placeholder="Ej: AWS Certified Developer Associate">
+              </div>
+              <div class="tm-form__group">
+                <label for="inputCertEmisor" class="tm-form__label">Emisor y Año</label>
+                <input type="text" id="inputCertEmisor" class="tm-form__input" placeholder="Ej: Amazon Web Services · 2024">
+              </div>
+              <button type="button" class="tm-btn tm-btn--secondary" onclick="agregarCertificacion()" style="height: 48px;">
+                Agregar
+              </button>
+            </div>
+
+            <!-- Lista de certificaciones -->
+            <div id="listaCertificaciones" style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <div class="tm-item-row">
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                  <div style="width: 36px; height: 36px; border-radius: var(--radius-md); background-color: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                  </div>
+                  <div>
+                    <strong style="display: block; color: var(--color-neutral-900);">AWS Certified Solutions Architect - Associate</strong>
+                    <span style="font-size: var(--text-caption); color: var(--color-neutral-600);">Amazon Web Services · 2024</span>
+                  </div>
+                </div>
+                <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" onclick="eliminarFila(this)" aria-label="Eliminar certificación" style="color: var(--color-neutral-500);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+              </div>
+              <div class="tm-item-row">
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                  <div style="width: 36px; height: 36px; border-radius: var(--radius-md); background-color: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                  </div>
+                  <div>
+                    <strong style="display: block; color: var(--color-neutral-900);">Meta Full-Stack Developer Professional Certificate</strong>
+                    <span style="font-size: var(--text-caption); color: var(--color-neutral-600);">Coursera & Meta · 2023</span>
+                  </div>
+                </div>
+                <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" onclick="eliminarFila(this)" aria-label="Eliminar certificación" style="color: var(--color-neutral-500);">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- (7) Expectativa Laboral -->
+          <section class="tm-perfil__section">
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                7. Expectativa Laboral
+              </h3>
+              <p class="tm-perfil__section-desc">Parámetros para sugerirte las mejores vacantes afines</p>
+            </div>
+            <div class="tm-perfil__grid">
+              <div class="tm-form__group">
+                <label for="puestoDeseado" class="tm-form__label">Puesto o Rol Deseado</label>
+                <input type="text" id="puestoDeseado" name="puestoDeseado" class="tm-form__input" value="Desarrollador Full Stack Senior / Tech Lead" required>
+              </div>
+              <div class="tm-form__group">
+                <label for="salarioMinimo" class="tm-form__label">Pretensión Salarial Mensual Mínima (S/)</label>
+                <input type="number" id="salarioMinimo" name="salarioMinimo" class="tm-form__input" value="9500" min="2000" max="30000" required>
+              </div>
+              <div class="tm-form__group">
+                <label for="modalidadPref" class="tm-form__label">Modalidad de Trabajo Preferida</label>
+                <select id="modalidadPref" name="modalidadPref" class="tm-form__input">
+                  <option value="remoto" selected>100% Remoto</option>
+                  <option value="hibrido">Híbrido</option>
+                  <option value="presencial">Presencial</option>
+                </select>
+              </div>
+              <div class="tm-form__group">
+                <label for="disponibilidadPref" class="tm-form__label">Disponibilidad de Incorporación</label>
+                <select id="disponibilidadPref" name="disponibilidadPref" class="tm-form__input">
+                  <option value="inmediata" selected>Disponibilidad Inmediata</option>
+                  <option value="15dias">En 15 días (Preaviso estándar)</option>
+                  <option value="1mes">En 1 mes</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- (8) Curriculum Vitae en PDF -->
+          <section class="tm-perfil__section">
+            <div class="tm-perfil__section-header">
+              <h3 class="tm-perfil__section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                8. Curriculum Vitae en PDF
+              </h3>
+              <p class="tm-perfil__section-desc">Archivo utilizado para tus aplicaciones automáticas y validación del reclutador</p>
+            </div>
+
+            <!-- Ficha de CV Actual -->
+            <div style="background-color: var(--color-neutral-50); border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-lg); padding: var(--space-4); margin-bottom: var(--space-4);">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                  <div style="width: 44px; height: 44px; border-radius: var(--radius-md); background-color: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  </div>
+                  <div>
+                    <p style="margin: 0; font-weight: 700; color: var(--color-neutral-900); font-size: 0.95rem;" id="cvNameDisplay">CV_Carlos_Eduardo_Lopez_2026.pdf</p>
+                    <p style="margin: 2px 0 0; font-size: var(--text-caption); color: var(--color-neutral-500);">1.8 MB · Actualizado hace 3 días · Estado: Activo</p>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-2);">
+                  <input type="file" id="cvFileInput" accept=".pdf" style="display: none;" onchange="actualizarCVArchivo(this)">
+                  <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm" onclick="document.getElementById('cvFileInput').click()">
+                    Reemplazar CV
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zona de Subida Alternativa -->
+            <div class="tm-upload-zone" onclick="document.getElementById('cvFileInput').click()" style="padding: var(--space-6);">
+              <div class="tm-upload-zone__content">
+                <div class="tm-upload-zone__icon" style="width: 44px; height: 44px; margin-bottom: 0;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <p class="tm-upload-zone__text" style="font-size: 0.95rem;">O arrastra un nuevo archivo PDF aquí para reemplazarlo</p>
+                <p class="tm-upload-zone__hint">Formato admitido: PDF (Máximo 5MB)</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Acciones de Formulario -->
           <div class="tm-perfil__actions">
-            <button type="button" class="tm-btn tm-btn--ghost">Cancelar</button>
-            <button type="submit" class="tm-btn tm-btn--primary">Guardar cambios</button>
+            <a href="dashboard.html" class="tm-btn tm-btn--ghost">Cancelar</a>
+            <button type="submit" class="tm-btn tm-btn--primary" id="btnGuardarPerfil" style="padding: 12px 28px; font-size: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              Guardar Cambios del Perfil
+            </button>
           </div>
 
         </form>
@@ -321,5 +481,152 @@
   </div>
 
   <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toggle Sidebar
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+
+      // Dropdown de perfil
+      const dropdownBtn = document.getElementById('profileDropdownBtn');
+      const dropdownMenu = document.getElementById('profileDropdownMenu');
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('is-active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('is-active');
+          }
+        });
+      }
+    });
+
+    // Agregar Competencia
+    function agregarCompetencia() {
+      const input = document.getElementById('inputCompetencia');
+      const contenedor = document.getElementById('chipsCompetencias');
+      const valor = input.value.trim();
+      if (valor) {
+        const chip = document.createElement('span');
+        chip.className = 'tm-chip';
+        chip.innerHTML = `${valor} <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button>`;
+        contenedor.appendChild(chip);
+        input.value = '';
+      }
+    }
+
+    // Agregar Tecnología
+    function agregarTecnologia() {
+      const input = document.getElementById('inputTecnologia');
+      const contenedor = document.getElementById('chipsTecnologias');
+      const valor = input.value.trim();
+      if (valor) {
+        const chip = document.createElement('span');
+        chip.className = 'tm-chip';
+        chip.innerHTML = `${valor} <button type="button" class="tm-chip__delete" onclick="eliminarChip(this)">×</button>`;
+        contenedor.appendChild(chip);
+        input.value = '';
+      }
+    }
+
+    // Eliminar Chip
+    function eliminarChip(btn) {
+      const chip = btn.closest('.tm-chip');
+      if (chip) {
+        chip.remove();
+      }
+    }
+
+    // Agregar Idioma
+    function agregarIdioma() {
+      const idiomaSelect = document.getElementById('selectIdioma');
+      const nivelSelect = document.getElementById('selectNivelIdioma');
+      const lista = document.getElementById('listaIdiomas');
+
+      const fila = document.createElement('div');
+      fila.className = 'tm-item-row';
+      fila.innerHTML = `
+        <div style="display: flex; align-items: center; gap: var(--space-3);">
+          <strong style="color: var(--color-neutral-900);">${idiomaSelect.value}</strong>
+          <span class="tm-badge tm-badge--success">${nivelSelect.value}</span>
+        </div>
+        <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" onclick="eliminarFila(this)" aria-label="Eliminar idioma" style="color: var(--color-neutral-500);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      `;
+      lista.appendChild(fila);
+    }
+
+    // Agregar Certificación
+    function agregarCertificacion() {
+      const nombreInput = document.getElementById('inputCertNombre');
+      const emisorInput = document.getElementById('inputCertEmisor');
+      const lista = document.getElementById('listaCertificaciones');
+
+      if (nombreInput.value.trim() && emisorInput.value.trim()) {
+        const fila = document.createElement('div');
+        fila.className = 'tm-item-row';
+        fila.innerHTML = `
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <div style="width: 36px; height: 36px; border-radius: var(--radius-md); background-color: var(--color-primary-50); color: var(--color-primary-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; color: var(--color-neutral-900);">${nombreInput.value.trim()}</strong>
+              <span style="font-size: var(--text-caption); color: var(--color-neutral-600);">${emisorInput.value.trim()}</span>
+            </div>
+          </div>
+          <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm" onclick="eliminarFila(this)" aria-label="Eliminar certificación" style="color: var(--color-neutral-500);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        `;
+        lista.appendChild(fila);
+        nombreInput.value = '';
+        emisorInput.value = '';
+      }
+    }
+
+    // Eliminar fila
+    function eliminarFila(btn) {
+      const row = btn.closest('.tm-item-row');
+      if (row) {
+        row.remove();
+      }
+    }
+
+    // Actualizar nombre de CV cargado
+    function actualizarCVArchivo(input) {
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        document.getElementById('cvNameDisplay').textContent = file.name;
+      }
+    }
+
+    // Guardar Perfil con Feedback
+    function guardarPerfil(event) {
+      event.preventDefault();
+      const btn = document.getElementById('btnGuardarPerfil');
+      btn.disabled = true;
+      btn.innerHTML = 'Guardando cambios...';
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Guardar Cambios del Perfil
+        `;
+        const toast = document.getElementById('perfilToast');
+        toast.style.display = 'flex';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 500);
+    }
+  </script>
 </body>
 </html>
