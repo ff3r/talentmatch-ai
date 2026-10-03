@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Panel | TalentMatch AI</title>
+  <!-- Fuentes Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Estilos Core -->
   <link rel="stylesheet" href="../css/variables.css">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/animations.css">
@@ -18,62 +20,91 @@
 <body class="tm-postulante-page">
   <div class="tm-dashboard-layout">
 
-    <aside class="tm-sidebar">
+    <!-- SIDEBAR -->
+    <aside class="tm-sidebar" id="tmSidebar">
       <div class="tm-sidebar__header">
-        <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        <a href="dashboard.html">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        </a>
       </div>
       <nav class="tm-sidebar__nav">
         <a href="dashboard.html" class="tm-sidebar__item tm-sidebar__item--active">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
           <span class="tm-sidebar__label">Mi Panel</span>
         </a>
         <a href="perfil.html" class="tm-sidebar__item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
           <span class="tm-sidebar__label">Mi Perfil</span>
         </a>
         <a href="ofertas-disponibles.html" class="tm-sidebar__item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
           <span class="tm-sidebar__label">Ofertas Disponibles</span>
         </a>
         <a href="aplicaciones.html" class="tm-sidebar__item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
           <span class="tm-sidebar__label">Mis Aplicaciones</span>
         </a>
       </nav>
     </aside>
 
+    <!-- NAVBAR -->
     <header class="tm-navbar">
       <div class="tm-navbar__left">
-        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <button class="tm-navbar__toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
         <h1 class="tm-navbar__title">Mi Panel</h1>
       </div>
+
       <div class="tm-navbar__right">
         <div class="tm-dropdown">
           <button class="tm-dropdown__toggle" id="profileDropdownBtn">
             <span class="tm-avatar tm-avatar--sm">CL</span>
             <span class="tm-navbar__username">Carlos Eduardo Lopez</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </button>
           
           <div class="tm-dropdown__menu" id="profileDropdownMenu">
             <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
               <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Carlos Eduardo Lopez</p>
-              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Postulante</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">carlos.lopez@example.com</p>
+              <span class="tm-badge tm-badge--info" style="margin-top: var(--space-2); display: inline-block;">Postulante</span>
             </div>
             <div style="padding: var(--space-2);">
               <a href="perfil.html" class="tm-dropdown__item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 Mi Perfil
               </a>
-              <a href="#" class="tm-dropdown__item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                Configuración
+              <a href="aplicaciones.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                Mis Aplicaciones
               </a>
             </div>
             <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
-              <button onclick="AuthService.logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+              <button onclick="logout()" class="tm-dropdown__item tm-dropdown__item--danger">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                 Cerrar Sesión
               </button>
@@ -83,50 +114,77 @@
       </div>
     </header>
 
-    <main class="tm-main">
-      <div class="tm-postulante-dashboard">
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="tm-main tm-page-content">
+      <div class="tm-postulante-dashboard" style="max-width: 1300px; margin: 0 auto;">
 
-        <!-- Completitud del Perfil -->
-        <section class="tm-postulante-dashboard__profile-completeness">
-          <div class="tm-card">
-            <div class="tm-card__header">
-              <h2 class="tm-card__title">Completitud del Perfil</h2>
-              <p class="tm-card__subtitle">Completa tu perfil para mejorar tus oportunidades</p>
+        <!-- Bienvenida y Resumen Superior -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6);">
+          <div>
+            <h1 class="tm-text-h1" style="margin-bottom: var(--space-1);">¡Hola, Carlos Eduardo!</h1>
+            <p style="color: var(--color-neutral-600); font-size: var(--text-body);">Tu perfil cuenta con un <strong>95% de afinidad</strong> con las principales ofertas del ecosistema tech.</p>
+          </div>
+          <div style="display: flex; gap: var(--space-3); align-items: center;">
+            <a href="ofertas-disponibles.html" class="tm-btn tm-btn--primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Explorar Ofertas Disponibles
+            </a>
+          </div>
+        </div>
+
+        <!-- Banner de Completitud de Perfil -->
+        <section class="tm-postulante-dashboard__profile-completeness" style="margin-bottom: var(--space-6);">
+          <div class="tm-card" style="box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); border-color: var(--color-neutral-200);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4);">
+              <div>
+                <h2 class="tm-card__title" style="margin-bottom: 2px;">Nivel de Completitud del Perfil</h2>
+                <p class="tm-card__subtitle">Un perfil completo multiplica por 3 las invitaciones a entrevistas técnicas directas.</p>
+              </div>
+              <a href="perfil.html" class="tm-btn tm-btn--secondary tm-btn--sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                Editar Perfil Completo
+              </a>
             </div>
-            <div class="tm-progress-bar">
+
+            <div class="tm-progress-bar" style="margin-bottom: var(--space-4);">
               <div class="tm-progress-bar__header">
-                <span class="tm-progress-bar__label">Progreso</span>
-                <span class="tm-progress-bar__value">65%</span>
+                <span class="tm-progress-bar__label">Progreso Actual</span>
+                <span class="tm-progress-bar__value" style="font-weight: 800; color: var(--color-primary-700);">85%</span>
               </div>
-              <div class="tm-progress-bar__track">
-                <div class="tm-progress-bar__fill" style="--progress-value: 65%;"></div>
+              <div class="tm-progress-bar__track" style="height: 10px; border-radius: var(--radius-full);">
+                <div class="tm-progress-bar__fill" style="width: 85%; background: linear-gradient(90deg, var(--color-primary-700), #ff7961); border-radius: var(--radius-full);"></div>
               </div>
             </div>
-            <div class="tm-postulante-dashboard__completeness-items">
+
+            <div class="tm-postulante-dashboard__completeness-items" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
               <div class="tm-completeness-item tm-completeness-item--complete">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Datos personales</span>
               </div>
               <div class="tm-completeness-item tm-completeness-item--complete">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Formación académica</span>
               </div>
               <div class="tm-completeness-item tm-completeness-item--complete">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 <span>Experiencia laboral</span>
               </div>
-              <div class="tm-completeness-item">
+              <div class="tm-completeness-item tm-completeness-item--complete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>CV en PDF verificado</span>
+              </div>
+              <div class="tm-completeness-item" style="color: var(--color-neutral-500);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <span>Subir CV en PDF</span>
+                <a href="perfil.html#tab-habilidades" style="color: inherit; text-decoration: underline;">Agregar Certificaciones (+15%)</a>
               </div>
             </div>
           </div>
         </section>
 
         <!-- Métricas Rápidas -->
-        <section class="tm-postulante-dashboard__section">
+        <section class="tm-postulante-dashboard__section" style="margin-bottom: var(--space-6);">
           <div class="tm-postulante-dashboard__metrics">
-            <div class="tm-metric-card">
+            <a href="aplicaciones.html" class="tm-metric-card" style="text-decoration: none; color: inherit;">
               <div class="tm-metric-card__icon" style="background-color: var(--color-primary-50); color: var(--color-primary-700);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
               </div>
@@ -134,106 +192,330 @@
                 <p class="tm-metric-card__value">7</p>
                 <p class="tm-metric-card__label">Aplicaciones Enviadas</p>
               </div>
-            </div>
-            <div class="tm-metric-card">
-              <div class="tm-metric-card__icon" style="background-color: var(--color-warning-50); color: var(--color-warning-700);">
+            </a>
+
+            <a href="aplicaciones.html" class="tm-metric-card" style="text-decoration: none; color: inherit;">
+              <div class="tm-metric-card__icon" style="background-color: #FFF3E0; color: #E65100;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div class="tm-metric-card__content">
                 <p class="tm-metric-card__value">3</p>
-                <p class="tm-metric-card__label">En Revisión</p>
+                <p class="tm-metric-card__label">En Revisión Inicial</p>
               </div>
-            </div>
-            <div class="tm-metric-card">
-              <div class="tm-metric-card__icon" style="background-color: var(--color-success-50); color: var(--color-success-700);">
+            </a>
+
+            <a href="aplicaciones.html" class="tm-metric-card" style="text-decoration: none; color: inherit;">
+              <div class="tm-metric-card__icon" style="background-color: #E8F5E9; color: #1B5E20;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               </div>
               <div class="tm-metric-card__content">
                 <p class="tm-metric-card__value">1</p>
                 <p class="tm-metric-card__label">Entrevistas Agendadas</p>
               </div>
-            </div>
-            <div class="tm-metric-card">
-              <div class="tm-metric-card__icon" style="background-color: var(--color-accent-50, #fce4ec); color: var(--color-accent-700, #c62828);">
+            </a>
+
+            <a href="ofertas-disponibles.html" class="tm-metric-card" style="text-decoration: none; color: inherit;">
+              <div class="tm-metric-card__icon" style="background-color: rgba(229, 9, 20, 0.08); color: var(--color-primary-700);">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
               </div>
               <div class="tm-metric-card__content">
                 <p class="tm-metric-card__value">12</p>
-                <p class="tm-metric-card__label">Ofertas Sugeridas</p>
+                <p class="tm-metric-card__label">Ofertas con Alto Match</p>
               </div>
-            </div>
+            </a>
           </div>
         </section>
 
-        <!-- Ofertas Sugeridas -->
-        <section class="tm-postulante-dashboard__section">
-          <div class="tm-postulante-dashboard__section-header">
-            <h2 class="tm-text-h2">Ofertas Sugeridas para Ti</h2>
-            <a href="ofertas-disponibles.html" class="tm-postulante-dashboard__view-all">Ver todas →</a>
+        <!-- Ofertas Sugeridas (Top 3 Matches) -->
+        <section class="tm-postulante-dashboard__section" style="margin-bottom: var(--space-8);">
+          <div class="tm-postulante-dashboard__section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+            <div>
+              <h2 class="tm-text-h2" style="margin-bottom: 2px;">Ofertas Sugeridas para Ti</h2>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0;">Vacantes clasificadas por el motor de compatibilidad IA según tus habilidades validadas.</p>
+            </div>
+            <a href="ofertas-disponibles.html" class="tm-btn tm-btn--secondary tm-btn--sm" style="display: inline-flex; align-items: center; gap: 6px;">
+              Ver Todas las Ofertas (12)
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>
-          <div class="tm-postulante-dashboard__ofertas">
-            <div class="tm-card tm-oferta-card">
-              <div class="tm-oferta-card__header">
-                <h3 class="tm-oferta-card__title">Desarrollador Full Stack Senior</h3>
-                <span class="tm-badge tm-badge--success">95% match</span>
+
+          <div class="tm-jobs-grid" style="margin-bottom: 0;">
+
+            <!-- Oferta 1: TechCorp (95% Match) -->
+            <div class="tm-job-card tm-job-card--featured">
+              <div>
+                <div class="tm-job-card__header">
+                  <div class="tm-job-card__company-box">
+                    <div class="tm-job-card__logo" style="background: linear-gradient(135deg, #1A1A2E, #2D2D44);">TC</div>
+                    <div>
+                      <p class="tm-job-card__company-name">TechCorp Internacional S.A.</p>
+                      <span class="tm-job-card__location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Lima, Perú (Global)
+                      </span>
+                    </div>
+                  </div>
+                  <div class="tm-job-card__match-badge tm-job-card__match-badge--high">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    95% Match IA
+                  </div>
+                </div>
+
+                <h3 class="tm-job-card__title">
+                  <a href="oferta-detalle.html">Desarrollador Full Stack Senior</a>
+                </h3>
+
+                <div class="tm-job-card__badges">
+                  <span class="tm-badge tm-badge--info">100% Remoto</span>
+                  <span class="tm-badge tm-badge--neutral">Jornada Completa</span>
+                  <span class="tm-badge tm-badge--neutral">Senior</span>
+                </div>
+
+                <p class="tm-job-card__desc">
+                  Liderar la arquitectura e implementación de soluciones SaaS de alto rendimiento con microservicios escalables en Node.js y React.
+                </p>
+
+                <div class="tm-job-card__skills">
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">React</span>
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">Node.js</span>
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">TypeScript</span>
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">Docker</span>
+                  <span class="tm-job-card__skill">AWS</span>
+                </div>
               </div>
-              <p class="tm-oferta-card__company">TechCorp Internacional S.A.</p>
-              <div class="tm-oferta-card__meta">
-                <span class="tm-oferta-card__location">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  Lima, Perú
-                </span>
-                <span class="tm-oferta-card__modality">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  Remoto
-                </span>
-              </div>
-              <div class="tm-oferta-card__footer">
-                <a href="oferta-detalle.html?aplicar=true" class="tm-btn tm-btn--primary tm-btn--sm">Aplicar Ahora</a>
-                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Detalle</a>
+
+              <div class="tm-job-card__footer">
+                <div class="tm-job-card__salary">
+                  <span>$3,800 - $4,800 USD</span>
+                  <span class="tm-job-card__salary-period">Publicada hace 2 horas</span>
+                </div>
+                <div class="tm-job-card__actions">
+                  <button class="tm-btn-bookmark" onclick="toggleBookmark(this, 'Desarrollador Full Stack Senior')" title="Guardar oferta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </button>
+                  <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Detalle</a>
+                  <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalPostulacion('Desarrollador Full Stack Senior', 'TechCorp Internacional S.A.', '95%', '$3,800 - $4,800 USD')">Aplicar</button>
+                </div>
               </div>
             </div>
-            <div class="tm-card tm-oferta-card">
-              <div class="tm-oferta-card__header">
-                <h3 class="tm-oferta-card__title">Backend Developer Node.js</h3>
-                <span class="tm-badge tm-badge--success">88% match</span>
+
+            <!-- Oferta 2: Digital Innovations (92% Match) -->
+            <div class="tm-job-card tm-job-card--featured">
+              <div>
+                <div class="tm-job-card__header">
+                  <div class="tm-job-card__company-box">
+                    <div class="tm-job-card__logo" style="background: linear-gradient(135deg, #0D47A1, #1976D2);">DI</div>
+                    <div>
+                      <p class="tm-job-card__company-name">Digital Innovations Lab</p>
+                      <span class="tm-job-card__location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Bogotá, Colombia
+                      </span>
+                    </div>
+                  </div>
+                  <div class="tm-job-card__match-badge tm-job-card__match-badge--high">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    92% Match IA
+                  </div>
+                </div>
+
+                <h3 class="tm-job-card__title">
+                  <a href="oferta-detalle.html">Backend Engineer Node.js & Microservicios</a>
+                </h3>
+
+                <div class="tm-job-card__badges">
+                  <span class="tm-badge tm-badge--info">Remoto</span>
+                  <span class="tm-badge tm-badge--neutral">Tiempo Completo</span>
+                </div>
+
+                <p class="tm-job-card__desc">
+                  Desarrollo de microservicios con NestJS, bases de datos PostgreSQL optimizadas y eventos asíncronos en Redis.
+                </p>
+
+                <div class="tm-job-card__skills">
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">Node.js</span>
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">PostgreSQL</span>
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">Docker</span>
+                  <span class="tm-job-card__skill">NestJS</span>
+                </div>
               </div>
-              <p class="tm-oferta-card__company">Digital Innovations</p>
-              <div class="tm-oferta-card__meta">
-                <span class="tm-oferta-card__location">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  Bogotá, Colombia
-                </span>
-                <span class="tm-oferta-card__modality">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  Híbrido
-                </span>
-              </div>
-              <div class="tm-oferta-card__footer">
-                <a href="oferta-detalle.html?aplicar=true" class="tm-btn tm-btn--primary tm-btn--sm">Aplicar Ahora</a>
-                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Detalle</a>
+
+              <div class="tm-job-card__footer">
+                <div class="tm-job-card__salary">
+                  <span>$3,500 - $4,200 USD</span>
+                  <span class="tm-job-card__salary-period">Publicada hoy</span>
+                </div>
+                <div class="tm-job-card__actions">
+                  <button class="tm-btn-bookmark" onclick="toggleBookmark(this, 'Backend Engineer Node.js')" title="Guardar oferta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </button>
+                  <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Detalle</a>
+                  <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalPostulacion('Backend Engineer Node.js & Microservicios', 'Digital Innovations Lab', '92%', '$3,500 - $4,200 USD')">Aplicar</button>
+                </div>
               </div>
             </div>
-            <div class="tm-card tm-oferta-card">
-              <div class="tm-oferta-card__header">
-                <h3 class="tm-oferta-card__title">DevOps Engineer</h3>
-                <span class="tm-badge tm-badge--warning">72% match</span>
+
+            <!-- Oferta 3: PixelCraft Studios (88% Match) -->
+            <div class="tm-job-card">
+              <div>
+                <div class="tm-job-card__header">
+                  <div class="tm-job-card__company-box">
+                    <div class="tm-job-card__logo" style="background: linear-gradient(135deg, #4A148C, #7B1FA2);">PC</div>
+                    <div>
+                      <p class="tm-job-card__company-name">PixelCraft Studios</p>
+                      <span class="tm-job-card__location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        CDMX, México
+                      </span>
+                    </div>
+                  </div>
+                  <div class="tm-job-card__match-badge tm-job-card__match-badge--high">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    88% Match IA
+                  </div>
+                </div>
+
+                <h3 class="tm-job-card__title">
+                  <a href="oferta-detalle.html">Frontend Lead Developer (React & Next.js)</a>
+                </h3>
+
+                <div class="tm-job-card__badges">
+                  <span class="tm-badge tm-badge--info">Remoto</span>
+                  <span class="tm-badge tm-badge--neutral">Senior Lead</span>
+                </div>
+
+                <p class="tm-job-card__desc">
+                  Arquitectura frontend con Next.js, sistema de diseño en TypeScript y optimización de métricas Core Web Vitals.
+                </p>
+
+                <div class="tm-job-card__skills">
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">React</span>
+                  <span class="tm-job-card__skill tm-job-card__skill--matched">TypeScript</span>
+                  <span class="tm-job-card__skill">Next.js</span>
+                  <span class="tm-job-card__skill">Redux</span>
+                </div>
               </div>
-              <p class="tm-oferta-card__company">CloudTech Solutions</p>
-              <div class="tm-oferta-card__meta">
-                <span class="tm-oferta-card__location">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  Ciudad de México
-                </span>
-                <span class="tm-oferta-card__modality">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                  Remoto
-                </span>
+
+              <div class="tm-job-card__footer">
+                <div class="tm-job-card__salary">
+                  <span>$3,200 - $4,000 USD</span>
+                  <span class="tm-job-card__salary-period">Publicada hace 2 días</span>
+                </div>
+                <div class="tm-job-card__actions">
+                  <button class="tm-btn-bookmark" onclick="toggleBookmark(this, 'Frontend Lead Developer')" title="Guardar oferta">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                  </button>
+                  <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Detalle</a>
+                  <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalPostulacion('Frontend Lead Developer (React & Next.js)', 'PixelCraft Studios', '88%', '$3,200 - $4,000 USD')">Aplicar</button>
+                </div>
               </div>
-              <div class="tm-oferta-card__footer">
-                <a href="oferta-detalle.html?aplicar=true" class="tm-btn tm-btn--primary tm-btn--sm">Aplicar Ahora</a>
-                <a href="oferta-detalle.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Detalle</a>
-              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Sección: Mis Últimas Postulaciones -->
+        <section class="tm-postulante-dashboard__section">
+          <div class="tm-postulante-dashboard__section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5);">
+            <div>
+              <h2 class="tm-text-h2" style="margin-bottom: 2px;">Mis Últimas Postulaciones</h2>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0;">Seguimiento directo del estado de avance en los procesos de contratación.</p>
+            </div>
+            <a href="aplicaciones.html" class="tm-btn tm-btn--secondary tm-btn--sm" style="display: inline-flex; align-items: center; gap: 6px;">
+              Ver Todas las Aplicaciones (7)
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="tm-app-table-card">
+            <div class="tm-app-table-wrapper">
+              <table class="tm-app-table">
+                <thead>
+                  <tr>
+                    <th>Puesto y Empresa</th>
+                    <th>Fecha</th>
+                    <th>Match IA</th>
+                    <th>Estado del Proceso</th>
+                    <th style="text-align: right;">Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="tm-app-role-cell">
+                        <div class="tm-app-logo" style="background: linear-gradient(135deg, #1A1A2E, #2D2D44);">TC</div>
+                        <div>
+                          <a href="oferta-detalle.html" class="tm-app-role-title">Desarrollador Full Stack Senior</a>
+                          <p class="tm-app-company-name">TechCorp Internacional S.A. • Remoto</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>02 Oct 2026</td>
+                    <td>
+                      <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">95% Match</span>
+                    </td>
+                    <td>
+                      <span class="tm-badge tm-app-badge--entrevista" style="font-weight: 700;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Entrevista Agendada
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <a href="aplicaciones.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Proceso</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="tm-app-role-cell">
+                        <div class="tm-app-logo" style="background: linear-gradient(135deg, #0D47A1, #1976D2);">DI</div>
+                        <div>
+                          <a href="oferta-detalle.html" class="tm-app-role-title">Backend Engineer Node.js & Microservicios</a>
+                          <p class="tm-app-company-name">Digital Innovations Lab • Remoto</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>01 Oct 2026</td>
+                    <td>
+                      <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">92% Match</span>
+                    </td>
+                    <td>
+                      <span class="tm-badge tm-app-badge--preseleccionado" style="font-weight: 700;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                        Preseleccionado
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <a href="aplicaciones.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Proceso</a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="tm-app-role-cell">
+                        <div class="tm-app-logo" style="background: linear-gradient(135deg, #4A148C, #7B1FA2);">PC</div>
+                        <div>
+                          <a href="oferta-detalle.html" class="tm-app-role-title">Frontend Lead Developer (React & Next.js)</a>
+                          <p class="tm-app-company-name">PixelCraft Studios • Remoto</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>29 Sep 2026</td>
+                    <td>
+                      <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">88% Match</span>
+                    </td>
+                    <td>
+                      <span class="tm-badge tm-app-badge--preseleccionado" style="font-weight: 700;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-1px; margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                        Preseleccionado
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <a href="aplicaciones.html" class="tm-btn tm-btn--secondary tm-btn--sm">Ver Proceso</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -243,33 +525,206 @@
 
   </div>
 
-  <script src="../js/auth.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Toggle Sidebar
-      const toggleBtn = document.querySelector('.tm-navbar__toggle');
-      const layout = document.querySelector('.tm-dashboard-layout');
-      if (toggleBtn && layout) {
-        toggleBtn.addEventListener('click', () => {
-          layout.classList.toggle('tm-sidebar-collapsed');
-        });
-      }
+  <!-- MODAL DE POSTULACIÓN RÁPIDA -->
+  <div class="tm-modal" id="modalPostulacion" style="display: none;" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalPostulacion()"></div>
+    <div class="tm-modal__dialog" style="max-width: 580px;">
+      <div class="tm-modal__header">
+        <div>
+          <h2 class="tm-modal__title" style="margin-bottom: 2px;">Postular a la Vacante</h2>
+          <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);" id="modalOfertaSubtitle">TechCorp Internacional S.A.</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalPostulacion()" aria-label="Cerrar modal">&times;</button>
+      </div>
 
-      // Dropdown de perfil
-      const dropdownBtn = document.getElementById('profileDropdownBtn');
-      const dropdownMenu = document.getElementById('profileDropdownMenu');
-      if (dropdownBtn && dropdownMenu) {
-        dropdownBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          dropdownMenu.classList.toggle('is-active');
-        });
-        document.addEventListener('click', (e) => {
-          if (!dropdownMenu.contains(e.target)) {
-            dropdownMenu.classList.remove('is-active');
-          }
-        });
+      <div class="tm-modal__body">
+        <form id="formPostulacionRapida" onsubmit="enviarPostulacion(event)">
+          <div style="background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-4); display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <p style="font-size: var(--text-caption); text-transform: uppercase; color: var(--color-neutral-500); font-weight: 700; margin: 0;">Puesto seleccionado</p>
+              <p style="font-weight: 700; color: var(--color-neutral-900); margin: 2px 0 0;" id="modalOfertaTitle">Desarrollador Full Stack Senior</p>
+            </div>
+            <span class="tm-badge tm-badge--success" id="modalOfertaMatch" style="font-weight: 700;">95% Match</span>
+          </div>
+
+          <div class="tm-form__group">
+            <label class="tm-form__label">Curriculum Vitae adjunto</label>
+            <div style="display: flex; align-items: center; gap: var(--space-3); border: 2px solid var(--color-primary-300); background: var(--color-primary-50); padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary-700);">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+              </svg>
+              <div style="flex: 1;">
+                <p style="margin: 0; font-weight: 600; font-size: var(--text-body-sm); color: var(--color-primary-900);">CV_Carlos_Eduardo_Lopez_2026.pdf</p>
+                <p style="margin: 0; font-size: var(--text-caption); color: var(--color-primary-700);">Cargado en Mi Perfil (2.4 MB) • Verificado</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+
+          <div class="tm-form__group">
+            <label class="tm-form__label" for="salarioPretension">Pretensión Salarial Mensual (USD) *</label>
+            <input type="text" id="salarioPretension" class="tm-form__input" value="$3,800 USD" required>
+            <span style="font-size: var(--text-caption); color: var(--color-neutral-500); margin-top: 4px; display: block;" id="modalRangoSalarial">
+              Rango de la oferta: $3,800 - $4,800 USD
+            </span>
+          </div>
+
+          <div class="tm-form__group">
+            <label class="tm-form__label" for="mensajePostulacion">Nota para el Reclutador (Opcional)</label>
+            <textarea id="mensajePostulacion" class="tm-form__input" rows="3" placeholder="Comenta brevemente por qué consideras que encajas perfectamente en este puesto..."></textarea>
+          </div>
+
+          <div class="tm-modal__footer" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
+            <button type="button" class="tm-btn tm-btn--secondary" onclick="cerrarModalPostulacion()">Cancelar</button>
+            <button type="submit" id="btnEnviarPostulacion" class="tm-btn tm-btn--primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Enviar Postulación
+            </button>
+          </div>
+        </form>
+
+        <div id="modalExitoState" style="display: none; text-align: center; padding: var(--space-6) var(--space-2);">
+          <div style="width: 60px; height: 60px; background: #E8F5E9; color: #2E7D32; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3 style="font-family: var(--font-family-heading); font-size: 1.35rem; color: var(--color-neutral-900); margin-bottom: var(--space-2);">¡Postulación Enviada con Éxito!</h3>
+          <p style="color: var(--color-neutral-600); font-size: var(--text-body); max-width: 420px; margin: 0 auto var(--space-6);">
+            Tu perfil ha ingresado a la bandeja de selección prioritaria gracias a tu alta compatibilidad. Puedes dar seguimiento en la sección <strong>Mis Aplicaciones</strong>.
+          </p>
+          <div style="display: flex; gap: var(--space-3); justify-content: center;">
+            <button class="tm-btn tm-btn--secondary" onclick="cerrarModalPostulacion()">Cerrar</button>
+            <a href="aplicaciones.html" class="tm-btn tm-btn--primary">Ver Mis Aplicaciones</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIONES -->
+  <div id="tmToast" style="position: fixed; bottom: 24px; right: 24px; background: var(--color-neutral-900); color: var(--color-white); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--text-body-sm); display: flex; align-items: center; gap: 10px; z-index: 1000; transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+    <span id="toastIcon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
+    <span id="toastMessage">Acción completada</span>
+  </div>
+
+  <!-- SCRIPT DE INTERACCIÓN -->
+  <script>
+    // Toggle de Sidebar
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('tmSidebar');
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', () => {
+        document.body.classList.toggle('tm-sidebar-collapsed');
+      });
+    }
+
+    // Dropdown de Perfil
+    const profileDropdownBtn = document.getElementById('profileDropdownBtn');
+    const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+    if (profileDropdownBtn && profileDropdownMenu) {
+      profileDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('is-active');
+        profileDropdownMenu.classList.toggle('tm-dropdown__menu--open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileDropdownBtn.contains(e.target)) {
+          profileDropdownMenu.classList.remove('is-active');
+          profileDropdownMenu.classList.remove('tm-dropdown__menu--open');
+        }
+      });
+    }
+
+    // Logout
+    function logout() {
+      sessionStorage.removeItem('tm_session');
+      window.location.href = '../auth/login.html';
+    }
+
+    // Toast Notificaciones
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('tmToast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        if (type === 'saved') {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+        } else if (type === 'info') {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+        } else {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+        setTimeout(() => {
+          toast.style.transform = 'translateY(100px)';
+          toast.style.opacity = '0';
+        }, 3200);
       }
-    });
+    }
+
+    // Toggle Bookmark
+    function toggleBookmark(btn, jobTitle) {
+      btn.classList.toggle('tm-btn-bookmark--active');
+      const svg = btn.querySelector('svg');
+      if (btn.classList.contains('tm-btn-bookmark--active')) {
+        svg.setAttribute('fill', 'currentColor');
+        showToast(`Oferta "${jobTitle}" guardada en tus favoritos`, 'saved');
+      } else {
+        svg.setAttribute('fill', 'none');
+        showToast(`Oferta removida de tus favoritos`, 'info');
+      }
+    }
+
+    // Modal de Postulación Rápida
+    const modalPostulacion = document.getElementById('modalPostulacion');
+    const modalOfertaTitle = document.getElementById('modalOfertaTitle');
+    const modalOfertaSubtitle = document.getElementById('modalOfertaSubtitle');
+    const modalOfertaMatch = document.getElementById('modalOfertaMatch');
+    const modalRangoSalarial = document.getElementById('modalRangoSalarial');
+    const formPostulacionRapida = document.getElementById('formPostulacionRapida');
+    const modalExitoState = document.getElementById('modalExitoState');
+
+    function abrirModalPostulacion(title, company, match, salary) {
+      modalOfertaTitle.textContent = title;
+      modalOfertaSubtitle.textContent = company;
+      modalOfertaMatch.textContent = match + ' Match';
+      modalRangoSalarial.textContent = 'Rango de la oferta: ' + salary;
+
+      formPostulacionRapida.style.display = 'block';
+      modalExitoState.style.display = 'none';
+
+      modalPostulacion.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarModalPostulacion() {
+      modalPostulacion.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function enviarPostulacion(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnEnviarPostulacion');
+      btn.disabled = true;
+      btn.innerHTML = `
+        <svg class="tm-spin" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+        Procesando postulación...
+      `;
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = 'Enviar Postulación';
+        formPostulacionRapida.style.display = 'none';
+        modalExitoState.style.display = 'block';
+        showToast('¡Postulación enviada exitosamente!', 'success');
+      }, 750);
+    }
   </script>
 </body>
 </html>
