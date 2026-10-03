@@ -183,13 +183,13 @@
                     Habilidades validadas en tu perfil para esta vacante:
                   </h4>
                   <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ Node.js</span>
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ React.js</span>
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ TypeScript</span>
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ PostgreSQL</span>
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ Docker</span>
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ Microservicios</span>
-                    <span class="tm-skill-tag tm-skill-tag--matched">✓ REST APIs</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">Node.js</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">React.js</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">TypeScript</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">PostgreSQL</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">Docker</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">Microservicios</span>
+                    <span class="tm-skill-tag tm-skill-tag--matched">REST APIs</span>
                   </div>
                 </div>
 
@@ -205,7 +205,10 @@
                 </div>
 
                 <div style="margin-top: var(--space-3); background-color: rgba(255, 255, 255, 0.7); padding: var(--space-3); border-radius: var(--radius-md); font-size: var(--text-body-sm); color: #14532d; line-height: 1.5;">
-                  <strong>💡 Dictamen de la IA:</strong> "Tienes un perfil altamente competitivo para este puesto. Tus 5 años de trayectoria en desarrollo web full stack y experiencia en entornos ágiles cumplen con el 95% de los requerimientos clave solicitados por TechCorp."
+                  <strong style="display: inline-flex; align-items: center; gap: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/></svg>
+                    Dictamen de la IA:
+                  </strong> "Tienes un perfil altamente competitivo para este puesto. Tus 5 años de trayectoria en desarrollo web full stack y experiencia en entornos ágiles cumplen con el 95% de los requerimientos clave solicitados por TechCorp."
                 </div>
               </div>
             </section>
@@ -618,7 +621,7 @@
         navigator.clipboard.writeText(input.value).then(() => {
           if (btn) {
             const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<span>¡Copiado! ✓</span>';
+            btn.innerHTML = '<span>¡Enlace Copiado!</span>';
             btn.style.backgroundColor = '#16a34a';
             setTimeout(() => {
               btn.innerHTML = originalHTML;
@@ -671,7 +674,7 @@
         btn.classList.add('tm-btn--saved');
         btn.style.color = 'var(--color-primary-700)';
         btn.style.borderColor = 'var(--color-primary-700)';
-        span.textContent = 'Guardada ★';
+        span.textContent = 'Guardada';
       }
     }
   </script>
