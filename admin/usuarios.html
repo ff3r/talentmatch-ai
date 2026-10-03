@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+</head>
+<body class="tm-admin-page">
+  <div class="tm-dashboard-layout">
+
+    <!-- SIDEBAR DE ADMINISTRACIÓN -->
+    <aside class="tm-sidebar" id="tmSidebar">
+      <div class="tm-sidebar__header">
+        <a href="dashboard.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        </a>
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="usuarios.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span class="tm-sidebar__label">Usuarios</span>
+        </a>
+        <a href="catalogos.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <span class="tm-sidebar__label">Catálogos</span>
+        </a>
+        <a href="parametros.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          <span class="tm-sidebar__label">Parámetros</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- NAVBAR SUPERIOR -->
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" id="sidebarToggle" aria-label="Alternar barra lateral">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Gestión de Usuarios</h1>
+      </div>
+
+      <div class="tm-navbar__right">
+        <!-- Indicador de Sistema Online -->
+        <div class="tm-health-indicator" style="margin-right: var(--space-2); display: flex; align-items: center; gap: 6px;">
+          <span class="tm-health-dot"></span>
+          <span style="font-size: var(--text-caption); font-weight: 700; color: #2E7D32;">Motor IA Operativo</span>
+        </div>
+
+        <!-- Dropdown Usuario Administrador -->
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">AD</span>
+            <span class="tm-navbar__username">Administrador</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900); margin: 0 0 2px 0;">Administrador del Sistema</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0 0 var(--space-2) 0;">admin@talentmatch.com</p>
+              <span class="tm-badge tm-badge--error" style="font-size: 11px; font-weight: 700;">Super Administrador</span>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="dashboard.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Panel Principal
+              </a>
+              <a href="catalogos.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Catálogos del Sistema
+              </a>
+              <a href="parametros.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Parámetros del Sistema
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="tm-main tm-page-content">
+      <div class="tm-admin-dashboard" style="max-width: 1300px; margin: 0 auto;">
+
+        <!-- HERO HEADER -->
+        <div class="tm-admin-hero">
+          <div>
+            <h2 class="tm-admin-hero__title">Gestión Global de Usuarios</h2>
+            <p class="tm-admin-hero__subtitle">
+              Auditoría centralizada de cuentas, control de roles (Postulante, Empresa, Reclutador, Admin) y moderación de estados.
+            </p>
+          </div>
+        </div>
+
+        <!-- BANNER DE MÉTRICAS RÁPIDAS (KPI STRIP) -->
+        <section class="tm-kpi-grid">
+          <!-- Total Cuentas -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <span class="tm-badge tm-badge--primary" style="font-weight: 700;">100% Ecosistema</span>
+              </div>
+              <p class="tm-kpi-card__value">1,428</p>
+              <p class="tm-kpi-card__label">Total Cuentas Registradas</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span>980 Postulantes • 320 Empresas</span>
+            </div>
+          </div>
+
+          <!-- Cuentas Activas -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--success">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span class="tm-badge tm-badge--success" style="font-weight: 700;">97.1% Operativos</span>
+              </div>
+              <p class="tm-kpi-card__value">1,386</p>
+              <p class="tm-kpi-card__label">Cuentas Activas</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span style="color: #2E7D32;">Acceso Habilitado</span>
+            </div>
+          </div>
+
+          <!-- Cuentas Bloqueadas / Suspendidas -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--warning" style="background: #FFEBEE; color: #C62828;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                  </svg>
+                </div>
+                <span class="tm-badge tm-badge--error" style="font-weight: 700;">Moderación</span>
+              </div>
+              <p class="tm-kpi-card__value" style="color: #C62828;">42</p>
+              <p class="tm-kpi-card__label">Cuentas Bloqueadas / Suspendidas</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span style="color: #C62828;">Acceso Restringido</span>
+            </div>
+          </div>
+
+          <!-- Pendientes de Verificación -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--warning">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <span class="tm-badge tm-badge--warning" style="font-weight: 700;">Revisión KYC</span>
+              </div>
+              <p class="tm-kpi-card__value">6</p>
+              <p class="tm-kpi-card__label">Pendientes de Verificación RUC</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span>Empresas en Espera</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN DE TABLA DE USUARIOS Y BUSCADOR SIMPLE -->
+        <section class="tm-feed-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div>
+              <h3 class="tm-chart-card__title">Directorio General de Usuarios</h3>
+              <p class="tm-chart-card__subtitle">Listado de cuentas registradas en la plataforma</p>
+            </div>
+            <!-- BUSCADOR SIMPLE POR TEXTO EN TIEMPO REAL -->
+            <div style="width: 100%; max-width: 380px; position: relative;">
+              <input type="search" id="userSearchInput" class="tm-form__input" placeholder="Buscar por nombre, correo o entidad..." oninput="filtrarUsuariosTexto(this.value)">
+            </div>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="tm-table" id="usersTable">
+              <thead>
+                <tr>
+                  <th>Usuario / Entidad</th>
+                  <th>Correo Electrónico</th>
+                  <th>Rol Asignado</th>
+                  <th>Fecha Registro</th>
+                  <th>Estado</th>
+                  <th style="text-align: right;">Acciones de Control</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <!-- Fila 1: Postulante -->
+                <tr data-search="carlos eduardo lopez carlos.lopez@example.com postulante">
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #1A1A2E, #2D2D44);">CL</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Carlos Eduardo López</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">ID: USR-1042 • Full Stack Dev</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>carlos.lopez@example.com</td>
+                  <td><span class="tm-badge tm-badge--info" style="font-weight: 700;">Postulante</span></td>
+                  <td>12/08/2026</td>
+                  <td><span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span></td>
+                  <td style="text-align: right;">
+                    <div style="display: inline-flex; gap: 6px; justify-content: flex-end;">
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="abrirModalEditarRol('USR-1042', 'Carlos Eduardo López', 'Postulante')">Editar Rol</button>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="toggleEstadoUsuario(this, 'Carlos Eduardo López')">Bloquear</button>
+                      <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalInspeccionar('USR-1042', 'Carlos Eduardo López', 'carlos.lopez@example.com', 'Postulante', 'Activo', '12/08/2026', '192.168.1.45', 'Verificado (DNI/CV Verificado)')">Inspeccionar</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 2: Empresa Verificada -->
+                <tr data-search="techcorp internacional s.a. contacto@techcorp.com empresa">
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #0D47A1, #1976D2);">TC</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">TechCorp Internacional S.A.</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">ID: EMP-204 • RUC: 20601234567</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>contacto@techcorp.com</td>
+                  <td><span class="tm-badge tm-badge--primary" style="font-weight: 700;">Empresa</span></td>
+                  <td>03/05/2026</td>
+                  <td><span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span></td>
+                  <td style="text-align: right;">
+                    <div style="display: inline-flex; gap: 6px; justify-content: flex-end;">
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="abrirModalEditarRol('EMP-204', 'TechCorp Internacional S.A.', 'Empresa')">Editar Rol</button>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="toggleEstadoUsuario(this, 'TechCorp Internacional S.A.')">Bloquear</button>
+                      <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalInspeccionar('EMP-204', 'TechCorp Internacional S.A.', 'contacto@techcorp.com', 'Empresa', 'Activo', '03/05/2026', '186.28.110.12', 'RUC Verificado • Plan Enterprise')">Inspeccionar</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 3: Reclutador -->
+                <tr data-search="ana patricia martinez ana.martinez@talentmatch.com reclutador">
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #F57F17, #FFA000);">AM</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Ana Patricia Martínez</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">ID: REC-082 • Reclutador TechCorp</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>ana.martinez@talentmatch.com</td>
+                  <td><span class="tm-badge tm-badge--warning" style="font-weight: 700;">Reclutador</span></td>
+                  <td>21/03/2026</td>
+                  <td><span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span></td>
+                  <td style="text-align: right;">
+                    <div style="display: inline-flex; gap: 6px; justify-content: flex-end;">
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="abrirModalEditarRol('REC-082', 'Ana Patricia Martínez', 'Reclutador')">Editar Rol</button>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="toggleEstadoUsuario(this, 'Ana Patricia Martínez')">Bloquear</button>
+                      <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalInspeccionar('REC-082', 'Ana Patricia Martínez', 'ana.martinez@talentmatch.com', 'Reclutador', 'Activo', '21/03/2026', '201.240.89.54', 'Vinculada a TechCorp S.A.')">Inspeccionar</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 4: Postulante Bloqueado -->
+                <tr data-search="maria fernanda garcia maria.garcia@mail.com postulante">
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: #C62828;">MG</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">María Fernanda García</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">ID: USR-1089 • Frontend Dev</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>maria.garcia@mail.com</td>
+                  <td><span class="tm-badge tm-badge--info" style="font-weight: 700;">Postulante</span></td>
+                  <td>30/07/2026</td>
+                  <td><span class="tm-badge tm-badge--error" style="font-weight: 700;">Bloqueado</span></td>
+                  <td style="text-align: right;">
+                    <div style="display: inline-flex; gap: 6px; justify-content: flex-end;">
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="abrirModalEditarRol('USR-1089', 'María Fernanda García', 'Postulante')">Editar Rol</button>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm" style="color: var(--color-success);" onclick="toggleEstadoUsuario(this, 'María Fernanda García')">Desbloquear</button>
+                      <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalInspeccionar('USR-1089', 'María Fernanda García', 'maria.garcia@mail.com', 'Postulante', 'Bloqueado', '30/07/2026', '190.113.88.2', 'Suspendido por inactividad prolongada')">Inspeccionar</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 5: Empresa Pendiente RUC -->
+                <tr data-search="pixelcraft studios s.a.c. rrhh@pixelcraft.com empresa">
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #4A148C, #7B1FA2);">PC</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">PixelCraft Studios S.A.C.</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">ID: EMP-205 • Pendiente Validación</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>rrhh@pixelcraft.com</td>
+                  <td><span class="tm-badge tm-badge--primary" style="font-weight: 700;">Empresa</span></td>
+                  <td>01/10/2026</td>
+                  <td><span class="tm-badge tm-badge--warning" style="font-weight: 700;">Pendiente</span></td>
+                  <td style="text-align: right;">
+                    <div style="display: inline-flex; gap: 6px; justify-content: flex-end;">
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="abrirModalEditarRol('EMP-205', 'PixelCraft Studios S.A.C.', 'Empresa')">Editar Rol</button>
+                      <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="toggleEstadoUsuario(this, 'PixelCraft Studios S.A.C.')">Bloquear</button>
+                      <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalInspeccionar('EMP-205', 'PixelCraft Studios S.A.C.', 'rrhh@pixelcraft.com', 'Empresa', 'Pendiente', '01/10/2026', '201.240.89.54', 'RUC en revisión por el área legal')">Inspeccionar</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Fila 6: Super Administrador -->
+                <tr data-search="administrador del sistema admin@talentmatch.com admin">
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #1A1A2E, #B71C1C);">AD</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Administrador del Sistema</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">ID: ADM-001 • Root System</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>admin@talentmatch.com</td>
+                  <td><span class="tm-badge tm-badge--error" style="font-weight: 700;">Admin</span></td>
+                  <td>01/01/2026</td>
+                  <td><span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span></td>
+                  <td style="text-align: right;">
+                    <div style="display: inline-flex; gap: 6px; justify-content: flex-end;">
+                      <button class="tm-btn tm-btn--secondary tm-btn--sm" disabled title="No se puede modificar el super admin">Editar Rol</button>
+                      <button class="tm-btn tm-btn--primary tm-btn--sm" onclick="abrirModalInspeccionar('ADM-001', 'Administrador del Sistema', 'admin@talentmatch.com', 'Admin', 'Activo', '01/01/2026', '127.0.0.1', 'Super Administrador Principal (Root)')">Inspeccionar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL: EDITAR ROL DE USUARIO -->
+  <div class="tm-modal" id="modalEditarRol" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalEditarRol()"></div>
+    <div class="tm-modal__dialog" style="max-width: 480px;">
+      <div class="tm-modal__header">
+        <div>
+          <h3 class="tm-modal__title">Modificar Rol de Usuario</h3>
+          <p style="font-size: var(--text-caption); color: var(--color-neutral-500); margin: 2px 0 0;" id="modalEditRolUserName">Carlos Eduardo López</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalEditarRol()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="tm-modal__body">
+        <form id="formEditarRol" onsubmit="guardarRolUsuario(event)">
+          <input type="hidden" id="modalEditRolUserId">
+          <div class="tm-form-group">
+            <label class="tm-form__label" for="selectNuevoRol">Rol Asignado en el Ecosistema</label>
+            <select id="selectNuevoRol" class="tm-form__input">
+              <option value="Postulante">Postulante Profesionales</option>
+              <option value="Empresa">Empresa Contratante</option>
+              <option value="Reclutador">Reclutador / Headhunter</option>
+              <option value="Admin">Administrador del Sistema</option>
+            </select>
+          </div>
+
+          <div style="margin-top: var(--space-4); background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200); padding: var(--space-3); border-radius: var(--radius-md);">
+            <p style="font-size: var(--text-caption); color: var(--color-neutral-600); margin: 0;">
+              <strong>Nota:</strong> Cambiar el rol alterará de inmediato los permisos de acceso y el panel de control correspondiente al usuario.
+            </p>
+          </div>
+
+          <div class="tm-modal__footer" style="padding-left:0; padding-right:0; padding-bottom:0; margin-top: var(--space-5);">
+            <button type="button" class="tm-btn tm-btn--secondary" onclick="cerrarModalEditarRol()">Cancelar</button>
+            <button type="submit" class="tm-btn tm-btn--primary">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: INSPECCIONAR DETALLE DE USUARIO -->
+  <div class="tm-modal" id="modalInspeccionarUsuario" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalInspeccionar()"></div>
+    <div class="tm-modal__dialog" style="max-width: 540px;">
+      <div class="tm-modal__header">
+        <div>
+          <h3 class="tm-modal__title">Ficha Técnica de Usuario</h3>
+          <p style="font-size: var(--text-caption); color: var(--color-neutral-500); margin: 2px 0 0;" id="inspUserId">ID: USR-1042</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalInspeccionar()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="tm-modal__body">
+        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-5); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+          <div class="tm-avatar tm-avatar--lg" id="inspAvatar" style="background: var(--color-primary-700); font-weight: 700;">CL</div>
+          <div>
+            <h4 style="margin: 0 0 2px 0; font-size: 1.15rem; color: var(--color-neutral-900);" id="inspUserName">Carlos Eduardo López</h4>
+            <p style="margin: 0 0 4px 0; font-size: var(--text-body-sm); color: var(--color-neutral-600);" id="inspUserEmail">carlos.lopez@example.com</p>
+            <div style="display: flex; gap: 6px;">
+              <span class="tm-badge tm-badge--info" id="inspUserRol">Postulante</span>
+              <span class="tm-badge tm-badge--success" id="inspUserEstado">Activo</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-4);">
+          <div style="background: var(--color-neutral-50); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-neutral-200);">
+            <p style="font-size: var(--text-caption); color: var(--color-neutral-500); margin: 0 0 2px 0; font-weight: 700;">Fecha de Alta</p>
+            <p style="font-size: var(--text-body-sm); color: var(--color-neutral-900); margin: 0; font-weight: 600;" id="inspUserFecha">12/08/2026</p>
+          </div>
+          <div style="background: var(--color-neutral-50); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--color-neutral-200);">
+            <p style="font-size: var(--text-caption); color: var(--color-neutral-500); margin: 0 0 2px 0; font-weight: 700;">IP de Registro</p>
+            <p style="font-size: var(--text-body-sm); color: var(--color-neutral-900); margin: 0; font-weight: 600;" id="inspUserIp">192.168.1.45</p>
+          </div>
+        </div>
+
+        <div style="background: var(--color-neutral-50); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-neutral-200);">
+          <p style="font-size: var(--text-caption); color: var(--color-neutral-500); margin: 0 0 4px 0; font-weight: 700;">Estado de Validación & Verificación</p>
+          <p style="font-size: var(--text-body-sm); color: var(--color-neutral-800); margin: 0;" id="inspUserNote">Verificado (DNI/CV Verificado)</p>
+        </div>
+      </div>
+
+      <div class="tm-modal__footer">
+        <button type="button" class="tm-btn tm-btn--primary" onclick="cerrarModalInspeccionar()">Cerrar Ficha</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIONES -->
+  <div id="tmToast" style="position: fixed; bottom: 24px; right: 24px; background: var(--color-neutral-900); color: var(--color-white); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--text-body-sm); display: flex; align-items: center; gap: 10px; z-index: 1000; transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+    <span id="toastIcon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
+    <span id="toastMessage">Acción completada</span>
+  </div>
+
+  <!-- SCRIPT DE INTERACCIÓN -->
+  <script>
+    // Toggle de Sidebar
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('tmSidebar');
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', () => {
+        document.body.classList.toggle('tm-sidebar-collapsed');
+      });
+    }
+
+    // Dropdown de Perfil
+    const profileDropdownBtn = document.getElementById('profileDropdownBtn');
+    const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+    if (profileDropdownBtn && profileDropdownMenu) {
+      profileDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('is-active');
+        profileDropdownMenu.classList.toggle('tm-dropdown__menu--open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileDropdownBtn.contains(e.target)) {
+          profileDropdownMenu.classList.remove('is-active');
+          profileDropdownMenu.classList.remove('tm-dropdown__menu--open');
+        }
+      });
+    }
+
+    // Logout
+    function logout() {
+      sessionStorage.removeItem('tm_session');
+      window.location.href = '../auth/login.html';
+    }
+
+    // Toast Notificaciones
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('tmToast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        if (type === 'info') {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+        } else {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+        setTimeout(() => {
+          toast.style.transform = 'translateY(100px)';
+          toast.style.opacity = '0';
+        }, 3200);
+      }
+    }
+
+    // Buscador Simple por Texto en Tiempo Real
+    function filtrarUsuariosTexto(query) {
+      const q = query.toLowerCase().trim();
+      const rows = document.querySelectorAll('#usersTableBody tr');
+      rows.forEach(row => {
+        const searchText = row.dataset.search ? row.dataset.search.toLowerCase() : row.textContent.toLowerCase();
+        if (!q || searchText.includes(q)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal Editar Rol
+    const modalEditarRol = document.getElementById('modalEditarRol');
+    let currentRowEditingRol = null;
+
+    function abrirModalEditarRol(userId, userName, currentRole) {
+      document.getElementById('modalEditRolUserId').value = userId;
+      document.getElementById('modalEditRolUserName').textContent = userName + ' (' + userId + ')';
+      document.getElementById('selectNuevoRol').value = currentRole;
+      modalEditarRol.classList.add('tm-modal--open');
+    }
+
+    function cerrarModalEditarRol() {
+      modalEditarRol.classList.remove('tm-modal--open');
+    }
+
+    function guardarRolUsuario(e) {
+      e.preventDefault();
+      const userId = document.getElementById('modalEditRolUserId').value;
+      const nuevoRol = document.getElementById('selectNuevoRol').value;
+      
+      showToast(`Rol de usuario ${userId} actualizado a ${nuevoRol}`, 'success');
+      cerrarModalEditarRol();
+    }
+
+    // Toggle de Estado (Activar / Bloquear)
+    function toggleEstadoUsuario(btn, userName) {
+      const isBloqueado = btn.textContent.trim() === 'Desbloquear';
+      if (isBloqueado) {
+        btn.textContent = 'Bloquear';
+        btn.style.color = '';
+        showToast(`Cuenta de "${userName}" reactivada con éxito`, 'success');
+      } else {
+        btn.textContent = 'Desbloquear';
+        btn.style.color = 'var(--color-success)';
+        showToast(`Cuenta de "${userName}" suspendida preventivamente`, 'info');
+      }
+    }
+
+    // Modal Inspeccionar Usuario
+    const modalInspeccionarUsuario = document.getElementById('modalInspeccionarUsuario');
+
+    function abrirModalInspeccionar(id, name, email, role, status, date, ip, note) {
+      document.getElementById('inspUserId').textContent = 'ID: ' + id;
+      document.getElementById('inspUserName').textContent = name;
+      document.getElementById('inspUserEmail').textContent = email;
+      document.getElementById('inspUserRol').textContent = role;
+      document.getElementById('inspUserEstado').textContent = status;
+      document.getElementById('inspUserFecha').textContent = date;
+      document.getElementById('inspUserIp').textContent = ip;
+      document.getElementById('inspUserNote').textContent = note;
+
+      const initials = name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
+      document.getElementById('inspAvatar').textContent = initials;
+
+      modalInspeccionarUsuario.classList.add('tm-modal--open');
+    }
+
+    function cerrarModalInspeccionar() {
+      modalInspeccionarUsuario.classList.remove('tm-modal--open');
+    }
+
+    // Cerrar modales con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        cerrarModalEditarRol();
+        cerrarModalInspeccionar();
+      }
+    });
+  </script>
+</body>
+</html>

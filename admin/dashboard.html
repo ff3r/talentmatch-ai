@@ -62,12 +62,7 @@
             <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
           </svg>
         </button>
-        <div style="display: flex; align-items: center; gap: var(--space-3);">
-          <h1 class="tm-navbar__title">Panel de Administración</h1>
-          <span class="tm-badge tm-badge--neutral" style="font-size: 11px; font-weight: 700; background: var(--color-neutral-100); color: var(--color-neutral-700);">
-            ADMIN SUITE
-          </span>
-        </div>
+        <h1 class="tm-navbar__title">Panel de Administración</h1>
       </div>
 
       <div class="tm-navbar__right">
@@ -80,8 +75,8 @@
         <!-- Dropdown Usuario Administrador -->
         <div class="tm-dropdown">
           <button class="tm-dropdown__toggle" id="profileDropdownBtn">
-            <span class="tm-avatar tm-avatar--sm" style="background: linear-gradient(135deg, #1A1A2E, #B71C1C); color: #FFF; font-weight: 700;">AD</span>
-            <span class="tm-navbar__username">Administrador del Sistema</span>
+            <span class="tm-avatar tm-avatar--sm">AD</span>
+            <span class="tm-navbar__username">Administrador</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
@@ -420,98 +415,19 @@
           </div>
         </section>
 
-        <!-- SECCIÓN: ACCESOS DIRECTOS DE ADMINISTRACIÓN -->
-        <section style="margin-bottom: var(--space-6);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
-            <div>
-              <h3 class="tm-text-h2" style="margin: 0 0 2px 0;">Accesos Rápidos de Administración</h3>
-              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0;">Navegación inmediata a los módulos troncales del sistema.</p>
-            </div>
-          </div>
-
-          <div class="tm-shortcuts-grid">
-            <!-- Acceso 1: Gestión de Usuarios -->
-            <a href="usuarios.html" class="tm-shortcut-card">
-              <div>
-                <div class="tm-shortcut-card__header">
-                  <div class="tm-kpi-card__icon tm-kpi-card__icon--primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                  </div>
-                  <span class="tm-badge tm-badge--primary" style="font-weight: 700;">1,428 Usuarios</span>
-                </div>
-                <h4 class="tm-shortcut-card__title">Gestión de Usuarios</h4>
-                <p class="tm-shortcut-card__desc">
-                  Audita cuentas de postulantes, empresas y reclutadores. Modera estados (activar/bloquear) y reasigna roles.
-                </p>
-              </div>
-              <div class="tm-shortcut-card__cta">
-                <span>Gestionar Cuentas</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </div>
-            </a>
-
-            <!-- Acceso 2: Catálogos del Sistema -->
-            <a href="catalogos.html" class="tm-shortcut-card">
-              <div>
-                <div class="tm-shortcut-card__header">
-                  <div class="tm-kpi-card__icon tm-kpi-card__icon--info">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    </svg>
-                  </div>
-                  <span class="tm-badge tm-badge--info" style="font-weight: 700;">4 Categorías</span>
-                </div>
-                <h4 class="tm-shortcut-card__title">Catálogos del Sistema</h4>
-                <p class="tm-shortcut-card__desc">
-                  Administra las taxonomías globales: áreas profesionales, competencias clave, tecnologías, idiomas y modalidades.
-                </p>
-              </div>
-              <div class="tm-shortcut-card__cta">
-                <span>Configurar Catálogos</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </div>
-            </a>
-
-            <!-- Acceso 3: Parámetros del Sistema -->
-            <a href="parametros.html" class="tm-shortcut-card">
-              <div>
-                <div class="tm-shortcut-card__header">
-                  <div class="tm-kpi-card__icon tm-kpi-card__icon--warning">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="3"/>
-                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                    </svg>
-                  </div>
-                  <span class="tm-badge tm-badge--warning" style="font-weight: 700;">Umbral: 60%</span>
-                </div>
-                <h4 class="tm-shortcut-card__title">Parámetros del Sistema</h4>
-                <p class="tm-shortcut-card__desc">
-                  Calibra los pesos del motor IA, umbral mínimo de afinidad, límites de publicación por empresa y restricciones de CV.
-                </p>
-              </div>
-              <div class="tm-shortcut-card__cta">
-                <span>Ajustar Parámetros</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </div>
-            </a>
-          </div>
-        </section>
-
         <!-- SECCIÓN: ACTIVIDAD RECIENTE DEL SISTEMA (AUDIT FEED) -->
         <section class="tm-feed-card">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4);">
             <div>
               <h3 class="tm-chart-card__title">Actividad Reciente del Sistema</h3>
-              <p class="tm-chart-card__subtitle">Registro de auditoría en vivo con las últimas transacciones y eventos</p>
+              <p class="tm-chart-card__subtitle">Registro de auditoría administrativa: altas y bajas de empresas, asignación de reclutadores, seguridad y motor IA</p>
             </div>
             <div class="tm-feed-filters" id="feedFilterBar">
               <button type="button" class="tm-feed-filter-btn tm-feed-filter-btn--active" onclick="filterFeed(this, 'all')">Todos los eventos</button>
-              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'postulacion')">Postulaciones</button>
-              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'oferta')">Ofertas</button>
-              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'usuario')">Usuarios</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'empresa')">Empresas</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'reclutador')">Reclutadores</button>
               <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'seguridad')">Seguridad</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'sistema')">Configuración</button>
             </div>
           </div>
 
@@ -527,84 +443,83 @@
                 </tr>
               </thead>
               <tbody id="feedTableBody">
-                <!-- Evento 1 -->
-                <tr data-category="postulacion">
+                <!-- Evento 1: Alta Empresa Verificada -->
+                <tr data-category="empresa">
                   <td>
-                    <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">Postulación IA</span>
+                    <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">Alta Empresa</span>
                   </td>
                   <td>
                     <div class="tm-feed-event-cell">
-                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #1A1A2E, #2D2D44);">CL</div>
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #1A1A2E, #2D2D44);">TC</div>
                       <div>
-                        <strong style="color: var(--color-neutral-900);">Carlos Eduardo López</strong>
-                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Postulante #1042</p>
+                        <strong style="color: var(--color-neutral-900);">TechCorp Internacional S.A.</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Empresa #EMP-204</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    Aplicó a <strong>Desarrollador Full Stack Senior</strong> en TechCorp S.A.
-                    <span class="tm-badge tm-badge--neutral" style="font-size: 10px; margin-left: 4px;">Score: 95%</span>
+                    Completó validación tributaria (RUC verificado) y activó su membresía corporativa de publicación de ofertas.
                   </td>
-                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 8 minutos</td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 15 min</td>
                   <td style="text-align: right;">
-                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9041', 'Postulación', 'Carlos Eduardo López', 'Desarrollador Full Stack Senior - Score 95%', '192.168.1.45', 'POST /api/v1/applications/apply', '200 OK')">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9101', 'Alta Corporativa', 'TechCorp Internacional S.A.', 'Validación tributaria y membresía Enterprise activada', '186.28.110.12', 'POST /api/v1/admin/companies/verify', '200 OK')">
                       Inspeccionar
                     </button>
                   </td>
                 </tr>
 
-                <!-- Evento 2 -->
-                <tr data-category="oferta">
+                <!-- Evento 2: Empresa Suspendida / Baja -->
+                <tr data-category="empresa">
                   <td>
-                    <span class="tm-badge tm-badge--primary" style="font-weight: 700; font-size: 11px;">Nueva Oferta</span>
+                    <span class="tm-badge tm-badge--error" style="font-weight: 700; font-size: 11px;">Baja / Suspensión</span>
                   </td>
                   <td>
                     <div class="tm-feed-event-cell">
-                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #0D47A1, #1976D2);">DI</div>
+                      <div class="tm-feed-avatar" style="background: #C62828;">NX</div>
                       <div>
-                        <strong style="color: var(--color-neutral-900);">Digital Innovations Lab</strong>
-                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Empresa Verificada</p>
+                        <strong style="color: var(--color-neutral-900);">Consultora Nexo SRL</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Empresa #EMP-189</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    Publicó la vacante <strong>Backend Engineer Node.js & Microservicios</strong> (Rango: $3,500 - $4,200 USD).
+                    Cuenta suspendida preventivamente por detección de ofertas con información irregular y reportes de postulantes.
                   </td>
-                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 32 minutos</td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 45 min</td>
                   <td style="text-align: right;">
-                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9040', 'Publicación Oferta', 'Digital Innovations Lab', 'Backend Engineer Node.js & Microservicios', '186.28.110.12', 'POST /api/v1/jobs/publish', '201 Created')">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9100', 'Suspensión Preventiva', 'Consultora Nexo SRL', 'Bloqueo administrativo por incumplimiento de términos y ofertas irregulares', '190.237.45.88', 'PUT /api/v1/admin/companies/suspend', '200 OK')">
                       Inspeccionar
                     </button>
                   </td>
                 </tr>
 
-                <!-- Evento 3 -->
-                <tr data-category="postulacion">
+                <!-- Evento 3: Asignación de Reclutador -->
+                <tr data-category="reclutador">
                   <td>
-                    <span class="tm-badge tm-badge--warning" style="font-weight: 700; font-size: 11px;">Entrevista</span>
+                    <span class="tm-badge tm-badge--warning" style="font-weight: 700; font-size: 11px;">Acreditación</span>
                   </td>
                   <td>
                     <div class="tm-feed-event-cell">
                       <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #F57F17, #FFA000);">AM</div>
                       <div>
                         <strong style="color: var(--color-neutral-900);">Ana Patricia Martínez</strong>
-                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Reclutador Senior</p>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Reclutador #REC-082</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    Agendó sesión de evaluación técnica para 3 candidatos preseleccionados con match &gt; 90%.
+                    Acreditación completada y vinculada a TechCorp Internacional con permisos de gestión de pipeline y entrevistas.
                   </td>
-                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 1 hora</td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 2 horas</td>
                   <td style="text-align: right;">
-                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9039', 'Agendamiento', 'Ana Patricia Martínez', '3 candidatos movidos a etapa Entrevista', '190.237.12.8', 'PUT /api/v1/pipeline/stage', '200 OK')">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9099', 'Asignación Reclutador', 'Ana Patricia Martínez', 'Vinculación a empresa TechCorp con permisos de publicación y evaluación', '201.240.89.54', 'POST /api/v1/admin/recruiters/assign', '200 OK')">
                       Inspeccionar
                     </button>
                   </td>
                 </tr>
 
-                <!-- Evento 4 -->
-                <tr data-category="usuario">
+                <!-- Evento 4: Nuevo Registro de Empresa -->
+                <tr data-category="empresa">
                   <td>
                     <span class="tm-badge tm-badge--info" style="font-weight: 700; font-size: 11px;">Nuevo Registro</span>
                   </td>
@@ -613,25 +528,25 @@
                       <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #4A148C, #7B1FA2);">PC</div>
                       <div>
                         <strong style="color: var(--color-neutral-900);">PixelCraft Studios S.A.C.</strong>
-                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Cuenta Empresa</p>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Empresa #EMP-205</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    Registro completado y validación de RUC corporativo aprobada automáticamente por el motor de verificación.
+                    Solicitud de registro corporativo recibida. Documentos de constitución y RUC ingresados a la bandeja de revisión.
                   </td>
-                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 2 horas</td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 3 horas</td>
                   <td style="text-align: right;">
-                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9038', 'Alta de Usuario', 'PixelCraft Studios', 'RUC validado y credenciales expedidas', '201.240.89.54', 'POST /api/v1/auth/register-company', '200 OK')">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9098', 'Solicitud Registro', 'PixelCraft Studios S.A.C.', 'Carga de documentación para validación de personería jurídica', '190.113.88.2', 'POST /api/v1/auth/register-company', '201 Created')">
                       Inspeccionar
                     </button>
                   </td>
                 </tr>
 
-                <!-- Evento 5 -->
+                <!-- Evento 5: Alerta de Seguridad Firewall WAF -->
                 <tr data-category="seguridad">
                   <td>
-                    <span class="tm-badge tm-badge--error" style="font-weight: 700; font-size: 11px;">Alerta Seguridad</span>
+                    <span class="tm-badge tm-badge--error" style="font-weight: 700; font-size: 11px;">Bloqueo WAF</span>
                   </td>
                   <td>
                     <div class="tm-feed-event-cell">
@@ -643,36 +558,61 @@
                     </div>
                   </td>
                   <td>
-                    Bloqueo temporal de IP <code>190.237.45.12</code> tras 5 intentos fallidos de autenticación en /auth/login.
+                    Bloqueo temporal de IP <code>190.237.45.12</code> tras 5 intentos fallidos consecutivos de autenticación en /auth/login.
                   </td>
-                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 3 horas</td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 4 horas</td>
                   <td style="text-align: right;">
-                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9037', 'Seguridad WAF', 'Firewall Automático', 'Rate-limiting excedido: 5 intentos fallidos en 60s', '190.237.45.12', 'POST /api/v1/auth/login', '429 Too Many Requests')">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9097', 'Mitigación de Ataque', 'Firewall WAF', 'Rate-limiting excedido: 5 intentos fallidos en 60s en /auth/login - IP en lista negra 24h', '190.237.45.12', 'POST /api/v1/auth/login', '429 Too Many Requests')">
                       Inspeccionar
                     </button>
                   </td>
                 </tr>
 
-                <!-- Evento 6 -->
-                <tr data-category="postulacion">
+                <!-- Evento 6: Modificación de Parámetros Globales -->
+                <tr data-category="sistema">
                   <td>
-                    <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">Postulación IA</span>
+                    <span class="tm-badge tm-badge--primary" style="font-weight: 700; font-size: 11px;">Configuración</span>
                   </td>
                   <td>
                     <div class="tm-feed-event-cell">
-                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #00695C, #00897B);">MG</div>
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #0D47A1, #1976D2);">CFG</div>
                       <div>
-                        <strong style="color: var(--color-neutral-900);">María Fernanda García</strong>
-                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Postulante #1089</p>
+                        <strong style="color: var(--color-neutral-900);">Motor Semántico IA</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Configuración Global</p>
                       </div>
                     </div>
                   </td>
                   <td>
-                    Postulación enviada a <strong>Frontend Lead Developer (React & Next.js)</strong>. Match: 88%.
+                    Umbral mínimo de afinidad para sugerencia de candidatos actualizado de 60% a 65% en toda la plataforma.
                   </td>
-                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 4 horas</td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 6 horas</td>
                   <td style="text-align: right;">
-                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9036', 'Postulación', 'María Fernanda García', 'Frontend Lead Developer - Score 88%', '190.113.88.2', 'POST /api/v1/applications/apply', '200 OK')">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9096', 'Cambio Parámetro', 'Administrador del Sistema', 'Parámetro threshold_matching_min actualizado a 65%', '127.0.0.1', 'PUT /api/v1/admin/parameters/update', '200 OK')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Evento 7: Respaldo Automático de Base de Datos -->
+                <tr data-category="sistema">
+                  <td>
+                    <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">Respaldo DB</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #2E7D32, #43A047);">SYS</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Backup Automático</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Servicio de Base de Datos</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Snapshot integral de base de datos MySQL y caché Redis completado con éxito (4.2 GB cifrado AES-256).
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 8 horas</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9095', 'Copia de Seguridad', 'Backup Automático', 'Snapshot DB completado con éxito y transferido a S3 con cifrado AES-256', '10.0.0.1', 'SYSTEM cron:backup:database', '0 Exit Code')">
                       Inspeccionar
                     </button>
                   </td>
