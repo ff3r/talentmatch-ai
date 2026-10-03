@@ -184,8 +184,10 @@
 }
 
 .tm-metric-card__value {
-  font-size: var(--text-h1);
-  font-weight: var(--font-weight-bold);
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-family-sans);
+  letter-spacing: -0.02em;
   color: var(--color-primary-700);
 }
 
@@ -578,10 +580,11 @@ select.tm-form__input {
 }
 
 .tm-kpi-card__value {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--color-neutral-900);
-  font-family: var(--font-family-heading);
+  font-family: var(--font-family-sans);
+  letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0 0 4px 0;
 }
@@ -633,6 +636,25 @@ select.tm-form__input {
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
+}
+
+/* Alineación de Acciones de Usuario en Tabla */
+.tm-user-actions-group {
+  display: inline-grid;
+  grid-template-columns: 100px 110px 115px;
+  gap: 8px;
+  align-items: center;
+  justify-content: end;
+}
+
+.tm-user-actions-group .tm-btn {
+  width: 100%;
+  padding: 0 var(--space-2);
+  min-height: 36px;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .tm-chart-card__title {
