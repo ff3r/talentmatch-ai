@@ -18,267 +18,667 @@
 <body class="tm-admin-page">
   <div class="tm-dashboard-layout">
 
-    <aside class="tm-sidebar">
+    <!-- SIDEBAR DE ADMINISTRACIÓN -->
+    <aside class="tm-sidebar" id="tmSidebar">
       <div class="tm-sidebar__header">
-        <img src="../assets/images/logo-white.svg" alt="TalentMatch AI" class="tm-sidebar__logo">
+        <a href="dashboard.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        </a>
       </div>
       <nav class="tm-sidebar__nav">
         <a href="dashboard.html" class="tm-sidebar__item tm-sidebar__item--active">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
           <span class="tm-sidebar__label">Panel Principal</span>
         </a>
         <a href="usuarios.html" class="tm-sidebar__item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
           <span class="tm-sidebar__label">Usuarios</span>
         </a>
         <a href="catalogos.html" class="tm-sidebar__item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
           <span class="tm-sidebar__label">Catálogos</span>
         </a>
         <a href="parametros.html" class="tm-sidebar__item">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
           <span class="tm-sidebar__label">Parámetros</span>
         </a>
       </nav>
     </aside>
 
+    <!-- NAVBAR SUPERIOR -->
     <header class="tm-navbar">
       <div class="tm-navbar__left">
-        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <button class="tm-navbar__toggle" id="sidebarToggle" aria-label="Alternar barra lateral">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
         </button>
-        <h1 class="tm-navbar__title">Panel de Administración</h1>
-      </div>
-      <div class="tm-navbar__right">
-        <div class="tm-navbar__user">
-          <span class="tm-avatar tm-avatar--sm">AS</span>
-          <span class="tm-navbar__username">Administrador del Sistema</span>
+        <div style="display: flex; align-items: center; gap: var(--space-3);">
+          <h1 class="tm-navbar__title">Panel de Administración</h1>
+          <span class="tm-badge tm-badge--neutral" style="font-size: 11px; font-weight: 700; background: var(--color-neutral-100); color: var(--color-neutral-700);">
+            ADMIN SUITE
+          </span>
         </div>
-        <button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="AuthService.logout()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-          Cerrar Sesión
-        </button>
+      </div>
+
+      <div class="tm-navbar__right">
+        <!-- Indicador de Sistema Online -->
+        <div class="tm-health-indicator" style="margin-right: var(--space-2); display: flex; align-items: center; gap: 6px;">
+          <span class="tm-health-dot"></span>
+          <span style="font-size: var(--text-caption); font-weight: 700; color: #2E7D32;">Motor IA Operativo</span>
+        </div>
+
+        <!-- Dropdown Usuario Administrador -->
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm" style="background: linear-gradient(135deg, #1A1A2E, #B71C1C); color: #FFF; font-weight: 700;">AD</span>
+            <span class="tm-navbar__username">Administrador del Sistema</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900); margin: 0 0 2px 0;">Administrador del Sistema</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0 0 var(--space-2) 0;">admin@talentmatch.com</p>
+              <span class="tm-badge tm-badge--error" style="font-size: 11px; font-weight: 700;">Super Administrador</span>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="usuarios.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                Gestión de Usuarios
+              </a>
+              <a href="catalogos.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Catálogos del Sistema
+              </a>
+              <a href="parametros.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Parámetros del Sistema
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
-    <main class="tm-main">
-      <div class="tm-admin-dashboard">
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="tm-main tm-page-content">
+      <div class="tm-admin-dashboard" style="max-width: 1300px; margin: 0 auto;">
 
-        <section class="tm-metrics-grid">
-          <div class="tm-card tm-metric-card">
-            <p class="tm-metric-card__value">128</p>
-            <p class="tm-metric-card__label">Usuarios registrados</p>
+        <!-- HERO HEADER CON SELECTOR DE PERÍODO -->
+        <div class="tm-admin-hero">
+          <div>
+            <h2 class="tm-admin-hero__title">Panel de Control Global</h2>
+            <p class="tm-admin-hero__subtitle">
+              Supervisión en tiempo real de usuarios, ofertas activas, salud del motor de matching IA y eventos críticos del sistema.
+            </p>
           </div>
-          <div class="tm-card tm-metric-card">
-            <p class="tm-metric-card__value">42</p>
-            <p class="tm-metric-card__label">Ofertas activas</p>
-          </div>
-          <div class="tm-card tm-metric-card">
-            <p class="tm-metric-card__value">315</p>
-            <p class="tm-metric-card__label">Postulaciones</p>
-          </div>
-          <div class="tm-card tm-metric-card">
-            <p class="tm-metric-card__value">6</p>
-            <p class="tm-metric-card__label">Cuentas bloqueadas</p>
-          </div>
-        </section>
 
-        <div class="tm-tabs" role="tablist">
-          <button class="tm-tabs__tab tm-tabs__tab--active" data-tab="usuarios" role="tab" aria-selected="true">Gestión de Usuarios</button>
-          <button class="tm-tabs__tab" data-tab="catalogos" role="tab" aria-selected="false">Gestión de Catálogos</button>
-          <button class="tm-tabs__tab" data-tab="parametros" role="tab" aria-selected="false">Parámetros Generales</button>
+          <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
+            <div class="tm-period-selector" id="periodSelector">
+              <button type="button" class="tm-period-btn" onclick="setPeriod(this, '24h')">24h</button>
+              <button type="button" class="tm-period-btn" onclick="setPeriod(this, '7d')">7 Días</button>
+              <button type="button" class="tm-period-btn tm-period-btn--active" onclick="setPeriod(this, '30d')">30 Días</button>
+              <button type="button" class="tm-period-btn" onclick="setPeriod(this, 'year')">Año 2026</button>
+            </div>
+
+            <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm" onclick="recargarDashboard()" title="Actualizar métricas">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+              Actualizar
+            </button>
+          </div>
         </div>
 
-        <section class="tm-admin-tab" id="tab-usuarios">
-          <div class="tm-card">
-            <div class="tm-card__header">
-              <h2 class="tm-card__title">Usuarios del Sistema</h2>
-              <p class="tm-card__subtitle">Administra cuentas de postulantes, empresas y reclutadores</p>
+        <!-- KPI CARDS: MÉTRICAS GLOBALES -->
+        <section class="tm-kpi-grid">
+          <!-- KPI 1: Usuarios Registrados -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <span class="tm-kpi-card__trend tm-kpi-card__trend--up" id="kpiTrendUsuarios">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                  +12.4%
+                </span>
+              </div>
+              <p class="tm-kpi-card__value" id="kpiValUsuarios">1,428</p>
+              <p class="tm-kpi-card__label">Total Usuarios Registrados</p>
             </div>
-            <div class="tm-admin-filters">
-              <input type="search" id="userSearch" class="tm-form__input" placeholder="Buscar por nombre o correo...">
-              <select id="roleFilter" class="tm-form__input">
-                <option value="">Todos los roles</option>
-                <option value="Postulante">Postulante</option>
-                <option value="Empresa">Empresa</option>
-                <option value="Reclutador">Reclutador</option>
-              </select>
-              <select id="statusFilter" class="tm-form__input">
-                <option value="">Todos los estados</option>
-                <option value="Activo">Activo</option>
-                <option value="Bloqueado">Bloqueado</option>
-              </select>
+            <div class="tm-kpi-card__footer">
+              <span>980 Post. • 320 Emp. • 128 Recl.</span>
+              <a href="usuarios.html" style="color: var(--color-primary-700); font-weight: 700; text-decoration: none;">Ver todos</a>
             </div>
-            <div class="tm-table-wrapper">
-              <table class="tm-table">
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Rol</th>
-                    <th>Registro</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody id="usersTableBody">
-                  <tr>
-                    <td>Carlos Eduardo Lopez</td>
-                    <td>carlos.lopez@mail.com</td>
-                    <td><span class="tm-badge tm-badge--info">Postulante</span></td>
-                    <td>12/08/2026</td>
-                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
-                    <td>
-                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
-                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>TechCorp Internacional S.A.</td>
-                    <td>contacto@techcorp.com</td>
-                    <td><span class="tm-badge tm-badge--primary">Empresa</span></td>
-                    <td>03/05/2026</td>
-                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
-                    <td>
-                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
-                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ana Patricia Martinez</td>
-                    <td>ana.martinez@talentmatch.com</td>
-                    <td><span class="tm-badge tm-badge--warning">Reclutador</span></td>
-                    <td>21/03/2026</td>
-                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
-                    <td>
-                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
-                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Maria Fernanda Garcia</td>
-                    <td>maria.garcia@mail.com</td>
-                    <td><span class="tm-badge tm-badge--info">Postulante</span></td>
-                    <td>30/07/2026</td>
-                    <td><span class="tm-badge tm-badge--error">Bloqueado</span></td>
-                    <td>
-                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
-                      <button class="tm-btn tm-btn--secondary tm-btn--sm">Desbloquear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>InnovaSoft S.R.L.</td>
-                    <td>rrhh@innovasoft.com</td>
-                    <td><span class="tm-badge tm-badge--primary">Empresa</span></td>
-                    <td>15/06/2026</td>
-                    <td><span class="tm-badge tm-badge--success">Activo</span></td>
-                    <td>
-                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
-                      <button class="tm-btn tm-btn--danger tm-btn--sm">Bloquear</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jose Roberto Ramirez</td>
-                    <td>jose.ramirez@mail.com</td>
-                    <td><span class="tm-badge tm-badge--info">Postulante</span></td>
-                    <td>09/09/2026</td>
-                    <td><span class="tm-badge tm-badge--error">Bloqueado</span></td>
-                    <td>
-                      <button class="tm-btn tm-btn--ghost tm-btn--sm">Editar</button>
-                      <button class="tm-btn tm-btn--secondary tm-btn--sm">Desbloquear</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+          </div>
+
+          <!-- KPI 2: Usuarios Activos & Salud de Cuentas -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--success">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <span class="tm-kpi-card__trend tm-kpi-card__trend--up" id="kpiTrendActivos">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                  97.1% Actividad
+                </span>
+              </div>
+              <p class="tm-kpi-card__value" id="kpiValActivos">1,386</p>
+              <p class="tm-kpi-card__label">Usuarios Activos en Plataforma</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span style="color: var(--color-neutral-600);">42 bloqueados / en revisión</span>
+              <span class="tm-badge tm-badge--success" style="font-size: 10px; padding: 2px 6px;">Saludable</span>
+            </div>
+          </div>
+
+          <!-- KPI 3: Ofertas Publicadas -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--info">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                  </svg>
+                </div>
+                <span class="tm-kpi-card__trend tm-kpi-card__trend--up" id="kpiTrendOfertas">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                  +18 esta semana
+                </span>
+              </div>
+              <p class="tm-kpi-card__value" id="kpiValOfertas">284</p>
+              <p class="tm-kpi-card__label">Ofertas Laborales Publicadas</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span>215 activas • 69 cubiertas</span>
+              <span style="color: var(--color-primary-700); font-weight: 600;">76% vigentes</span>
+            </div>
+          </div>
+
+          <!-- KPI 4: Postulaciones y Match IA -->
+          <div class="tm-kpi-card">
+            <div>
+              <div class="tm-kpi-card__header">
+                <div class="tm-kpi-card__icon tm-kpi-card__icon--warning">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <span class="tm-kpi-card__trend tm-kpi-card__trend--up" id="kpiTrendMatch">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                  94.2% Éxito IA
+                </span>
+              </div>
+              <p class="tm-kpi-card__value" id="kpiValPostulaciones">3,892</p>
+              <p class="tm-kpi-card__label">Postulaciones Procesadas</p>
+            </div>
+            <div class="tm-kpi-card__footer">
+              <span>Match promedio: 87.6%</span>
+              <span class="tm-badge tm-badge--warning" style="font-size: 10px; padding: 2px 6px;">IA Activa</span>
             </div>
           </div>
         </section>
 
-        <section class="tm-admin-tab" id="tab-catalogos" hidden>
-          <div class="tm-card">
-            <div class="tm-card__header">
-              <h2 class="tm-card__title">Catálogos del Sistema</h2>
-              <p class="tm-card__subtitle">Agrega o elimina opciones de los desplegables del sistema</p>
+        <!-- SECCIÓN ANALÍTICA: GRÁFICO CSS PURO + DISTRIBUCIÓN DEL ECOSISTEMA -->
+        <section class="tm-admin-grid-2col">
+          <!-- Gráfico Simulado en CSS Puro -->
+          <div class="tm-chart-card">
+            <div class="tm-chart-card__header">
+              <div>
+                <h3 class="tm-chart-card__title">Evolución de Postulaciones y Nuevos Registros</h3>
+                <p class="tm-chart-card__subtitle">Histórico comparativo semestral de actividad en la plataforma</p>
+              </div>
+              <div class="tm-chart-legend">
+                <div class="tm-chart-legend__item">
+                  <span class="tm-chart-legend__dot" style="background: var(--color-primary-700);"></span>
+                  Postulaciones
+                </div>
+                <div class="tm-chart-legend__item">
+                  <span class="tm-chart-legend__dot" style="background: #2196F3;"></span>
+                  Nuevos Registros
+                </div>
+              </div>
             </div>
-            <div class="tm-catalog-selector">
-              <label for="catalogType" class="tm-form__label">Catálogo</label>
-              <select id="catalogType" class="tm-form__input" onchange="renderCatalog()">
-                <option value="areas">Áreas de trabajo</option>
-                <option value="tecnologias">Tecnologías</option>
-                <option value="idiomas">Idiomas</option>
-                <option value="modalidades">Modalidades</option>
-              </select>
+
+            <!-- Gráfico de Barras CSS -->
+            <div class="tm-css-barchart" id="barChartContainer">
+              <!-- Mes 1: Mayo -->
+              <div class="tm-chart-col">
+                <div class="tm-chart-bars">
+                  <div class="tm-bar tm-bar--primary" style="height: 38%;">
+                    <div class="tm-bar__tooltip">Postulaciones: 340</div>
+                  </div>
+                  <div class="tm-bar tm-bar--secondary" style="height: 22%;">
+                    <div class="tm-bar__tooltip">Registros: 120</div>
+                  </div>
+                </div>
+                <span class="tm-chart-col__label">May</span>
+              </div>
+
+              <!-- Mes 2: Junio -->
+              <div class="tm-chart-col">
+                <div class="tm-chart-bars">
+                  <div class="tm-bar tm-bar--primary" style="height: 52%;">
+                    <div class="tm-bar__tooltip">Postulaciones: 480</div>
+                  </div>
+                  <div class="tm-bar tm-bar--secondary" style="height: 28%;">
+                    <div class="tm-bar__tooltip">Registros: 160</div>
+                  </div>
+                </div>
+                <span class="tm-chart-col__label">Jun</span>
+              </div>
+
+              <!-- Mes 3: Julio -->
+              <div class="tm-chart-col">
+                <div class="tm-chart-bars">
+                  <div class="tm-bar tm-bar--primary" style="height: 64%;">
+                    <div class="tm-bar__tooltip">Postulaciones: 590</div>
+                  </div>
+                  <div class="tm-bar tm-bar--secondary" style="height: 36%;">
+                    <div class="tm-bar__tooltip">Registros: 210</div>
+                  </div>
+                </div>
+                <span class="tm-chart-col__label">Jul</span>
+              </div>
+
+              <!-- Mes 4: Agosto -->
+              <div class="tm-chart-col">
+                <div class="tm-chart-bars">
+                  <div class="tm-bar tm-bar--primary" style="height: 75%;">
+                    <div class="tm-bar__tooltip">Postulaciones: 710</div>
+                  </div>
+                  <div class="tm-bar tm-bar--secondary" style="height: 48%;">
+                    <div class="tm-bar__tooltip">Registros: 275</div>
+                  </div>
+                </div>
+                <span class="tm-chart-col__label">Ago</span>
+              </div>
+
+              <!-- Mes 5: Septiembre -->
+              <div class="tm-chart-col">
+                <div class="tm-chart-bars">
+                  <div class="tm-bar tm-bar--primary" style="height: 86%;">
+                    <div class="tm-bar__tooltip">Postulaciones: 840</div>
+                  </div>
+                  <div class="tm-bar tm-bar--secondary" style="height: 60%;">
+                    <div class="tm-bar__tooltip">Registros: 340</div>
+                  </div>
+                </div>
+                <span class="tm-chart-col__label">Sep</span>
+              </div>
+
+              <!-- Mes 6: Octubre (Actual) -->
+              <div class="tm-chart-col">
+                <div class="tm-chart-bars">
+                  <div class="tm-bar tm-bar--primary" style="height: 96%;">
+                    <div class="tm-bar__tooltip">Postulaciones: 932</div>
+                  </div>
+                  <div class="tm-bar tm-bar--secondary" style="height: 74%;">
+                    <div class="tm-bar__tooltip">Registros: 433</div>
+                  </div>
+                </div>
+                <span class="tm-chart-col__label" style="color: var(--color-primary-700); font-weight: 700;">Oct (Hoy)</span>
+              </div>
             </div>
-            <ul class="tm-catalog-list" id="catalogList"></ul>
-            <form class="tm-catalog-add" onsubmit="addCatalogItem(event)">
-              <input type="text" id="catalogInput" class="tm-form__input" placeholder="Nueva opción..." required>
-              <button type="submit" class="tm-btn tm-btn--primary tm-btn--sm">Agregar</button>
-            </form>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4); font-size: var(--text-caption); color: var(--color-neutral-500);">
+              <span>* Valores calculados en base a transacciones registradas</span>
+              <span>Tiempo promedio de procesamiento IA: <strong>1.2 seg</strong></span>
+            </div>
+          </div>
+
+          <!-- Distribución del Ecosistema & Monitor de Salud -->
+          <div class="tm-chart-card">
+            <h3 class="tm-chart-card__title">Distribución del Ecosistema</h3>
+            <p class="tm-chart-card__subtitle">Desglose de los 1,428 usuarios activos por tipo de rol</p>
+
+            <!-- Barra Segmentada Visual -->
+            <div class="tm-segment-bar">
+              <div class="tm-segment-bar__slice" style="width: 68.6%; background: var(--color-primary-700);" title="Postulantes: 68.6%"></div>
+              <div class="tm-segment-bar__slice" style="width: 22.4%; background: #2196F3;" title="Empresas: 22.4%"></div>
+              <div class="tm-segment-bar__slice" style="width: 9.0%; background: #F57F17;" title="Reclutadores: 9.0%"></div>
+            </div>
+
+            <!-- Lista de Desglose -->
+            <div class="tm-ecosystem-list">
+              <div class="tm-ecosystem-item">
+                <div class="tm-ecosystem-item__info">
+                  <span class="tm-ecosystem-item__dot" style="background: var(--color-primary-700);"></span>
+                  <p class="tm-ecosystem-item__name">Postulantes Profesionales</p>
+                </div>
+                <div class="tm-ecosystem-item__values">
+                  <span class="tm-ecosystem-item__count">980</span>
+                  <span class="tm-ecosystem-item__percent">(68.6%)</span>
+                </div>
+              </div>
+
+              <div class="tm-ecosystem-item">
+                <div class="tm-ecosystem-item__info">
+                  <span class="tm-ecosystem-item__dot" style="background: #2196F3;"></span>
+                  <p class="tm-ecosystem-item__name">Empresas Contratantes</p>
+                </div>
+                <div class="tm-ecosystem-item__values">
+                  <span class="tm-ecosystem-item__count">320</span>
+                  <span class="tm-ecosystem-item__percent">(22.4%)</span>
+                </div>
+              </div>
+
+              <div class="tm-ecosystem-item">
+                <div class="tm-ecosystem-item__info">
+                  <span class="tm-ecosystem-item__dot" style="background: #F57F17;"></span>
+                  <p class="tm-ecosystem-item__name">Reclutadores & Headhunters</p>
+                </div>
+                <div class="tm-ecosystem-item__values">
+                  <span class="tm-ecosystem-item__count">128</span>
+                  <span class="tm-ecosystem-item__percent">(9.0%)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Health Status Monitor -->
+            <div class="tm-health-card">
+              <div class="tm-health-row">
+                <span style="font-size: var(--text-caption); font-weight: 600; color: var(--color-neutral-700);">Motor Semántico IA</span>
+                <span class="tm-health-indicator">
+                  <span class="tm-health-dot"></span>
+                  99.98% Uptime
+                </span>
+              </div>
+              <div class="tm-health-row">
+                <span style="font-size: var(--text-caption); font-weight: 600; color: var(--color-neutral-700);">Latencia Media API</span>
+                <span style="font-size: var(--text-caption); font-weight: 700; color: var(--color-neutral-800);">142 ms (Excelente)</span>
+              </div>
+              <div class="tm-health-row">
+                <span style="font-size: var(--text-caption); font-weight: 600; color: var(--color-neutral-700);">Conexiones Base de Datos</span>
+                <span style="font-size: var(--text-caption); font-weight: 700; color: #2E7D32;">28 / 100 Pool OK</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section class="tm-admin-tab" id="tab-parametros" hidden>
-          <div class="tm-params-grid">
-            <div class="tm-card">
-              <div class="tm-card__header">
-                <h2 class="tm-card__title">Matching con IA</h2>
-                <p class="tm-card__subtitle">Umbrales del motor de coincidencia</p>
-              </div>
-              <div class="tm-form-group">
-                <label for="matchingThreshold" class="tm-form__label">Umbral mínimo de matching (%)</label>
-                <input type="number" id="matchingThreshold" class="tm-form__input" value="60" min="0" max="100">
-              </div>
-              <div class="tm-form-group">
-                <label for="maxSuggestions" class="tm-form__label">Candidatos sugeridos por oferta</label>
-                <input type="number" id="maxSuggestions" class="tm-form__input" value="10" min="1" max="50">
-              </div>
+        <!-- SECCIÓN: ACCESOS DIRECTOS DE ADMINISTRACIÓN -->
+        <section style="margin-bottom: var(--space-6);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+            <div>
+              <h3 class="tm-text-h2" style="margin: 0 0 2px 0;">Accesos Rápidos de Administración</h3>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0;">Navegación inmediata a los módulos troncales del sistema.</p>
             </div>
-            <div class="tm-card">
-              <div class="tm-card__header">
-                <h2 class="tm-card__title">Ofertas</h2>
-                <p class="tm-card__subtitle">Límites de publicación</p>
+          </div>
+
+          <div class="tm-shortcuts-grid">
+            <!-- Acceso 1: Gestión de Usuarios -->
+            <a href="usuarios.html" class="tm-shortcut-card">
+              <div>
+                <div class="tm-shortcut-card__header">
+                  <div class="tm-kpi-card__icon tm-kpi-card__icon--primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                  </div>
+                  <span class="tm-badge tm-badge--primary" style="font-weight: 700;">1,428 Usuarios</span>
+                </div>
+                <h4 class="tm-shortcut-card__title">Gestión de Usuarios</h4>
+                <p class="tm-shortcut-card__desc">
+                  Audita cuentas de postulantes, empresas y reclutadores. Modera estados (activar/bloquear) y reasigna roles.
+                </p>
               </div>
-              <div class="tm-form-group">
-                <label for="maxOfertas" class="tm-form__label">Máximo de ofertas activas por empresa</label>
-                <input type="number" id="maxOfertas" class="tm-form__input" value="20" min="1">
+              <div class="tm-shortcut-card__cta">
+                <span>Gestionar Cuentas</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </div>
-              <div class="tm-form-group">
-                <label for="ofertaVigencia" class="tm-form__label">Vigencia de oferta (días)</label>
-                <input type="number" id="ofertaVigencia" class="tm-form__input" value="30" min="1">
+            </a>
+
+            <!-- Acceso 2: Catálogos del Sistema -->
+            <a href="catalogos.html" class="tm-shortcut-card">
+              <div>
+                <div class="tm-shortcut-card__header">
+                  <div class="tm-kpi-card__icon tm-kpi-card__icon--info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                  </div>
+                  <span class="tm-badge tm-badge--info" style="font-weight: 700;">4 Categorías</span>
+                </div>
+                <h4 class="tm-shortcut-card__title">Catálogos del Sistema</h4>
+                <p class="tm-shortcut-card__desc">
+                  Administra las taxonomías globales: áreas profesionales, competencias clave, tecnologías, idiomas y modalidades.
+                </p>
               </div>
+              <div class="tm-shortcut-card__cta">
+                <span>Configurar Catálogos</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </a>
+
+            <!-- Acceso 3: Parámetros del Sistema -->
+            <a href="parametros.html" class="tm-shortcut-card">
+              <div>
+                <div class="tm-shortcut-card__header">
+                  <div class="tm-kpi-card__icon tm-kpi-card__icon--warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3"/>
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                  </div>
+                  <span class="tm-badge tm-badge--warning" style="font-weight: 700;">Umbral: 60%</span>
+                </div>
+                <h4 class="tm-shortcut-card__title">Parámetros del Sistema</h4>
+                <p class="tm-shortcut-card__desc">
+                  Calibra los pesos del motor IA, umbral mínimo de afinidad, límites de publicación por empresa y restricciones de CV.
+                </p>
+              </div>
+              <div class="tm-shortcut-card__cta">
+                <span>Ajustar Parámetros</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- SECCIÓN: ACTIVIDAD RECIENTE DEL SISTEMA (AUDIT FEED) -->
+        <section class="tm-feed-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4);">
+            <div>
+              <h3 class="tm-chart-card__title">Actividad Reciente del Sistema</h3>
+              <p class="tm-chart-card__subtitle">Registro de auditoría en vivo con las últimas transacciones y eventos</p>
             </div>
-            <div class="tm-card">
-              <div class="tm-card__header">
-                <h2 class="tm-card__title">Archivos</h2>
-                <p class="tm-card__subtitle">Restricciones de CV y adjuntos</p>
-              </div>
-              <div class="tm-form-group">
-                <label for="maxFileSize" class="tm-form__label">Tamaño máximo de CV (MB)</label>
-                <input type="number" id="maxFileSize" class="tm-form__input" value="5" min="1">
-              </div>
-              <div class="tm-form-group">
-                <label for="allowedFormats" class="tm-form__label">Formatos permitidos</label>
-                <input type="text" id="allowedFormats" class="tm-form__input" value="pdf, docx">
-              </div>
+            <div class="tm-feed-filters" id="feedFilterBar">
+              <button type="button" class="tm-feed-filter-btn tm-feed-filter-btn--active" onclick="filterFeed(this, 'all')">Todos los eventos</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'postulacion')">Postulaciones</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'oferta')">Ofertas</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'usuario')">Usuarios</button>
+              <button type="button" class="tm-feed-filter-btn" onclick="filterFeed(this, 'seguridad')">Seguridad</button>
             </div>
-            <div class="tm-card">
-              <div class="tm-card__header">
-                <h2 class="tm-card__title">Plataforma</h2>
-                <p class="tm-card__subtitle">Configuración global</p>
-              </div>
-              <div class="tm-form-group">
-                <label for="supportEmail" class="tm-form__label">Correo de soporte</label>
-                <input type="email" id="supportEmail" class="tm-form__input" value="soporte@talentmatch.com">
-              </div>
-              <div class="tm-form-group tm-form-group--inline">
-                <label class="tm-switch">
-                  <input type="checkbox" id="maintenanceMode">
-                  <span class="tm-switch__slider"></span>
-                </label>
-                <label for="maintenanceMode" class="tm-form__label">Modo mantenimiento</label>
-              </div>
-              <button class="tm-btn tm-btn--primary" onclick="saveParams()">Guardar cambios</button>
-            </div>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="tm-feed-table">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Actor / Entidad</th>
+                  <th>Detalle del Evento</th>
+                  <th>Timestamp</th>
+                  <th style="text-align: right;">Auditoría</th>
+                </tr>
+              </thead>
+              <tbody id="feedTableBody">
+                <!-- Evento 1 -->
+                <tr data-category="postulacion">
+                  <td>
+                    <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">Postulación IA</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #1A1A2E, #2D2D44);">CL</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Carlos Eduardo López</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Postulante #1042</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Aplicó a <strong>Desarrollador Full Stack Senior</strong> en TechCorp S.A.
+                    <span class="tm-badge tm-badge--neutral" style="font-size: 10px; margin-left: 4px;">Score: 95%</span>
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 8 minutos</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9041', 'Postulación', 'Carlos Eduardo López', 'Desarrollador Full Stack Senior - Score 95%', '192.168.1.45', 'POST /api/v1/applications/apply', '200 OK')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Evento 2 -->
+                <tr data-category="oferta">
+                  <td>
+                    <span class="tm-badge tm-badge--primary" style="font-weight: 700; font-size: 11px;">Nueva Oferta</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #0D47A1, #1976D2);">DI</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Digital Innovations Lab</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Empresa Verificada</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Publicó la vacante <strong>Backend Engineer Node.js & Microservicios</strong> (Rango: $3,500 - $4,200 USD).
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 32 minutos</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9040', 'Publicación Oferta', 'Digital Innovations Lab', 'Backend Engineer Node.js & Microservicios', '186.28.110.12', 'POST /api/v1/jobs/publish', '201 Created')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Evento 3 -->
+                <tr data-category="postulacion">
+                  <td>
+                    <span class="tm-badge tm-badge--warning" style="font-weight: 700; font-size: 11px;">Entrevista</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #F57F17, #FFA000);">AM</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Ana Patricia Martínez</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Reclutador Senior</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Agendó sesión de evaluación técnica para 3 candidatos preseleccionados con match &gt; 90%.
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 1 hora</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9039', 'Agendamiento', 'Ana Patricia Martínez', '3 candidatos movidos a etapa Entrevista', '190.237.12.8', 'PUT /api/v1/pipeline/stage', '200 OK')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Evento 4 -->
+                <tr data-category="usuario">
+                  <td>
+                    <span class="tm-badge tm-badge--info" style="font-weight: 700; font-size: 11px;">Nuevo Registro</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #4A148C, #7B1FA2);">PC</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">PixelCraft Studios S.A.C.</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Cuenta Empresa</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Registro completado y validación de RUC corporativo aprobada automáticamente por el motor de verificación.
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 2 horas</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9038', 'Alta de Usuario', 'PixelCraft Studios', 'RUC validado y credenciales expedidas', '201.240.89.54', 'POST /api/v1/auth/register-company', '200 OK')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Evento 5 -->
+                <tr data-category="seguridad">
+                  <td>
+                    <span class="tm-badge tm-badge--error" style="font-weight: 700; font-size: 11px;">Alerta Seguridad</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: #C62828;">SEC</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">Firewall / Guard WAF</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Seguridad Perimetral</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Bloqueo temporal de IP <code>190.237.45.12</code> tras 5 intentos fallidos de autenticación en /auth/login.
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 3 horas</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9037', 'Seguridad WAF', 'Firewall Automático', 'Rate-limiting excedido: 5 intentos fallidos en 60s', '190.237.45.12', 'POST /api/v1/auth/login', '429 Too Many Requests')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Evento 6 -->
+                <tr data-category="postulacion">
+                  <td>
+                    <span class="tm-badge tm-badge--success" style="font-weight: 700; font-size: 11px;">Postulación IA</span>
+                  </td>
+                  <td>
+                    <div class="tm-feed-event-cell">
+                      <div class="tm-feed-avatar" style="background: linear-gradient(135deg, #00695C, #00897B);">MG</div>
+                      <div>
+                        <strong style="color: var(--color-neutral-900);">María Fernanda García</strong>
+                        <p style="margin: 0; font-size: 11px; color: var(--color-neutral-500);">Postulante #1089</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    Postulación enviada a <strong>Frontend Lead Developer (React & Next.js)</strong>. Match: 88%.
+                  </td>
+                  <td style="color: var(--color-neutral-500); white-space: nowrap;">Hace 4 horas</td>
+                  <td style="text-align: right;">
+                    <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="inspeccionarEvento('EVT-9036', 'Postulación', 'María Fernanda García', 'Frontend Lead Developer - Score 88%', '190.113.88.2', 'POST /api/v1/applications/apply', '200 OK')">
+                      Inspeccionar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -287,64 +687,221 @@
 
   </div>
 
-  <script src="../js/auth.js" defer></script>
+  <!-- MODAL DE INSPECCIÓN TÉCNICA DE EVENTO -->
+  <div class="tm-modal" id="modalInspeccion" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalInspeccion()"></div>
+    <div class="tm-modal__dialog">
+      <div class="tm-modal__header">
+        <div>
+          <h3 class="tm-modal__title" id="modalInspTitle">Detalle de Auditoría</h3>
+          <p style="font-size: var(--text-caption); color: var(--color-neutral-500); margin: 2px 0 0;" id="modalInspId">EVT-9041</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalInspeccion()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="tm-modal__body">
+        <div style="background: var(--color-neutral-900); color: #81C784; padding: var(--space-4); border-radius: var(--radius-md); font-family: monospace; font-size: 12px; line-height: 1.6; margin-bottom: var(--space-4); overflow-x: auto;">
+          <p style="margin: 0; color: #90CAF9;">// TalentMatch AI - Audit Log Payload</p>
+          <p style="margin: 0;">{</p>
+          <p style="margin: 0; padding-left: 16px;">"event_id": "<span id="inspJsonId">EVT-9041</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"category": "<span id="inspJsonCat">Postulación</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"actor": "<span id="inspJsonActor">Carlos Eduardo López</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"detail": "<span id="inspJsonDetail">Desarrollador Full Stack Senior</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"client_ip": "<span id="inspJsonIp">192.168.1.45</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"endpoint": "<span id="inspJsonEndpoint">POST /api/v1/applications/apply</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"http_status": "<span id="inspJsonStatus">200 OK</span>",</p>
+          <p style="margin: 0; padding-left: 16px;">"signature_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"</p>
+          <p style="margin: 0;">}</p>
+        </div>
+
+        <div style="border: 1px solid var(--color-neutral-200); border-radius: var(--radius-md); padding: var(--space-4); background: var(--color-neutral-50);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-2);">
+            <span style="font-size: var(--text-caption); font-weight: 600; color: var(--color-neutral-600);">Certificación de Integridad:</span>
+            <span class="tm-badge tm-badge--success" style="font-size: 10px; font-weight: 700;">Verificado SHA-256</span>
+          </div>
+          <p style="font-size: var(--text-body-sm); color: var(--color-neutral-700); margin: 0;">
+            El registro se encuentra almacenado de forma inmutable en el log distribuido de eventos del sistema central.
+          </p>
+        </div>
+      </div>
+
+      <div class="tm-modal__footer">
+        <button type="button" class="tm-btn tm-btn--secondary" onclick="copiarLog()">Copiar JSON</button>
+        <button type="button" class="tm-btn tm-btn--primary" onclick="cerrarModalInspeccion()">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIONES -->
+  <div id="tmToast" style="position: fixed; bottom: 24px; right: 24px; background: var(--color-neutral-900); color: var(--color-white); padding: 12px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); font-size: var(--text-body-sm); display: flex; align-items: center; gap: 10px; z-index: 1000; transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+    <span id="toastIcon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </span>
+    <span id="toastMessage">Acción completada</span>
+  </div>
+
+  <!-- SCRIPT DE INTERACCIÓN -->
   <script>
-    document.querySelectorAll('.tm-tabs__tab').forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.tm-tabs__tab').forEach(function(t) {
-          t.classList.remove('tm-tabs__tab--active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('tm-tabs__tab--active');
-        tab.setAttribute('aria-selected', 'true');
-        document.querySelectorAll('.tm-admin-tab').forEach(function(panel) {
-          panel.hidden = true;
-        });
-        document.getElementById('tab-' + tab.dataset.tab).hidden = false;
-      });
-    });
-
-    var catalogs = {
-      areas: ['Desarrollo de Software', 'Diseño UX/UI', 'Data & Analytics', 'Marketing Digital', 'Recursos Humanos'],
-      tecnologias: ['JavaScript', 'Python', 'React', 'Node.js', 'SQL', 'Docker'],
-      idiomas: ['Español', 'Inglés', 'Francés', 'Portugués', 'Alemán'],
-      modalidades: ['Presencial', 'Remoto', 'Híbrido']
-    };
-
-    function renderCatalog() {
-      var type = document.getElementById('catalogType').value;
-      var list = document.getElementById('catalogList');
-      list.innerHTML = '';
-      catalogs[type].forEach(function(item, index) {
-        var li = document.createElement('li');
-        li.className = 'tm-catalog-list__item';
-        li.innerHTML = '<span>' + item + '</span><button class="tm-btn tm-btn--ghost tm-btn--sm" onclick="removeCatalogItem(\'' + type + '\', ' + index + ')">Eliminar</button>';
-        list.appendChild(li);
+    // Toggle de Sidebar
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('tmSidebar');
+    if (sidebarToggle && sidebar) {
+      sidebarToggle.addEventListener('click', () => {
+        document.body.classList.toggle('tm-sidebar-collapsed');
       });
     }
 
-    function addCatalogItem(event) {
-      event.preventDefault();
-      var type = document.getElementById('catalogType').value;
-      var input = document.getElementById('catalogInput');
-      var value = input.value.trim();
-      if (value) {
-        catalogs[type].push(value);
-        input.value = '';
-        renderCatalog();
+    // Dropdown de Perfil
+    const profileDropdownBtn = document.getElementById('profileDropdownBtn');
+    const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+    if (profileDropdownBtn && profileDropdownMenu) {
+      profileDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('is-active');
+        profileDropdownMenu.classList.toggle('tm-dropdown__menu--open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileDropdownBtn.contains(e.target)) {
+          profileDropdownMenu.classList.remove('is-active');
+          profileDropdownMenu.classList.remove('tm-dropdown__menu--open');
+        }
+      });
+    }
+
+    // Logout
+    function logout() {
+      sessionStorage.removeItem('tm_session');
+      window.location.href = '../auth/login.html';
+    }
+
+    // Toast Notificaciones
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('tmToast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        if (type === 'info') {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+        } else {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+        setTimeout(() => {
+          toast.style.transform = 'translateY(100px)';
+          toast.style.opacity = '0';
+        }, 3200);
       }
     }
 
-    function removeCatalogItem(type, index) {
-      catalogs[type].splice(index, 1);
-      renderCatalog();
+    // Selector de Período Dinámico
+    function setPeriod(btn, period) {
+      document.querySelectorAll('.tm-period-btn').forEach(b => b.classList.remove('tm-period-btn--active'));
+      btn.classList.add('tm-period-btn--active');
+
+      const kpiUsuarios = document.getElementById('kpiValUsuarios');
+      const kpiActivos = document.getElementById('kpiValActivos');
+      const kpiOfertas = document.getElementById('kpiValOfertas');
+      const kpiPostulaciones = document.getElementById('kpiValPostulaciones');
+
+      if (period === '24h') {
+        kpiUsuarios.textContent = '48';
+        kpiActivos.textContent = '412';
+        kpiOfertas.textContent = '12';
+        kpiPostulaciones.textContent = '184';
+        showToast('Mostrando métricas de las últimas 24 horas', 'info');
+      } else if (period === '7d') {
+        kpiUsuarios.textContent = '312';
+        kpiActivos.textContent = '890';
+        kpiOfertas.textContent = '64';
+        kpiPostulaciones.textContent = '840';
+        showToast('Mostrando métricas de los últimos 7 días', 'info');
+      } else if (period === '30d') {
+        kpiUsuarios.textContent = '1,428';
+        kpiActivos.textContent = '1,386';
+        kpiOfertas.textContent = '284';
+        kpiPostulaciones.textContent = '3,892';
+        showToast('Mostrando métricas de los últimos 30 días', 'info');
+      } else if (period === 'year') {
+        kpiUsuarios.textContent = '8,940';
+        kpiActivos.textContent = '7,820';
+        kpiOfertas.textContent = '1,650';
+        kpiPostulaciones.textContent = '24,190';
+        showToast('Mostrando métricas consolidadas del año 2026', 'info');
+      }
     }
 
-    function saveParams() {
-      alert('Parámetros guardados correctamente.');
+    function recargarDashboard() {
+      showToast('Actualizando métricas con el servidor central...');
+      const btn = event.currentTarget;
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.disabled = false;
+        showToast('Datos sincronizados en tiempo real', 'success');
+      }, 600);
     }
 
-    renderCatalog();
+    // Filtros del Feed de Actividad
+    function filterFeed(btn, category) {
+      document.querySelectorAll('.tm-feed-filter-btn').forEach(b => b.classList.remove('tm-feed-filter-btn--active'));
+      btn.classList.add('tm-feed-filter-btn--active');
+
+      const rows = document.querySelectorAll('#feedTableBody tr');
+      rows.forEach(row => {
+        if (category === 'all' || row.dataset.category === category) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal de Inspección Técnica
+    const modalInspeccion = document.getElementById('modalInspeccion');
+
+    function inspeccionarEvento(id, cat, actor, detail, ip, endpoint, status) {
+      document.getElementById('modalInspId').textContent = id;
+      document.getElementById('inspJsonId').textContent = id;
+      document.getElementById('inspJsonCat').textContent = cat;
+      document.getElementById('inspJsonActor').textContent = actor;
+      document.getElementById('inspJsonDetail').textContent = detail;
+      document.getElementById('inspJsonIp').textContent = ip;
+      document.getElementById('inspJsonEndpoint').textContent = endpoint;
+      document.getElementById('inspJsonStatus').textContent = status;
+
+      modalInspeccion.classList.add('tm-modal--open');
+    }
+
+    function cerrarModalInspeccion() {
+      modalInspeccion.classList.remove('tm-modal--open');
+    }
+
+    function copiarLog() {
+      const payload = {
+        event_id: document.getElementById('inspJsonId').textContent,
+        category: document.getElementById('inspJsonCat').textContent,
+        actor: document.getElementById('inspJsonActor').textContent,
+        detail: document.getElementById('inspJsonDetail').textContent,
+        client_ip: document.getElementById('inspJsonIp').textContent,
+        endpoint: document.getElementById('inspJsonEndpoint').textContent,
+        http_status: document.getElementById('inspJsonStatus').textContent
+      };
+
+      navigator.clipboard.writeText(JSON.stringify(payload, null, 2)).then(() => {
+        showToast('JSON de auditoría copiado al portapapeles', 'success');
+      }).catch(() => {
+        showToast('Registro preparado para inspección', 'info');
+      });
+    }
+
+    // Cerrar modal al presionar Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalInspeccion.classList.contains('tm-modal--open')) {
+        cerrarModalInspeccion();
+      }
+    });
   </script>
 </body>
 </html>
