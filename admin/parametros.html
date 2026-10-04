@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parámetros del Sistema | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+  <style>
+    /* Estilos de alta legibilidad y jerarquía limpia para Parámetros */
+    .tm-param-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .tm-param-card__title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--color-neutral-900);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .tm-param-card__badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .tm-param-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .tm-param-field__label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-neutral-900);
+      margin: 0;
+    }
+
+    .tm-param-field__desc {
+      font-size: 0.92rem;
+      color: var(--color-neutral-600);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .tm-param-input-lg {
+      height: 48px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-neutral-900);
+      padding: 0 var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-neutral-300);
+      background: var(--color-neutral-50);
+      transition: all 0.2s ease;
+    }
+
+    .tm-param-input-lg:focus {
+      background: var(--color-white);
+      border-color: var(--color-primary-700);
+      outline: none;
+      box-shadow: 0 0 0 3px var(--color-primary-100);
+    }
+
+    .tm-param-row-switch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-neutral-50);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+    }
+
+    .tm-param-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-neutral-900);
+      cursor: pointer;
+      padding: 10px 16px;
+      background: var(--color-neutral-50);
+      border: 1.5px solid var(--color-neutral-200);
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    .tm-param-checkbox-label:hover {
+      background: var(--color-primary-50);
+      border-color: var(--color-primary-300);
+    }
+
+    .tm-param-checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--color-primary-700);
+    }
+  </style>
+</head>
+<body class="tm-admin-page">
+  <div class="tm-dashboard-layout">
+
+    <!-- SIDEBAR DE ADMINISTRACIÓN -->
+    <aside class="tm-sidebar" id="tmSidebar">
+      <div class="tm-sidebar__header">
+        <a href="dashboard.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        </a>
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="usuarios.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span class="tm-sidebar__label">Usuarios</span>
+        </a>
+        <a href="catalogos.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <span class="tm-sidebar__label">Catálogos</span>
+        </a>
+        <a href="parametros.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          <span class="tm-sidebar__label">Parámetros</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- NAVBAR SUPERIOR -->
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" id="sidebarToggle" aria-label="Alternar barra lateral">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Parámetros del Sistema</h1>
+      </div>
+
+      <div class="tm-navbar__right">
+        <!-- Indicador de Motor IA -->
+        <div class="tm-health-indicator" style="margin-right: var(--space-2); display: flex; align-items: center; gap: 6px;">
+          <span class="tm-health-dot"></span>
+          <span style="font-size: var(--text-caption); font-weight: 700; color: #2E7D32;">Motor IA Operativo</span>
+        </div>
+
+        <!-- Dropdown Usuario Administrador -->
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">AD</span>
+            <span class="tm-navbar__username">Administrador</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900); margin: 0 0 2px 0;">Administrador del Sistema</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0 0 var(--space-2) 0;">admin@talentmatch.com</p>
+              <span class="tm-badge tm-badge--error" style="font-size: 11px; font-weight: 700;">Super Administrador</span>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="dashboard.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Panel Principal
+              </a>
+              <a href="usuarios.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Gestión de Usuarios
+              </a>
+              <a href="catalogos.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Catálogos del Sistema
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="tm-main tm-page-content">
+      <div class="tm-admin-dashboard" style="max-width: 1240px; margin: 0 auto;">
+
+        <!-- BANNER DE CAMBIOS EN COLA / FASE DE APROBACIÓN (SI EXISTEN) -->
+        <div id="bannerReleasePendiente" style="display: none; background: #FFF8E1; border: 1.5px solid #FFD54F; border-radius: var(--radius-xl); padding: var(--space-5) var(--space-6); margin-bottom: var(--space-6); box-shadow: var(--shadow-xs);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+            <div style="display: flex; align-items: center; gap: var(--space-4);">
+              <div style="background: #FFA000; color: white; width: 42px; height: 42px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <strong style="font-size: 1.05rem; color: #5D4037; display: block;">Modificación en Cola de Aprobación (Release Ventana)</strong>
+                <p style="margin: 2px 0 0; font-size: 0.92rem; color: #795548;">
+                  Se programó un ajuste de parámetros. Se aplicará en el despliegue del <strong id="fechaReleaseVentanaText">Viernes a las 00:00 hrs</strong> tras auditoría.
+                </p>
+              </div>
+            </div>
+            <div style="display: flex; gap: var(--space-3); align-items: center;">
+              <span class="tm-badge tm-badge--warning" style="font-weight: 700; font-size: 13px; padding: 6px 12px;">Estado: Pendiente Despliegue</span>
+              <button type="button" class="tm-btn tm-btn--secondary tm-btn--sm" onclick="cancelarReleasePendiente()" style="min-height: 38px;">Cancelar Solicitud</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO HEADER -->
+        <div class="tm-admin-hero" style="margin-bottom: var(--space-8);">
+          <div>
+            <h2 class="tm-admin-hero__title" style="font-size: 1.85rem;">Configuración General del Sistema</h2>
+            <p class="tm-admin-hero__subtitle" style="font-size: 1rem; color: var(--color-neutral-600); max-width: 800px;">
+              Ajusta los parámetros operativos de la plataforma. Por política de estabilidad, los cambios requieren justificación técnica y se aplican en la ventana semanal de actualización.
+            </p>
+          </div>
+          <!-- Estado en Vivo -->
+          <div style="display: flex; align-items: center; gap: 10px; background: var(--color-white); border: 1.5px solid var(--color-neutral-200); padding: 10px 20px; border-radius: var(--radius-lg); box-shadow: var(--shadow-xs);">
+            <span class="tm-health-dot" style="width: 10px; height: 10px;"></span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--color-neutral-800);">
+              Versión Activa en Producción: <span id="headerUltimoGuardado" style="color: var(--color-primary-700);">v2.4.0 (Viernes 00:00 hrs)</span>
+            </span>
+          </div>
+        </div>
+
+        <form id="formParametrosSistema" onsubmit="event.preventDefault(); prevalidarYSolicitarRelease();">
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(520px, 1fr)); gap: var(--space-8);">
+
+            <!-- BLOQUE 1: MOTOR DE COINCIDENCIA IA -->
+            <div class="tm-param-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--color-neutral-100); padding-bottom: var(--space-4);">
+                <h3 class="tm-param-card__title">1. Motor de Inteligencia Artificial (Matching)</h3>
+                <span class="tm-badge tm-badge--primary tm-param-card__badge">Algoritmo</span>
+              </div>
+
+              <!-- Umbral Mínimo -->
+              <div class="tm-param-field">
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <label class="tm-param-field__label" for="paramUmbralMatching">
+                    Umbral Mínimo de Compatibilidad
+                  </label>
+                  <span id="umbralValorBadge" style="font-size: 1.35rem; font-weight: 800; color: var(--color-primary-700); background: var(--color-primary-50); padding: 4px 14px; border-radius: var(--radius-md); border: 1.5px solid var(--color-primary-200);">
+                    60%
+                  </span>
+                </div>
+                <p class="tm-param-field__desc">Puntaje mínimo requerido para clasificar una postulación como compatible.</p>
+                <div style="margin-top: var(--space-2);">
+                  <input type="range" id="paramUmbralMatching" min="30" max="90" step="5" value="60" style="width: 100%; height: 8px; accent-color: var(--color-primary-700); cursor: pointer;" oninput="actualizarSliderUmbral(this.value)">
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--color-neutral-500); margin-top: 6px;">
+                    <span>30% (Permisivo)</span>
+                    <span>60% (Recomendado)</span>
+                    <span>90% (Estricto)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simulación de Cobertura -->
+              <div style="background: var(--color-neutral-50); border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-lg); padding: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 0.95rem; font-weight: 700; color: var(--color-neutral-800);">Candidatos compatibles estimados:</span>
+                  <span id="impactoCandidatosLabel" style="font-size: 1rem; font-weight: 800; color: #2E7D32;">~142 perfiles</span>
+                </div>
+                <div style="height: 8px; background: var(--color-neutral-200); border-radius: 4px; margin-top: 10px; overflow: hidden;">
+                  <div id="impactoBarraFill" style="height: 100%; width: 65%; background: var(--color-primary-700); transition: width 0.3s ease;"></div>
+                </div>
+              </div>
+
+              <!-- Ponderaciones -->
+              <div style="border-top: 1.5px solid var(--color-neutral-100); padding-top: var(--space-5);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+                  <span class="tm-param-field__label">Ponderación de Factores</span>
+                  <span id="totalPonderacionBadge" style="font-size: 13px; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-md); background: #E8F5E9; color: #2E7D32;">
+                    Total: 100%
+                  </span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+                  <div class="tm-param-field">
+                    <label style="font-size: 0.9rem; font-weight: 700; color: var(--color-neutral-700);">Experiencia Laboral</label>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <input type="number" id="pesoExp" class="tm-param-input-lg" value="25" min="5" max="50" oninput="calcularTotalPonderaciones()" style="width: 100%; text-align: center;">
+                      <span style="font-size: 1.1rem; font-weight: 800; color: var(--color-neutral-700);">%</span>
+                    </div>
+                  </div>
+
+                  <div class="tm-param-field">
+                    <label style="font-size: 0.9rem; font-weight: 700; color: var(--color-neutral-700);">Tecnologías & Herramientas</label>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <input type="number" id="pesoTec" class="tm-param-input-lg" value="25" min="5" max="50" oninput="calcularTotalPonderaciones()" style="width: 100%; text-align: center;">
+                      <span style="font-size: 1.1rem; font-weight: 800; color: var(--color-neutral-700);">%</span>
+                    </div>
+                  </div>
+
+                  <div class="tm-param-field">
+                    <label style="font-size: 0.9rem; font-weight: 700; color: var(--color-neutral-700);">Formación Académica</label>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <input type="number" id="pesoFor" class="tm-param-input-lg" value="20" min="5" max="40" oninput="calcularTotalPonderaciones()" style="width: 100%; text-align: center;">
+                      <span style="font-size: 1.1rem; font-weight: 800; color: var(--color-neutral-700);">%</span>
+                    </div>
+                  </div>
+
+                  <div class="tm-param-field">
+                    <label style="font-size: 0.9rem; font-weight: 700; color: var(--color-neutral-700);">Competencias Blandas</label>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <input type="number" id="pesoCom" class="tm-param-input-lg" value="20" min="5" max="40" oninput="calcularTotalPonderaciones()" style="width: 100%; text-align: center;">
+                      <span style="font-size: 1.1rem; font-weight: 800; color: var(--color-neutral-700);">%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tm-param-field" style="margin-top: var(--space-4); max-width: 48%;">
+                  <label style="font-size: 0.9rem; font-weight: 700; color: var(--color-neutral-700);">Idiomas Requeridos</label>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <input type="number" id="pesoIdi" class="tm-param-input-lg" value="10" min="0" max="30" oninput="calcularTotalPonderaciones()" style="width: 100%; text-align: center;">
+                    <span style="font-size: 1.1rem; font-weight: 800; color: var(--color-neutral-700);">%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Switch Análisis Semántico -->
+              <div class="tm-param-row-switch">
+                <div>
+                  <strong style="font-size: 1rem; color: var(--color-neutral-900); display: block;">Análisis Semántico por IA</strong>
+                  <p class="tm-param-field__desc">Relaciona automáticamente sinónimos técnicos y equivalencias de cargo.</p>
+                </div>
+                <label class="tm-switch" style="transform: scale(1.15);">
+                  <input type="checkbox" id="switchSemantico" checked>
+                  <span class="tm-switch__slider"></span>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- BLOQUE 2: CARGA Y VALIDACIÓN DE ARCHIVOS (CV) -->
+            <div class="tm-param-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--color-neutral-100); padding-bottom: var(--space-4);">
+                <h3 class="tm-param-card__title">2. Gestión de Currículums (CV)</h3>
+                <span class="tm-badge tm-badge--info tm-param-card__badge">Archivos</span>
+              </div>
+
+              <!-- Formatos Permitidos -->
+              <div class="tm-param-field">
+                <label class="tm-param-field__label">Formatos de Documento Admitidos</label>
+                <p class="tm-param-field__desc">Extensiones aceptadas para la carga de perfiles y postulaciones.</p>
+                <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-2);">
+                  <label class="tm-param-checkbox-label">
+                    <input type="checkbox" id="formatPdf" checked>
+                    PDF (.pdf)
+                  </label>
+                  <label class="tm-param-checkbox-label">
+                    <input type="checkbox" id="formatDocx" checked>
+                    Word (.docx)
+                  </label>
+                  <label class="tm-param-checkbox-label">
+                    <input type="checkbox" id="formatDoc" checked>
+                    Word Legacy (.doc)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Tamaño Máximo -->
+              <div class="tm-param-field" style="margin-top: var(--space-2);">
+                <label class="tm-param-field__label" for="paramMaxFileSize">Límite de Tamaño por Archivo</label>
+                <p class="tm-param-field__desc">Tamaño máximo para cada currículum subido al portal.</p>
+                <div style="display: flex; align-items: center; gap: var(--space-3); max-width: 240px; margin-top: 4px;">
+                  <input type="number" id="paramMaxFileSize" class="tm-param-input-lg" value="10" min="2" max="50" style="text-align: center; width: 120px;">
+                  <span style="font-size: 1.1rem; font-weight: 800; color: var(--color-neutral-800);">Megabytes (MB)</span>
+                </div>
+              </div>
+
+              <!-- Switch Extracción de Texto OCR -->
+              <div class="tm-param-row-switch" style="margin-top: auto;">
+                <div>
+                  <strong style="font-size: 1rem; color: var(--color-neutral-900); display: block;">Escaneo Automático de CV (Parser)</strong>
+                  <p class="tm-param-field__desc">Extrae automáticamente experiencia y tecnologías desde el archivo PDF/Word.</p>
+                </div>
+                <label class="tm-switch" style="transform: scale(1.15);">
+                  <input type="checkbox" id="switchOcrParser" checked>
+                  <span class="tm-switch__slider"></span>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- BLOQUE 3: CICLO DE VIDA DE OFERTAS -->
+            <div class="tm-param-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--color-neutral-100); padding-bottom: var(--space-4);">
+                <h3 class="tm-param-card__title">3. Ciclo de Vida de Ofertas Laborales</h3>
+                <span class="tm-badge tm-badge--warning tm-param-card__badge">Empresas</span>
+              </div>
+
+              <!-- Límite de Ofertas Activas -->
+              <div class="tm-param-field">
+                <label class="tm-param-field__label" for="paramLimiteOfertas">Límite de Ofertas Activas por Empresa</label>
+                <p class="tm-param-field__desc">Vacantes simultáneas que puede mantener abiertas cada empresa contratante.</p>
+                <div style="display: flex; align-items: center; gap: var(--space-3); max-width: 240px; margin-top: 4px;">
+                  <input type="number" id="paramLimiteOfertas" class="tm-param-input-lg" value="10" min="1" max="100" style="text-align: center; width: 120px;">
+                  <span style="font-size: 1.05rem; font-weight: 800; color: var(--color-neutral-800);">Vacantes</span>
+                </div>
+              </div>
+
+              <!-- Tiempo de Expiración -->
+              <div class="tm-param-field" style="margin-top: var(--space-2);">
+                <label class="tm-param-field__label" for="paramDiasExpiracion">Vigencia Automática de la Oferta</label>
+                <p class="tm-param-field__desc">Días tras los cuales una vacante pasa automáticamente a estado Cerrada.</p>
+                <div style="display: flex; align-items: center; gap: var(--space-3); max-width: 240px; margin-top: 4px;">
+                  <input type="number" id="paramDiasExpiracion" class="tm-param-input-lg" value="30" min="7" max="120" style="text-align: center; width: 120px;">
+                  <span style="font-size: 1.05rem; font-weight: 800; color: var(--color-neutral-800);">Días corridos</span>
+                </div>
+              </div>
+
+              <!-- Switch Moderación Previa -->
+              <div class="tm-param-row-switch" style="margin-top: auto;">
+                <div>
+                  <strong style="font-size: 1rem; color: var(--color-neutral-900); display: block;">Moderación Previa Obligatoria</strong>
+                  <p class="tm-param-field__desc">Exige que un administrador revise la vacante antes de publicarse.</p>
+                </div>
+                <label class="tm-switch" style="transform: scale(1.15);">
+                  <input type="checkbox" id="switchModeracionOfertas">
+                  <span class="tm-switch__slider"></span>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- BLOQUE 4: SEGURIDAD Y ACCESOS -->
+            <div class="tm-param-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--color-neutral-100); padding-bottom: var(--space-4);">
+                <h3 class="tm-param-card__title">4. Seguridad y Sesiones</h3>
+                <span class="tm-badge tm-badge--error tm-param-card__badge">Seguridad</span>
+              </div>
+
+              <!-- Tiempo de Inactividad -->
+              <div class="tm-param-field">
+                <label class="tm-param-field__label" for="paramSessionTimeout">Cierre de Sesión por Inactividad</label>
+                <p class="tm-param-field__desc">Minutos antes de desautenticar la sesión en caso de abandono de pantalla.</p>
+                <div style="display: flex; align-items: center; gap: var(--space-3); max-width: 240px; margin-top: 4px;">
+                  <input type="number" id="paramSessionTimeout" class="tm-param-input-lg" value="60" min="15" max="480" style="text-align: center; width: 120px;">
+                  <span style="font-size: 1.05rem; font-weight: 800; color: var(--color-neutral-800);">Minutos</span>
+                </div>
+              </div>
+
+              <!-- Intentos Fallidos -->
+              <div class="tm-param-field" style="margin-top: var(--space-2);">
+                <label class="tm-param-field__label" for="paramMaxIntentos">Intentos Fallidos de Inicio de Sesión</label>
+                <p class="tm-param-field__desc">Límite de contraseñas erróneas antes de suspender temporalmente el acceso.</p>
+                <div style="display: flex; align-items: center; gap: var(--space-3); max-width: 240px; margin-top: 4px;">
+                  <input type="number" id="paramMaxIntentos" class="tm-param-input-lg" value="5" min="3" max="10" style="text-align: center; width: 120px;">
+                  <span style="font-size: 1.05rem; font-weight: 800; color: var(--color-neutral-800);">Intentos</span>
+                </div>
+              </div>
+
+              <!-- Switch Alertas al Admin -->
+              <div class="tm-param-row-switch" style="margin-top: auto;">
+                <div>
+                  <strong style="font-size: 1rem; color: var(--color-neutral-900); display: block;">Alertas de Seguridad al Super Admin</strong>
+                  <p class="tm-param-field__desc">Notificar ingresos inusuales y anomalías de autenticación.</p>
+                </div>
+                <label class="tm-switch" style="transform: scale(1.15);">
+                  <input type="checkbox" id="switchAlertasAdmin" checked>
+                  <span class="tm-switch__slider"></span>
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- HISTORIAL AUDITABLE LIMPIO Y LEGIBLE -->
+          <div class="tm-param-card" style="margin-top: var(--space-8);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid var(--color-neutral-100); padding-bottom: var(--space-4);">
+              <div>
+                <h3 class="tm-param-card__title" style="font-size: 1.25rem;">Registro de Cambios y Auditoría de Versiones</h3>
+                <p class="tm-param-field__desc" style="margin-top: 2px;">Trazabilidad completa de modificaciones documentadas y programadas para release.</p>
+              </div>
+              <span class="tm-badge tm-badge--info tm-param-card__badge">Auditoría</span>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="tm-table" style="font-size: 0.95rem;">
+                <thead>
+                  <tr>
+                    <th style="padding: 14px 16px;">Fecha & Hora</th>
+                    <th style="padding: 14px 16px;">Parámetro Solicitado</th>
+                    <th style="padding: 14px 16px;">Configuración Anterior</th>
+                    <th style="padding: 14px 16px;">Nueva Configuración</th>
+                    <th style="padding: 14px 16px;">Fase / Estado</th>
+                    <th style="padding: 14px 16px;">Motivo Técnico Registrado</th>
+                  </tr>
+                </thead>
+                <tbody id="historialCambiosBody">
+                  <tr>
+                    <td style="padding: 14px 16px; font-weight: 600; color: var(--color-neutral-600);">02/10/2026 18:40</td>
+                    <td style="padding: 14px 16px;"><strong>Umbral Mínimo Matching</strong></td>
+                    <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--neutral">50%</span></td>
+                    <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--primary">60%</span></td>
+                    <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--success" style="font-weight: 700;">Desplegado en Producción</span></td>
+                    <td style="padding: 14px 16px; color: var(--color-neutral-700);">Calibración de precisión para ofertas Senior</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 14px 16px; font-weight: 600; color: var(--color-neutral-600);">28/09/2026 11:15</td>
+                    <td style="padding: 14px 16px;"><strong>Tamaño Máximo Archivo</strong></td>
+                    <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--neutral">5 MB</span></td>
+                    <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--primary">10 MB</span></td>
+                    <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--success" style="font-weight: 700;">Desplegado en Producción</span></td>
+                    <td style="padding: 14px 16px; color: var(--color-neutral-700);">Soporte para portafolios de diseño integrados</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- FOOTER DE ACCIONES PRINCIPAL -->
+          <div style="margin-top: var(--space-8); background: var(--color-white); border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-xl); padding: var(--space-6) var(--space-8); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="tm-health-dot" style="width: 10px; height: 10px;"></span>
+              <span style="font-size: 0.95rem; font-weight: 600; color: var(--color-neutral-700);">
+                Ventana de actualización planificada: <strong id="fechaProximoReleaseLabel" style="color: var(--color-neutral-900);">Viernes 09/10/2026 a las 00:00 hrs</strong>
+              </span>
+            </div>
+            <div>
+              <button type="submit" class="tm-btn tm-btn--primary" style="min-height: 48px; padding: 0 var(--space-8); font-size: 1rem; font-weight: 800; border-radius: var(--radius-md);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Solicitar y Programar Despliegue
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL: FASE DE APROBACIÓN Y PROGRAMACIÓN DE RELEASE (AUDITORÍA EMPRESARIAL) -->
+  <div class="tm-modal" id="modalConfirmarParametros" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalConfirmacion()"></div>
+    <div class="tm-modal__dialog" style="max-width: 560px; padding: var(--space-6);">
+      <div class="tm-modal__header" style="padding: 0 0 var(--space-4) 0;">
+        <div>
+          <h3 class="tm-modal__title" style="font-size: 1.3rem; font-weight: 800; color: var(--color-neutral-900);">Fase de Aprobación de Cambios</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-500); margin: 2px 0 0;">Programación para Próximo Despliegue</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalConfirmacion()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="tm-modal__body" style="padding: var(--space-4) 0 0 0;">
+        <div style="background: #E8F5E9; border: 1.5px solid #A5D6A7; padding: var(--space-4); border-radius: var(--radius-lg); margin-bottom: var(--space-5);">
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <div>
+              <strong style="color: #1B5E20; font-size: 0.98rem; display: block;">Ventana de Actualización Segura:</strong>
+              <p style="margin: 4px 0 0; font-size: 0.92rem; color: #2E7D32; line-height: 1.45;">
+                Los cambios se efectuarán en la próxima versión del sistema: <strong>este Viernes a la medianoche (00:00 hrs)</strong>. Esto previene interrupciones en procesos de selección abiertos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-param-field">
+          <label class="tm-param-field__label" for="motivoCambioInput" style="font-size: 1rem;">
+            Documentación Técnica y Motivo del Cambio (Obligatorio)
+          </label>
+          <textarea id="motivoCambioInput" class="tm-param-input-lg" style="height: 80px; padding: 10px 14px; font-weight: 500; font-size: 0.95rem; resize: none;" placeholder="Describe detalladamente el objetivo del cambio y el impacto esperado..." required></textarea>
+        </div>
+
+        <div style="margin-top: var(--space-4); font-size: 0.95rem; color: var(--color-neutral-700); background: var(--color-neutral-50); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--color-neutral-200);">
+          <span>Administrador solicitante: <strong>admin@talentmatch.com</strong></span>
+          <br>
+          <span style="font-size: 12px; color: var(--color-neutral-500);">Fase: Pasa a cola de revisión y aprobación previa al release.</span>
+        </div>
+
+        <div class="tm-modal__footer" style="padding: var(--space-5) 0 0 0; margin-top: var(--space-6); background: transparent; border-top: 1.5px solid var(--color-neutral-200);">
+          <button type="button" class="tm-btn tm-btn--secondary" onclick="cerrarModalConfirmacion()" style="min-height: 44px; padding: 0 var(--space-6);">Cancelar</button>
+          <button type="button" class="tm-btn tm-btn--primary" onclick="confirmarYProgramarRelease()" style="min-height: 44px; padding: 0 var(--space-6); font-weight: 800;">
+            Aprobar y Encolar para el Viernes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIONES -->
+  <div id="tmToast" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div style="background: #1A1A2E; color: white; padding: 14px 24px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; border-left: 4px solid var(--color-primary-700);">
+      <span id="toastIcon" style="color: #4CAF50; display: flex; align-items: center;"></span>
+      <span id="toastMessage">Configuración programada para el próximo release</span>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../js/auth/auth-guard.js"></script>
+  <script>
+    let parametrosPendientes = null;
+
+    // Calcular próximo viernes medianoche
+    function obtenerProximoViernesMedianoche() {
+      const hoy = new Date();
+      const diaSemana = hoy.getDay(); // 0 = Domingo, 5 = Viernes
+      const diasHastaViernes = (5 - diaSemana + 7) % 7 || 7;
+      
+      const proximoViernes = new Date(hoy);
+      proximoViernes.setDate(hoy.getDate() + diasHastaViernes);
+      proximoViernes.setHours(0, 0, 0, 0);
+
+      const opciones = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+      const fechaTexto = proximoViernes.toLocaleDateString('es-ES', opciones);
+      return fechaTexto.charAt(0).toUpperCase() + fechaTexto.slice(1) + ' a las 00:00 hrs';
+    }
+
+    // Actualizar valor de badge de slider en vivo y calcular impacto simulado
+    function actualizarSliderUmbral(val) {
+      document.getElementById('umbralValorBadge').textContent = val + '%';
+      
+      const baseTotal = 210;
+      const factor = (100 - val) / 100;
+      const candidatosEstimados = Math.round(baseTotal * factor * 1.2);
+      const porcentajeBarra = Math.min(100, Math.max(15, Math.round(factor * 100)));
+
+      document.getElementById('impactoCandidatosLabel').textContent = `~${candidatosEstimados} perfiles`;
+      document.getElementById('impactoBarraFill').style.width = porcentajeBarra + '%';
+    }
+
+    // Calcular suma de ponderaciones
+    function calcularTotalPonderaciones() {
+      const pExp = parseInt(document.getElementById('pesoExp').value, 10) || 0;
+      const pTec = parseInt(document.getElementById('pesoTec').value, 10) || 0;
+      const pFor = parseInt(document.getElementById('pesoFor').value, 10) || 0;
+      const pCom = parseInt(document.getElementById('pesoCom').value, 10) || 0;
+      const pIdi = parseInt(document.getElementById('pesoIdi').value, 10) || 0;
+
+      const suma = pExp + pTec + pFor + pCom + pIdi;
+      const badge = document.getElementById('totalPonderacionBadge');
+
+      badge.textContent = `Total: ${suma}%`;
+      if (suma === 100) {
+        badge.style.background = '#E8F5E9';
+        badge.style.color = '#2E7D32';
+      } else {
+        badge.style.background = '#FFEBEE';
+        badge.style.color = '#C62828';
+      }
+
+      return suma;
+    }
+
+    // Cargar parámetros guardados en localStorage
+    function cargarParametros() {
+      const guardados = localStorage.getItem('tm_system_params');
+      if (guardados) {
+        try {
+          const params = JSON.parse(guardados);
+          document.getElementById('paramUmbralMatching').value = params.umbralMatching || 60;
+          actualizarSliderUmbral(params.umbralMatching || 60);
+
+          document.getElementById('pesoExp').value = params.pesoExp || 25;
+          document.getElementById('pesoTec').value = params.pesoTec || 25;
+          document.getElementById('pesoFor').value = params.pesoFor || 20;
+          document.getElementById('pesoCom').value = params.pesoCom || 20;
+          document.getElementById('pesoIdi').value = params.pesoIdi || 10;
+          document.getElementById('switchSemantico').checked = params.switchSemantico !== false;
+
+          document.getElementById('formatPdf').checked = params.formatPdf !== false;
+          document.getElementById('formatDocx').checked = params.formatDocx !== false;
+          document.getElementById('formatDoc').checked = params.formatDoc !== false;
+          document.getElementById('paramMaxFileSize').value = params.maxFileSize || 10;
+          document.getElementById('switchOcrParser').checked = params.switchOcrParser !== false;
+
+          document.getElementById('paramLimiteOfertas').value = params.limiteOfertas || 10;
+          document.getElementById('paramDiasExpiracion').value = params.diasExpiracion || 30;
+          document.getElementById('switchModeracionOfertas').checked = !!params.switchModeracionOfertas;
+
+          document.getElementById('paramSessionTimeout').value = params.sessionTimeout || 60;
+          document.getElementById('paramMaxIntentos').value = params.maxIntentos || 5;
+          document.getElementById('switchAlertasAdmin').checked = params.switchAlertasAdmin !== false;
+        } catch (err) {
+          console.error('Error cargando parámetros:', err);
+        }
+      }
+
+      // Verificar si hay un release pendiente programado
+      const releasePendiente = localStorage.getItem('tm_system_pending_release');
+      if (releasePendiente) {
+        document.getElementById('bannerReleasePendiente').style.display = 'block';
+        document.getElementById('fechaReleaseVentanaText').textContent = obtenerProximoViernesMedianoche();
+      } else {
+        document.getElementById('bannerReleasePendiente').style.display = 'none';
+      }
+
+      document.getElementById('fechaProximoReleaseLabel').textContent = obtenerProximoViernesMedianoche();
+      calcularTotalPonderaciones();
+    }
+
+    // Prevalidación
+    function prevalidarYSolicitarRelease() {
+      const sumaPesos = calcularTotalPonderaciones();
+      if (sumaPesos !== 100) {
+        showToast(`La ponderación debe sumar exactamente 100% (actual: ${sumaPesos}%)`, 'info');
+        return;
+      }
+
+      const fPdf = document.getElementById('formatPdf').checked;
+      const fDocx = document.getElementById('formatDocx').checked;
+      const fDoc = document.getElementById('formatDoc').checked;
+      if (!fPdf && !fDocx && !fDoc) {
+        showToast('Debes habilitar al menos un formato admitido', 'info');
+        return;
+      }
+
+      parametrosPendientes = {
+        umbralMatching: parseInt(document.getElementById('paramUmbralMatching').value, 10),
+        pesoExp: parseInt(document.getElementById('pesoExp').value, 10) || 0,
+        pesoTec: parseInt(document.getElementById('pesoTec').value, 10) || 0,
+        pesoFor: parseInt(document.getElementById('pesoFor').value, 10) || 0,
+        pesoCom: parseInt(document.getElementById('pesoCom').value, 10) || 0,
+        pesoIdi: parseInt(document.getElementById('pesoIdi').value, 10) || 0,
+        switchSemantico: document.getElementById('switchSemantico').checked,
+        formatPdf: fPdf,
+        formatDocx: fDocx,
+        formatDoc: fDoc,
+        maxFileSize: parseInt(document.getElementById('paramMaxFileSize').value, 10),
+        switchOcrParser: document.getElementById('switchOcrParser').checked,
+        limiteOfertas: parseInt(document.getElementById('paramLimiteOfertas').value, 10),
+        diasExpiracion: parseInt(document.getElementById('paramDiasExpiracion').value, 10),
+        switchModeracionOfertas: document.getElementById('switchModeracionOfertas').checked,
+        sessionTimeout: parseInt(document.getElementById('paramSessionTimeout').value, 10),
+        maxIntentos: parseInt(document.getElementById('paramMaxIntentos').value, 10),
+        switchAlertasAdmin: document.getElementById('switchAlertasAdmin').checked
+      };
+
+      document.getElementById('motivoCambioInput').value = '';
+      document.getElementById('modalConfirmarParametros').classList.add('tm-modal--open');
+    }
+
+    function cerrarModalConfirmacion() {
+      document.getElementById('modalConfirmarParametros').classList.remove('tm-modal--open');
+      parametrosPendientes = null;
+    }
+
+    // Confirmación y programación para el release semanal
+    function confirmarYProgramarRelease() {
+      const motivo = document.getElementById('motivoCambioInput').value.trim();
+      if (!motivo) {
+        showToast('Ingresa una justificación técnica obligatoria para la auditoría', 'info');
+        document.getElementById('motivoCambioInput').focus();
+        return;
+      }
+
+      if (!parametrosPendientes) return;
+
+      // Guardar cambio programado en memoria
+      localStorage.setItem('tm_system_params', JSON.stringify(parametrosPendientes));
+      localStorage.setItem('tm_system_pending_release', 'true');
+
+      const now = new Date();
+      const horaStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const fechaCorta = now.toLocaleDateString();
+
+      // Agregar fila de auditoría con estado programado
+      const tbody = document.getElementById('historialCambiosBody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="padding: 14px 16px; font-weight: 600; color: var(--color-neutral-600);">${fechaCorta} ${horaStr}</td>
+        <td style="padding: 14px 16px;"><strong>Ajuste Integral de Parámetros</strong></td>
+        <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--neutral">Configuración Actual</span></td>
+        <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--primary">${parametrosPendientes.umbralMatching}% Match</span></td>
+        <td style="padding: 14px 16px;"><span class="tm-badge tm-badge--warning" style="font-weight: 700;">Programado: Próximo Viernes 00:00 hrs</span></td>
+        <td style="padding: 14px 16px; color: var(--color-neutral-800);">${motivo}</td>
+      `;
+      tbody.prepend(tr);
+
+      // Mostrar banner de release pendiente
+      document.getElementById('bannerReleasePendiente').style.display = 'block';
+      document.getElementById('fechaReleaseVentanaText').textContent = obtenerProximoViernesMedianoche();
+
+      cerrarModalConfirmacion();
+      showToast('Cambios aprobados y encolados para el release del Viernes a las 00:00 hrs', 'success');
+    }
+
+    // Cancelar release pendiente
+    function cancelarReleasePendiente() {
+      localStorage.removeItem('tm_system_pending_release');
+      document.getElementById('bannerReleasePendiente').style.display = 'none';
+      showToast('Solicitud de actualización cancelada con éxito', 'info');
+    }
+
+    // Dropdown de perfil
+    const profileDropdownBtn = document.getElementById('profileDropdownBtn');
+    const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+
+    if (profileDropdownBtn && profileDropdownMenu) {
+      profileDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('is-active');
+        profileDropdownMenu.classList.toggle('tm-dropdown__menu--open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileDropdownBtn.contains(e.target)) {
+          profileDropdownMenu.classList.remove('is-active');
+          profileDropdownMenu.classList.remove('tm-dropdown__menu--open');
+        }
+      });
+    }
+
+    // Toggle Sidebar
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const dashboardLayout = document.querySelector('.tm-dashboard-layout');
+
+    if (sidebarToggle && dashboardLayout) {
+      sidebarToggle.addEventListener('click', () => {
+        dashboardLayout.classList.toggle('tm-sidebar-collapsed');
+      });
+    }
+
+    // Logout
+    function logout() {
+      sessionStorage.removeItem('tm_session');
+      window.location.href = '../auth/login.html';
+    }
+
+    // Toast Notificaciones
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('tmToast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        if (type === 'info') {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+        } else {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+        setTimeout(() => {
+          toast.style.transform = 'translateY(100px)';
+          toast.style.opacity = '0';
+        }, 3600);
+      }
+    }
+
+    // Cerrar modal con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        cerrarModalConfirmacion();
+      }
+    });
+
+    // Cargar al inicio
+    document.addEventListener('DOMContentLoaded', () => {
+      cargarParametros();
+    });
+  </script>
+</body>
+</html>

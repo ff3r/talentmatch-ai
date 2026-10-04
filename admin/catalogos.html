@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogos del Sistema | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/admin.css">
+  <style>
+    /* Estilos claros y amplios para Catálogos */
+    .tm-cat-tab-btn {
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-neutral-600);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .tm-cat-tab-btn:hover {
+      color: var(--color-primary-700);
+    }
+
+    .tm-cat-tab-btn--active {
+      color: var(--color-primary-700);
+      border-bottom-color: var(--color-primary-700);
+    }
+
+    .tm-cat-tab-badge {
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: var(--color-neutral-100);
+      color: var(--color-neutral-700);
+    }
+
+    .tm-cat-tab-btn--active .tm-cat-tab-badge {
+      background: var(--color-primary-100);
+      color: var(--color-primary-700);
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body class="tm-admin-page">
+  <div class="tm-dashboard-layout">
+
+    <!-- SIDEBAR DE ADMINISTRACIÓN -->
+    <aside class="tm-sidebar" id="tmSidebar">
+      <div class="tm-sidebar__header">
+        <a href="dashboard.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        </a>
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="usuarios.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span class="tm-sidebar__label">Usuarios</span>
+        </a>
+        <a href="catalogos.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <span class="tm-sidebar__label">Catálogos</span>
+        </a>
+        <a href="parametros.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          <span class="tm-sidebar__label">Parámetros</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- NAVBAR SUPERIOR -->
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" id="sidebarToggle" aria-label="Alternar barra lateral">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Catálogos del Sistema</h1>
+      </div>
+
+      <div class="tm-navbar__right">
+        <!-- Indicador de Motor IA -->
+        <div class="tm-health-indicator" style="margin-right: var(--space-2); display: flex; align-items: center; gap: 6px;">
+          <span class="tm-health-dot"></span>
+          <span style="font-size: var(--text-caption); font-weight: 700; color: #2E7D32;">Motor IA Operativo</span>
+        </div>
+
+        <!-- Dropdown Usuario Administrador -->
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">AD</span>
+            <span class="tm-navbar__username">Administrador</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900); margin: 0 0 2px 0;">Administrador del Sistema</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin: 0 0 var(--space-2) 0;">admin@talentmatch.com</p>
+              <span class="tm-badge tm-badge--error" style="font-size: 11px; font-weight: 700;">Super Administrador</span>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="dashboard.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Panel Principal
+              </a>
+              <a href="usuarios.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Gestión de Usuarios
+              </a>
+              <a href="parametros.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Parámetros del Sistema
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="tm-main tm-page-content">
+      <div class="tm-admin-dashboard" style="max-width: 1240px; margin: 0 auto;">
+
+        <!-- HERO HEADER -->
+        <div class="tm-admin-hero" style="margin-bottom: var(--space-6);">
+          <div>
+            <h2 class="tm-admin-hero__title" style="font-size: 1.85rem;">Catálogos y Opciones del Sistema</h2>
+            <p class="tm-admin-hero__subtitle" style="font-size: 1rem; color: var(--color-neutral-600); max-width: 750px;">
+              Administra las listas desplegables que usan las empresas y postulantes al crear ofertas o registrar su perfil.
+            </p>
+          </div>
+          <div style="display: flex; gap: var(--space-3); align-items: center;">
+            <button class="tm-btn tm-btn--primary" onclick="abrirModalCrear()" style="min-height: 46px; padding: 0 var(--space-6); font-weight: 700; font-size: 1rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Agregar Opción
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 KPIS SIMPLES Y REALISTAS -->
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); margin-bottom: var(--space-8);">
+          
+          <div style="background: white; border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+            <span style="font-size: 0.95rem; font-weight: 700; color: var(--color-neutral-500); display: block; margin-bottom: 6px;">
+              Total Opciones Registradas
+            </span>
+            <span id="kpiTotalItems" style="font-size: 2.2rem; font-weight: 800; color: var(--color-neutral-900); font-family: var(--font-family-sans); display: block;">
+              72
+            </span>
+            <span style="font-size: 13px; color: var(--color-neutral-600); font-weight: 600;">
+              En los 5 catálogos
+            </span>
+          </div>
+
+          <div style="background: white; border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+            <span style="font-size: 0.95rem; font-weight: 700; color: #2E7D32; display: block; margin-bottom: 6px;">
+              Opciones Visibles (Activas)
+            </span>
+            <span id="kpiActivos" style="font-size: 2.2rem; font-weight: 800; color: #2E7D32; font-family: var(--font-family-sans); display: block;">
+              68
+            </span>
+            <span style="font-size: 13px; color: var(--color-neutral-600); font-weight: 600;">
+              Disponibles para elegir
+            </span>
+          </div>
+
+          <div style="background: white; border: 1.5px solid var(--color-neutral-200); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+            <span style="font-size: 0.95rem; font-weight: 700; color: #C62828; display: block; margin-bottom: 6px;">
+              Opciones Ocultas (Inactivas)
+            </span>
+            <span id="kpiInactivos" style="font-size: 2.2rem; font-weight: 800; color: #C62828; font-family: var(--font-family-sans); display: block;">
+              4
+            </span>
+            <span style="font-size: 13px; color: var(--color-neutral-600); font-weight: 600;">
+              No aparecen en nuevos registros
+            </span>
+          </div>
+
+        </section>
+
+        <!-- SECCIÓN PRINCIPAL: TABS Y TABLA -->
+        <section class="tm-param-card" style="padding: var(--space-8); box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+          
+          <!-- PESTAÑAS CLARAS DE LOS 5 CATÁLOGOS -->
+          <div style="border-bottom: 2px solid var(--color-neutral-200); display: flex; gap: var(--space-2); overflow-x: auto; margin-bottom: var(--space-6);">
+            <button class="tm-cat-tab-btn tm-cat-tab-btn--active" onclick="cambiarCatalogo('areas', this)">
+              Áreas Laborales <span class="tm-cat-tab-badge">10</span>
+            </button>
+            <button class="tm-cat-tab-btn" onclick="cambiarCatalogo('competencias', this)">
+              Habilidades <span class="tm-cat-tab-badge">10</span>
+            </button>
+            <button class="tm-cat-tab-btn" onclick="cambiarCatalogo('tecnologias', this)">
+              Tecnologías <span class="tm-cat-tab-badge">10</span>
+            </button>
+            <button class="tm-cat-tab-btn" onclick="cambiarCatalogo('idiomas', this)">
+              Idiomas <span class="tm-cat-tab-badge">5</span>
+            </button>
+            <button class="tm-cat-tab-btn" onclick="cambiarCatalogo('formacion', this)">
+              Niveles de Estudio <span class="tm-cat-tab-badge">5</span>
+            </button>
+          </div>
+
+          <!-- CONTROLES: TÍTULO DEL CATÁLOGO + BUSCADOR SENCILLO -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6);">
+            <div>
+              <h3 id="catalogoTitulo" style="font-size: 1.35rem; font-weight: 800; color: var(--color-neutral-900); margin: 0;">
+                Áreas Laborales
+              </h3>
+              <p id="catalogoSubtitulo" style="font-size: 0.95rem; color: var(--color-neutral-500); margin: 4px 0 0;">
+                Ramas profesionales seleccionables en ofertas de trabajo y perfiles.
+              </p>
+            </div>
+            
+            <div style="display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; width: 100%; max-width: 480px; justify-content: flex-end;">
+              <select id="filtroEstadoSelect" class="tm-param-input-lg" style="width: 140px; height: 44px; font-size: 0.95rem;" onchange="filtrarCatalogo()">
+                <option value="todos">Todos</option>
+                <option value="activo">Solo Visibles</option>
+                <option value="inactivo">Solo Ocultos</option>
+              </select>
+              <div style="flex: 1; min-width: 200px;">
+                <input type="search" id="catalogoSearchInput" class="tm-param-input-lg" style="height: 44px; font-size: 0.95rem; width: 100%;" placeholder="Buscar por nombre..." oninput="filtrarCatalogo()">
+              </div>
+            </div>
+          </div>
+
+          <!-- TABLA LIMPIA Y AMPLIA -->
+          <div style="overflow-x: auto;">
+            <table class="tm-table" style="font-size: 0.95rem;">
+              <thead>
+                <tr>
+                  <th style="padding: 14px 16px; width: 120px;">Código</th>
+                  <th style="padding: 14px 16px;">Nombre de la Opción</th>
+                  <th style="padding: 14px 16px;">Descripción</th>
+                  <th style="padding: 14px 16px; text-align: center; width: 110px;">En uso</th>
+                  <th style="padding: 14px 16px; width: 110px;">Estado</th>
+                  <th style="padding: 14px 16px; text-align: right; width: 230px;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="catalogoTableBody">
+                <!-- Poblado dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- EMPTY STATE -->
+          <div id="catalogoEmptyState" style="display: none; text-align: center; padding: var(--space-8); color: var(--color-neutral-500);">
+            <p style="font-size: 1.1rem; font-weight: 700; margin: 0;">No se encontraron resultados para la búsqueda.</p>
+          </div>
+
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL: AGREGAR O EDITAR -->
+  <div class="tm-modal" id="modalCatalogoItem" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalCatalogo()"></div>
+    <div class="tm-modal__dialog" style="max-width: 520px; padding: var(--space-6);">
+      <div class="tm-modal__header" style="padding: 0 0 var(--space-4) 0;">
+        <div>
+          <h3 class="tm-modal__title" id="modalCatalogoTitle" style="font-size: 1.3rem; font-weight: 800; color: var(--color-neutral-900);">Agregar Opción</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-500); margin: 2px 0 0;" id="modalCatalogoSubtitle">Áreas Laborales</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalCatalogo()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="tm-modal__body" style="padding: var(--space-4) 0 0 0;">
+        <form id="formCatalogoItem" onsubmit="guardarItemCatalogo(event)">
+          <input type="hidden" id="itemModalId">
+          
+          <div class="tm-param-field" style="margin-bottom: var(--space-4);">
+            <label class="tm-param-field__label" for="itemCodigoInput">Código Corto</label>
+            <input type="text" id="itemCodigoInput" class="tm-param-input-lg" placeholder="ej. DEV-BACK" required>
+          </div>
+
+          <div class="tm-param-field" style="margin-bottom: var(--space-4);">
+            <label class="tm-param-field__label" for="itemNombreInput">Nombre de la Opción</label>
+            <input type="text" id="itemNombreInput" class="tm-param-input-lg" placeholder="ej. Inteligencia Artificial" required>
+          </div>
+
+          <div class="tm-param-field" style="margin-bottom: var(--space-4);">
+            <label class="tm-param-field__label" for="itemDetalleInput">Descripción (opcional)</label>
+            <input type="text" id="itemDetalleInput" class="tm-param-input-lg" placeholder="ej. Machine learning y analítica">
+          </div>
+
+          <div class="tm-param-field" style="margin-bottom: var(--space-4);">
+            <label class="tm-param-field__label" for="itemEstadoSelect">Visibilidad</label>
+            <select id="itemEstadoSelect" class="tm-param-input-lg">
+              <option value="Activo">Visible (aparece en los formularios)</option>
+              <option value="Inactivo">Oculto (no aparece para nuevas ofertas)</option>
+            </select>
+          </div>
+
+          <div class="tm-modal__footer" style="padding: var(--space-5) 0 0 0; margin-top: var(--space-6); background: transparent; border-top: 1.5px solid var(--color-neutral-200);">
+            <button type="button" class="tm-btn tm-btn--secondary" onclick="cerrarModalCatalogo()" style="min-height: 44px; padding: 0 var(--space-6);">Cancelar</button>
+            <button type="submit" class="tm-btn tm-btn--primary" style="min-height: 44px; padding: 0 var(--space-6); font-weight: 800;">Guardar Opción</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FUSIONAR OPCIÓN (UNIFICAR / MERGE) -->
+  <div class="tm-modal" id="modalFusionarItem" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalFusionar()"></div>
+    <div class="tm-modal__dialog" style="max-width: 520px; padding: var(--space-6);">
+      <div class="tm-modal__header" style="padding: 0 0 var(--space-4) 0;">
+        <div>
+          <h3 class="tm-modal__title" style="font-size: 1.3rem; font-weight: 800; color: var(--color-neutral-900);">Fusionar con otra Opción</h3>
+          <p style="font-size: 0.95rem; color: var(--color-neutral-500); margin: 2px 0 0;">Migración segura de dependencias</p>
+        </div>
+        <button class="tm-modal__close" onclick="cerrarModalFusionar()" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <div class="tm-modal__body" style="padding: var(--space-4) 0 0 0;">
+        <div style="background: #E3F2FD; border: 1.5px solid #90CAF9; padding: var(--space-4); border-radius: var(--radius-lg); margin-bottom: var(--space-4);">
+          <p style="margin: 0; font-size: 0.92rem; color: #0D47A1; line-height: 1.45;">
+            Vas a unificar <strong id="fusionOrigenNombre"></strong> (<span id="fusionOrigenUsos">0</span> usos vinculados). Todas las ofertas y perfiles que la tienen pasarán automáticamente a la opción de destino que elijas.
+          </p>
+        </div>
+
+        <div class="tm-param-field" style="margin-bottom: var(--space-4);">
+          <label class="tm-param-field__label" for="selectOpcionDestino">Seleccionar Opción de Destino Principal</label>
+          <select id="selectOpcionDestino" class="tm-param-input-lg" style="width: 100%;">
+            <!-- Opciones del catálogo activo -->
+          </select>
+        </div>
+
+        <div class="tm-modal__footer" style="padding: var(--space-5) 0 0 0; margin-top: var(--space-6); background: transparent; border-top: 1.5px solid var(--color-neutral-200);">
+          <button type="button" class="tm-btn tm-btn--secondary" onclick="cerrarModalFusionar()" style="min-height: 44px; padding: 0 var(--space-6);">Cancelar</button>
+          <button type="button" class="tm-btn tm-btn--primary" onclick="ejecutarFusion()" style="min-height: 44px; padding: 0 var(--space-6); font-weight: 800;">Confirmar Fusión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ELIMINAR (SOLO PARA 0 USOS) -->
+  <div class="tm-modal" id="modalEliminarConfirm" role="dialog" aria-modal="true">
+    <div class="tm-modal__overlay" onclick="cerrarModalEliminar()"></div>
+    <div class="tm-modal__dialog" style="max-width: 480px; padding: var(--space-6);">
+      <div class="tm-modal__header" style="padding: 0 0 var(--space-4) 0;">
+        <h3 class="tm-modal__title" style="color: #C62828; font-size: 1.3rem; font-weight: 800;">¿Eliminar esta opción?</h3>
+        <button class="tm-modal__close" onclick="cerrarModalEliminar()" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <div class="tm-modal__body" style="padding: var(--space-3) 0 0 0;">
+        <p style="margin: 0 0 var(--space-3) 0; font-size: 1rem; color: var(--color-neutral-800);">
+          Estás por eliminar permanentemente la opción <strong id="deleteItemNombre"></strong> (0 perfiles vinculados).
+        </p>
+        <p style="font-size: 0.9rem; color: var(--color-neutral-600); margin: 0;">
+          Al no tener dependencias ni usos activos, puede eliminarse con total seguridad sin afectar datos existentes.
+        </p>
+        <div class="tm-modal__footer" style="padding: var(--space-5) 0 0 0; margin-top: var(--space-5); background: transparent; border-top: 1.5px solid var(--color-neutral-200);">
+          <button type="button" class="tm-btn tm-btn--secondary" onclick="cerrarModalEliminar()" style="min-height: 44px; padding: 0 var(--space-6);">Cancelar</button>
+          <button type="button" class="tm-btn tm-btn--danger" id="btnConfirmarEliminar" onclick="ejecutarEliminacion()" style="min-height: 44px; padding: 0 var(--space-6); font-weight: 800;">Sí, eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIONES -->
+  <div id="tmToast" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999; transform: translateY(100px); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div style="background: #1A1A2E; color: white; padding: 14px 24px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; border-left: 4px solid var(--color-primary-700);">
+      <span id="toastIcon" style="color: #4CAF50; display: flex; align-items: center;"></span>
+      <span id="toastMessage">Acción completada</span>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../js/auth/auth-guard.js"></script>
+  <script>
+    // DATA REALISTA
+    const catalogosData = {
+      areas: [
+        { id: 'ARE-01', codigo: 'DEV-SOFT', nombre: 'Desarrollo de Software', detalle: 'Frontend, Backend, Full Stack y Apps', uso: 48, estado: 'Activo' },
+        { id: 'ARE-02', codigo: 'DATA-AI', nombre: 'Datos e Inteligencia Artificial', detalle: 'Ciencia de datos, analítica y machine learning', uso: 32, estado: 'Activo' },
+        { id: 'ARE-03', codigo: 'UX-UI', nombre: 'Diseño UX / UI', detalle: 'Interfaces de usuario y prototipado', uso: 19, estado: 'Activo' },
+        { id: 'ARE-04', codigo: 'DEVOPS', nombre: 'DevOps & Infraestructura', detalle: 'Nube, servidores y CI/CD', uso: 24, estado: 'Activo' },
+        { id: 'ARE-05', codigo: 'CYBER-SEC', nombre: 'Ciberseguridad', detalle: 'Seguridad informática y redes', uso: 14, estado: 'Activo' },
+        { id: 'ARE-06', codigo: 'QA-AUTO', nombre: 'QA & Testing', detalle: 'Pruebas manuales y automatizadas', uso: 16, estado: 'Activo' },
+        { id: 'ARE-07', codigo: 'MOBILE', nombre: 'Desarrollo Móvil', detalle: 'Apps iOS y Android', uso: 21, estado: 'Activo' },
+        { id: 'ARE-08', codigo: 'AGILE-PM', nombre: 'Gestión de Proyectos', detalle: 'Scrum, Agile y líderes técnicos', uso: 15, estado: 'Activo' },
+        { id: 'ARE-09', codigo: 'SUPPORT', nombre: 'Soporte Técnico', detalle: 'Mantenimiento de hardware y sistemas', uso: 0, estado: 'Inactivo' },
+        { id: 'ARE-10', codigo: 'MARKET-D', nombre: 'Marketing Digital', detalle: 'Redes y publicidad web', uso: 0, estado: 'Inactivo' }
+      ],
+      competencias: [
+        { id: 'COM-01', codigo: 'LID-01', nombre: 'Liderazgo de Equipos', detalle: 'Coordinación y guía de equipos', uso: 62, estado: 'Activo' },
+        { id: 'COM-02', codigo: 'COM-02', nombre: 'Comunicación Clara', detalle: 'Transmisión de ideas con claridad', uso: 95, estado: 'Activo' },
+        { id: 'COM-03', codigo: 'RES-03', nombre: 'Resolución de Problemas', detalle: 'Capacidad analítica ante fallas', uso: 88, estado: 'Activo' },
+        { id: 'COM-04', codigo: 'PRO-04', nombre: 'Autonomía', detalle: 'Iniciativa y trabajo independiente', uso: 74, estado: 'Activo' },
+        { id: 'COM-05', codigo: 'COL-05', nombre: 'Trabajo en Equipo', detalle: 'Colaboración efectiva en grupos', uso: 90, estado: 'Activo' },
+        { id: 'COM-06', codigo: 'PEN-06', nombre: 'Pensamiento Analítico', detalle: 'Evaluación lógica de datos', uso: 55, estado: 'Activo' },
+        { id: 'COM-07', codigo: 'NEG-07', nombre: 'Negociación', detalle: 'Acuerdos comerciales y técnicos', uso: 38, estado: 'Activo' },
+        { id: 'COM-08', codigo: 'ADA-08', nombre: 'Adaptabilidad', detalle: 'Acomodo rápido a cambios', uso: 82, estado: 'Activo' },
+        { id: 'COM-09', codigo: 'ETI-09', nombre: 'Responsabilidad', detalle: 'Cumplimiento y puntualidad', uso: 70, estado: 'Activo' },
+        { id: 'COM-10', codigo: 'GES-10', nombre: 'Gestión del Tiempo', detalle: 'Priorización de tareas clave', uso: 0, estado: 'Activo' }
+      ],
+      tecnologias: [
+        { id: 'TEC-01', codigo: 'PHP-LAR', nombre: 'PHP & Laravel', detalle: 'Desarrollo web del lado del servidor', uso: 78, estado: 'Activo' },
+        { id: 'TEC-02', codigo: 'JS-TS', nombre: 'JavaScript & TypeScript', detalle: 'Lógica web moderna para frontend y backend', uso: 110, estado: 'Activo' },
+        { id: 'TEC-03', codigo: 'REACT', nombre: 'React.js', detalle: 'Librería de interfaces de usuario', uso: 85, estado: 'Activo' },
+        { id: 'TEC-04', codigo: 'PYTHON', nombre: 'Python', detalle: 'Automatización, APIs y análisis', uso: 72, estado: 'Activo' },
+        { id: 'TEC-05', codigo: 'SQL-PG', nombre: 'SQL (PostgreSQL / MySQL)', detalle: 'Bases de datos relacionales', uso: 92, estado: 'Activo' },
+        { id: 'TEC-06', codigo: 'DOCKER', nombre: 'Docker', detalle: 'Contenedores para despliegue', uso: 65, estado: 'Activo' },
+        { id: 'TEC-07', codigo: 'AWS-CL', nombre: 'Amazon Web Services (AWS)', detalle: 'Servicios en la nube', uso: 58, estado: 'Activo' },
+        { id: 'TEC-08', codigo: 'GIT-HUB', nombre: 'Git & GitHub', detalle: 'Control de versiones en equipo', uso: 120, estado: 'Activo' },
+        { id: 'TEC-09', codigo: 'CSS3', nombre: 'CSS3 & Diseño Web', detalle: 'Estilos visuales y adaptabilidad móvil', uso: 84, estado: 'Activo' },
+        { id: 'TEC-10', codigo: 'TESTING', nombre: 'Testing Automatizado', detalle: 'Pruebas de calidad de código', uso: 0, estado: 'Activo' }
+      ],
+      idiomas: [
+        { id: 'IDI-01', codigo: 'ES-NAT', nombre: 'Español Nativo', detalle: 'Idioma principal', uso: 140, estado: 'Activo' },
+        { id: 'IDI-02', codigo: 'EN-B2', nombre: 'Inglés Intermedio (B2)', detalle: 'Conversación fluida de trabajo', uso: 89, estado: 'Activo' },
+        { id: 'IDI-03', codigo: 'EN-C1', nombre: 'Inglés Avanzado (C1/C2)', detalle: 'Dominio completo profesional', uso: 56, estado: 'Activo' },
+        { id: 'IDI-04', codigo: 'PT-B1', nombre: 'Portugués', detalle: 'Nivel conversacional', uso: 22, estado: 'Activo' },
+        { id: 'IDI-05', codigo: 'FR-A2', nombre: 'Francés', detalle: 'Nivel básico', uso: 0, estado: 'Inactivo' }
+      ],
+      formacion: [
+        { id: 'FOR-01', codigo: 'SEC-COM', nombre: 'Secundaria Completa', detalle: 'Educación escolar', uso: 12, estado: 'Activo' },
+        { id: 'FOR-02', codigo: 'TEC-TIT', nombre: 'Técnico Titulado', detalle: 'Carrera técnica completa', uso: 54, estado: 'Activo' },
+        { id: 'FOR-03', codigo: 'UNI-BAC', nombre: 'Universitario Egresado / Bachiller', detalle: 'Estudios superiores concluidos', uso: 85, estado: 'Activo' },
+        { id: 'FOR-04', codigo: 'UNI-TIT', nombre: 'Universitario Titulado', detalle: 'Título universitario acreditado', uso: 62, estado: 'Activo' },
+        { id: 'FOR-05', codigo: 'POS-MAS', nombre: 'Maestría / Posgrado', detalle: 'Especializaciones de posgrado', uso: 0, estado: 'Activo' }
+      ]
+    };
+
+    let catalogoActual = 'areas';
+    let itemAEliminarId = null;
+    let itemAFusionar = null;
+
+    const catalogoMeta = {
+      areas: {
+        titulo: 'Áreas Laborales',
+        subtitulo: 'Ramas profesionales seleccionables en ofertas de trabajo y perfiles.',
+        modalTitle: 'Área Laboral'
+      },
+      competencias: {
+        titulo: 'Habilidades',
+        subtitulo: 'Habilidades personales y profesionales para los perfiles.',
+        modalTitle: 'Habilidad'
+      },
+      tecnologias: {
+        titulo: 'Tecnologías',
+        subtitulo: 'Lenguajes, librerías y herramientas técnicas.',
+        modalTitle: 'Tecnología'
+      },
+      idiomas: {
+        titulo: 'Idiomas',
+        subtitulo: 'Idiomas y niveles requeridos para postulaciones.',
+        modalTitle: 'Idioma'
+      },
+      formacion: {
+        titulo: 'Niveles de Estudio',
+        subtitulo: 'Grados académicos aceptados en la plataforma.',
+        modalTitle: 'Nivel de Estudio'
+      }
+    };
+
+    // Renderizado de tabla
+    function renderizarTabla() {
+      const tbody = document.getElementById('catalogoTableBody');
+      const emptyState = document.getElementById('catalogoEmptyState');
+      const query = document.getElementById('catalogoSearchInput').value.toLowerCase().trim();
+      const estadoFiltro = document.getElementById('filtroEstadoSelect').value;
+
+      const items = catalogosData[catalogoActual] || [];
+      
+      const filtrados = items.filter(item => {
+        const matchesQuery = !query || 
+          item.nombre.toLowerCase().includes(query) || 
+          item.codigo.toLowerCase().includes(query) || 
+          (item.detalle && item.detalle.toLowerCase().includes(query));
+        
+        const matchesEstado = estadoFiltro === 'todos' || item.estado.toLowerCase() === estadoFiltro;
+        
+        return matchesQuery && matchesEstado;
+      });
+
+      if (filtrados.length === 0) {
+        tbody.innerHTML = '';
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+        tbody.innerHTML = filtrados.map(item => {
+          const badgeClass = item.estado === 'Activo' ? 'tm-badge--success' : 'tm-badge--neutral';
+          const toggleActionText = item.estado === 'Activo' ? 'Ocultar' : 'Mostrar';
+          const toggleStyle = item.estado === 'Activo' ? '' : 'color: #2E7D32; border-color: #A5D6A7; background-color: #F1F8E9;';
+
+          // Regla real: Si tiene uso > 0, NO se puede eliminar (mostrar botón de Fusionar o candado)
+          let accionFinalHtml = '';
+          if (item.uso > 0) {
+            accionFinalHtml = `
+              <button class="tm-btn tm-btn--secondary tm-btn--sm" title="Unificar con otra opción para no romper datos" onclick="abrirModalFusionar('${item.id}')">
+                Fusionar
+              </button>
+            `;
+          } else {
+            accionFinalHtml = `
+              <button class="tm-btn tm-btn--danger tm-btn--sm" title="Eliminar opción sin perfiles vinculados" onclick="solicitarEliminar('${item.id}', '${item.nombre.replace(/'/g, "\\'")}')">
+                Eliminar
+              </button>
+            `;
+          }
+
+          return `
+            <tr>
+              <td style="padding: 14px 16px;">
+                <span style="font-family: monospace; font-size: 12px; font-weight: 700; background: var(--color-neutral-100); padding: 4px 8px; border-radius: 4px; color: var(--color-neutral-800);">
+                  ${item.codigo}
+                </span>
+              </td>
+              <td style="padding: 14px 16px;">
+                <strong style="color: var(--color-neutral-900); font-size: 1rem;">${item.nombre}</strong>
+              </td>
+              <td style="padding: 14px 16px; color: var(--color-neutral-600); max-width: 320px; white-space: normal; font-size: 0.92rem;">
+                ${item.detalle || '—'}
+              </td>
+              <td style="padding: 14px 16px; text-align: center;">
+                <strong style="color: ${item.uso > 0 ? 'var(--color-neutral-900)' : 'var(--color-neutral-400)'};">${item.uso}</strong>
+              </td>
+              <td style="padding: 14px 16px;">
+                <span class="tm-badge ${badgeClass}" style="font-weight: 700; font-size: 12px; padding: 4px 8px;">
+                  ${item.estado === 'Activo' ? 'Visible' : 'Oculto'}
+                </span>
+              </td>
+              <td style="padding: 14px 16px; text-align: right;">
+                <div class="tm-user-actions-group" style="grid-template-columns: 68px 72px 75px; gap: 6px;">
+                  <button class="tm-btn tm-btn--secondary tm-btn--sm" onclick="abrirModalEditar('${item.id}')">Editar</button>
+                  <button class="tm-btn tm-btn--secondary tm-btn--sm" style="${toggleStyle}" onclick="toggleEstadoItem('${item.id}')">${toggleActionText}</button>
+                  ${accionFinalHtml}
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      actualizarKPIs();
+    }
+
+    // Actualizar números de los 3 KPIs
+    function actualizarKPIs() {
+      let total = 0;
+      let activos = 0;
+      let inactivos = 0;
+
+      Object.values(catalogosData).forEach(lista => {
+        lista.forEach(item => {
+          total++;
+          if (item.estado === 'Activo') activos++;
+          else inactivos++;
+        });
+      });
+
+      document.getElementById('kpiTotalItems').textContent = total;
+      document.getElementById('kpiActivos').textContent = activos;
+      document.getElementById('kpiInactivos').textContent = inactivos;
+    }
+
+    // Cambiar de pestaña
+    function cambiarCatalogo(catalogo, tabBtn) {
+      catalogoActual = catalogo;
+      
+      document.querySelectorAll('.tm-cat-tab-btn').forEach(t => t.classList.remove('tm-cat-tab-btn--active'));
+      if (tabBtn) tabBtn.classList.add('tm-cat-tab-btn--active');
+
+      const meta = catalogoMeta[catalogo];
+      if (meta) {
+        document.getElementById('catalogoTitulo').textContent = meta.titulo;
+        document.getElementById('catalogoSubtitulo').textContent = meta.subtitulo;
+      }
+
+      document.getElementById('catalogoSearchInput').value = '';
+      document.getElementById('filtroEstadoSelect').value = 'todos';
+
+      renderizarTabla();
+    }
+
+    function filtrarCatalogo() {
+      renderizarTabla();
+    }
+
+    function toggleEstadoItem(id) {
+      const items = catalogosData[catalogoActual];
+      const item = items.find(i => i.id === id);
+      if (item) {
+        item.estado = item.estado === 'Activo' ? 'Inactivo' : 'Activo';
+        const msg = item.estado === 'Activo' ? `"${item.nombre}" ahora está visible` : `"${item.nombre}" ahora está oculto`;
+        showToast(msg, 'success');
+        renderizarTabla();
+      }
+    }
+
+    function abrirModalCrear() {
+      const meta = catalogoMeta[catalogoActual];
+      document.getElementById('modalCatalogoTitle').textContent = `Nueva opción en ${meta.modalTitle}`;
+      document.getElementById('modalCatalogoSubtitle').textContent = `Catálogo: ${meta.titulo}`;
+      document.getElementById('itemModalId').value = '';
+      document.getElementById('itemCodigoInput').value = '';
+      document.getElementById('itemNombreInput').value = '';
+      document.getElementById('itemDetalleInput').value = '';
+      document.getElementById('itemEstadoSelect').value = 'Activo';
+
+      document.getElementById('modalCatalogoItem').classList.add('tm-modal--open');
+    }
+
+    function abrirModalEditar(id) {
+      const items = catalogosData[catalogoActual];
+      const item = items.find(i => i.id === id);
+      if (!item) return;
+
+      const meta = catalogoMeta[catalogoActual];
+      document.getElementById('modalCatalogoTitle').textContent = `Editar ${meta.modalTitle}`;
+      document.getElementById('modalCatalogoSubtitle').textContent = `Código: ${item.codigo}`;
+      document.getElementById('itemModalId').value = item.id;
+      document.getElementById('itemCodigoInput').value = item.codigo;
+      document.getElementById('itemNombreInput').value = item.nombre;
+      document.getElementById('itemDetalleInput').value = item.detalle || '';
+      document.getElementById('itemEstadoSelect').value = item.estado;
+
+      document.getElementById('modalCatalogoItem').classList.add('tm-modal--open');
+    }
+
+    function cerrarModalCatalogo() {
+      document.getElementById('modalCatalogoItem').classList.remove('tm-modal--open');
+    }
+
+    function guardarItemCatalogo(e) {
+      e.preventDefault();
+      const id = document.getElementById('itemModalId').value;
+      const codigo = document.getElementById('itemCodigoInput').value.trim().toUpperCase();
+      const nombre = document.getElementById('itemNombreInput').value.trim();
+      const detalle = document.getElementById('itemDetalleInput').value.trim();
+      const estado = document.getElementById('itemEstadoSelect').value;
+
+      const items = catalogosData[catalogoActual];
+
+      if (id) {
+        const item = items.find(i => i.id === id);
+        if (item) {
+          item.codigo = codigo;
+          item.nombre = nombre;
+          item.detalle = detalle;
+          item.estado = estado;
+          showToast(`Opción "${nombre}" actualizada`, 'success');
+        }
+      } else {
+        const nuevoId = 'ITEM-' + Date.now().toString().slice(-4);
+        items.unshift({
+          id: nuevoId,
+          codigo,
+          nombre,
+          detalle,
+          uso: 0,
+          estado
+        });
+        showToast(`Opción "${nombre}" guardada con éxito`, 'success');
+      }
+
+      cerrarModalCatalogo();
+      renderizarTabla();
+    }
+
+    // Modal Fusionar (Merge de opciones en uso)
+    function abrirModalFusionar(id) {
+      const items = catalogosData[catalogoActual];
+      itemAFusionar = items.find(i => i.id === id);
+      if (!itemAFusionar) return;
+
+      document.getElementById('fusionOrigenNombre').textContent = `"${itemAFusionar.nombre}"`;
+      document.getElementById('fusionOrigenUsos').textContent = itemAFusionar.uso;
+
+      const selectDestino = document.getElementById('selectOpcionDestino');
+      selectDestino.innerHTML = items
+        .filter(i => i.id !== id && i.estado === 'Activo')
+        .map(i => `<option value="${i.id}">${i.nombre} (${i.uso} perfiles actuales)</option>`)
+        .join('');
+
+      document.getElementById('modalFusionarItem').classList.add('tm-modal--open');
+    }
+
+    function cerrarModalFusionar() {
+      document.getElementById('modalFusionarItem').classList.remove('tm-modal--open');
+      itemAFusionar = null;
+    }
+
+    function ejecutarFusion() {
+      if (!itemAFusionar) return;
+
+      const destinoId = document.getElementById('selectOpcionDestino').value;
+      const items = catalogosData[catalogoActual];
+      const destinoItem = items.find(i => i.id === destinoId);
+
+      if (destinoItem) {
+        destinoItem.uso += itemAFusionar.uso;
+        const nombreOrigen = itemAFusionar.nombre;
+        
+        // El origen pasa a tener 0 usos y queda oculto
+        itemAFusionar.uso = 0;
+        itemAFusionar.estado = 'Inactivo';
+
+        showToast(`"${nombreOrigen}" fusionado con éxito en "${destinoItem.nombre}"`, 'success');
+      }
+
+      cerrarModalFusionar();
+      renderizarTabla();
+    }
+
+    function solicitarEliminar(id, nombre) {
+      itemAEliminarId = id;
+      document.getElementById('deleteItemNombre').textContent = `"${nombre}"`;
+      document.getElementById('modalEliminarConfirm').classList.add('tm-modal--open');
+    }
+
+    function cerrarModalEliminar() {
+      document.getElementById('modalEliminarConfirm').classList.remove('tm-modal--open');
+      itemAEliminarId = null;
+    }
+
+    function ejecutarEliminacion() {
+      if (!itemAEliminarId) return;
+
+      const items = catalogosData[catalogoActual];
+      const index = items.findIndex(i => i.id === itemAEliminarId);
+      if (index !== -1) {
+        const nombreEliminado = items[index].nombre;
+        items.splice(index, 1);
+        showToast(`"${nombreEliminado}" eliminado correctamente`, 'info');
+      }
+
+      cerrarModalEliminar();
+      renderizarTabla();
+    }
+
+    // Dropdown de perfil
+    const profileDropdownBtn = document.getElementById('profileDropdownBtn');
+    const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+
+    if (profileDropdownBtn && profileDropdownMenu) {
+      profileDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('is-active');
+        profileDropdownMenu.classList.toggle('tm-dropdown__menu--open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileDropdownBtn.contains(e.target)) {
+          profileDropdownMenu.classList.remove('is-active');
+          profileDropdownMenu.classList.remove('tm-dropdown__menu--open');
+        }
+      });
+    }
+
+    // Toggle Sidebar
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const dashboardLayout = document.querySelector('.tm-dashboard-layout');
+
+    if (sidebarToggle && dashboardLayout) {
+      sidebarToggle.addEventListener('click', () => {
+        dashboardLayout.classList.toggle('tm-sidebar-collapsed');
+      });
+    }
+
+    function logout() {
+      sessionStorage.removeItem('tm_session');
+      window.location.href = '../auth/login.html';
+    }
+
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('tmToast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        if (type === 'info') {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+        } else {
+          toastIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        }
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+        setTimeout(() => {
+          toast.style.transform = 'translateY(100px)';
+          toast.style.opacity = '0';
+        }, 3200);
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        cerrarModalCatalogo();
+        cerrarModalEliminar();
+        cerrarModalFusionar();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderizarTabla();
+    });
+  </script>
+</body>
+</html>
