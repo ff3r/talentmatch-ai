@@ -267,6 +267,29 @@
             <span class="tm-navbar__username">Ana Patricia Martinez</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-neutral-500)"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">Ana Patricia Martinez</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">Reclutador Senior</p>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="candidatos.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Candidatos
+              </a>
+              <a href="ofertas.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Ofertas Asignadas
+              </a>
+            </div>
+            <div style="padding: var(--space-2); border-top: 1px solid var(--color-neutral-200);">
+              <button onclick="AuthService.logout()" class="tm-dropdown__item tm-dropdown__item--danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                Cerrar Sesión
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -546,7 +569,34 @@
 
   </div>
   
+  <script src="../js/auth.js" defer></script>
   <script>
+    // Toggle de Sidebar
+    const sidebarToggle = document.querySelector('.tm-navbar__toggle');
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', () => {
+        document.body.classList.toggle('tm-sidebar-collapsed');
+      });
+    }
+
+    // Toggle Dropdown Perfil
+    const profileDropdownBtn = document.getElementById('profileDropdownBtn');
+    const profileDropdownMenu = document.getElementById('profileDropdownMenu');
+    if (profileDropdownBtn && profileDropdownMenu) {
+      profileDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileDropdownMenu.classList.toggle('is-active');
+        profileDropdownMenu.classList.toggle('tm-dropdown__menu--open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!profileDropdownBtn.contains(e.target)) {
+          profileDropdownMenu.classList.remove('is-active');
+          profileDropdownMenu.classList.remove('tm-dropdown__menu--open');
+        }
+      });
+    }
+
     function toggleMatchDetail(id) {
       const detail = document.getElementById(id);
       const btn = detail.previousElementSibling.querySelector("button");

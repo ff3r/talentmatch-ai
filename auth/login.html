@@ -44,9 +44,30 @@
         </a>
 
         <div class="tm-auth-header">
-
           <h1 class="tm-auth-header__title">Iniciar Sesión</h1>
           <p class="tm-auth-header__subtitle">Ingresa tus credenciales para acceder a tu cuenta</p>
+        </div>
+
+        <!-- Acceso Rápido para Demostración -->
+        <div class="tm-demo-selector" style="margin-bottom: var(--space-4); padding: var(--space-3); background: var(--color-neutral-50); border: 1px solid var(--color-neutral-200); border-radius: var(--radius-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 800; color: var(--color-neutral-600); text-transform: uppercase; letter-spacing: 0.5px;">Acceso Rápido Demo (1 Clic)</span>
+            <span class="tm-badge tm-badge--info" style="font-size: 10px; font-weight: 700; padding: 2px 6px;">4 Roles</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;">
+            <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm tm-quick-login-btn" data-role="empresa" style="font-size: 11px; font-weight: 700; justify-content: flex-start; padding: 6px 10px; border: 1px solid var(--color-neutral-200);">
+              🏢 Empresa
+            </button>
+            <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm tm-quick-login-btn" data-role="reclutador" style="font-size: 11px; font-weight: 700; justify-content: flex-start; padding: 6px 10px; border: 1px solid var(--color-neutral-200);">
+              🔍 Reclutador
+            </button>
+            <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm tm-quick-login-btn" data-role="postulante" style="font-size: 11px; font-weight: 700; justify-content: flex-start; padding: 6px 10px; border: 1px solid var(--color-neutral-200);">
+              👤 Postulante
+            </button>
+            <button type="button" class="tm-btn tm-btn--ghost tm-btn--sm tm-quick-login-btn" data-role="admin" style="font-size: 11px; font-weight: 700; justify-content: flex-start; padding: 6px 10px; border: 1px solid var(--color-neutral-200);">
+              🛡️ Admin
+            </button>
+          </div>
         </div>
 
         <form id="loginForm" class="tm-form" novalidate>

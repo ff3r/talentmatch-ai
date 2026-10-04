@@ -48,21 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         hasError = true;
       }
 
-      if (hasError) return;
+      const result = typeof AuthService !== 'undefined' ? AuthService.authenticate(email, password) : null;
 
-      const result = AuthService.authenticate(email, password);
-
-      if (result.success) {
+      if (result && result.success) {
         const user = AuthService.getCurrentUser();
+        const path = window.location.pathname.replace(/\\/g, '/');
+        const isSubdir = path.includes('/auth/') ||
+                         path.includes('/empresa/') ||
+                         path.includes('/reclutador/') ||
+                         path.includes('/postulante/') ||
+                         path.includes('/admin/');
+        const prefix = isSubdir ? '../' : '';
         const redirectMap = {
-          'empresa': 'empresa/dashboard.html',
-          'reclutador': 'reclutador/dashboard.html',
-          'postulante': 'postulante/dashboard.html',
-          'admin': 'admin/dashboard.html'
+          'empresa': prefix + 'empresa/dashboard.html',
+          'reclutador': prefix + 'reclutador/dashboard.html',
+          'postulante': prefix + 'postulante/dashboard.html',
+          'admin': prefix + 'admin/dashboard.html'
         };
-        window.location.href = redirectMap[user.role];
+        window.location.href = redirectMap[user.role] || (prefix + 'index.html');
       } else {
-        passwordError.textContent = result.error;
+        passwordError.textContent = result ? result.error : 'Error al procesar solicitud';
       }
     });
   }
