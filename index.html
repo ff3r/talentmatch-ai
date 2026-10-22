@@ -22,100 +22,485 @@
 </head>
 <body>
 
-  <!-- NAVBAR PÚBLICO -->
-  <header class="tm-landing-navbar">
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="tm-landing-navbar" id="top">
     <div class="tm-landing-navbar__container">
       <img src="assets/images/logo-black.png" alt="TalentMatch AI" class="tm-landing-navbar__logo">
+
+      <!-- Hamburger (mobile) -->
+      <button class="tm-landing-navbar__hamburger" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
       
-      <nav class="tm-landing-navbar__menu">
+      <nav class="tm-landing-navbar__menu" id="navMenu">
+        <a href="#como-funciona" class="tm-landing-navbar__link">Cómo funciona</a>
         <a href="#beneficios" class="tm-landing-navbar__link">Beneficios</a>
-        <a href="auth/registro-empresa.html" class="tm-landing-navbar__link">Para Empresas</a>
-        <a href="auth/registro-postulante.html" class="tm-landing-navbar__link">Para Talento</a>
+        <a href="#testimonios" class="tm-landing-navbar__link">Testimonios</a>
+        <a href="#faq" class="tm-landing-navbar__link">FAQ</a>
       </nav>
 
       <div class="tm-landing-navbar__actions">
-        <a href="auth/login.html" class="tm-btn tm-btn--secondary">Iniciar Sesión</a>
+        <a href="auth/login.html" class="tm-btn tm-btn--ghost">Iniciar Sesión</a>
+        <a href="auth/registro-empresa.html" class="tm-btn tm-btn--primary">Comenzar gratis</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+
+    <!-- ===================== HERO ===================== -->
     <section class="tm-hero">
-      <h1 class="tm-hero__title">El <span>Match Perfecto</span> entre Talento y Empresas</h1>
-      <p class="tm-hero__subtitle">Nuestra Inteligencia Artificial analiza cientos de perfiles y requisitos para conectarte de forma precisa, eliminando sesgos y reduciendo el tiempo de contratación a la mitad.</p>
+      <div class="tm-hero__badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Plataforma #1 de Reclutamiento con IA en Latinoamérica
+      </div>
+
+      <h1 class="tm-hero__title">
+        El <span class="tm-hero__title--accent">Match Perfecto</span><br>entre Talento y Empresas
+      </h1>
+      <p class="tm-hero__subtitle">
+        Nuestra IA analiza cientos de perfiles y requisitos para conectarte con precisión,
+        eliminando sesgos y reduciendo el tiempo de contratación hasta un <strong>60%</strong>.
+      </p>
       
       <div class="tm-hero__actions">
-        <a href="auth/registro-empresa.html" class="tm-btn tm-btn--primary">Soy Empresa</a>
-        <a href="auth/registro-postulante.html" class="tm-btn tm-btn--secondary">Soy Talento</a>
+        <a href="auth/registro-empresa.html" class="tm-btn tm-btn--primary tm-btn--lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Soy Empresa
+        </a>
+        <a href="auth/registro-postulante.html" class="tm-btn tm-btn--secondary tm-btn--lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Soy Talento
+        </a>
+      </div>
+
+      <p class="tm-hero__trust">Sin tarjeta de crédito &nbsp;·&nbsp; Configuración en 5 minutos &nbsp;·&nbsp; Cancela cuando quieras</p>
+
+      <!-- Hero visual / mockup cards -->
+      <div class="tm-hero__visual">
+        <div class="tm-hero-card">
+          <div class="tm-hero-card__header">
+            <div class="tm-avatar tm-avatar--lg" style="background:var(--color-primary-700)">MR</div>
+            <div>
+              <p class="tm-hero-card__name">María Rodríguez</p>
+              <p class="tm-hero-card__role">Desarrolladora Full Stack · Lima, PE</p>
+            </div>
+            <span class="tm-hero-card__match">98% match</span>
+          </div>
+          <div class="tm-hero-card__skills">
+            <span class="tm-badge tm-badge--primary">React</span>
+            <span class="tm-badge tm-badge--primary">Node.js</span>
+            <span class="tm-badge tm-badge--primary">PostgreSQL</span>
+            <span class="tm-badge tm-badge--neutral">+4 más</span>
+          </div>
+          <div class="tm-hero-card__actions">
+            <a href="auth/registro-empresa.html" class="tm-btn tm-btn--primary tm-btn--block">Ver perfil completo</a>
+          </div>
+        </div>
+
+        <div class="tm-hero-card tm-hero-card--alt">
+          <div class="tm-hero-card__header">
+            <div class="tm-avatar tm-avatar--lg" style="background:var(--color-neutral-800)">GS</div>
+            <div>
+              <p class="tm-hero-card__name">GlobalSoft SAC</p>
+              <p class="tm-hero-card__role">Oferta: Backend Developer Senior</p>
+            </div>
+            <span class="tm-hero-card__match tm-hero-card__match--new">¡Nueva!</span>
+          </div>
+          <div class="tm-hero-card__skills">
+            <span class="tm-badge tm-badge--success">Remoto</span>
+            <span class="tm-badge tm-badge--neutral">S/. 8,000–10,000</span>
+            <span class="tm-badge tm-badge--neutral">Full-time</span>
+          </div>
+          <div class="tm-hero-card__actions">
+            <a href="auth/registro-postulante.html" class="tm-btn tm-btn--secondary tm-btn--block">Postular ahora</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- STATS SECTION -->
+    <!-- ===================== STATS ===================== -->
     <section class="tm-stats">
-      <div class="tm-stats__item">
-        <span class="tm-stats__number">+500</span>
-        <span class="tm-stats__label">Empresas Activas</span>
-      </div>
-      <div class="tm-stats__item">
-        <span class="tm-stats__number">98%</span>
-        <span class="tm-stats__label">Precisión de Match</span>
-      </div>
-      <div class="tm-stats__item">
-        <span class="tm-stats__number">10k</span>
-        <span class="tm-stats__label">Talentos Evaluados</span>
+      <div class="tm-stats__inner">
+        <div class="tm-stats__item">
+          <span class="tm-stats__number">+500</span>
+          <span class="tm-stats__label">Empresas activas</span>
+        </div>
+        <div class="tm-stats__divider"></div>
+        <div class="tm-stats__item">
+          <span class="tm-stats__number">98%</span>
+          <span class="tm-stats__label">Precisión del match</span>
+        </div>
+        <div class="tm-stats__divider"></div>
+        <div class="tm-stats__item">
+          <span class="tm-stats__number">10k+</span>
+          <span class="tm-stats__label">Talentos evaluados</span>
+        </div>
+        <div class="tm-stats__divider"></div>
+        <div class="tm-stats__item">
+          <span class="tm-stats__number">60%</span>
+          <span class="tm-stats__label">Menos tiempo de contratación</span>
+        </div>
       </div>
     </section>
 
-    <!-- FEATURES SECTION -->
+    <!-- ===================== CÓMO FUNCIONA ===================== -->
+    <section id="como-funciona" class="tm-how">
+      <div class="tm-how__container">
+        <div class="tm-section-header">
+          <span class="tm-section-header__label">Proceso simple</span>
+          <h2 class="tm-section-header__title">Conecta en 3 pasos</h2>
+          <p class="tm-section-header__desc">Desde el registro hasta el match ideal, todo en minutos.</p>
+        </div>
+
+        <div class="tm-how__tabs">
+          <button class="tm-how__tab tm-how__tab--active" data-tab="empresa">Para Empresas</button>
+          <button class="tm-how__tab" data-tab="talento">Para Talento</button>
+        </div>
+
+        <div class="tm-how__steps" id="stepsEmpresa">
+          <div class="tm-step">
+            <div class="tm-step__number">01</div>
+            <div class="tm-step__content">
+              <h3 class="tm-step__title">Publica tu oferta</h3>
+              <p class="tm-step__desc">Describe el puesto, competencias y cultura de tu empresa. Nuestro asistente IA te ayuda a redactar la oferta perfecta.</p>
+            </div>
+          </div>
+          <div class="tm-step__arrow">→</div>
+          <div class="tm-step">
+            <div class="tm-step__number">02</div>
+            <div class="tm-step__content">
+              <h3 class="tm-step__title">La IA encuentra candidatos</h3>
+              <p class="tm-step__desc">Nuestro algoritmo analiza miles de perfiles y te presenta los candidatos más compatibles con tu oferta y valores.</p>
+            </div>
+          </div>
+          <div class="tm-step__arrow">→</div>
+          <div class="tm-step">
+            <div class="tm-step__number">03</div>
+            <div class="tm-step__content">
+              <h3 class="tm-step__title">Contrata con confianza</h3>
+              <p class="tm-step__desc">Revisa perfiles enriquecidos, agenda entrevistas y toma decisiones basadas en datos, no en suposiciones.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tm-how__steps tm-how__steps--hidden" id="stepsTalento">
+          <div class="tm-step">
+            <div class="tm-step__number">01</div>
+            <div class="tm-step__content">
+              <h3 class="tm-step__title">Crea tu perfil inteligente</h3>
+              <p class="tm-step__desc">Importa tu CV o completa tu perfil. La IA extrae y organiza tus competencias automáticamente.</p>
+            </div>
+          </div>
+          <div class="tm-step__arrow">→</div>
+          <div class="tm-step">
+            <div class="tm-step__number">02</div>
+            <div class="tm-step__content">
+              <h3 class="tm-step__title">Recibe ofertas ideales</h3>
+              <p class="tm-step__desc">Olvídate de buscar. Las empresas que encajan contigo llegan solas, con un porcentaje de compatibilidad real.</p>
+            </div>
+          </div>
+          <div class="tm-step__arrow">→</div>
+          <div class="tm-step">
+            <div class="tm-step__number">03</div>
+            <div class="tm-step__content">
+              <h3 class="tm-step__title">Postula con un clic</h3>
+              <p class="tm-step__desc">Aplica a las mejores oportunidades y sigue el estado de tus postulaciones en tiempo real desde tu dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURES ===================== -->
     <section id="beneficios" class="tm-features">
-      <h2 class="tm-features__title">¿Por qué elegir TalentMatch?</h2>
-      
-      <div class="tm-features__grid">
-        <!-- Feature 1 -->
-        <article class="tm-feature-card">
-          <div class="tm-feature-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v20"></path>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
-          <h3 class="tm-feature-card__title">Matching con Inteligencia Artificial</h3>
-          <p class="tm-feature-card__text">Nuestro algoritmo cruza variables como experiencia, habilidades blandas y cultura corporativa para darte la compatibilidad exacta.</p>
-        </article>
+      <div class="tm-features__container">
+        <div class="tm-section-header">
+          <span class="tm-section-header__label">Tecnología de punta</span>
+          <h2 class="tm-section-header__title">¿Por qué elegir TalentMatch AI?</h2>
+          <p class="tm-section-header__desc">Una plataforma diseñada para que el talento correcto y la empresa correcta se encuentren.</p>
+        </div>
 
-        <!-- Feature 2 -->
-        <article class="tm-feature-card">
-          <div class="tm-feature-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </div>
-          <h3 class="tm-feature-card__title">Reclutamiento sin sesgos</h3>
-          <p class="tm-feature-card__text">Evaluamos talento basado puramente en datos y competencias comprobables, fomentando la diversidad e inclusión en tus equipos.</p>
-        </article>
+        <div class="tm-features__grid tm-stagger-children">
+          <article class="tm-feature-card">
+            <div class="tm-feature-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <h3 class="tm-feature-card__title">Matching en tiempo real</h3>
+            <p class="tm-feature-card__text">Resultados instantáneos. Nuestro motor de IA procesa miles de variables en milisegundos para darte el candidato ideal al instante.</p>
+          </article>
 
-        <!-- Feature 3 -->
-        <article class="tm-feature-card">
-          <div class="tm-feature-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
-          <h3 class="tm-feature-card__title">Procesos 10x más rápidos</h3>
-          <p class="tm-feature-card__text">Olvídate de leer cientos de CVs que no encajan. Recibe una lista filtrada con los candidatos ideales de manera instantánea.</p>
-        </article>
+          <article class="tm-feature-card">
+            <div class="tm-feature-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="tm-feature-card__title">Reclutamiento sin sesgos</h3>
+            <p class="tm-feature-card__text">Evaluamos talento basado en datos y competencias comprobables, fomentando la diversidad e inclusión en cada equipo.</p>
+          </article>
+
+          <article class="tm-feature-card">
+            <div class="tm-feature-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3 class="tm-feature-card__title">Procesos 10x más rápidos</h3>
+            <p class="tm-feature-card__text">Olvídate de revisar cientos de CVs. Recibe una lista filtrada de candidatos ideales de manera instantánea.</p>
+          </article>
+
+          <article class="tm-feature-card">
+            <div class="tm-feature-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="tm-feature-card__title">Privacidad garantizada</h3>
+            <p class="tm-feature-card__text">Tus datos están protegidos con cifrado de nivel empresarial. Cumplimos con GDPR y normativas latinoamericanas de protección de datos.</p>
+          </article>
+
+          <article class="tm-feature-card">
+            <div class="tm-feature-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <h3 class="tm-feature-card__title">Analytics e insights</h3>
+            <p class="tm-feature-card__text">Dashboard con métricas detalladas de tus procesos de selección: tasa de conversión, tiempos y calidad del match.</p>
+          </article>
+
+          <article class="tm-feature-card">
+            <div class="tm-feature-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <h3 class="tm-feature-card__title">Comunicación integrada</h3>
+            <p class="tm-feature-card__text">Coordina entrevistas, envía mensajes y da retroalimentación a candidatos sin salir de la plataforma.</p>
+          </article>
+        </div>
       </div>
     </section>
+
+    <!-- ===================== TESTIMONIOS ===================== -->
+    <section id="testimonios" class="tm-testimonials">
+      <div class="tm-testimonials__container">
+        <div class="tm-section-header">
+          <span class="tm-section-header__label">Lo que dicen de nosotros</span>
+          <h2 class="tm-section-header__title">Empresas y talentos confían en nosotros</h2>
+        </div>
+
+        <div class="tm-testimonials__grid tm-stagger-children">
+          <blockquote class="tm-testimonial-card">
+            <div class="tm-testimonial-card__stars">★★★★★</div>
+            <p class="tm-testimonial-card__quote">"Pasamos de 3 semanas a solo 5 días para contratar un ingeniero senior. El matching fue increíblemente preciso, el candidato encajó perfecto con nuestra cultura."</p>
+            <footer class="tm-testimonial-card__author">
+              <div class="tm-avatar" style="background:var(--color-primary-700)">CA</div>
+              <div>
+                <p class="tm-testimonial-card__name">Carlos Azaña</p>
+                <p class="tm-testimonial-card__role">CTO · TechPeru SAC</p>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tm-testimonial-card tm-testimonial-card--featured">
+            <div class="tm-testimonial-card__stars">★★★★★</div>
+            <p class="tm-testimonial-card__quote">"Llevaba 4 meses buscando trabajo sin resultados. Con TalentMatch AI recibí 3 ofertas en mi primera semana. Conseguí el trabajo de mis sueños."</p>
+            <footer class="tm-testimonial-card__author">
+              <div class="tm-avatar" style="background:var(--color-neutral-800)">LV</div>
+              <div>
+                <p class="tm-testimonial-card__name">Lucía Vargas</p>
+                <p class="tm-testimonial-card__role">UX Designer · Freelancer</p>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="tm-testimonial-card">
+            <div class="tm-testimonial-card__stars">★★★★★</div>
+            <p class="tm-testimonial-card__quote">"La transparencia del porcentaje de match nos da confianza en cada decisión. Ya no contratamos por intuición, sino con evidencia real."</p>
+            <footer class="tm-testimonial-card__author">
+              <div class="tm-avatar" style="background:var(--color-primary-500)">MF</div>
+              <div>
+                <p class="tm-testimonial-card__name">Mariana Flores</p>
+                <p class="tm-testimonial-card__role">RRHH Manager · Innova Corp</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section id="faq" class="tm-faq">
+      <div class="tm-faq__container">
+        <div class="tm-section-header">
+          <span class="tm-section-header__label">Preguntas frecuentes</span>
+          <h2 class="tm-section-header__title">Resolvemos tus dudas</h2>
+        </div>
+
+        <div class="tm-faq__list">
+          <details class="tm-faq__item">
+            <summary class="tm-faq__question">
+              ¿Cómo funciona el algoritmo de matching?
+              <span class="tm-faq__icon">+</span>
+            </summary>
+            <div class="tm-faq__answer">
+              <p>Nuestro motor analiza más de 50 variables: experiencia técnica, habilidades blandas, expectativas salariales, modalidad de trabajo, cultura organizacional y más. El resultado es un porcentaje de compatibilidad único para cada par empresa-candidato.</p>
+            </div>
+          </details>
+
+          <details class="tm-faq__item">
+            <summary class="tm-faq__question">
+              ¿Es gratuito para los postulantes?
+              <span class="tm-faq__icon">+</span>
+            </summary>
+            <div class="tm-faq__answer">
+              <p>Sí, completamente gratuito. Los postulantes pueden crear su perfil, recibir ofertas y postular sin costo alguno. Las empresas cuentan con un plan gratuito de prueba con cupo limitado de ofertas.</p>
+            </div>
+          </details>
+
+          <details class="tm-faq__item">
+            <summary class="tm-faq__question">
+              ¿Qué pasa con la privacidad de mis datos?
+              <span class="tm-faq__icon">+</span>
+            </summary>
+            <div class="tm-faq__answer">
+              <p>Tu privacidad es nuestra prioridad. Solo compartimos tu información con empresas cuando tú decidas postular. Puedes configurar quién puede ver tu perfil y revocar permisos en cualquier momento.</p>
+            </div>
+          </details>
+
+          <details class="tm-faq__item">
+            <summary class="tm-faq__question">
+              ¿Cuánto tiempo tarda en aparecer candidatos o empleos?
+              <span class="tm-faq__icon">+</span>
+            </summary>
+            <div class="tm-faq__answer">
+              <p>Inmediatamente. Tan pronto como completes tu perfil o publiques una oferta, el sistema comienza a calcular matches. En promedio, las empresas ven candidatos calificados en menos de 24 horas.</p>
+            </div>
+          </details>
+
+          <details class="tm-faq__item">
+            <summary class="tm-faq__question">
+              ¿Puedo usar TalentMatch AI si soy de otro país de Latinoamérica?
+              <span class="tm-faq__icon">+</span>
+            </summary>
+            <div class="tm-faq__answer">
+              <p>Absolutamente. Operamos en toda Latinoamérica. Puedes filtrar ofertas por país, ciudad o modalidad remota. Cada día sumamos más empresas y talentos de toda la región.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="tm-cta">
+      <div class="tm-cta__container">
+        <h2 class="tm-cta__title">¿Listo para encontrar tu <span>match perfecto</span>?</h2>
+        <p class="tm-cta__subtitle">Únete a más de 500 empresas y 10,000 profesionales que ya confían en TalentMatch AI.</p>
+        <div class="tm-cta__actions">
+          <a href="auth/registro-empresa.html" class="tm-btn tm-btn--primary tm-btn--lg">Publicar una oferta</a>
+          <a href="auth/registro-postulante.html" class="tm-btn tm-btn--secondary tm-btn--lg">Encontrar empleo</a>
+        </div>
+        <p class="tm-cta__note">Sin compromisos. Sin tarjeta de crédito.</p>
+      </div>
+    </section>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="tm-landing-footer">
-    <p>&copy; 2026 TalentMatch AI. Todos los derechos reservados.</p>
+    <div class="tm-landing-footer__container">
+      <div class="tm-landing-footer__brand">
+        <img src="assets/images/logo-black.png" alt="TalentMatch AI" class="tm-landing-footer__logo">
+        <p class="tm-landing-footer__tagline">Conectando talento con oportunidades a través de Inteligencia Artificial.</p>
+      </div>
+
+      <div class="tm-landing-footer__links">
+        <div class="tm-landing-footer__col">
+          <h4 class="tm-landing-footer__heading">Plataforma</h4>
+          <a href="auth/registro-empresa.html">Para Empresas</a>
+          <a href="auth/registro-postulante.html">Para Postulantes</a>
+          <a href="#beneficios">Beneficios</a>
+        </div>
+        <div class="tm-landing-footer__col">
+          <h4 class="tm-landing-footer__heading">Legal</h4>
+          <a href="#">Términos de servicio</a>
+          <a href="#">Política de privacidad</a>
+          <a href="#">Cookies</a>
+        </div>
+        <div class="tm-landing-footer__col">
+          <h4 class="tm-landing-footer__heading">Soporte</h4>
+          <a href="#">Centro de ayuda</a>
+          <a href="#">Contacto</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="tm-landing-footer__bottom">
+      <p>&copy; 2026 TalentMatch AI. Todos los derechos reservados.</p>
+      <a href="#top" class="tm-landing-footer__back-top">↑ Volver arriba</a>
+    </div>
   </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open');
+    });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+      });
+    });
+
+    // How-it-works tabs
+    const tabs = document.querySelectorAll('.tm-how__tab');
+    const stepsEmpresa = document.getElementById('stepsEmpresa');
+    const stepsTalento = document.getElementById('stepsTalento');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('tm-how__tab--active'));
+        tab.classList.add('tm-how__tab--active');
+        if (tab.dataset.tab === 'empresa') {
+          stepsEmpresa.classList.remove('tm-how__steps--hidden');
+          stepsTalento.classList.add('tm-how__steps--hidden');
+        } else {
+          stepsTalento.classList.remove('tm-how__steps--hidden');
+          stepsEmpresa.classList.add('tm-how__steps--hidden');
+        }
+      });
+    });
+
+    // Sticky navbar shadow on scroll
+    const navbar = document.querySelector('.tm-landing-navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('tm-landing-navbar--scrolled', window.scrollY > 20);
+    });
+
+    // Intersection Observer for scroll-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('tm-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.tm-feature-card, .tm-testimonial-card, .tm-step, .tm-faq__item').forEach(el => {
+      el.classList.add('tm-observe');
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 </html>
