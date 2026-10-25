@@ -83,14 +83,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-4) var(--space-8);
-  max-width: 1200px;
+  padding: var(--space-5) var(--space-8);
+  max-width: 1240px;
   margin: 0 auto;
-  gap: var(--space-6);
+  gap: var(--space-8);
 }
 
 .tm-landing-navbar__logo {
-  height: 40px;
+  height: 48px;
   flex-shrink: 0;
 }
 
@@ -102,10 +102,10 @@
 }
 
 .tm-landing-navbar__link {
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-700);
   text-decoration: none;
-  font-weight: var(--font-weight-medium);
-  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.05rem;
   transition: color var(--duration-fast) var(--ease-standard);
   white-space: nowrap;
 }
@@ -116,9 +116,15 @@
 
 .tm-landing-navbar__actions {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-4);
   align-items: center;
   flex-shrink: 0;
+}
+
+.tm-landing-navbar__actions .tm-btn {
+  font-size: 0.95rem;
+  padding: var(--space-3) var(--space-5);
+  min-height: 44px;
 }
 
 /* Hamburger (mobile) */
@@ -162,7 +168,8 @@
 
 .tm-hero {
   text-align: center;
-  padding: var(--space-20) var(--space-8) var(--space-16);
+  padding: var(--space-16) var(--space-8);
+  min-height: calc(100vh - 88px);
   background-color: var(--color-neutral-50);
   background-image:
     radial-gradient(var(--color-primary-100) 1.5px, transparent 1.5px);
@@ -170,31 +177,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.tm-hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  background-color: var(--color-primary-50);
-  border: 1px solid var(--color-primary-200);
-  color: var(--color-primary-700);
-  font-size: var(--text-body-sm);
-  font-weight: var(--font-weight-semibold);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  margin-bottom: var(--space-6);
-  animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) both;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .tm-hero__title {
   font-family: var(--font-family-heading);
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2.8rem, 5.8vw, 4.4rem);
   color: var(--color-neutral-900);
   line-height: 1.15;
   padding-bottom: 0.15em; /* evita que los descendentes de Bungee se recorten */
   margin-bottom: var(--space-6);
-  max-width: 820px;
+  max-width: 980px;
   overflow: visible;
   animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) 80ms both;
 }
@@ -204,9 +198,9 @@
 }
 
 .tm-hero__subtitle {
-  font-size: var(--text-h4);
+  font-size: clamp(1.125rem, 2vw, 1.35rem);
   color: var(--color-neutral-700);
-  max-width: 620px;
+  max-width: 660px;
   margin-bottom: var(--space-10);
   line-height: var(--leading-relaxed);
   animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) 160ms both;
@@ -221,7 +215,6 @@
   gap: var(--space-4);
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: var(--space-4);
   animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) 240ms both;
 }
 
@@ -232,93 +225,6 @@
 .tm-hero__actions .tm-btn--primary:hover {
   box-shadow: 0 6px 24px rgba(183, 28, 28, 0.5);
   transform: translateY(-2px);
-}
-
-.tm-hero__trust {
-  font-size: var(--text-body-sm);
-  color: var(--color-neutral-500);
-  margin-bottom: var(--space-12);
-  animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) 320ms both;
-}
-
-/* Hero visual — mockup cards */
-.tm-hero__visual {
-  display: flex;
-  gap: var(--space-6);
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 900px;
-  animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) 400ms both;
-}
-
-.tm-hero-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-neutral-200);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-lg);
-  width: 100%;
-  max-width: 380px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  transition: transform var(--duration-fast) var(--ease-standard),
-              box-shadow var(--duration-fast) var(--ease-standard);
-}
-
-.tm-hero-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-xl);
-}
-
-.tm-hero-card--alt {
-  background: var(--color-neutral-900);
-  border-color: var(--color-neutral-800);
-}
-
-.tm-hero-card--alt .tm-hero-card__name,
-.tm-hero-card--alt .tm-hero-card__role {
-  color: var(--color-neutral-100);
-}
-
-.tm-hero-card__header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.tm-hero-card__name {
-  font-weight: var(--font-weight-bold);
-  color: var(--color-neutral-900);
-  font-size: var(--text-body);
-}
-
-.tm-hero-card__role {
-  font-size: var(--text-body-sm);
-  color: var(--color-neutral-600);
-}
-
-.tm-hero-card__match {
-  margin-left: auto;
-  background-color: var(--color-primary-700);
-  color: var(--color-white);
-  font-size: var(--text-caption);
-  font-weight: var(--font-weight-bold);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  white-space: nowrap;
-}
-
-.tm-hero-card__match--new {
-  background-color: var(--color-success);
-}
-
-.tm-hero-card__skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
 }
 
 /* ============================================================
@@ -808,11 +714,6 @@
   border-color: var(--color-white);
 }
 
-.tm-cta__note {
-  font-size: var(--text-body-sm);
-  color: rgba(255, 255, 255, 0.5);
-}
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -974,8 +875,13 @@
   }
 
   /* Hero mobile */
+  .tm-hero {
+    min-height: calc(100vh - 72px);
+    padding: var(--space-12) var(--space-4);
+  }
+
   .tm-hero__title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-size: clamp(2rem, 8.5vw, 2.9rem);
   }
 
   .tm-hero__subtitle {
@@ -986,11 +892,6 @@
     flex-direction: column;
     width: 100%;
     max-width: 320px;
-  }
-
-  .tm-hero__visual {
-    flex-direction: column;
-    align-items: center;
   }
 
   /* Stats mobile */
