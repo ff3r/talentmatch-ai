@@ -191,9 +191,11 @@
   font-family: var(--font-family-heading);
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   color: var(--color-neutral-900);
-  line-height: var(--leading-tight);
+  line-height: 1.15;
+  padding-bottom: 0.15em; /* evita que los descendentes de Bungee se recorten */
   margin-bottom: var(--space-6);
   max-width: 820px;
+  overflow: visible;
   animation: tm-fade-in var(--duration-slow) var(--ease-decelerate) 80ms both;
 }
 
