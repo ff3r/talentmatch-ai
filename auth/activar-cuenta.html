@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activar Cuenta de Reclutador | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/auth.css?v=2">
+  <style>
+    /* Estilos específicos para campos de solo lectura y bloqueados */
+    .tm-form__input--readonly {
+      background-color: var(--color-neutral-100);
+      color: var(--color-neutral-700);
+      cursor: not-allowed;
+      border-color: var(--color-neutral-300);
+    }
+
+    .tm-form__input--readonly:focus {
+      border-color: var(--color-neutral-300);
+      box-shadow: none;
+    }
+
+    
+  </style>
+</head>
+<body class="tm-auth-page">
+  <div class="tm-auth-layout">
+
+    <!-- PANEL ILUSTRACIÓN LATERAL -->
+    <aside class="tm-auth-illustration">
+      <div class="tm-auth-illustration__content">
+        <img src="../assets/images/logo-white.png" alt="TalentMatch AI" class="tm-auth-logo">
+        <h2 class="tm-auth-illustration__title">Bienvenido al equipo de selecci&oacute;n</h2>
+        <p class="tm-auth-illustration__text">
+          Has sido invitado a colaborar en TalentMatch AI. Activa tu acceso para gestionar convocatorias laborales y evaluar candidatos con matching inteligente asistido por IA.
+        </p>
+      </div>
+    </aside>
+
+    <!-- FORMULARIO PRINCIPAL DE ACTIVACIÓN -->
+    <main class="tm-auth-main">
+      <div class="tm-auth-form-container">
+        
+        <a href="login.html" class="tm-auth-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          Ir al inicio de sesi&oacute;n
+        </a>
+
+        <div class="tm-auth-header">
+
+          <h1 class="tm-auth-header__title">Activar Cuenta</h1>
+          <p class="tm-auth-header__subtitle" id="subtituloEmpresa">
+            Completa tu registro para unirte a <strong>TechCorp Internacional S.A.</strong>
+          </p>
+        </div>
+
+        <form id="activarCuentaForm" class="tm-form" novalidate>
+          
+          <!-- Nombre Completo (Precargado / Bloqueado) -->
+          <div class="tm-form__group">
+            <label for="fullName" class="tm-form__label">Nombre Completo</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              class="tm-form__input tm-form__input--readonly"
+              value="Ana Patricia Mart&iacute;nez"
+              readonly
+            >
+          </div>
+
+          <!-- Correo Electrónico (Precargado / Bloqueado) -->
+          <div class="tm-form__group">
+            <label for="email" class="tm-form__label">Correo Electr&oacute;nico Corporativo</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="tm-form__input tm-form__input--readonly"
+              value="ana@techcorp.com"
+              readonly
+            >
+          </div>
+
+          <!-- Documento de Identidad (Requerido por la BD) -->
+          <div class="tm-form__group">
+            <label for="documentNumber" class="tm-form__label">Documento Nacional de Identidad (DNI)</label>
+            <input
+              type="text"
+              id="documentNumber"
+              name="documentNumber"
+              class="tm-form__input"
+              placeholder="Ej. 45678912"
+              maxlength="15"
+              required
+            >
+            <span class="tm-form__error" id="documentNumberError"></span>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="tm-form__group">
+            <label for="password" class="tm-form__label">Crear Contrase&ntilde;a</label>
+            <div class="tm-form__input-wrapper">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="tm-form__input"
+                placeholder="M&iacute;nimo 6 caracteres"
+                required
+              >
+              <button type="button" class="tm-form__toggle-password" id="togglePasswordBtn" aria-label="Mostrar contrase&ntilde;a">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="tm-form__error" id="passwordError"></span>
+          </div>
+
+          <!-- Confirmar Contraseña -->
+          <div class="tm-form__group">
+            <label for="confirmPassword" class="tm-form__label">Confirmar Contrase&ntilde;a</label>
+            <div class="tm-form__input-wrapper">
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="tm-form__input"
+                placeholder="Repite tu contrase&ntilde;a"
+                required
+              >
+              <button type="button" class="tm-form__toggle-password" id="toggleConfirmPasswordBtn" aria-label="Mostrar contrase&ntilde;a">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="tm-form__error" id="confirmPasswordError"></span>
+          </div>
+
+          <!-- Botón de Acción -->
+          <div class="tm-form__actions" style="margin-top: var(--space-6);">
+            <button type="submit" class="tm-btn tm-btn--primary tm-btn--block" id="btnActivar">
+              Activar Cuenta y Entrar al Panel
+            </button>
+          </div>
+        </form>
+
+        <div class="tm-auth-footer">
+          <p class="tm-auth-footer__text">&iquest;Ya ten&iacute;as una cuenta activada?</p>
+          <div class="tm-auth-footer__links">
+            <a href="login.html" class="tm-auth-footer__link">Iniciar Sesi&oacute;n</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Leer parámetros de la URL si vienen desde el enlace de
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const emailParam = urlParams.get('email');
+      const nombreParam = urlParams.get('nombre');
+      const empresaParam = urlParams.get('empresa');
+
+      const inputNombre = document.getElementById('fullName');
+      const inputEmail = document.getElementById('email');
+      const subtituloEmpresa = document.getElementById('subtituloEmpresa');
+
+      if (emailParam) inputEmail.value = decodeURIComponent(emailParam);
+      if (nombreParam) inputNombre.value = decodeURIComponent(nombreParam);
+      if (empresaParam) {
+        subtituloEmpresa.innerHTML = `Completa tu registro para unirte a <strong>${decodeURIComponent(empresaParam)}</strong>`;
+      }
+
+      // 2. Toggle visibilidad de contraseñas (con soporte de iconos y clases directas)
+      const eyeOpenSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+      const eyeSlashSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+
+      const configurarToggle = (btnId, inputId) => {
+        const btn = document.getElementById(btnId);
+        const input = document.getElementById(inputId);
+        if (!btn || !input) return;
+
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const esPassword = input.type === 'password';
+          input.type = esPassword ? 'text' : 'password';
+          btn.innerHTML = esPassword ? eyeSlashSvg : eyeOpenSvg;
+          btn.style.color = esPassword ? 'var(--color-primary-700)' : 'var(--color-neutral-500)';
+        });
+      };
+
+      configurarToggle('togglePasswordBtn', 'password');
+      configurarToggle('toggleConfirmPasswordBtn', 'confirmPassword');
+
+      // 3. Manejo del Formulario y Validación
+      const form = document.getElementById('activarCuentaForm');
+      const inputDoc = document.getElementById('documentNumber');
+      const inputPass = document.getElementById('password');
+      const inputConfirm = document.getElementById('confirmPassword');
+
+      const errDoc = document.getElementById('documentNumberError');
+      const errPass = document.getElementById('passwordError');
+      const errConfirm = document.getElementById('confirmPasswordError');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Limpiar errores
+        errDoc.textContent = '';
+        errPass.textContent = '';
+        errConfirm.textContent = '';
+
+        let valido = true;
+
+        if (!inputDoc.value.trim()) {
+          errDoc.textContent = 'El documento de identidad es obligatorio.';
+          valido = false;
+        }
+
+        if (!inputPass.value || inputPass.value.length < 6) {
+          errPass.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+          valido = false;
+        }
+
+        if (inputPass.value !== inputConfirm.value) {
+          errConfirm.textContent = 'Las contraseñas no coinciden.';
+          valido = false;
+        }
+
+        if (!valido) return;
+
+        // Simulación: Cambiar estado en localStorage si venía de la lista de invitados
+        const STORAGE_KEY = 'talentmatch_reclutadores_gestion';
+        try {
+          let lista = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+          const emailActual = inputEmail.value.trim().toLowerCase();
+          const item = lista.find(r => r.email.toLowerCase() === emailActual);
+          if (item) {
+            item.estado = 'activo';
+            item.numero_documento = inputDoc.value.trim();
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(lista));
+          }
+        } catch (err) {
+          console.error(err);
+        }
+
+        // Simulación de sesión iniciada como Reclutador
+        if (typeof AuthService !== 'undefined' && AuthService.setSession) {
+          AuthService.setSession({
+            id: 'REC-' + Date.now().toString(),
+            name: inputNombre.value.trim(),
+            email: inputEmail.value.trim(),
+            role: 'reclutador'
+          });
+        }
+
+        // Redirigir directamente al Dashboard de Reclutador
+        window.location.href = '../reclutador/dashboard.html';
+      });
+    });
+  </script>
+</body>
+</html>

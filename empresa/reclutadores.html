@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipo de Reclutadores | TalentMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/empresa.css">
+  <style>
+    .tm-table-wrapper {
+      overflow-x: auto;
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-neutral-200);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .tm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-body-sm);
+    }
+
+    .tm-table th {
+      text-align: left;
+      padding: var(--space-4);
+      font-size: var(--text-caption);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-neutral-600);
+      background-color: var(--color-neutral-50);
+      border-bottom: 1px solid var(--color-neutral-200);
+    }
+
+    .tm-table td {
+      padding: var(--space-4);
+      color: var(--color-neutral-800);
+      border-bottom: 1px solid var(--color-neutral-200);
+      vertical-align: middle;
+    }
+
+    .tm-table tbody tr:hover {
+      background-color: var(--color-neutral-50);
+    }
+
+    .tm-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .tm-user-cell {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .tm-user-cell__avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-primary-100);
+      color: var(--color-primary-700);
+      font-weight: var(--font-weight-bold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    .tm-user-cell__name {
+      font-weight: var(--font-weight-bold);
+      color: var(--color-neutral-900);
+      margin-bottom: 2px;
+    }
+
+    .tm-user-cell__email {
+      font-size: var(--text-caption);
+      color: var(--color-neutral-500);
+    }
+
+    /* Alerta toast minimalista */
+    .tm-toast {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      background: #1B5E20;
+      color: #FFFFFF;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-md);
+      font-size: var(--text-body-sm);
+      font-weight: var(--font-weight-semibold);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .tm-toast--active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="tm-empresa-page">
+  <div class="tm-dashboard-layout">
+
+    <!-- SIDEBAR DE EMPRESA -->
+    <aside class="tm-sidebar">
+      <div class="tm-sidebar__header">
+        <a href="dashboard.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="../assets/images/logo-black.png" alt="TalentMatch AI" class="tm-sidebar__logo">
+        </a>
+      </div>
+      <nav class="tm-sidebar__nav">
+        <a href="dashboard.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span class="tm-sidebar__label">Panel Principal</span>
+        </a>
+        <a href="ofertas.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          <span class="tm-sidebar__label">Mis Ofertas</span>
+        </a>
+        <a href="oferta-formulario.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          <span class="tm-sidebar__label">Crear Oferta</span>
+        </a>
+        <a href="reclutadores.html" class="tm-sidebar__item tm-sidebar__item--active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <span class="tm-sidebar__label">Reclutadores</span>
+        </a>
+        <a href="perfil.html" class="tm-sidebar__item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span class="tm-sidebar__label">Perfil de Empresa</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- NAVBAR SUPERIOR -->
+    <header class="tm-navbar">
+      <div class="tm-navbar__left">
+        <button class="tm-navbar__toggle" aria-label="Toggle sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <h1 class="tm-navbar__title">Equipo de Reclutadores</h1>
+      </div>
+      <div class="tm-navbar__right">
+        <div class="tm-dropdown">
+          <button class="tm-dropdown__toggle" id="profileDropdownBtn">
+            <span class="tm-avatar tm-avatar--sm">TC</span>
+            <span class="tm-navbar__username">TechCorp Internacional S.A.</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="color: var(--color-neutral-500)">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          
+          <div class="tm-dropdown__menu" id="profileDropdownMenu">
+            <div style="padding: var(--space-4); border-bottom: 1px solid var(--color-neutral-200);">
+              <p style="font-weight: var(--font-weight-bold); color: var(--color-neutral-900);">TechCorp Internacional S.A.</p>
+              <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600);">empresa@talentmatch.com</p>
+            </div>
+            <div style="padding: var(--space-2);">
+              <a href="perfil.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Perfil de Empresa
+              </a>
+              <a href="configuracion.html" class="tm-dropdown__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Configuraci&oacute;n
+              </a>
+              <div style="border-top: 1px solid var(--color-neutral-200); margin: var(--space-1) 0;"></div>
+              <button class="tm-dropdown__item" id="logoutBtn" style="color: var(--color-primary-700); width: 100%; border: none; background: none; text-align: left; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Cerrar Sesi&oacute;n
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="tm-main tm-page-content">
+      <div class="tm-container" style="max-width: 1200px; margin: 0 auto;">
+
+        <!-- HEADER DE SECCIÓN -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-4);">
+          <div>
+            <h2 style="font-family: var(--font-display); font-size: 1.75rem; color: var(--color-neutral-900); margin-bottom: var(--space-1);">
+              Gesti&oacute;n de Reclutadores
+            </h2>
+            <p style="color: var(--color-neutral-600); font-size: var(--text-body-sm);">
+              Administra el equipo de selecci&oacute;n asignado a TechCorp Internacional para publicar y evaluar convocatorias.
+            </p>
+          </div>
+          <!-- Botón limpio sin el símbolo duplicado -->
+          <button class="tm-btn tm-btn--primary" id="btnAbrirModalInvitacion">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Invitar Reclutador
+          </button>
+        </div>
+
+        <!-- TABLA DE RECLUTADORES -->
+        <div class="tm-table-wrapper">
+          <table class="tm-table" id="tablaReclutadores">
+            <thead>
+              <tr>
+                <th>Reclutador</th>
+                <th>Cargo Asignado</th>
+                <th>Fecha de Asignaci&oacute;n</th>
+                <th>Estado de Cuenta</th>
+                <th style="text-align: right;">Acciones de Control</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyReclutadores">
+              <!-- Reclutador 1 (Activo predeterminado) -->
+              <tr id="row-rec-1">
+                <td>
+                  <div class="tm-user-cell">
+                    <div class="tm-user-cell__avatar">MF</div>
+                    <div>
+                      <div class="tm-user-cell__name">Mar&iacute;a Fernanda G&oacute;mez</div>
+                      <div class="tm-user-cell__email">reclutador@talentmatch.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span style="font-weight: var(--font-weight-medium); color: var(--color-neutral-800);">Reclutador</span>
+                </td>
+                <td style="color: var(--color-neutral-600);">01/10/2026</td>
+                <td class="col-estado">
+                  <span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span>
+                </td>
+                <td style="text-align: right;" class="col-acciones">
+                  <button class="tm-btn tm-btn--ghost tm-btn--sm btn-toggle-estado" data-id="rec-1" data-estado="activo" style="color: var(--color-primary-700);">
+                    Desactivar Acceso
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL: INVITAR RECLUTADOR -->
+  <div class="tm-modal-overlay" id="invitarReclutadorModal" style="display: none;">
+    <div class="tm-modal" style="max-width: 520px;">
+      <div class="tm-modal__header">
+        <h2 class="tm-modal__title">Invitar Reclutador al Equipo</h2>
+        <button class="tm-modal__close" id="btnCerrarModal" aria-label="Cerrar modal">&times;</button>
+      </div>
+
+      <form class="tm-modal__form" id="invitarReclutadorForm">
+        <p style="font-size: var(--text-body-sm); color: var(--color-neutral-600); margin-bottom: var(--space-4);">
+          El profesional recibir&aacute; una invitaci&oacute;n para registrarse y acceder al panel de selecci&oacute;n de la empresa.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <!-- Nombre Completo -->
+          <div class="tm-form__group">
+            <label for="invNombre" class="tm-form__label">Nombre completo del profesional</label>
+            <input type="text" id="invNombre" class="tm-form__input" placeholder="Ej: Ana Patricia Mart&iacute;nez" required>
+          </div>
+
+          <!-- Correo Electrónico -->
+          <div class="tm-form__group">
+            <label for="invEmail" class="tm-form__label">Correo electr&oacute;nico</label>
+            <input type="email" id="invEmail" class="tm-form__input" placeholder="ejemplo@techcorp.com" required>
+          </div>
+
+          <!-- Cargo Fijo: Reclutador -->
+          <div class="tm-form__group">
+            <label for="invCargo" class="tm-form__label">Cargo asignado</label>
+            <input type="text" id="invCargo" class="tm-form__input" value="Reclutador" readonly style="background-color: var(--color-neutral-100); cursor: not-allowed; color: var(--color-neutral-700);">
+          </div>
+        </div>
+
+        <div class="tm-modal__actions" style="margin-top: var(--space-6);">
+          <button type="button" class="tm-btn tm-btn--ghost" id="btnCancelarModal">Cancelar</button>
+          <button type="submit" class="tm-btn tm-btn--primary">
+            Enviar Invitaci&oacute;n
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIÓN -->
+  <div class="tm-toast" id="toastNotificacion">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+    <span id="toastMensaje">Invitaci&oacute;n enviada con &eacute;xito</span>
+  </div>
+
+  <script src="../js/auth.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Sidebar Responsive
+      const toggleBtn = document.querySelector('.tm-navbar__toggle');
+      const layout = document.querySelector('.tm-dashboard-layout');
+      if (toggleBtn && layout) {
+        toggleBtn.addEventListener('click', () => {
+          layout.classList.toggle('tm-sidebar-collapsed');
+        });
+      }
+
+      // Dropdown de perfil
+      const dropdownBtn = document.getElementById('profileDropdownBtn');
+      const dropdownMenu = document.getElementById('profileDropdownMenu');
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('is-active');
+        });
+        document.addEventListener('click', (e) => {
+          if (!dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('is-active');
+          }
+        });
+      }
+
+      // Cierre de sesión
+      const logoutBtn = document.getElementById('logoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          if (typeof AuthService !== 'undefined' && AuthService.logout) {
+            AuthService.logout();
+          }
+          window.location.href = '../auth/login.html';
+        });
+      }
+
+      // Toast helper
+      const toast = document.getElementById('toastNotificacion');
+      const toastMsg = document.getElementById('toastMensaje');
+      const mostrarToast = (mensaje, esError = false) => {
+        toastMsg.textContent = mensaje;
+        toast.style.background = esError ? '#C62828' : '#1B5E20';
+        toast.classList.add('tm-toast--active');
+        setTimeout(() => {
+          toast.classList.remove('tm-toast--active');
+        }, 3000);
+      };
+
+      // Referencias a Modal
+      const modalInvitacion = document.getElementById('invitarReclutadorModal');
+      const btnAbrirModal = document.getElementById('btnAbrirModalInvitacion');
+      const btnCerrarModal = document.getElementById('btnCerrarModal');
+      const btnCancelarModal = document.getElementById('btnCancelarModal');
+      const formInvitacion = document.getElementById('invitarReclutadorForm');
+      const tbody = document.getElementById('tbodyReclutadores');
+
+      // Apertura y Cierre
+      if (btnAbrirModal && modalInvitacion) {
+        btnAbrirModal.addEventListener('click', () => {
+          formInvitacion.reset();
+          document.getElementById('invCargo').value = 'Reclutador';
+          modalInvitacion.style.display = 'flex';
+        });
+      }
+
+      const cerrarInvitacion = () => {
+        if (modalInvitacion) modalInvitacion.style.display = 'none';
+      };
+
+      if (btnCerrarModal) btnCerrarModal.addEventListener('click', cerrarInvitacion);
+      if (btnCancelarModal) btnCancelarModal.addEventListener('click', cerrarInvitacion);
+
+      // Persistencia simple en localStorage
+      const STORAGE_KEY = 'talentmatch_reclutadores_gestion';
+      const obtenerReclutadores = () => {
+        try {
+          return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        } catch {
+          return [];
+        }
+      };
+
+      const guardarReclutadores = (lista) => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(lista));
+      };
+
+      const renderizarFila = (item) => {
+        const initials = item.nombre
+          .split(' ')
+          .map(p => p[0])
+          .slice(0, 2)
+          .join('')
+          .toUpperCase() || 'RC';
+
+        let badgeHtml = '';
+        let botonAccionHtml = '';
+
+        if (item.estado === 'activo') {
+          badgeHtml = '<span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span>';
+          botonAccionHtml = `
+            <button class="tm-btn tm-btn--ghost tm-btn--sm btn-toggle-estado" data-id="${item.id}" data-estado="activo" style="color: var(--color-primary-700);">
+              Desactivar Acceso
+            </button>
+          `;
+        } else if (item.estado === 'inactivo') {
+          badgeHtml = '<span class="tm-badge tm-badge--neutral" style="font-weight: 700;">Inactivo</span>';
+          botonAccionHtml = `
+            <button class="tm-btn tm-btn--ghost tm-btn--sm btn-toggle-estado" data-id="${item.id}" data-estado="inactivo" style="color: #2E7D32;">
+              Reactivar Acceso
+            </button>
+          `;
+        } else {
+          badgeHtml = '<span class="tm-badge tm-badge--warning" style="font-weight: 700;">Pendiente de activaci&oacute;n</span>';
+          botonAccionHtml = `
+            <button class="tm-btn tm-btn--ghost tm-btn--sm btn-toggle-estado" data-id="${item.id}" data-estado="pendiente" style="color: var(--color-neutral-500);">
+              Cancelar Invitaci&oacute;n
+            </button>
+          `;
+        }
+
+        const tr = document.createElement('tr');
+        tr.id = `row-${item.id}`;
+        tr.innerHTML = `
+          <td>
+            <div class="tm-user-cell">
+              <div class="tm-user-cell__avatar" style="${item.estado === 'inactivo' ? 'background: var(--color-neutral-200); color: var(--color-neutral-500);' : ''}">${initials}</div>
+              <div>
+                <div class="tm-user-cell__name" style="${item.estado === 'inactivo' ? 'color: var(--color-neutral-500);' : ''}">${item.nombre}</div>
+                <div class="tm-user-cell__email">${item.email}</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-weight: var(--font-weight-medium); color: var(--color-neutral-800);">${item.cargo}</span>
+          </td>
+          <td style="color: var(--color-neutral-600);">${item.fecha}</td>
+          <td class="col-estado">
+            ${badgeHtml}
+          </td>
+          <td style="text-align: right;" class="col-acciones">
+            ${botonAccionHtml}
+          </td>
+        `;
+        return tr;
+      };
+
+      const cargarLista = () => {
+        const lista = obtenerReclutadores();
+        lista.forEach(rec => {
+          tbody.appendChild(renderizarFila(rec));
+        });
+      };
+
+      cargarLista();
+
+      // Formulario Invitar Reclutador
+      if (formInvitacion) {
+        formInvitacion.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const nombre = document.getElementById('invNombre').value.trim();
+          const email = document.getElementById('invEmail').value.trim();
+          const cargo = 'Reclutador';
+
+          if (!nombre || !email) return;
+
+          const hoy = new Date();
+          const fechaStr = `${String(hoy.getDate()).padStart(2, '0')}/${String(hoy.getMonth() + 1).padStart(2, '0')}/${hoy.getFullYear()}`;
+
+          const nuevoReclutador = {
+            id: 'rec-' + Date.now().toString(),
+            nombre,
+            email,
+            cargo,
+            fecha: fechaStr,
+            estado: 'pendiente'
+          };
+
+          const lista = obtenerReclutadores();
+          lista.push(nuevoReclutador);
+          guardarReclutadores(lista);
+
+          tbody.appendChild(renderizarFila(nuevoReclutador));
+          cerrarInvitacion();
+          mostrarToast(`Invitación enviada a ${email}`);
+        });
+      }
+
+      // Delegación para cambiar estado (Pausar / Desactivar / Reactivar)
+      tbody.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-toggle-estado');
+        if (!btn) return;
+
+        const id = btn.getAttribute('data-id');
+        const estadoActual = btn.getAttribute('data-estado');
+        const row = document.getElementById(`row-${id}`);
+
+        if (id === 'rec-1') {
+          // Reclutador predeterminado en memoria de sesión
+          const colEstado = row.querySelector('.col-estado');
+          const colAcciones = row.querySelector('.col-acciones');
+
+          if (estadoActual === 'activo') {
+            colEstado.innerHTML = '<span class="tm-badge tm-badge--neutral" style="font-weight: 700;">Inactivo</span>';
+            colAcciones.innerHTML = `
+              <button class="tm-btn tm-btn--ghost tm-btn--sm btn-toggle-estado" data-id="rec-1" data-estado="inactivo" style="color: #2E7D32;">
+                Reactivar Acceso
+              </button>
+            `;
+            mostrarToast('Acceso desactivado para María Fernanda Gómez', true);
+          } else {
+            colEstado.innerHTML = '<span class="tm-badge tm-badge--success" style="font-weight: 700;">Activo</span>';
+            colAcciones.innerHTML = `
+              <button class="tm-btn tm-btn--ghost tm-btn--sm btn-toggle-estado" data-id="rec-1" data-estado="activo" style="color: var(--color-primary-700);">
+                Desactivar Acceso
+              </button>
+            `;
+            mostrarToast('Acceso reactivado exitosamente');
+          }
+          return;
+        }
+
+        // Reclutadores guardados en localStorage
+        let lista = obtenerReclutadores();
+        const item = lista.find(r => r.id === id);
+        if (!item) return;
+
+        if (estadoActual === 'activo') {
+          item.estado = 'inactivo';
+          guardarReclutadores(lista);
+          row.replaceWith(renderizarFila(item));
+          mostrarToast(`Acceso pausado para ${item.nombre}`, true);
+        } else if (estadoActual === 'inactivo') {
+          item.estado = 'activo';
+          guardarReclutadores(lista);
+          row.replaceWith(renderizarFila(item));
+          mostrarToast(`Acceso reactivado para ${item.nombre}`);
+        } else if (estadoActual === 'pendiente') {
+          // Cancelar invitación
+          lista = lista.filter(r => r.id !== id);
+          guardarReclutadores(lista);
+          row.remove();
+          mostrarToast(`Invitación cancelada para ${item.nombre}`, true);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
