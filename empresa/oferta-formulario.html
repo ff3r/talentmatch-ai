@@ -236,6 +236,7 @@
     </main>
   </div>
 
+  <script src="../js/services/api-client.js"></script>
   <script src="../js/auth.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -260,6 +261,66 @@
           if (!dropdownMenu.contains(e.target)) {
             dropdownMenu.classList.remove('is-active');
           }
+        });
+      }
+
+      // Conexión del formulario de oferta con API MySQL
+      const formOferta = document.getElementById('crearOfertaForm');
+      if (formOferta) {
+        formOferta.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const btn = formOferta.querySelector('button[type="submit"]');
+          const textoOriginal = btn ? btn.innerHTML : '';
+          if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = 'Publicando en base de datos...';
+          }
+
+          const puesto = document.getElementById('puesto').value.trim();
+          const area = document.getElementById('area').value;
+          const descripcion = document.getElementById('descripcion').value.trim();
+          const modalidadSelect = document.getElementById('modalidad').value;
+          const ubicacion = document.getElementById('ubicacion').value.trim();
+          const expVal = document.getElementById('experiencia').value;
+          const anosExp = parseInt(expVal) || 0;
+
+          // Mapear modalidad a enum MySQL ('Remoto', 'Presencial', 'Hibrido')
+          let modalidad = 'Presencial';
+          if (modalidadSelect === 'remoto') modalidad = 'Remoto';
+          if (modalidadSelect === 'hibrido') modalidad = 'Hibrido';
+
+          const conocimientos = (document.getElementById('conocimientos').value || '').split(',').map(s => s.trim()).filter(Boolean);
+          const competencias = (document.getElementById('competencias').value || '').split(',').map(s => s.trim()).filter(Boolean);
+          const requisitos = [
+            ...conocimientos.map(c => ({ descripcion: c, tipo: 'tecnico', nivel: 'Obligatorio' })),
+            ...competencias.map(c => ({ descripcion: c, tipo: 'blanda', nivel: 'Deseable' }))
+          ];
+
+          const payload = {
+            id_empresa: 1,
+            titulo_puesto: puesto,
+            area_puesto: area.charAt(0).toUpperCase() + area.slice(1),
+            descripcion: descripcion,
+            modalidad: modalidad,
+            ubicacion: ubicacion,
+            anos_experiencia_minima: anosExp,
+            requisitos: requisitos
+          };
+
+          try {
+            if (typeof ApiClient !== 'undefined') {
+              const res = await ApiClient.crearOferta(payload);
+              if (res && res.success) {
+                window.location.href = 'ofertas.html';
+                return;
+              }
+            }
+          } catch (err) {
+            console.warn('Backend offline, procediendo a ofertas:', err);
+          }
+
+          window.location.href = 'ofertas.html';
         });
       }
     });

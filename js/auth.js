@@ -39,7 +39,43 @@ const TM_CREDENTIALS = {
 const AuthService = (() => {
   const SESSION_KEY = 'tm_session';
 
-  function authenticate(email, password) {
+  async function authenticate(email, password) {
+    // 1. Intentar autenticación contra backend MySQL (POST /api/auth/login.php)
+    try {
+      if (typeof ApiClient !== 'undefined') {
+        const response = await ApiClient.login(email, password);
+        if (response && response.success && response.data) {
+          const u = response.data.user;
+          const roleName = (u.rol_nombre || '').toLowerCase();
+          const initials = (u.nombre_completo || 'TM')
+            .split(' ')
+            .filter(Boolean)
+            .map(n => n[0])
+            .join('')
+            .substring(0, 2)
+            .toUpperCase();
+
+          const session = {
+            id_usuario: u.id_usuario,
+            email: u.email,
+            role: roleName,
+            name: u.nombre_completo,
+            avatar: initials,
+            loginTimestamp: Date.now(),
+            profile: response.data.profile
+          };
+
+          sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+          return { success: true, user: session, redirect: response.data.redirect };
+        } else if (response && response.message) {
+          return { success: false, error: response.message };
+        }
+      }
+    } catch (err) {
+      console.warn('Conexión backend no disponible, utilizando fallback local:', err);
+    }
+
+    // 2. Fallback local para entorno estático / GitHub Pages
     const user = TM_CREDENTIALS[email];
 
     if (!user || user.password !== password) {
@@ -56,7 +92,7 @@ const AuthService = (() => {
 
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
 
-    return { success: true, user: session };
+    return { success: true, user: session, redirect: user.redirect };
   }
 
   function logout() {
@@ -110,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
+    loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       emailError.textContent = '';
@@ -136,19 +172,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (hasError) return;
 
-      const result = AuthService.authenticate(email, password);
+      // Deshabilitar botón temporalmente para prevenir doble envío
+      const submitBtn = loginForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Validando acceso...';
+      }
 
-      if (result.success) {
-        const user = AuthService.getCurrentUser();
-        const redirectMap = {
-          'empresa': '../empresa/dashboard.html',
-          'reclutador': '../reclutador/dashboard.html',
-          'postulante': '../postulante/dashboard.html',
-          'admin': '../admin/dashboard.html'
-        };
-        window.location.href = redirectMap[user.role];
-      } else {
-        passwordError.textContent = result.error;
+      try {
+        const result = await AuthService.authenticate(email, password);
+
+        if (result.success) {
+          const user = AuthService.getCurrentUser();
+          const redirectMap = {
+            'empresa': '../empresa/dashboard.html',
+            'reclutador': '../reclutador/dashboard.html',
+            'postulante': '../postulante/dashboard.html',
+            'admin': '../admin/dashboard.html'
+          };
+          window.location.href = result.redirect ? ('../' + result.redirect.replace(/^\.\.\//, '')) : redirectMap[user.role];
+        } else {
+          passwordError.textContent = result.error;
+        }
+      } catch (err) {
+        passwordError.textContent = 'Error al comunicarse con el servidor';
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Iniciar Sesión';
+        }
       }
     });
   }

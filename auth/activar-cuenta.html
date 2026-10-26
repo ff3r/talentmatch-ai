@@ -171,6 +171,7 @@
   </div>
 
   
+  <script src="../js/services/api-client.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Leer parámetros de la URL si vienen desde el enlace de
@@ -222,7 +223,7 @@
       const errPass = document.getElementById('passwordError');
       const errConfirm = document.getElementById('confirmPasswordError');
 
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Limpiar errores
@@ -249,7 +250,35 @@
 
         if (!valido) return;
 
-        // Simulación: Cambiar estado en localStorage si venía de la lista de invitados
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Activando cuenta en base de datos...';
+        }
+
+        // 1. Intentar persistencia real en MySQL mediante API PDO
+        try {
+          if (typeof ApiClient !== 'undefined') {
+            const tokenParam = params.get('token') || '';
+            const res = await ApiClient.activarCuenta(
+              inputEmail.value.trim(),
+              inputDoc.value.trim(),
+              inputPass.value,
+              tokenParam
+            );
+
+            if (res && res.success) {
+              window.location.href = '../reclutador/dashboard.html';
+              return;
+            } else if (res && res.message) {
+              console.warn('Backend message:', res.message);
+            }
+          }
+        } catch (backendErr) {
+          console.warn('Backend no disponible, ejecutando fallback local:', backendErr);
+        }
+
+        // 2. Fallback local / simulación si backend offline
         const STORAGE_KEY = 'talentmatch_reclutadores_gestion';
         try {
           let lista = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -264,17 +293,6 @@
           console.error(err);
         }
 
-        // Simulación de sesión iniciada como Reclutador
-        if (typeof AuthService !== 'undefined' && AuthService.setSession) {
-          AuthService.setSession({
-            id: 'REC-' + Date.now().toString(),
-            name: inputNombre.value.trim(),
-            email: inputEmail.value.trim(),
-            role: 'reclutador'
-          });
-        }
-
-        // Redirigir directamente al Dashboard de Reclutador
         window.location.href = '../reclutador/dashboard.html';
       });
     });

@@ -136,7 +136,7 @@
             </div>
           </div>
           
-          <div class="tm-empresa-dashboard__ofertas">
+          <div class="tm-empresa-dashboard__ofertas" id="ofertasContainer">
             <!-- Oferta 1 -->
             <div class="tm-card tm-oferta-card">
               <div class="tm-oferta-card__header">
@@ -268,6 +268,7 @@
 
   </div>
 
+  <script src="../js/services/api-client.js"></script>
   <script src="../js/auth.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -294,6 +295,62 @@
           }
         });
       }
+
+      // Cargar ofertas reales desde MySQL mediante PDO
+      const cargarOfertasBD = async () => {
+        try {
+          if (typeof ApiClient !== 'undefined') {
+            const res = await ApiClient.getOfertas(1);
+            if (res && res.success && Array.isArray(res.data) && res.data.length > 0) {
+              const container = document.getElementById('ofertasContainer');
+              if (!container) return;
+
+              container.innerHTML = '';
+              res.data.forEach(of => {
+                const badgeClass = of.estado === 'activa' ? 'tm-badge--success' : (of.estado === 'pausada' ? 'tm-badge--warning' : 'tm-badge--neutral');
+                const badgeLabel = of.estado.charAt(0).toUpperCase() + of.estado.slice(1);
+
+                const card = document.createElement('div');
+                card.className = 'tm-card tm-oferta-card';
+                card.innerHTML = `
+                  <div class="tm-oferta-card__header">
+                    <h3 class="tm-oferta-card__title">${of.titulo_puesto}</h3>
+                    <span class="tm-badge ${badgeClass}">${badgeLabel}</span>
+                  </div>
+                  <div class="tm-oferta-card__meta">
+                    <span class="tm-oferta-card__area">${of.area_puesto || 'General'}</span>
+                    <span class="tm-oferta-card__modality">${of.modalidad}</span>
+                    <span class="tm-oferta-card__location">${of.ubicacion || 'Lima, Perú'}</span>
+                  </div>
+                  <div class="tm-oferta-card__stats">
+                    <div class="tm-oferta-card__stat">
+                      <span class="tm-oferta-card__stat-value">${of.total_postulantes || 0}</span>
+                      <span class="tm-oferta-card__stat-label">Postulaciones</span>
+                    </div>
+                    <div class="tm-oferta-card__stat">
+                      <span class="tm-oferta-card__stat-value">${of.anos_experiencia_minima || 0} años</span>
+                      <span class="tm-oferta-card__stat-label">Exp. mínima</span>
+                    </div>
+                    <div class="tm-oferta-card__stat">
+                      <span class="tm-oferta-card__stat-value" style="font-size: 11px; color: var(--color-neutral-600);">${of.codigo_oferta}</span>
+                      <span class="tm-oferta-card__stat-label">Código</span>
+                    </div>
+                  </div>
+                  <div class="tm-oferta-card__footer">
+                    <a href="oferta-detalle.html?id=${of.id_oferta_laboral}" class="tm-btn tm-btn--secondary tm-btn--sm">Ver detalle</a>
+                    <a href="oferta-formulario.html?id=${of.id_oferta_laboral}" class="tm-btn tm-btn--ghost tm-btn--sm">Editar</a>
+                  </div>
+                `;
+                container.appendChild(card);
+              });
+            }
+          }
+        } catch (err) {
+          console.warn('Backend offline, manteniendo ofertas locales:', err);
+        }
+      };
+
+      cargarOfertasBD();
     });
   </script>
 </body>

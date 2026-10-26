@@ -252,6 +252,7 @@
   </div>
 
   <script src="../js/auth.js" defer></script>
+  <script src="../js/services/api-client.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Toggle Sidebar Responsive
@@ -399,7 +400,32 @@
         return tr;
       };
 
-      const cargarLista = () => {
+      const cargarLista = async () => {
+        // Intentar consultar base de datos MySQL real mediante PDO
+        try {
+          if (typeof ApiClient !== 'undefined') {
+            const res = await ApiClient.getReclutadores(1);
+            if (res && res.success && Array.isArray(res.data) && res.data.length > 0) {
+              tbody.innerHTML = '';
+              res.data.forEach(item => {
+                const filaData = {
+                  id: item.id_usuario,
+                  nombre: item.nombre_completo,
+                  email: item.email,
+                  cargo: item.cargo_empresa,
+                  fecha: (item.created_at || '').substring(0, 10).split('-').reverse().join('/'),
+                  estado: item.estado
+                };
+                tbody.appendChild(renderizarFila(filaData));
+              });
+              return;
+            }
+          }
+        } catch (err) {
+          console.warn('Backend no disponible, cargando lista local:', err);
+        }
+
+        // Fallback local
         const lista = obtenerReclutadores();
         lista.forEach(rec => {
           tbody.appendChild(renderizarFila(rec));
@@ -456,6 +482,11 @@
             empresa_nombre: 'TechCorp Internacional S.A.',
             enlace_activacion: enlaceActivacion
           };
+
+          // Persistencia en base de datos MySQL (POST /api/empresa/reclutadores.php)
+          if (typeof ApiClient !== 'undefined') {
+            ApiClient.invitarReclutador(nombre, email, cargo, 1).catch(err => console.warn('Sync BD reclutador:', err));
+          }
 
           // Disparo de correo real a Gmail mediante EmailJS
           emailjs.send('service_o0ufr7q', 'template_e4ls7dq', templateParams)
