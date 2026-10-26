@@ -51,11 +51,17 @@ cd talentmatch-ai
 ### Paso 2: Crear e Importar la Base de Datos
 1. Inicie el servicio de MySQL en su entorno local (puerto 3306).
 2. Abra su cliente SQL de preferencia (DataGrip, Workbench o phpMyAdmin).
-3. Abra y ejecute el script completo ubicado en:
-   ```text
-   database/schema.sql
-   ```
-   > **Nota:** Este script crea la base de datos `talentmatch_db`, estructura las 11 tablas en 3FN y carga automáticamente los **datos semilla iniciales (roles, usuarios, empresa, reclutadores, postulante y ofertas)**.
+3. Ejecute los scripts en el siguiente orden estricto:
+   - **1° Creación de estructura (DDL):**
+     ```text
+     database/schema.sql
+     ```
+     Crea la base de datos `talentmatch_db` y las 11 tablas normalizadas en Tercera Forma Normal (3FN) con sus restricciones e índices.
+   - **2° Inserción de datos iniciales (DML):**
+     ```text
+     database/datos_semilla.sql
+     ```
+     Inserta los roles, usuarios con hashes seguros `bcrypt`, empresa, reclutadores, postulante, ofertas, requisitos, postulación y evaluación IA.
 
 ### Paso 3: Configurar Conexión (Opcional si usa valores estándar)
 La conexión por defecto en `api/config/database.php` apunta a:
@@ -82,7 +88,7 @@ Abra su navegador web e ingrese a:
 
 ## 4. Credenciales de Prueba (Cuentas Semilla)
 
-Para evaluar los diferentes perfiles del sistema, el script `database/schema.sql` incluye las siguientes cuentas preconfiguradas con hash `bcrypt`:
+Para evaluar los diferentes perfiles del sistema, el script `database/datos_semilla.sql` incluye las siguientes cuentas preconfiguradas con hash `bcrypt`:
 
 | Perfil / Rol | Correo Electrónico | Contraseña | Panel Destino | Estado |
 | :--- | :--- | :--- | :--- | :--- |
@@ -119,7 +125,8 @@ talentmatch-ai/
 ├── index.html                      # Landing page principal del producto
 ├── README.md                       # Documentación técnica y guía de despliegue
 ├── database/
-│   └── schema.sql                  # Script DDL (3FN) e inserts semilla para MySQL
+│   ├── schema.sql                  # Script DDL (3FN): creación de base de datos y 11 tablas
+│   └── datos_semilla.sql           # Script DML: inserciones iniciales y datos de prueba
 ├── api/                            # Backend RESTful en PHP 8 / PDO
 │   ├── config/
 │   │   └── database.php            # Conector Singleton PDO con sentencias preparadas
