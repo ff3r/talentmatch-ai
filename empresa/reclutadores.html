@@ -17,105 +17,8 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/pages/empresa.css">
-  <style>
-    .tm-table-wrapper {
-      overflow-x: auto;
-      background: var(--color-white);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--color-neutral-200);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
 
-    .tm-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: var(--text-body-sm);
-    }
-
-    .tm-table th {
-      text-align: left;
-      padding: var(--space-4);
-      font-size: var(--text-caption);
-      font-weight: var(--font-weight-bold);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-neutral-600);
-      background-color: var(--color-neutral-50);
-      border-bottom: 1px solid var(--color-neutral-200);
-    }
-
-    .tm-table td {
-      padding: var(--space-4);
-      color: var(--color-neutral-800);
-      border-bottom: 1px solid var(--color-neutral-200);
-      vertical-align: middle;
-    }
-
-    .tm-table tbody tr:hover {
-      background-color: var(--color-neutral-50);
-    }
-
-    .tm-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .tm-user-cell {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .tm-user-cell__avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--color-primary-100);
-      color: var(--color-primary-700);
-      font-weight: var(--font-weight-bold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-    }
-
-    .tm-user-cell__name {
-      font-weight: var(--font-weight-bold);
-      color: var(--color-neutral-900);
-      margin-bottom: 2px;
-    }
-
-    .tm-user-cell__email {
-      font-size: var(--text-caption);
-      color: var(--color-neutral-500);
-    }
-
-    /* Alerta toast minimalista */
-    .tm-toast {
-      position: fixed;
-      bottom: var(--space-6);
-      right: var(--space-6);
-      background: #1B5E20;
-      color: #FFFFFF;
-      padding: var(--space-3) var(--space-5);
-      border-radius: var(--radius-md);
-      font-size: var(--text-body-sm);
-      font-weight: var(--font-weight-semibold);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      z-index: 1000;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-
-    .tm-toast--active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body class="tm-empresa-page">
@@ -504,7 +407,12 @@
 
       cargarLista();
 
-      // Formulario Invitar Reclutador
+      // Inicializar EmailJS con tu Public Key
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init('AIxDaceBi0xmQKGkA');
+      }
+
+      // Formulario Invitar Reclutador con Envío Real por EmailJS y Gmail
       if (formInvitacion) {
         formInvitacion.addEventListener('submit', (e) => {
           e.preventDefault();
@@ -512,8 +420,14 @@
           const nombre = document.getElementById('invNombre').value.trim();
           const email = document.getElementById('invEmail').value.trim();
           const cargo = 'Reclutador';
+          const btnSubmit = formInvitacion.querySelector('button[type="submit"]');
 
           if (!nombre || !email) return;
+
+          // Feedback visual en el botón durante el envío
+          const textoOriginalBtn = btnSubmit.innerHTML;
+          btnSubmit.disabled = true;
+          btnSubmit.innerHTML = 'Enviando invitación...';
 
           const hoy = new Date();
           const fechaStr = `${String(hoy.getDate()).padStart(2, '0')}/${String(hoy.getMonth() + 1).padStart(2, '0')}/${hoy.getFullYear()}`;
@@ -527,13 +441,47 @@
             estado: 'pendiente'
           };
 
-          const lista = obtenerReclutadores();
-          lista.push(nuevoReclutador);
-          guardarReclutadores(lista);
+          // Construcción del enlace de activación compatible con Gmail (HTTPS en GitHub Pages o servidor web)
+          let baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/empresa/')) + '/';
+          if (baseUrl.startsWith('file:///')) {
+            baseUrl = 'https://ff3r.github.io/talentmatch-ai/';
+          }
+          const enlaceActivacion = `${baseUrl}auth/activar-cuenta.html?nombre=${encodeURIComponent(nombre)}&email=${encodeURIComponent(email)}&empresa=${encodeURIComponent('TechCorp Internacional S.A.')}`;
 
-          tbody.appendChild(renderizarFila(nuevoReclutador));
-          cerrarInvitacion();
-          mostrarToast(`Invitación enviada a ${email}`);
+          // Parámetros configurados en tu plantilla de EmailJS
+          const templateParams = {
+            destinatario_nombre: nombre,
+            destinatario_email: email,
+            empresa_nombre: 'TechCorp Internacional S.A.',
+            enlace_activacion: enlaceActivacion
+          };
+
+          // Disparo de correo real a Gmail mediante EmailJS
+          emailjs.send('service_o0ufr7q', 'template_e4ls7dq', templateParams)
+            .then(() => {
+              const lista = obtenerReclutadores();
+              lista.push(nuevoReclutador);
+              guardarReclutadores(lista);
+
+              tbody.appendChild(renderizarFila(nuevoReclutador));
+              cerrarInvitacion();
+              mostrarToast(`¡Invitación enviada con éxito al correo de ${nombre}!`);
+            })
+            .catch((error) => {
+              console.error('Error al enviar por EmailJS:', error);
+              // Registro en tabla local de respaldo
+              const lista = obtenerReclutadores();
+              lista.push(nuevoReclutador);
+              guardarReclutadores(lista);
+
+              tbody.appendChild(renderizarFila(nuevoReclutador));
+              cerrarInvitacion();
+              mostrarToast(`Invitación registrada en la tabla para ${email}`);
+            })
+            .finally(() => {
+              btnSubmit.disabled = false;
+              btnSubmit.innerHTML = textoOriginalBtn;
+            });
         });
       }
 
