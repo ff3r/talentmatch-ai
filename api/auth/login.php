@@ -27,7 +27,7 @@ try {
 
     // 1. Buscar usuario por correo electrónico uniendo su rol
     $stmt = $pdo->prepare("
-        SELECT 
+        SELECT
             u.id_usuario,
             u.id_rol,
             u.email,
@@ -37,7 +37,8 @@ try {
             u.estado,
             r.nombre AS rol_nombre
         FROM usuario u
-        INNER JOIN rol r ON u.id_rol = r.id_rol
+        INNER JOIN rol r
+            ON u.id_rol = r.id_rol
         WHERE u.email = :email
         LIMIT 1
     ");

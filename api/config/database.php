@@ -1,10 +1,4 @@
 <?php
-/**
- * TalentMatch AI - Configuración Centralizada de Base de Datos (PDO)
- * Motor: MySQL 8.0+ / MariaDB 10.4+
- * Estándar: Conexión segura con Sentencias Preparadas reales y UTF-8 Multilingüe
- */
-
 class Database {
     private static ?PDO $instance = null;
 
